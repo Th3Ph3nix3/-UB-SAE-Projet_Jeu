@@ -1,5 +1,5 @@
 # -UB-SAE-Projet_Jeu
-SAE game development project in collaboration with RemRem04 and ...
+SAE game development project in collaboration with RemRem04 and Cozhmisus
 
 
 ## Description

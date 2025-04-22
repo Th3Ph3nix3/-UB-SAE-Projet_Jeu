@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=4 uid="uid://bk8itfvtfphjg"]
+
+[ext_resource type="Texture2D" uid="uid://bh2hkxa3s2fck" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset.png" id="1_p3fui"]
+[ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://PlayerControl.cs" id="2_438ep"]
+[ext_resource type="Texture2D" uid="uid://deh4ri5a0tcj3" path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" id="3_kf3hw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3k31l"]
+texture = ExtResource("1_p3fui")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0fp3u"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3k31l")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fgde"]
+size = Vector2(11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7isy1"]
+atlas = ExtResource("3_kf3hw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0te0"]
+atlas = ExtResource("3_kf3hw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aqrp"]
+atlas = ExtResource("3_kf3hw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql8ek"]
+atlas = ExtResource("3_kf3hw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfbgh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7isy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0te0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aqrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql8ek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD6//3/AAABAAQAAAD7//3/AAABAAQAAAD8//3/AAABAAQAAAD8//7/AAABAAQAAAD9//7/AAABAAQAAAD+//7/AAABAAQAAAD///7/AAABAAQAAAAAAP7/AAABAAQAAAABAP7/AAABAAQAAAACAP//AAABAAQAAAADAAAAAAABAAQAAAADAAEAAAABAAQAAAACAAEAAAABAAQAAAABAAIAAAABAAQAAAAAAAIAAAABAAQAAAD//wIAAAABAAQAAAD+/wIAAAABAAQAAAD9/wIAAAABAAQAAAD8/wMAAAABAAQAAAD7/wMAAAABAAQAAAD6/wMAAAABAAQAAAD5/wMAAAABAAQAAAD4/wMAAAABAAQAAAD4/wQAAAABAAQAAAD3/wQAAAABAAQAAAD2/wQAAAABAAQAAAD1/wQAAAABAAQAAAD0/wQAAAABAAQAAAD0/wMAAAABAAQAAADz/wMAAAABAAQAAADy/wMAAAABAAQAAADy/wIAAAABAAQAAADx/wIAAAABAAQAAADx/wEAAAABAAQAAADx/wAAAAABAAQAAADx////AAABAAQAAADy////AAABAAQAAADy//7/AAABAAQAAADz//3/AAABAAQAAAD0//3/AAABAAQAAAD0//z/AAABAAQAAAD1//z/AAABAAQAAAD2//z/AAABAAQAAAD3//z/AAABAAQAAAD4//z/AAABAAQAAAD5//z/AAABAAQAAAD1//3/AAABAAQAAAD2//3/AAABAAQAAAD3//3/AAABAAQAAAD4//3/AAABAAQAAAD5//3/AAABAAQAAADz//7/AAABAAQAAAD0//7/AAABAAQAAAD1//7/AAABAAQAAAD2//7/AAABAAQAAAD3//7/AAABAAQAAAD4//7/AAABAAQAAAD5//7/AAABAAQAAAD6//7/AAABAAQAAAD7//7/AAABAAQAAADz////AAABAAQAAAD0////AAABAAQAAAD1////AAABAAQAAAD2////AAABAAQAAAD3////AAABAAQAAAD4////AAABAAQAAAD5////AAABAAQAAAD6////AAABAAQAAAD7////AAABAAQAAAD8////AAABAAQAAAD9////AAABAAQAAAD+////AAABAAQAAAD/////AAABAAQAAAAAAP//AAABAAQAAAABAP//AAABAAQAAADy/wAAAAABAAQAAADz/wAAAAABAAQAAAD0/wAAAAABAAQAAAD1/wAAAAABAAQAAAD2/wAAAAABAAQAAAD3/wAAAAABAAQAAAD4/wAAAAABAAQAAAD5/wAAAAABAAQAAAD//wAAAAABAAQAAAAAAAAAAAABAAQAAAABAAAAAAABAAQAAAACAAAAAAABAAQAAAD6/wAAAAABAAQAAAD7/wAAAAABAAQAAAD8/wAAAAABAAQAAAD9/wAAAAABAAQAAAD+/wAAAAABAAQAAAD1/wEAAAABAAQAAAD0/wEAAAABAAQAAADz/wEAAAABAAQAAADy/wEAAAABAAQAAADz/wIAAAABAAQAAAD0/wIAAAABAAQAAAD1/wIAAAABAAQAAAD1/wMAAAABAAQAAAD2/wMAAAABAAQAAAD2/wIAAAABAAQAAAD2/wEAAAABAAQAAAD3/wEAAAABAAQAAAD3/wIAAAABAAQAAAD3/wMAAAABAAQAAAD4/wIAAAABAAQAAAD4/wEAAAABAAQAAAD5/wEAAAABAAQAAAD5/wIAAAABAAQAAAD6/wIAAAABAAQAAAD6/wEAAAABAAQAAAD7/wEAAAABAAQAAAD7/wIAAAABAAQAAAD8/wIAAAABAAQAAAD8/wEAAAABAAQAAAD9/wEAAAABAAQAAAD+/wEAAAABAAQAAAD//wEAAAABAAQAAAAAAAEAAAABAAQAAAABAAEAAAABAAQAAAD5/wQAAAAGAAAAAAD9/wMAAAAGAAAAAAACAAIAAAAGAAAAAADz/wQAAAAIAAAAAADx/wMAAAAIAAAAAAADAP//AAAGAAIAAAACAP7/AAAGAAIAAAD9//3/AAAGAAIAAAD6//z/AAAGAAIAAADz//z/AAAIAAIAAADy//3/AAAIAAIAAADx//7/AAAIAAIAAAD0//v/AAAHAAIAAAD1//v/AAAHAAIAAAD2//v/AAAHAAIAAAD3//v/AAAHAAIAAAD4//v/AAAHAAIAAAD5//v/AAAHAAIAAAD7//z/AAAHAAIAAAD8//z/AAAHAAIAAAD9//z/AAALAAAAAAD6//v/AAALAAAAAADz//v/AAAJAAAAAADy//z/AAAJAAAAAADx//3/AAAJAAAAAADx/wQAAAAJAAIAAADw/wIAAAAIAAEAAADw/wEAAAAIAAEAAADw/wAAAAAIAAEAAADw////AAAIAAEAAAD0/wUAAAAHAAAAAAD1/wUAAAAHAAAAAAD2/wUAAAAHAAAAAAD3/wUAAAAHAAAAAAD4/wUAAAAHAAAAAAD6/wQAAAAHAAAAAAD7/wQAAAAHAAAAAAD8/wQAAAAHAAAAAAD+/wMAAAAHAAAAAAD//wMAAAAHAAAAAAAAAAMAAAAHAAAAAAABAAMAAAAHAAAAAAAEAAAAAAAGAAEAAAAEAAEAAAAGAAEAAAADAAIAAAAHAAAAAAABAP3/AAAHAAIAAAAAAP3/AAAHAAIAAAD///3/AAAHAAIAAAD+//3/AAAHAAIAAADw/wMAAAAJAAIAAADy/wQAAAAHAAAAAADw//7/AAAJAAAAAADz/wUAAAAJAAIAAAD5/wUAAAALAAIAAAD9/wQAAAALAAIAAAACAAMAAAALAAIAAAAEAAIAAAALAAIAAAAEAP//AAALAAAAAAADAP7/AAALAAAAAAACAP3/AAALAAAAAAA=")
+tile_set = SubResource("TileSet_0fp3u")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(100, 107)
+script = ExtResource("2_438ep")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_8fgde")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rfbgh")

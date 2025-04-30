@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Spawner : Node2D
 {
@@ -16,6 +17,14 @@ public partial class Spawner : Node2D
     private Label SecondLabel;
 
     private float distance = 400;
+
+    private int enemyTypeIndex = 0;
+
+
+    [Export]
+    EnemyType[] enemy_types;
+
+
 
     private int minute;
     private int second;
@@ -37,36 +46,29 @@ public partial class Spawner : Node2D
         set
         {
             second = value;
-            if (second >= 10)
+            if (second >= 10) // à mettre à 60 par la suite !
             {
-                second -= 10;
-                minute += 1;
+                second -= 10; // même remarque (pour que les minutes soient bien représentées)
+                Minute += 1;
             }
             if (SecondLabel != null)
                 SecondLabel.Text = second.ToString().PadLeft(2, '0');
         }
     }
 
-	private float timerAccumulator = 0f;
-
-	public override void _Process(double delta)
-	{
-		timerAccumulator += (float)delta;
-
-		if (timerAccumulator >= 1f)
-		{
-			timerAccumulator -= 1f;
-			Second += 1;
-		}
-	}
-
-
     public void spawn(Vector2 pos)
-    {
+    { 
         Enemy enemyInstance = (Enemy)enemy.Instantiate();
-        enemyInstance.Position= pos;
+        
+        enemyInstance.Type = enemy_types[Math.Min(enemyTypeIndex, enemy_types.Length - 1)];
+
+        enemyInstance.Position = pos;
+
         enemyInstance.player_reference = player;
+
         GetTree().CurrentScene.AddChild(enemyInstance);
+
+        enemyTypeIndex = (enemyTypeIndex + 1) % enemy_types.Length;
     }
 
     public Vector2 get_random_position()
@@ -83,8 +85,9 @@ public partial class Spawner : Node2D
 		}
 	}
 
-	public void _on_timer_timeout()
+	public void on_timer_timeout()
 	{
+        
 		Second += 1;
 		amount(second % 10);
 	}

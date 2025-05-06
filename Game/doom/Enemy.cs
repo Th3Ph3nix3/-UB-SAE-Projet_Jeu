@@ -10,7 +10,7 @@ public partial class Enemy : CharacterBody2D
     public CharacterBody2D player_reference;
 
     [Export]
-    public Sprite2D Sprite2D { get; set; }
+    public Sprite2D Sprite2D;
 
     private EnemyType type;
 
@@ -32,6 +32,7 @@ public partial class Enemy : CharacterBody2D
 
     public override void _Ready()
     {
+        Sprite2D = GetNode<Sprite2D>("Sprite2D");
         UpdateSpriteTexture();
     }
 

@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bllns0bkbp6oi" path="res://Enemy.cs" id="1_7k104"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4gyqm"]
-size = Vector2(20, 20)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7k104"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
 
@@ -13,7 +12,9 @@ collision_mask = 2
 script = ExtResource("1_7k104")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_4gyqm")
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_7k104")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7k104")

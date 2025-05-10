@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://cglv238evuqpi"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://kuey4vmjyqii"]
 
 [ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://EnemyType.cs" id="1_f6w8n"]
-[ext_resource type="Texture2D" uid="uid://yg21hb0dxdla" path="res://platformer_metroidvania asset pack v1.01/sprites_test/red_square.png" id="2_klu0j"]
+[ext_resource type="Texture2D" uid="uid://7kbiocxuayhw" path="res://platformer_metroidvania asset pack v1.01/sprites_test/red_square.png" id="2_klu0j"]
 
 [resource]
 script = ExtResource("1_f6w8n")
 title = "red_square"
 texture = ExtResource("2_klu0j")
-health = 50.0
+health = 10.0
 damage = 10.0
 metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

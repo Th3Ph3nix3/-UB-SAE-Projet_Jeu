@@ -19,6 +19,8 @@ public partial class Spawner : Node2D
     private float distance = 400;
 
     private int enemyTypeIndex = 0;
+    private int vagueCounter = 0;
+
 
 
     [Export]
@@ -57,19 +59,16 @@ public partial class Spawner : Node2D
     }
 
     public void spawn(Vector2 pos)
-    { 
+    {
         Enemy enemyInstance = (Enemy)enemy.Instantiate();
-        
-        enemyInstance.Type = enemy_types[Math.Min(enemyTypeIndex, enemy_types.Length - 1)];
 
+        enemyInstance.Type = enemy_types[enemyTypeIndex];
         enemyInstance.Position = pos;
-
         enemyInstance.player_reference = player;
 
         GetTree().CurrentScene.AddChild(enemyInstance);
-
-        enemyTypeIndex = (enemyTypeIndex + 1) % enemy_types.Length;
     }
+
 
     public Vector2 get_random_position()
     {
@@ -86,9 +85,20 @@ public partial class Spawner : Node2D
 	}
 
 	public void on_timer_timeout()
-	{
-        
-		Second += 1;
-		amount(second % 10);
-	}
+    {
+        Second += 1;
+
+        // Toutes les 10 secondes : nouvelle vague
+        // attention, les 10 premières secondes, personne ne spawn car le nb de secondes n'est pas divisible par 10
+        if (Second % 10 == 0) // changer au besoin le chiffre x dans (Second % x == 0). Il correspond au nombre de secondes à attendre pour qu'une vague d'ennemis arrive.
+        {
+            // Met à jour le type d'ennemi pour cette vague
+            enemyTypeIndex = vagueCounter % enemy_types.Length;
+            vagueCounter++;
+
+            // Fais apparaître 3 ennemis d’un coup (changer au besoin)
+            amount(3);
+        }
+    }
+
 }

@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://bopfkxjbl1e2q"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://dj3d0dv2xim4v"]
 
 [ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://EnemyType.cs" id="1_ijlcd"]
-[ext_resource type="Texture2D" uid="uid://dfiec8gmvckl6" path="res://platformer_metroidvania asset pack v1.01/sprites_test/blue_square.png" id="2_gby4g"]
+[ext_resource type="Texture2D" uid="uid://8ucdr01pyhqy" path="res://platformer_metroidvania asset pack v1.01/sprites_test/blue_square.png" id="2_gby4g"]
 
 [resource]
 script = ExtResource("1_ijlcd")

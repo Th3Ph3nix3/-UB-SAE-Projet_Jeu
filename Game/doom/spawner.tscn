@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://2n4rs40tcgg4" path="res://Spawner.cs" id="1_yp5lu"]
 [ext_resource type="PackedScene" uid="uid://c6p2ltleshmk7" path="res://enemy.tscn" id="2_ttk4a"]
-[ext_resource type="Resource" uid="uid://bopfkxjbl1e2q" path="res://Resource/blue_square.tres" id="3_7ocbr"]
-[ext_resource type="Resource" uid="uid://c5xa3pwx1xsm0" path="res://Resource/green_square.tres" id="4_mv5bd"]
-[ext_resource type="Resource" uid="uid://cglv238evuqpi" path="res://Resource/red_square.tres" id="5_h3fkd"]
+[ext_resource type="Resource" uid="uid://dj3d0dv2xim4v" path="res://Resource/blue_square.tres" id="3_7ocbr"]
+[ext_resource type="Resource" uid="uid://cjichhqurgkt5" path="res://Resource/green_square.tres" id="4_mv5bd"]
+[ext_resource type="Resource" uid="uid://kuey4vmjyqii" path="res://Resource/red_square.tres" id="5_h3fkd"]
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("MinuteLabel", "SecondLabel")]
 script = ExtResource("1_yp5lu")

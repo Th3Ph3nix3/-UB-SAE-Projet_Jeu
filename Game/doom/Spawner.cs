@@ -17,6 +17,7 @@ public partial class Spawner : Node2D
     private Label SecondLabel;
 
     private float distance = 400;
+    private bool can_spawn = true;
 
     private int enemyTypeIndex = 0;
     private int vagueCounter = 0;
@@ -48,7 +49,7 @@ public partial class Spawner : Node2D
         set
         {
             second = value;
-            if (second >= 10) // à mettre à 60 par la suite !
+            if (second >= 10) // à changer par la suite ! (je comprends pas trop car on a la fonction _on_pattern_timeout() mais bon)
             {
                 second -= 10; // même remarque (pour que les minutes soient bien représentées)
                 Minute += 1;
@@ -58,8 +59,24 @@ public partial class Spawner : Node2D
         }
     }
 
+    public override void _PhysicsProcess(double _delta)
+    {
+        if (GetTree().GetNodeCountInGroup("Enemy") < 700) // fera spawner des mobs si le total de mobs est inférieur à 700. Changer au besoin. Fera quand meme spawn les mobs elite
+        {
+            can_spawn = true;
+        }
+        else 
+        {
+            can_spawn = false;
+        }
+    }
+
     public void spawn(Vector2 pos, bool elite = false)
     {
+        if(!can_spawn && !elite)
+        {
+            return;
+        }
         Enemy enemyInstance = (Enemy)enemy.Instantiate();
 
         enemyInstance.Type = enemy_types[enemyTypeIndex];
@@ -70,6 +87,7 @@ public partial class Spawner : Node2D
         GetTree().CurrentScene.AddChild(enemyInstance);
     }
 
+    
 
     public Vector2 get_random_position()
     {

@@ -6,6 +6,7 @@ public partial class Enemy : CharacterBody2D
     Vector2 direction;
     public float speed = 75;
     public float damage;
+    public Vector2 knockback;
 
     public bool _elite = false;
 
@@ -62,10 +63,49 @@ public partial class Enemy : CharacterBody2D
         }
     }
 
-
     public override void _PhysicsProcess(double delta)
     {
-        Velocity = (player_reference.Position - Position).Normalized() * speed;
-        MoveAndCollide(Velocity * (float)delta);
+        var separation = (player_reference.Position - Position).Length();
+        if(separation >= 1500 && !elite) 
+        {
+            QueueFree();
+        }
+
+        Vector2 targetPosition = player_reference.Position;
+        Vector2 moveDirection = targetPosition - Position;
+        moveDirection = moveDirection.Normalized();
+
+        Velocity = moveDirection * speed;
+
+        knockback = MoveToward(knockback, Vector2.Zero, 1); 
+        Velocity += knockback;
+
+        var collider = MoveAndCollide(Velocity * (float)delta);
+        if (collider != null)
+        {
+            var hitNode = collider.GetCollider();  
+            var hitEnemy = hitNode as Enemy;  
+            if (hitEnemy != null)
+            {
+                var hitEnemyPosition = hitEnemy.GlobalPosition; 
+                hitEnemy.knockback = (hitEnemyPosition - GlobalPosition).Normalized() * 50;
+            }
+        }
+    }
+
+    // reproduction du fonctionnement de MoveToward
+    public Vector2 MoveToward(Vector2 current, Vector2 target, float maxDistanceDelta)
+    {
+        Vector2 direction = target - current;
+        float distance = direction.Length();
+
+        if (distance <= maxDistanceDelta || distance == 0)
+        {
+            return target;
+        }
+
+        direction = direction.Normalized();
+
+        return current + direction * maxDistanceDelta;
     }
 }

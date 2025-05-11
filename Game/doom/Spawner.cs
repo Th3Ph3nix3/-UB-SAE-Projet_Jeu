@@ -58,13 +58,14 @@ public partial class Spawner : Node2D
         }
     }
 
-    public void spawn(Vector2 pos)
+    public void spawn(Vector2 pos, bool elite = false)
     {
         Enemy enemyInstance = (Enemy)enemy.Instantiate();
 
         enemyInstance.Type = enemy_types[enemyTypeIndex];
         enemyInstance.Position = pos;
         enemyInstance.player_reference = player;
+        enemyInstance.elite = elite;
 
         GetTree().CurrentScene.AddChild(enemyInstance);
     }
@@ -90,7 +91,7 @@ public partial class Spawner : Node2D
 
         // Toutes les 10 secondes : nouvelle vague
         // attention, les 10 premières secondes, personne ne spawn car le nb de secondes n'est pas divisible par 10
-        if (Second % 10 == 0) // changer au besoin le chiffre x dans (Second % x == 0). Il correspond au nombre de secondes à attendre pour qu'une vague d'ennemis arrive.
+        if (Second % 1 == 0) // changer au besoin le chiffre x dans (Second % x == 0). Il correspond au nombre de secondes à attendre pour qu'une vague d'ennemis arrive.
         {
             // Met à jour le type d'ennemi pour cette vague
             enemyTypeIndex = vagueCounter % enemy_types.Length;
@@ -99,6 +100,18 @@ public partial class Spawner : Node2D
             // Fais apparaître 3 ennemis d’un coup (changer au besoin)
             amount(3);
         }
+    }
+
+    public void _on_pattern_timeout() // pour les grosses vagues. Doit etre changer dans Godot -> spawner -> Pattern, puis à droite dans Inspecteur il faut changer Wait Time.
+    {
+        for (int i = 0; i < 30; i++) // grâce à ça les ennemis arrivent en cercle autour du player (changer le nombre d'itération pour plus ou moins d'ennemis)
+        {
+            spawn(get_random_position());
+        }
+    }
+    public void _on_elite_timeout()
+    {
+        spawn(get_random_position(),true); // pour le mob elite. Doit etre changer dans Godot -> spawner -> Elite, puis à droite dans Inspecteur il faut changer Wait Time.
     }
 
 }

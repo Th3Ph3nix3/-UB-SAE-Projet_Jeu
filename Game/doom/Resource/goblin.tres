@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://cps53kfe4mgbu"]
+
+[ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://EnemyType.cs" id="1_ig4e3"]
+[ext_resource type="Texture2D" uid="uid://bpypfbq8mujjt" path="res://platformer_metroidvania asset pack v1.01/sprites_test/goblin_png.png" id="2_53sgv"]
+
+[resource]
+script = ExtResource("1_ig4e3")
+title = "goblin"
+texture = ExtResource("2_53sgv")
+health = 70.0
+damage = 10.0
+metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

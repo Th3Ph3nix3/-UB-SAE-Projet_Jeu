@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6p2ltleshmk7"]
 
 [ext_resource type="Script" uid="uid://bllns0bkbp6oi" path="res://Enemy.cs" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://d4d76tlqkjay6" path="res://platformer_metroidvania asset pack v1.01/sprites_test/bomber_goblin_png.png" id="3_qi2p4"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7k104"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yqyl"]
+radius = 9.05539
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -12,8 +12,9 @@ collision_mask = 2
 script = ExtResource("1_7k104")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_7k104")
+position = Vector2(1, -3)
+scale = Vector2(2, 2)
+texture = ExtResource("3_qi2p4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7k104")
+shape = SubResource("CircleShape2D_3yqyl")

@@ -4,7 +4,25 @@ using System;
 public partial class Enemy : CharacterBody2D
 {
     Vector2 direction;
-    float speed = 75;
+    public float speed = 75;
+    public float damage;
+
+    public bool _elite = false;
+
+    public bool elite
+	{
+		get => _elite;
+		set
+		{
+			_elite = value;
+            if (Sprite2D != null && value)  // cf ligne 57
+            {
+                var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
+                Sprite2D.Material = mat;
+                Scale = new Vector2(5f,5f);
+            }
+		}
+	}
 
     [Export]
     public CharacterBody2D player_reference;
@@ -21,6 +39,7 @@ public partial class Enemy : CharacterBody2D
         {
             type = value;
             UpdateSpriteTexture();
+            damage = value.damage;
         }
     }
 
@@ -34,6 +53,13 @@ public partial class Enemy : CharacterBody2D
     {
         Sprite2D = GetNode<Sprite2D>("Sprite2D");
         UpdateSpriteTexture();
+
+        if (_elite && Sprite2D.Material == null) // cf ligne 18
+        {
+            var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
+            Sprite2D.Material = mat;
+            Sprite2D.Scale = new Vector2(5f, 5f);
+        }
     }
 
 

@@ -22,6 +22,9 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
+	public Enemy nearest_enemy; 
+	public float nearest_enemy_distance = float.PositiveInfinity; // float.PositiveInfinity est la représentation de l'infini
+
 	public void take_damage(float amount) // function to reduce health
 	{
 		health -= amount;
@@ -47,6 +50,14 @@ public partial class PlayerControl : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if(nearest_enemy != null){
+			nearest_enemy_distance = nearest_enemy.separation;
+			GD.Print(nearest_enemy.Name);
+		}
+		else{
+			nearest_enemy_distance = float.PositiveInfinity;
+		}
+
 		GetInput();
 		MoveAndSlide();
 	}

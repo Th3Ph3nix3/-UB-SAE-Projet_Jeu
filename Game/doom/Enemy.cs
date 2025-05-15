@@ -7,6 +7,7 @@ public partial class Enemy : CharacterBody2D
     public float speed = 75;
     public float damage;
     public Vector2 knockback;
+    public float separation;
 
     public bool _elite = false;
 
@@ -65,12 +66,22 @@ public partial class Enemy : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        var separation = (player_reference.Position - Position).Length();
-        if(separation >= 1500 && !elite) 
-        {
+        check_separation(delta);
+        knockback_update(delta);
+    }
+
+    public void check_separation(double _delta){
+        separation = (player_reference.Position - Position).Length();
+        if(separation >= 500 && !elite){
             QueueFree();
         }
+        // if(separation < player_reference.nearest_enemy){
+        //     player_reference.nearest_enemy = this;
+        // }
+        // problem avec nearest_enemy (je comprends pas pourquoi.)
+    }
 
+    public void knockback_update(double delta){
         Vector2 targetPosition = player_reference.Position;
         Vector2 moveDirection = targetPosition - Position;
         moveDirection = moveDirection.Normalized();

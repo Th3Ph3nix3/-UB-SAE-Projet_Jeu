@@ -75,10 +75,12 @@ public partial class Enemy : CharacterBody2D
         if(separation >= 500 && !elite){
             QueueFree();
         }
-        // if(separation < player_reference.nearest_enemy){
-        //     player_reference.nearest_enemy = this;
-        // }
-        // problem avec nearest_enemy (je comprends pas pourquoi.)
+        var player = player_reference as PlayerControl;
+        if (separation < player.nearest_enemy_distance)
+        {
+            player.nearest_enemy_distance = separation;
+            player.nearest_enemy = this;
+        }
     }
 
     public void knockback_update(double delta){

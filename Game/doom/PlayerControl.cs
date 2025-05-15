@@ -22,7 +22,7 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
-	public Enemy nearest_enemy; 
+	public Enemy nearest_enemy; // peut etre changer le type en Enemy ou en CharacterBody2D
 	public float nearest_enemy_distance = float.PositiveInfinity; // float.PositiveInfinity est la représentation de l'infini
 
 	public void take_damage(float amount) // function to reduce health

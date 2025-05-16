@@ -12,15 +12,19 @@ public partial class SingleShot : Weapon
             return;
         }
 
-        var projectile = projectile_node.Instantiate();
 
-        projectile.position = source.Position;
+        var projectile = projectile_node.Instantiate<Projectile>();
+
+        projectile.Position = source.Position;
         projectile.damage = damage;
         projectile.speed = speed;
         projectile.direction = (target.Position - source.Position).Normalized();
 
-        scene_tree.current_scene.AddChild(projectile);
+        source.GetTree().CurrentScene.AddChild(projectile);
+    }
 
-        // POURQUOI çA MET DES ERREURS JE COMPRENDS PAS >:(
+    void ActivateShootMethod(Enemy source, PlayerControl target, PackedScene scene_tree)
+    {
+        shoot(source, target, scene_tree);
     }
 }

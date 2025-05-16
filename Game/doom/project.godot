@@ -22,6 +22,7 @@ project/assembly_name="Doom"
 [file_customization]
 
 folder_colors={
+"res://Resource/Enemies/": "red",
 "res://Resources/": "blue",
 "res://Shaders/": "pink"
 }

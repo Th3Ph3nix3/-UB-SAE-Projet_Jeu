@@ -40,7 +40,7 @@ public partial class Slot : PanelContainer
 			if(ownerPlayer == null){
 				GD.Print("ownerplayer is null or have not been casted in a good way");
 			}
-			weapon.activate(ownerPlayer,ownerPlayer.nearest_enemy,GetTree()); // func is defined like that : public void activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree)
+			weapon.Activate(ownerPlayer,ownerPlayer.nearest_enemy,GetTree()); // func is defined like that : public void activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree)
 		}
 	}
 }

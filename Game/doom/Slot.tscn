@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkycldrf2b6a5"]
 
 [ext_resource type="Script" uid="uid://cxp5peip4w0lc" path="res://Slot.cs" id="1_otx1m"]
-[ext_resource type="Resource" uid="uid://ofwpt1afh4ue" path="res://Resource/Weapons/gun.tres" id="2_miv4b"]
+[ext_resource type="Resource" uid="uid://ctxx47ayg26pp" path="res://Resource/Weapons/gun_icon.tres" id="2_miv4b"]
 
 [node name="Slot" type="PanelContainer"]
 offset_right = 139.0

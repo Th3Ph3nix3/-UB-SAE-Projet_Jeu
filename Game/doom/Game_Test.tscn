@@ -117,7 +117,6 @@ offset_right = 24.1505
 offset_bottom = 6.19655
 rotation = 1.58058
 value = 100.0
-show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]

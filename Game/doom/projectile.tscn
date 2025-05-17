@@ -6,12 +6,16 @@
 size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgwo2"]
-size = Vector2(10, 10)
+size = Vector2(12, 12)
 
 [node name="Projectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_a85iw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-08, -5.96046e-08)
+scale = Vector2(1.2, 1.2)
 texture = SubResource("PlaceholderTexture2D_qxf0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

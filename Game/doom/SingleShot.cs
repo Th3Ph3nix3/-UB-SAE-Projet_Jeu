@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime;
 
+[GlobalClass]
 public partial class SingleShot : Weapon
 {
     public void shoot(PlayerControl source, Enemy target, SceneTree scene_tree)
@@ -23,7 +24,7 @@ public partial class SingleShot : Weapon
         source.GetTree().CurrentScene.AddChild(projectile);
     }
 
-    void ActivateShootMethod(PlayerControl source, Enemy target, SceneTree scene_tree)
+    public override void Activate(PlayerControl source, Enemy target, SceneTree scene_tree)
     {
         shoot(source, target, scene_tree);
     }

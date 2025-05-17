@@ -7,9 +7,9 @@ public partial class Projectile : Area2D
 	public float speed = 200;
 	public float damage = 1;
 
-	public void _PhysicsProcess(float delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		Position += direction * speed * delta;
+		Position += direction * speed * (float)delta;
 	}
 
 	public void _on_body_entered(PlayerControl body)

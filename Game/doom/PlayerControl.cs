@@ -30,6 +30,7 @@ public partial class PlayerControl : CharacterBody2D
 		health -= amount;
 		GD.Print(amount);
 	}
+	
 	public void _on_self_damage_body_entered(Enemy body)
 	{
 		take_damage(body.damage);

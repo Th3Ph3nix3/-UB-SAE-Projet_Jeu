@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Xml.Resolvers;
 
+[GlobalClass]
 public partial class Weapon : Resource
 {
     [Export]
@@ -23,7 +24,7 @@ public partial class Weapon : Resource
     [Export]
     public PackedScene projectile_node = GD.Load<PackedScene>("res://projectile.tscn");
 
-    public void activate(Enemy _source, PlayerControl _target, PackedScene _scene_tree) // quels sont les types ? Je sais pas, j'ai mis au hasard un peu
+    public void activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree) // quels sont les types ? Je sais pas, j'ai mis au hasard un peu
     {
         //
     }

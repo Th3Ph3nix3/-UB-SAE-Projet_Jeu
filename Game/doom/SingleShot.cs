@@ -5,7 +5,7 @@ using System.Runtime;
 
 public partial class SingleShot : Weapon
 {
-    public void shoot(Enemy source, PlayerControl target, PackedScene scene_tree)
+    public void shoot(PlayerControl source, Enemy target, SceneTree scene_tree)
     {
         if (target == null)
         {
@@ -23,7 +23,7 @@ public partial class SingleShot : Weapon
         source.GetTree().CurrentScene.AddChild(projectile);
     }
 
-    void ActivateShootMethod(Enemy source, PlayerControl target, PackedScene scene_tree)
+    void ActivateShootMethod(PlayerControl source, Enemy target, SceneTree scene_tree)
     {
         shoot(source, target, scene_tree);
     }

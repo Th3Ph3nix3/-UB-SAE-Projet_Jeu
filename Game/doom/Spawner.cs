@@ -122,8 +122,8 @@ public partial class Spawner : Node2D
 
     public void _on_pattern_timeout() // pour les grosses vagues. Doit etre changer dans Godot -> spawner -> Pattern, puis à droite dans Inspecteur il faut changer Wait Time.
     {
-        // mettre un nombre aléatoire de monstres ?
-        for (int i = 0; i < 30; i++) // grâce à ça les ennemis arrivent en cercle autour du player (changer le nombre d'itération pour plus ou moins d'ennemis)
+        // mettre un nombre aléatoire de monstres ? -> GD.Randi() % 11 genere un nombre aléatoire entre 1 et 10
+        for (int i = 0; i < GD.Randi() % 11; i++) // grâce à ça les ennemis arrivent en cercle autour du player (changer le nombre d'itération pour plus ou moins d'ennemis)
         {
             spawn(get_random_position());
         }

@@ -51,7 +51,7 @@ public partial class PlayerControl : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if(nearest_enemy != null){
+		if(IsInstanceValid(nearest_enemy)){
 			nearest_enemy_distance = nearest_enemy.separation;
 			GD.Print(nearest_enemy.Name);
 		}

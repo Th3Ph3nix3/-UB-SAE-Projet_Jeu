@@ -7,6 +7,6 @@
 script = ExtResource("1_ig4e3")
 title = "goblin"
 texture = ExtResource("2_53sgv")
-health = 70.0
+health = 20.0
 damage = 10.0
 metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

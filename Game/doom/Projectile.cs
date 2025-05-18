@@ -7,16 +7,21 @@ public partial class Projectile : Area2D
 	public float speed = 200;
 	public float damage = 1;
 
+	public Vector2 knockback;
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Position += direction * speed * (float)delta;
 	}
 
-	public void _on_body_entered(PlayerControl body)
+	public void _on_body_entered(Node2D body)
 	{
-		if (body.HasMethod("take_damage"))
+		if (body is Enemy enemy)
 		{
-			body.take_damage(damage);
+			enemy.take_damage(damage);
+			enemy.knockback += direction * 25/*higher value if you want higher knockback. For a gun, 25 is good ig*/;
+
+			QueueFree(); // destroy the projectile if it hits an enemy. Useful if projectile is like a bullet.
 		}
 	}
 

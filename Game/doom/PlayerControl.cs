@@ -11,7 +11,7 @@ public partial class PlayerControl : CharacterBody2D
 	private Label LevelLabel;
 
 	
-	public ProgressBar xpBar;
+	public TextureProgressBar xpBar;
 	
 	public int _XP = 0;
 	public int XP {
@@ -28,12 +28,16 @@ public partial class PlayerControl : CharacterBody2D
 		get => _level;
 		set {
 			_level = value;
-			LevelLabel.Text = "Lvl " + value.ToString();
+			if (LevelLabel != null)
+				LevelLabel.Text = "Lvl " + value;
 
-			if (level >= 7)
-				xpBar.MaxValue = 40;
-			else if (level >= 3)
-				xpBar.MaxValue = 20;
+			if (xpBar != null)
+			{
+				if (value >= 7)
+					xpBar.MaxValue = 40;
+				else if (value >= 3)
+					xpBar.MaxValue = 20;
+			}
 		}
 	}
 
@@ -78,8 +82,10 @@ public partial class PlayerControl : CharacterBody2D
 		total_XP += amount;
 	}
 	
-	public void Check_XP(){
-		if (XP > xpBar.MaxValue){
+	public void Check_XP()
+	{
+		if (xpBar != null && XP > xpBar.MaxValue)
+		{
 			XP -= (int)xpBar.MaxValue;
 			level += 1;
 		}
@@ -109,5 +115,7 @@ public partial class PlayerControl : CharacterBody2D
 	public override void _Ready()
 	{
 		healthBar = GetNode<ProgressBar>("Health");
+		xpBar = GetNode<TextureProgressBar>("UI/XP");
+		LevelLabel = GetNode<Label>("UI/XP/Level"); 
 	}
 }

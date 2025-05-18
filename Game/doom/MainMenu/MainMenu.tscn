@@ -1,0 +1,150 @@
+[gd_scene load_steps=11 format=3 uid="uid://ku7riwone0r5"]
+
+[ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
+[ext_resource type="Texture2D" uid="uid://pvcomq2ygtov" path="res://MainMenu/menu_background.jpg" id="1_cruaa"]
+[ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_b76km"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
+texture = ExtResource("1_cruaa")
+modulate_color = Color(0.370364, 0.370364, 0.370364, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_430ii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cruaa"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.34902, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlc1t"]
+bg_color = Color(0.337255, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.34902, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b76km"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.34902, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbqne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b76km"]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(575.8, 323.75)
+script = ExtResource("1_b76km")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -605.0
+offset_top = -357.0
+offset_right = 592.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lbqne")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -118.5
+offset_right = 179.5
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+size_flags_stretch_ratio = 10.0
+theme_override_constants/separation = 30
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_430ii")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cruaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b76km")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
+text = "START NIGHTMARES"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lbqne")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b76km")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
+text = "RAGE QUIT"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.8
+offset_top = -201.75
+offset_right = 158.2
+offset_bottom = -130.75
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 23
+text = "SUBSISTENCE.IO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

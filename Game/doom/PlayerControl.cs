@@ -7,7 +7,37 @@ public partial class PlayerControl : CharacterBody2D
 	public int Speed { get; set; } = 400;
 	private float _health = 100;
 	private ProgressBar healthBar;
+	private int total_XP = 0;
+	private Label LevelLabel;
 
+	
+	public ProgressBar xpBar;
+	
+	public int _XP = 0;
+	public int XP {
+		get => _XP;
+		set {
+			_XP = value;
+			if (xpBar != null)
+				xpBar.Value = value;
+		}
+	}
+	
+	private int _level = 1;
+	public int level {
+		get => _level;
+		set {
+			_level = value;
+			LevelLabel.Text = "Lvl " + value.ToString();
+
+			if (level >= 7)
+				xpBar.MaxValue = 40;
+			else if (level >= 3)
+				xpBar.MaxValue = 20;
+		}
+	}
+
+	
 	public float health
 	{
 		get => _health;
@@ -43,6 +73,19 @@ public partial class PlayerControl : CharacterBody2D
 		collision.SetDeferred("disabled", false);
 	}
 
+	public void Gain_XP(int amount){
+		XP += amount;
+		total_XP += amount;
+	}
+	
+	public void Check_XP(){
+		if (XP > xpBar.MaxValue){
+			XP -= (int)xpBar.MaxValue;
+			level += 1;
+		}
+	}
+
+	
 	public void GetInput()
 	{
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down");
@@ -61,6 +104,7 @@ public partial class PlayerControl : CharacterBody2D
 
 		GetInput();
 		MoveAndSlide();
+		Check_XP();
 	}
 	public override void _Ready()
 	{

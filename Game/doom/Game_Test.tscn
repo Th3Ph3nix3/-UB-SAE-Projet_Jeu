@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=19 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://PlayerControl.cs" id="2_438ep"]
@@ -58,6 +58,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_438ep"]
 size = Vector2(42.0396, 37.455)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fgde"]
+radius = 57.0
 
 [node name="Node2D" type="Node2D"]
 rotation = -0.00992376
@@ -147,5 +150,12 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
+[node name="Magnet" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Magnet"]
+position = Vector2(5.90313, 4.05641)
+shape = SubResource("CircleShape2D_8fgde")
+
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="area_entered" from="CharacterBody2D/Magnet" to="CharacterBody2D" method="_on_magnet_area_entered"]

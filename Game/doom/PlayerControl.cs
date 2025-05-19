@@ -9,6 +9,7 @@ public partial class PlayerControl : CharacterBody2D
 	private ProgressBar healthBar;
 	private int total_XP = 0;
 	private Label LevelLabel;
+	private Pickups area;
 
 	
 	public TextureProgressBar xpBar;
@@ -88,6 +89,14 @@ public partial class PlayerControl : CharacterBody2D
 		{
 			XP -= (int)xpBar.MaxValue;
 			level += 1;
+		}
+	}
+
+	public void _on_magnet_area_entered()
+	{
+		if (area.HasMethod("follow"))
+		{
+			area.follow(Owner); // à changer parce que la method follow n'existe pas ??? i don't get it honestly
 		}
 	}
 

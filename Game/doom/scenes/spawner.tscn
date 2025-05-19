@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbof3g4qpm8cw"]
 
-[ext_resource type="Script" uid="uid://2n4rs40tcgg4" path="res://Spawner.cs" id="1_yp5lu"]
-[ext_resource type="PackedScene" uid="uid://c6p2ltleshmk7" path="res://enemy.tscn" id="2_ttk4a"]
+[ext_resource type="Script" uid="uid://2n4rs40tcgg4" path="res://scenes/Spawner.cs" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://c6p2ltleshmk7" path="res://scenes/enemy.tscn" id="2_ttk4a"]
 [ext_resource type="Resource" uid="uid://4de8g0raybpp" path="res://Resource/Enemies/bomber_goblin.tres" id="3_7ocbr"]
 [ext_resource type="Resource" uid="uid://cps53kfe4mgbu" path="res://Resource/Enemies/goblin.tres" id="4_mv5bd"]
 [ext_resource type="Resource" uid="uid://cqt1pmd24g5oe" path="res://Resource/Enemies/mushroom.tres" id="5_7ocbr"]

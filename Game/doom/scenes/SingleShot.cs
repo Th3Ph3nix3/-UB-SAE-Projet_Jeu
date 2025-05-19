@@ -6,6 +6,7 @@ using System.Runtime;
 [GlobalClass]
 public partial class SingleShot : Weapon
 {
+    #region method
     public void shoot(PlayerControl source, Enemy target, SceneTree scene_tree)
     {
         if (target == null)
@@ -21,11 +22,12 @@ public partial class SingleShot : Weapon
         projectile.speed = speed;
         projectile.direction = (target.Position - source.Position).Normalized(); // go to nearest enemy (target) at a certain speed
 
-        source.GetTree().CurrentScene.AddChild(projectile);
+        source.GetTree().CurrentScene.AddChild(projectile); // add the projectile to the scene /!\ maybe the enemy targeted is already dead, so godot will display an error.
     }
 
     public override void Activate(PlayerControl source, Enemy target, SceneTree scene_tree)
     {
         shoot(source, target, scene_tree); // call the shoot method
     }
+    #endregion
 }

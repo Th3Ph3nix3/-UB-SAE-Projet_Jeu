@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 public partial class Damage : Label
 {
+    #region methods
 
     public override void _Ready()
     {
@@ -20,4 +21,5 @@ public partial class Damage : Label
         await ToSignal(tween, "finished");
         QueueFree();
     }
+    #endregion
 }

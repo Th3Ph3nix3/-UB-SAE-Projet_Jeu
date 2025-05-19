@@ -5,17 +5,24 @@ using System.Numerics;
 
 public partial class Enemy : CharacterBody2D
 {
-    // attributes
+    #region  attributes
     Godot.Vector2 direction;
     public float speed = 75;
     public float damage;
     public Godot.Vector2 knockback;
     public float separation;
 
+    [Export]
+    public CharacterBody2D player_reference;
 
+    [Export]
+    public Sprite2D Sprite2D;
 
+    public PackedScene damage_popup_node = GD.Load<PackedScene>("res://scenes/damage.tscn");
 
-    // setters
+    #endregion
+    #region setters
+
     public float _health;
 
     public float health
@@ -31,7 +38,6 @@ public partial class Enemy : CharacterBody2D
         }
     }
 
-    public PackedScene damage_popup_node = GD.Load<PackedScene>("res://damage.tscn");
 
     public bool _elite = false;
 
@@ -50,11 +56,7 @@ public partial class Enemy : CharacterBody2D
         }
     }
 
-    [Export]
-    public CharacterBody2D player_reference;
 
-    [Export]
-    public Sprite2D Sprite2D;
 
     private EnemyType type;
 
@@ -70,7 +72,8 @@ public partial class Enemy : CharacterBody2D
         }
     }
 
-    // -------------------------------------------------------------- methods
+    #endregion
+    #region methods
 
     private void UpdateSpriteTexture()
     {
@@ -174,4 +177,5 @@ public partial class Enemy : CharacterBody2D
         damage_popup(amount);
         health -= amount;
     }
+    #endregion
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class Spawner : Node2D
 {
 
-    // attributes
+    #region attributes
     [Export]
     CharacterBody2D player;
 
@@ -30,6 +30,8 @@ public partial class Spawner : Node2D
     private int minute;
     private int second;
 
+    #endregion
+    #region setters
     public int Minute
     {
         get => minute;
@@ -56,6 +58,8 @@ public partial class Spawner : Node2D
                 SecondLabel.Text = second.ToString().PadLeft(2, '0');
         }
     }
+    #endregion
+    #region methods
 
     public override void _PhysicsProcess(double _delta)
     {
@@ -63,7 +67,7 @@ public partial class Spawner : Node2D
         {
             can_spawn = true;
         }
-        else 
+        else
         {
             can_spawn = false; // mobs can't spawn to optimize memory
         }
@@ -132,5 +136,5 @@ public partial class Spawner : Node2D
     {
         spawn(get_random_position(),true); // pour le mob elite. Doit etre changer dans Godot -> spawner -> Elite, puis à droite dans Inspecteur il faut changer Wait Time.
     }
-
+    #endregion
 }

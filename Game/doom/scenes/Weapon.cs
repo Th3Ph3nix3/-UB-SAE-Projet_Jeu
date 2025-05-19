@@ -5,6 +5,7 @@ using System.Xml.Resolvers;
 
 public abstract partial class Weapon : Resource
 {
+    #region attributes
     [Export]
     public string title; // name of the weapon
 
@@ -21,7 +22,9 @@ public abstract partial class Weapon : Resource
     public float speed; // speed of the projectile
 
     [Export]
-    public PackedScene projectile_node = GD.Load<PackedScene>("res://projectile.tscn"); // scene of the projectile
-
+    public PackedScene projectile_node = GD.Load<PackedScene>("res://scenes/projectile.tscn"); // scene of the projectile
+    #endregion
+    #region methods
     public abstract void Activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree); // abstract method, overriden in SingleShot.cs
+    #endregion
 }

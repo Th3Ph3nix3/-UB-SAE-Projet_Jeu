@@ -1,10 +1,10 @@
 [gd_scene load_steps=19 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
-[ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://PlayerControl.cs" id="2_438ep"]
-[ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://spawner.tscn" id="2_kf3hw"]
+[ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
+[ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://scenes/spawner.tscn" id="2_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://deh4ri5a0tcj3" path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" id="3_kf3hw"]
-[ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://Slot.tscn" id="4_kf3hw"]
+[ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://scenes/Slot.tscn" id="4_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
 [ext_resource type="Texture2D" uid="uid://bs7275bdyqu7f" path="res://platformer_metroidvania asset pack v1.01/XPBar3.png" id="6_7isy1"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SingleShot" load_steps=4 format=3 uid="uid://ctxx47ayg26pp"]
 
-[ext_resource type="PackedScene" uid="uid://cbhkf7rb45q10" path="res://projectile.tscn" id="1_n7vpy"]
-[ext_resource type="Script" uid="uid://dyxl55qf2eu1k" path="res://SingleShot.cs" id="2_dw5uh"]
+[ext_resource type="PackedScene" uid="uid://cbhkf7rb45q10" path="res://scenes/projectile.tscn" id="1_n7vpy"]
+[ext_resource type="Script" uid="uid://dyxl55qf2eu1k" path="res://scenes/SingleShot.cs" id="2_dw5uh"]
 [ext_resource type="Texture2D" uid="uid://b8be26uv54vxo" path="res://platformer_metroidvania asset pack v1.01/weapon_test/colt_icon.jpg" id="3_h2kok"]
 
 [resource]

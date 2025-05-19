@@ -3,13 +3,15 @@ using System;
 
 public partial class Projectile : Area2D
 {
-	
-	// atributes of the projectile
+
+	#region attributes
 	public Vector2 direction = Vector2.Right;
 	public float speed = 200;
 	public float damage = 1;
 
 	public Vector2 knockback;
+	#endregion
+	#region methods
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -31,4 +33,5 @@ public partial class Projectile : Area2D
 	{
 		QueueFree(); // if the projectile is off the screen, destroy it to free memory
 	}
+	#endregion
 }

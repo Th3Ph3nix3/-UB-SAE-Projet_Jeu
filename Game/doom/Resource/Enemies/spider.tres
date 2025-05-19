@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://eyplwd65bf5u"]
 
-[ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://EnemyType.cs" id="1_wrmg7"]
+[ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://scenes/EnemyType.cs" id="1_wrmg7"]
 [ext_resource type="Texture2D" uid="uid://w6ed2s4pdkjn" path="res://platformer_metroidvania asset pack v1.01/sprites_test/sprite_spider.png" id="2_nn26r"]
 
 [resource]

@@ -4,7 +4,7 @@ using System;
 public partial class PlayerControl : CharacterBody2D
 {
 
-	// attributes of the player
+	#region attributes
 	[Export]
 	public int Speed { get; set; } = 400;
 	private float _health = 100;
@@ -13,9 +13,12 @@ public partial class PlayerControl : CharacterBody2D
 	private Label LevelLabel;
 	private Pickups area;
 	public TextureProgressBar xpBar;
-	
+	public Enemy nearest_enemy;
+	public float nearest_enemy_distance = float.PositiveInfinity; // float.PositiveInfinity est la représentation de l'infini
 
-	// setters
+
+	#endregion
+	#region setters
 	public int _XP = 0;
 	public int XP {
 		get => _XP;
@@ -25,7 +28,7 @@ public partial class PlayerControl : CharacterBody2D
 				xpBar.Value = value;
 		}
 	}
-	
+
 	private int _level = 1;
 	public int level {
 		get => _level;
@@ -44,7 +47,7 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
-	
+
 	public float health
 	{
 		get => _health;
@@ -59,34 +62,32 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
-	public Enemy nearest_enemy; 
-	public float nearest_enemy_distance = float.PositiveInfinity; // float.PositiveInfinity est la représentation de l'infini
 
-
-	// methods
+	#endregion
+	#region methods
 	public void take_damage(float amount) // function to reduce health
 	{
 		health -= amount;
 		GD.Print(amount); // print in godot how much damages the player received
 	}
-	
+
 	public void _on_self_damage_body_entered(Enemy body) // this function is called everytime an enemy touch the player 
 	{
-		take_damage(body.damage); 
+		take_damage(body.damage);
 	}
 
 	public void _on_timer_timeout()
 	{
-		var collision = GetNode<CollisionShape2D>("SelfDamage/Collision"); 
+		var collision = GetNode<CollisionShape2D>("SelfDamage/Collision");
 		collision.SetDeferred("disabled", true);
 		collision.SetDeferred("disabled", false);
 	}
 
-	public void Gain_XP(int amount){ // function to gain xp
+	public void Gain_XP(int amount) { // function to gain xp
 		XP += amount;
 		total_XP += amount;
 	}
-	
+
 	public void Check_XP() // function to check if the player has enough XP to level up
 	{
 		if (xpBar != null && XP > xpBar.MaxValue)
@@ -104,7 +105,7 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
-	
+
 	public void GetInput()
 	{
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down"); // moves of the player
@@ -113,11 +114,11 @@ public partial class PlayerControl : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if(IsInstanceValid(nearest_enemy)){ // if the player is near an enemy
+		if (IsInstanceValid(nearest_enemy)) { // if the player is near an enemy
 			nearest_enemy_distance = nearest_enemy.separation;
 			GD.Print(nearest_enemy.Name); // print the enemy name
 		}
-		else{
+		else {
 			nearest_enemy_distance = float.PositiveInfinity; // else (there is no enemy near the player), the distance is infinity
 		}
 
@@ -125,7 +126,7 @@ public partial class PlayerControl : CharacterBody2D
 		MoveAndSlide();
 		Check_XP();
 	}
-	
+
 	// used to instantiate players attributes on the game scene 
 	public override void _Ready()
 	{
@@ -133,4 +134,5 @@ public partial class PlayerControl : CharacterBody2D
 		xpBar = GetNode<TextureProgressBar>("UI/XP"); // xp
 		LevelLabel = GetNode<Label>("UI/XP/Level"); // level
 	}
+	#endregion
 }

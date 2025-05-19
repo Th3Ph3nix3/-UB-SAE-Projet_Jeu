@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public partial class Spawner : Node2D
 {
+
+    // attributes
     [Export]
     CharacterBody2D player;
 
@@ -22,12 +24,8 @@ public partial class Spawner : Node2D
     private int enemyTypeIndex = 0;
     private int vagueCounter = 0;
 
-
-
     [Export]
     EnemyType[] enemy_types;
-
-
 
     private int minute;
     private int second;
@@ -67,7 +65,7 @@ public partial class Spawner : Node2D
         }
         else 
         {
-            can_spawn = false;
+            can_spawn = false; // mobs can't spawn to optimize memory
         }
     }
 
@@ -75,16 +73,18 @@ public partial class Spawner : Node2D
     {
         if(!can_spawn && !elite)
         {
-            return;
+            return; // mobs can't spawn to optimize memory
         }
-        Enemy enemyInstance = (Enemy)enemy.Instantiate();
 
+        Enemy enemyInstance = (Enemy)enemy.Instantiate(); // creating a new enemy
+
+        // attributes of the mob that will spawn
         enemyInstance.Type = enemy_types[enemyTypeIndex];
         enemyInstance.Position = pos;
         enemyInstance.player_reference = player;
-        enemyInstance.elite = elite;
+        enemyInstance.elite = elite; // true or false (to have a rainbow effect)
 
-        GetTree().CurrentScene.AddChild(enemyInstance);
+        GetTree().CurrentScene.AddChild(enemyInstance); // add the enemy to the game scene
     }
 
     

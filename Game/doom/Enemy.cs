@@ -5,12 +5,17 @@ using System.Numerics;
 
 public partial class Enemy : CharacterBody2D
 {
+    // attributes
     Godot.Vector2 direction;
     public float speed = 75;
     public float damage;
     public Godot.Vector2 knockback;
     public float separation;
 
+
+
+
+    // setters
     public float _health;
 
     public float health
@@ -65,6 +70,8 @@ public partial class Enemy : CharacterBody2D
         }
     }
 
+    // -------------------------------------------------------------- methods
+
     private void UpdateSpriteTexture()
     {
         if (Sprite2D != null && type != null)
@@ -76,9 +83,9 @@ public partial class Enemy : CharacterBody2D
         Sprite2D = GetNode<Sprite2D>("Sprite2D");
         UpdateSpriteTexture();
 
-        if (_elite && Sprite2D.Material == null) // cf ligne 18
+        if (_elite && Sprite2D.Material == null) // if the mob is elite
         {
-            var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
+            var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres"); // call the rainbow effect
             Sprite2D.Material = mat;
             Sprite2D.Scale = new Godot.Vector2(5f, 5f);
         }
@@ -93,19 +100,21 @@ public partial class Enemy : CharacterBody2D
     public void check_separation(double _delta)
     {
         separation = (player_reference.Position - Position).Length();
-        if (separation >= 500 && !elite)
+        if (separation >= 500 && !elite) // if the mob is not elite and is too far of the player
         {
-            QueueFree();
+            QueueFree(); // free memory by destroying the mob
         }
-        var player = player_reference as PlayerControl;
-        if (separation < player.nearest_enemy_distance)
+
+        var player = player_reference as PlayerControl; // cast player_reference
+
+        if (separation < player.nearest_enemy_distance) // updating nearest_enemy
         {
             player.nearest_enemy_distance = separation;
             player.nearest_enemy = this;
         }
     }
 
-    public void knockback_update(double delta)
+    public void knockback_update(double delta) // to make a knockback
     {
         Godot.Vector2 targetPosition = player_reference.Position;
         Godot.Vector2 moveDirection = targetPosition - Position;
@@ -129,7 +138,7 @@ public partial class Enemy : CharacterBody2D
         }
     }
 
-    // reproduction du fonctionnement de MoveToward
+    // reproduction du fonctionnement de MoveToward parce que elle n'est pas implémentée en CS
     public Godot.Vector2 MoveToward(Godot.Vector2 current, Godot.Vector2 target, float maxDistanceDelta)
     {
         Godot.Vector2 direction = target - current;
@@ -145,7 +154,7 @@ public partial class Enemy : CharacterBody2D
         return current + direction * maxDistanceDelta;
     }
 
-    // function to isntantiate damage popup & add it to the scene
+    // function to instantiate damage popup & add it to the scene
     public void damage_popup(float amount)
     {
         var popup = damage_popup_node.Instantiate<Damage>();
@@ -154,6 +163,7 @@ public partial class Enemy : CharacterBody2D
         GetTree().CurrentScene.AddChild(popup);
     }
 
+    // whenever enemy is hit by a projectile
     public void take_damage(float amount)
     {
         var tween = GetTree().CreateTween();

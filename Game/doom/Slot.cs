@@ -28,7 +28,7 @@ public partial class Slot : PanelContainer
         {
             _weapon = value;
 			tex.Texture = value.texture; // updating texturect and wait time for the timer
-			Cooldown.WaitTime = value.cooldown;
+			Cooldown.WaitTime = value.cooldown; // cooldown until weapon can be used
         }
     }
 
@@ -38,7 +38,7 @@ public partial class Slot : PanelContainer
 
 			var ownerPlayer = GetParent().GetParent().GetParent() as PlayerControl; // cast Owner as PlayerControl (usualy type Node)
 			if(ownerPlayer == null){
-				GD.Print("ownerplayer is null or have not been casted in a good way");
+				GD.Print("ownerplayer is null or have not been casted in a good way"); // print error message
 			}
 			weapon.Activate(ownerPlayer,ownerPlayer.nearest_enemy,GetTree()); // func is defined like that : public void activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree)
 		}

@@ -8,11 +8,11 @@ public partial class Damage : Label
 
     public override void _Ready()
     {
-        _ = pop();
+        _ = pop(); // calling the pop method
     }
 
 
-    public async Task pop()
+    public async Task pop() // add comment
     {
         var tween = GetTree().CreateTween();
         tween.TweenProperty(this, "scale", new Godot.Vector2(2, 2), 0.1);

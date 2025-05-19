@@ -3,6 +3,8 @@ using System;
 
 public partial class Projectile : Area2D
 {
+	
+	// atributes of the projectile
 	public Vector2 direction = Vector2.Right;
 	public float speed = 200;
 	public float damage = 1;
@@ -11,7 +13,7 @@ public partial class Projectile : Area2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Position += direction * speed * (float)delta;
+		Position += direction * speed * (float)delta; // Move the projectile at a certain speed
 	}
 
 	public void _on_body_entered(Node2D body)
@@ -27,6 +29,6 @@ public partial class Projectile : Area2D
 
 	public void _on_screen_exited()
 	{
-		QueueFree();
+		QueueFree(); // if the projectile is off the screen, destroy it to free memory
 	}
 }

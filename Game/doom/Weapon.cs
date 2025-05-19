@@ -21,8 +21,7 @@ public abstract partial class Weapon : Resource
     public float speed; // speed of the projectile
 
     [Export]
-    public PackedScene projectile_node = GD.Load<PackedScene>("res://projectile.tscn");
+    public PackedScene projectile_node = GD.Load<PackedScene>("res://projectile.tscn"); // scene of the projectile
 
-    public abstract void Activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree);
-        //
+    public abstract void Activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree); // abstract method, overriden in SingleShot.cs
 }

@@ -3,9 +3,10 @@ using System;
 
 public partial class Pickups : Area2D
 {
-    public void follow(Node owner)
-    {
-        throw new NotImplementedException();
-    }
 
+    public bool can_follow;
+    public void follow(CharacterBody2D _target)
+    {
+        can_follow = true;
+    }
 }

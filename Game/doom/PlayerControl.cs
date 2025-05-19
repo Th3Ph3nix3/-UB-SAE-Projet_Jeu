@@ -96,7 +96,7 @@ public partial class PlayerControl : CharacterBody2D
 	{
 		if (area.HasMethod("follow"))
 		{
-			area.follow(Owner); // à changer parce que la method follow n'existe pas ??? i don't get it honestly
+			area.follow((CharacterBody2D)Owner);
 		}
 	}
 

@@ -80,7 +80,7 @@ public partial class Spawner : Node2D
             return; // mobs can't spawn to optimize memory
         }
 
-        Enemy enemyInstance = (Enemy)enemy.Instantiate(); // creating a new enemy
+        Enemy enemyInstance = enemy.Instantiate() as Enemy; // creating a new enemy
 
         // attributes of the mob that will spawn
         enemyInstance.Type = enemy_types[enemyTypeIndex];

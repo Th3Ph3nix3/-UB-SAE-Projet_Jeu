@@ -23,8 +23,10 @@ project/assembly_name="Doom"
 
 folder_colors={
 "res://Resource/Enemies/": "red",
+"res://Resource/PickupsGems/": "green",
 "res://Resources/": "blue",
-"res://Shaders/": "pink"
+"res://Shaders/": "pink",
+"res://scenes/": "pink"
 }
 
 [input]

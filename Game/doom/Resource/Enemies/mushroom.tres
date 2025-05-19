@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://cqt1pmd24g5oe"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=4 format=3 uid="uid://cqt1pmd24g5oe"]
 
 [ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://scenes/EnemyType.cs" id="1_1upcd"]
+[ext_resource type="Resource" uid="uid://dkacp6agy8ll3" path="res://Resource/PickupsGems/green_gem.tres" id="1_t2ran"]
 [ext_resource type="Texture2D" uid="uid://cc4vjiu5o5tqf" path="res://platformer_metroidvania asset pack v1.01/sprites_test/mushroom_png.png" id="2_ebf12"]
 
 [resource]
@@ -9,4 +10,5 @@ title = "mushroom"
 texture = ExtResource("2_ebf12")
 health = 10.0
 damage = 10.0
+drops = [ExtResource("1_t2ran")]
 metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

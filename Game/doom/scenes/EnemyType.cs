@@ -15,4 +15,9 @@ public partial class EnemyType : Resource
 
 	[Export]
 	public float damage;
+
+	[Export]
+	public PickupResource[] drops = Array.Empty<PickupResource>();
+
 }
+

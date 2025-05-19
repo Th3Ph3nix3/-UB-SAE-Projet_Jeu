@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://4de8g0raybpp"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=4 format=3 uid="uid://4de8g0raybpp"]
 
 [ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://scenes/EnemyType.cs" id="1_0wvwk"]
+[ext_resource type="Resource" uid="uid://b7mkxqb1vojua" path="res://Resource/PickupsGems/blue_gem.tres" id="1_mnj00"]
 [ext_resource type="Texture2D" uid="uid://d4d76tlqkjay6" path="res://platformer_metroidvania asset pack v1.01/sprites_test/bomber_goblin_png.png" id="2_qhgo3"]
 
 [resource]
@@ -9,4 +10,5 @@ title = "bomber_goblin"
 texture = ExtResource("2_qhgo3")
 health = 30.0
 damage = 30.0
+drops = [ExtResource("1_mnj00")]
 metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

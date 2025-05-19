@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://b7mkxqb1vojua"]
+
+[ext_resource type="Texture2D" uid="uid://brft5mp20664u" path="res://platformer_metroidvania asset pack v1.01/pickups_test/blue_gem.png" id="1_7qcoy"]
+[ext_resource type="Script" uid="uid://dhpptnn6w1ysl" path="res://scenes/Gem.cs" id="2_cojqm"]
+
+[resource]
+script = ExtResource("2_cojqm")
+XP = 1
+Title = "blue_gem"
+Icon = ExtResource("1_7qcoy")
+Description = "gains experience point"
+metadata/_custom_type_script = "uid://dhpptnn6w1ysl"

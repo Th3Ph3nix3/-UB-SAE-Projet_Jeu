@@ -11,7 +11,6 @@ public partial class PlayerControl : CharacterBody2D
 	private ProgressBar healthBar;
 	private int total_XP = 0;
 	private Label LevelLabel;
-	private Pickups area;
 	public TextureProgressBar xpBar;
 	public Enemy nearest_enemy;
 	public float nearest_enemy_distance = float.PositiveInfinity; // float.PositiveInfinity est la représentation de l'infini
@@ -97,11 +96,12 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
-	public void _on_magnet_area_entered() // to attract bonus and xp rewards.
+	public void _on_magnet_area_entered(Area2D area) // to attract bonus and xp rewards.
 	{
 		if (area.HasMethod("follow"))
 		{
-			area.follow((CharacterBody2D)Owner);
+			var Area = area as Pickups;
+			Area.follow(this);
 		}
 	}
 

@@ -19,6 +19,9 @@ public partial class Enemy : CharacterBody2D
     public Sprite2D Sprite2D;
 
     public PackedScene damage_popup_node = GD.Load<PackedScene>("res://scenes/damage.tscn");
+    // 1) charge la scène
+    private PackedScene dropScene = GD.Load<PackedScene>("res://scenes/pickups.tscn");
+
 
     #endregion
     #region setters
@@ -33,6 +36,7 @@ public partial class Enemy : CharacterBody2D
             _health = value;
             if (_health <= 0)
             {
+                DropItem();
                 QueueFree();
             }
         }
@@ -177,5 +181,28 @@ public partial class Enemy : CharacterBody2D
         damage_popup(amount);
         health -= amount;
     }
+
+
+    public void DropItem() // function called when an enemy died
+    {
+        if (type.drops.Length == 0)
+        {
+            return;
+        }
+
+
+        var random = new Random();
+        int index = random.Next(type.drops.Length);
+        var item = type.drops[index];
+
+        var itemToDrop = dropScene.Instantiate<Pickups>();
+
+        itemToDrop.type = item;
+        itemToDrop.Position = Position;
+        itemToDrop.player_reference = player_reference;
+
+        GetTree().CurrentScene.CallDeferred("add_child", itemToDrop); // add to the scene tree
+    }
+
     #endregion
 }

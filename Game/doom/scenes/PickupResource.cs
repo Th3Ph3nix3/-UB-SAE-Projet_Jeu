@@ -5,15 +5,15 @@ public partial class PickupResource : Resource
 {
 	#region attributes
 	[Export]
-	public string Title { get; set; } = "";
+	public string Title = "";
 
 	[Export]
-	public Texture2D Icon { get; set; }
+	public Texture2D Icon;
 
 	[Export(PropertyHint.MultilineText)]
-	public string Description { get; set; } = "";
+	public string Description = "";
 
-	public CharacterBody2D PlayerReference { get; set; }
+	public PlayerControl PlayerReference;
 
 	#endregion
 	#region methods

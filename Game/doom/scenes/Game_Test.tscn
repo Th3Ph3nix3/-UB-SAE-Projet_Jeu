@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=18 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://deh4ri5a0tcj3" path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" id="3_kf3hw"]
 [ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://scenes/Slot.tscn" id="4_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
-[ext_resource type="Texture2D" uid="uid://bs7275bdyqu7f" path="res://platformer_metroidvania asset pack v1.01/XPBar3.png" id="6_7isy1"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
@@ -100,7 +99,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 max_value = 10.0
 texture_under = ExtResource("5_8fgde")
-texture_over = ExtResource("6_7isy1")
 texture_progress = ExtResource("7_i0te0")
 
 [node name="Level" type="Label" parent="CharacterBody2D/UI/XP"]
@@ -151,6 +149,8 @@ autostart = true
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
 [node name="Magnet" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Magnet"]
 position = Vector2(5.90313, 4.05641)

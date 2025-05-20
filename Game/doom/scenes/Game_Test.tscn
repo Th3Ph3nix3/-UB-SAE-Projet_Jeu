@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=19 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://deh4ri5a0tcj3" path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" id="3_kf3hw"]
 [ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://scenes/Slot.tscn" id="4_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
+[ext_resource type="Script" uid="uid://cggoyeqmcuocv" path="res://scenes/Options.cs" id="7_dbjji"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
@@ -95,7 +96,7 @@ layout_mode = 2
 
 [node name="XP" type="TextureProgressBar" parent="CharacterBody2D/UI"]
 unique_name_in_owner = true
-offset_right = 40.0
+offset_right = 620.0
 offset_bottom = 40.0
 max_value = 10.0
 texture_under = ExtResource("5_8fgde")
@@ -109,6 +110,21 @@ offset_top = 20.0
 offset_right = 608.0
 offset_bottom = 43.0
 text = "Lvl 1"
+
+[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_dbjji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(5.8919, 4.06805)

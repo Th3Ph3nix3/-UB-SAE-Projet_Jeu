@@ -3,8 +3,12 @@ using Godot;
 [GlobalClass]
 public partial class Gem : PickupResource
 {
+	#region attributes
 	[Export]
 	public int XP { get; set; }
+
+	#endregion
+	#region methods
 
 	public override void Activate()
 	{
@@ -20,4 +24,5 @@ public partial class Gem : PickupResource
 			GD.PrintErr("PlayerReference n'est pas un PlayerControl !");
 		}
 	}
+	#endregion
 }

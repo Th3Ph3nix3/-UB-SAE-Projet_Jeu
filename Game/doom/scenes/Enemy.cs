@@ -12,6 +12,8 @@ public partial class Enemy : CharacterBody2D
 	public Godot.Vector2 knockback;
 	public float separation;
 
+	private AnimationPlayer _animationPlayer;
+
 	[Export]
 	public CharacterBody2D player_reference;
 
@@ -90,7 +92,9 @@ public partial class Enemy : CharacterBody2D
 	public override void _Ready()
 	{
 		Sprite2D = GetNode<Sprite2D>("Sprite2D");
-		UpdateSpriteTexture();
+		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		_animationPlayer.Play("Ear_Walk");
+		//UpdateSpriteTexture();
 
 		if (_elite && Sprite2D.Material == null) // if the mob is elite
 		{
@@ -104,6 +108,15 @@ public partial class Enemy : CharacterBody2D
 	{
 		check_separation(delta);
 		knockback_update(delta);
+
+		if (Velocity.X > 0)
+		{
+			Sprite2D.FlipH = true;
+		}
+		else if (Velocity.X < 0)
+		{
+			Sprite2D.FlipH = false;
+		}
 	}
 
 	public void check_separation(double _delta)

@@ -1,15 +1,42 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6p2ltleshmk7"]
 
 [ext_resource type="Script" uid="uid://bllns0bkbp6oi" path="res://scenes/Enemy.cs" id="1_7k104"]
-[ext_resource type="Texture2D" uid="uid://d4d76tlqkjay6" path="res://platformer_metroidvania asset pack v1.01/sprites_test/bomber_goblin_png.png" id="3_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://dplxe3jhvlmgs" path="res://Sprite/Enemy/Little/Ear/Walk/Little_Chaos_Ear-Spritesheet.png" id="2_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otmr2"]
+size = Vector2(19, 32)
 
 [sub_resource type="Animation" id="Animation_md0e3"]
 resource_name = "Ear_Walk"
-length = 7.0
 loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
 
 [sub_resource type="Animation" id="Animation_4ra3w"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5uy6h"]
 _data = {
@@ -17,24 +44,23 @@ _data = {
 &"RESET": SubResource("Animation_4ra3w")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_otmr2"]
-size = Vector2(19, 39)
-
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_7k104")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -3)
-scale = Vector2(2, 2)
-texture = ExtResource("3_qi2p4")
+position = Vector2(-1, -20)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_md0e3")
+hframes = 10
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_otmr2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
 libraries = {
 &"": SubResource("AnimationLibrary_5uy6h")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_otmr2")

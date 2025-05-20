@@ -12,13 +12,14 @@ public partial class Enemy : CharacterBody2D
 	public Godot.Vector2 knockback;
 	public float separation;
 
-	private AnimationPlayer _animationPlayer;
+	float duration = 0;
+	int fps = 10;
 
 	[Export]
 	public CharacterBody2D player_reference;
 
 	[Export]
-	public Sprite2D Sprite2D;
+	public Sprite2D sprite2D;
 
 	public PackedScene damage_popup_node = GD.Load<PackedScene>("res://scenes/damage.tscn");
 	// 1) charge la scène
@@ -54,10 +55,10 @@ public partial class Enemy : CharacterBody2D
 		set
 		{
 			_elite = value;
-			if (Sprite2D != null && value)  // cf ligne 57
+			if (sprite2D != null && value)  // cf ligne 57
 			{
 				var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
-				Sprite2D.Material = mat;
+				sprite2D.Material = mat;
 				Scale = new Godot.Vector2(5f, 5f);
 			}
 		}
@@ -73,7 +74,6 @@ public partial class Enemy : CharacterBody2D
 		set
 		{
 			type = value;
-			UpdateSpriteTexture();
 			damage = value.damage;
 			health = value.health;
 		}
@@ -85,37 +85,55 @@ public partial class Enemy : CharacterBody2D
 
 	private void UpdateSpriteTexture()
 	{
-		if (Sprite2D != null && type != null)
-			Sprite2D.Texture = type.texture;
+		if (sprite2D != null && type != null)
+		{
+			sprite2D.Texture = type.texture;
+			sprite2D.Hframes = type.frames;
+		}
 	}
 
 	public override void _Ready()
 	{
-		Sprite2D = GetNode<Sprite2D>("Sprite2D");
-		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		_animationPlayer.Play("Ear_Walk");
-		//UpdateSpriteTexture();
+		sprite2D = GetNode<Sprite2D>("Sprite2D");
+		UpdateSpriteTexture();
 
-		if (_elite && Sprite2D.Material == null) // if the mob is elite
+		if (_elite && sprite2D.Material == null) // if the mob is elite
 		{
 			var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres"); // call the rainbow effect
-			Sprite2D.Material = mat;
-			Sprite2D.Scale = new Godot.Vector2(5f, 5f);
+			sprite2D.Material = mat;
+			sprite2D.Scale = new Godot.Vector2(5f, 5f);
 		}
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+		Animation(delta);
 		check_separation(delta);
 		knockback_update(delta);
+	}
 
+	public void Animation(double delta)
+	{
 		if (Velocity.X > 0)
 		{
-			Sprite2D.FlipH = true;
+			sprite2D.FlipH = true;
 		}
 		else if (Velocity.X < 0)
 		{
-			Sprite2D.FlipH = false;
+			sprite2D.FlipH = false;
+		}
+
+		if (type.frames <= 1)
+		{
+			return;
+		}
+
+		duration += (float)delta;
+
+		if (type.frames > 1 && duration >= 1f / fps)
+		{
+			sprite2D.Frame = (sprite2D.Frame + 1) % type.frames;
+			duration = 0;
 		}
 	}
 
@@ -189,8 +207,8 @@ public partial class Enemy : CharacterBody2D
 	public void take_damage(float amount)
 	{
 		var tween = GetTree().CreateTween();
-		tween.TweenProperty(Sprite2D, "modulate", new Godot.Color(3, (float)0.25, (float)0.25), 0.1);
-		tween.Chain().TweenProperty(Sprite2D, "modulate", new Godot.Color(1, 1, 1), 0.1);
+		tween.TweenProperty(sprite2D, "modulate", new Godot.Color(3, (float)0.25, (float)0.25), 0.1);
+		tween.Chain().TweenProperty(sprite2D, "modulate", new Godot.Color(1, 1, 1), 0.1);
 		tween.BindNode(this);
 
 		damage_popup(amount);

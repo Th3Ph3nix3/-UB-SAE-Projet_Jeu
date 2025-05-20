@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://2n4rs40tcgg4" path="res://scenes/Spawner.cs" id="1_yp5lu"]
 [ext_resource type="PackedScene" uid="uid://c6p2ltleshmk7" path="res://scenes/enemy.tscn" id="2_ttk4a"]
-[ext_resource type="Resource" uid="uid://4de8g0raybpp" path="res://Resource/Enemies/bomber_goblin.tres" id="3_7ocbr"]
-[ext_resource type="Resource" uid="uid://cps53kfe4mgbu" path="res://Resource/Enemies/goblin.tres" id="4_mv5bd"]
-[ext_resource type="Resource" uid="uid://cqt1pmd24g5oe" path="res://Resource/Enemies/mushroom.tres" id="5_7ocbr"]
+[ext_resource type="Resource" uid="uid://drgtawpjnss8s" path="res://Resource/Enemies/Little_Ear.tres" id="3_cmhla"]
+[ext_resource type="Resource" uid="uid://k1hxccw0ah5p" path="res://Resource/Enemies/Little_Eyes.tres" id="4_4wbs5"]
+[ext_resource type="Resource" uid="uid://cwldgaomk7uxy" path="res://Resource/Enemies/Little_Mouth.tres" id="5_30a77"]
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("MinuteLabel", "SecondLabel")]
 script = ExtResource("1_yp5lu")
 enemy = ExtResource("2_ttk4a")
 MinuteLabel = NodePath("UI/HBoxContainer/Minute")
 SecondLabel = NodePath("UI/HBoxContainer/Second")
-enemy_types = Array[Object]([ExtResource("3_7ocbr"), ExtResource("4_mv5bd"), ExtResource("5_7ocbr")])
+enemy_types = Array[Object]([ExtResource("3_cmhla"), ExtResource("4_4wbs5"), ExtResource("5_30a77")])
 
 [node name="UI" type="CanvasLayer" parent="."]
 

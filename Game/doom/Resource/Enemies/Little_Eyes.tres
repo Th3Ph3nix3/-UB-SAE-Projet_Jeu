@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=5 format=3 uid="uid://k1hxccw0ah5p"]
+
+[ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://scenes/EnemyType.cs" id="1_oyxfg"]
+[ext_resource type="Resource" uid="uid://b7mkxqb1vojua" path="res://Resource/PickupsGems/blue_gem.tres" id="1_w2ntk"]
+[ext_resource type="Resource" uid="uid://dkacp6agy8ll3" path="res://Resource/PickupsGems/green_gem.tres" id="2_kxlqe"]
+[ext_resource type="Texture2D" uid="uid://b84enjujht56d" path="res://Sprite/Enemy/Little/Eyes/Walk/Little_Chaos_Eyes-Spritesheet.png" id="2_oyxfg"]
+
+[resource]
+script = ExtResource("1_oyxfg")
+title = "Little_Eyes"
+texture = ExtResource("2_oyxfg")
+health = 30.0
+damage = 10.0
+frames = 10
+drops = [ExtResource("1_w2ntk"), ExtResource("2_kxlqe")]
+metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

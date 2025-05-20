@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=5 format=3 uid="uid://cwldgaomk7uxy"]
+
+[ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://scenes/EnemyType.cs" id="1_18qbq"]
+[ext_resource type="Resource" uid="uid://b7mkxqb1vojua" path="res://Resource/PickupsGems/blue_gem.tres" id="1_mx4tr"]
+[ext_resource type="Texture2D" uid="uid://cx5t0j4347gno" path="res://Sprite/Enemy/Little/Mouth/Walk/Little_Chaos_Mouth-Spritesheet.png" id="2_18qbq"]
+[ext_resource type="Resource" uid="uid://dkacp6agy8ll3" path="res://Resource/PickupsGems/green_gem.tres" id="2_aqvh6"]
+
+[resource]
+script = ExtResource("1_18qbq")
+title = "Little_Mouth"
+texture = ExtResource("2_18qbq")
+health = 30.0
+damage = 10.0
+frames = 10
+drops = [ExtResource("1_mx4tr"), ExtResource("2_aqvh6")]
+metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

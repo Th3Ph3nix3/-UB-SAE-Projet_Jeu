@@ -17,7 +17,9 @@ public partial class EnemyType : Resource
 	public float damage;
 
 	[Export]
+	public int frames = 1;
+
+	[Export]
 	public PickupResource[] drops = Array.Empty<PickupResource>();
 
 }
-

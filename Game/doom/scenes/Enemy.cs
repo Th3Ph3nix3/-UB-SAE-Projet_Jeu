@@ -115,23 +115,27 @@ public partial class Enemy : CharacterBody2D
 		Animation(delta);
 		check_separation(delta);
 		knockback_update(delta);
+		GD.Print(knockback);
 	}
 
 	public void Animation(double delta)
 	{
-		if (Velocity.X > 0)
+		if (knockback == Godot.Vector2.Zero)
 		{
-			sprite2D.FlipH = true;
-		}
-		else if (Velocity.X < 0)
-		{
-			sprite2D.FlipH = false;
+			if (Velocity.X > 0)
+			{
+				sprite2D.FlipH = true;
+			}
+			else if (Velocity.X < 0)
+			{
+				sprite2D.FlipH = false;
+			}
 		}
 
 		if (type.frames <= 1)
-		{
-			return;
-		}
+			{
+				return;
+			}
 
 		duration += (float)delta;
 
@@ -181,6 +185,7 @@ public partial class Enemy : CharacterBody2D
 				hitEnemy.knockback = (hitEnemyPosition - GlobalPosition).Normalized() * 50;
 			}
 		}
+		knockback = new Godot.Vector2(0,0);
 	}
 
 	// reproduction du fonctionnement de MoveToward parce que elle n'est pas implémentée en CS

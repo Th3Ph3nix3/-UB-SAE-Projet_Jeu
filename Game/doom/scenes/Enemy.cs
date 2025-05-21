@@ -29,9 +29,11 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	private CharacterBody2D _player_reference;
 
-	// Link the enemy to a sprite2D node.
+	// Link the enemy to its Sprite2D and CollisionShape2D nodes.
 	[Export]
 	private Sprite2D _sprite2D;
+	[Export]
+	private CollisionShape2D _collisionShape2D;
 
 	// Load the scene of the damage popup.
 	private PackedScene _damage_popup_node = GD.Load<PackedScene>("res://scenes/damage.tscn");
@@ -113,33 +115,44 @@ public partial class Enemy : CharacterBody2D
 	public override void _Ready()
 	{
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
-		if (_sprite2D != null && type != null)
+		_collisionShape2D = GetNode<CollisionShape2D>("CollisionShape2D");
+
+		if (_sprite2D == null && _collisionShape2D == null && type == null)
 		{
-			_sprite2D.Texture = type.texture;
-			_sprite2D.Hframes = type.frames;
+			QueueFree(); // If the sprite2D, CollisionShape2D or type is not found, remove the enemy from the scene.
 		}
-		else
-		{
-			QueueFree(); // If the sprite2D is not found, remove the enemy from the scene.
-		}
+
+		_sprite2D.Texture = type.texture;
+		_sprite2D.Hframes = type.frames;
 
 		if (!_elite)
 		{
+			// Set the shader for the sprite2D.
 			var mat = GD.Load<ShaderMaterial>("res://Shaders/matOutline.tres");
 			_sprite2D.Material = mat;
+
+			// Scale the enemy accordingly.
 			_sprite2D.Scale = new Godot.Vector2(2f, 2f);
+			_collisionShape2D.Scale = new Godot.Vector2(2f, 2f);
 		}
 		else if (_elite)
 		{
+			// Set the shader for the sprite2D.
 			var matRainbow = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
 			_sprite2D.Material = matRainbow;
+
+			// Scale the enemy accordingly.
 			_sprite2D.Scale = new Godot.Vector2(5f, 5f);
+			_collisionShape2D.Scale = new Godot.Vector2(5f, 5f);
 		}
 	}
 
 	// Called every frame.
 	public override void _PhysicsProcess(double delta)
 	{
+		// Update the mouvement of the enemy.
+		Velocity = (Player_reference.Position - Position).Normalized() * _speed;
+
 		Animation(delta);
 		check_separation(delta);
 		knockback_update(delta);
@@ -205,12 +218,6 @@ public partial class Enemy : CharacterBody2D
 	/// </summary>
 	public void knockback_update(double delta)
 	{
-		Godot.Vector2 targetPosition = Player_reference.Position;
-		Godot.Vector2 moveDirection = targetPosition - Position;
-		moveDirection = moveDirection.Normalized();
-
-		Velocity = moveDirection * _speed;
-
 		Knockback = MoveToward(Knockback, Godot.Vector2.Zero, 1);
 		Velocity += Knockback;
 

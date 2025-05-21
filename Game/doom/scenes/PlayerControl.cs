@@ -72,7 +72,7 @@ public partial class PlayerControl : CharacterBody2D
 
 	public void _on_self_damage_body_entered(Enemy body) // this function is called everytime an enemy touch the player 
 	{
-		take_damage(body.damage);
+		take_damage(body.Damage);
 	}
 
 	public void _on_timer_timeout()
@@ -119,7 +119,7 @@ public partial class PlayerControl : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		if (IsInstanceValid(nearest_enemy)) { // if the player is near an enemy
-			nearest_enemy_distance = nearest_enemy.separation;
+			nearest_enemy_distance = nearest_enemy.Separation;
 			GD.Print(nearest_enemy.Name); // print the enemy name
 		}
 		else {

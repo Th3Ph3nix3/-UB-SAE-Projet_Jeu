@@ -9,8 +9,9 @@
 script = ExtResource("1_18qbq")
 title = "Little_Mouth"
 texture = ExtResource("2_18qbq")
-health = 30.0
-damage = 10.0
+health = 50.0
+damage = 20.0
+speed = 50.0
 frames = 10
 drops = [ExtResource("1_mx4tr"), ExtResource("2_aqvh6")]
 metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

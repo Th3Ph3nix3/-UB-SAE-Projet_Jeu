@@ -11,6 +11,7 @@ title = "Little_Eyes"
 texture = ExtResource("2_oyxfg")
 health = 30.0
 damage = 10.0
+speed = 75.0
 frames = 10
 drops = [ExtResource("1_w2ntk"), ExtResource("2_kxlqe")]
 metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

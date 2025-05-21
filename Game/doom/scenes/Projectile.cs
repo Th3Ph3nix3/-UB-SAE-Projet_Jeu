@@ -23,7 +23,7 @@ public partial class Projectile : Area2D
 		if (body is Enemy enemy)
 		{
 			enemy.take_damage(damage);
-			enemy.knockback += direction * 50; // higher value if you want higher knockback. For a gun, 25 is good ig
+			enemy.Knockback += direction * 50; // higher value if you want higher knockback. For a gun, 25 is good ig
 
 			QueueFree(); // destroy the projectile if it hits an enemy. Useful if projectile is like a bullet.
 		}

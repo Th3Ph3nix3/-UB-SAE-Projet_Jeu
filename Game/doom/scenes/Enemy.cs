@@ -6,33 +6,58 @@ using System.Numerics;
 public partial class Enemy : CharacterBody2D
 {
 	#region  attributes
-	Godot.Vector2 direction;
-	public float speed = 75;
-	public float damage;
-	public Godot.Vector2 knockback;
-	public float separation;
 
-	float duration = 0;
-	int fps = 10;
+	// Type of the enemy.
+	private EnemyType type;
 
+	// Base stats shared by all enemies.
+	private float _health;
+	private float _speed;
+	private float _damage;
+	private bool _elite = false;
+
+	// Attributes used to determine the movement of the enemy.
+	private Godot.Vector2 _direction;
+	private Godot.Vector2 _knockback;
+	private float _separation;
+
+	// Attributes used to parameter the animation of the enemy.
+	private float _duration = 0;
+	private int _fps = 10;
+
+	// Reference to the player it chase.
 	[Export]
-	public CharacterBody2D player_reference;
+	private CharacterBody2D _player_reference;
 
+	// Link the enemy to a sprite2D node.
 	[Export]
-	public Sprite2D sprite2D;
+	private Sprite2D _sprite2D;
 
-	public PackedScene damage_popup_node = GD.Load<PackedScene>("res://scenes/damage.tscn");
-	// 1) charge la scène
-	private PackedScene dropScene = GD.Load<PackedScene>("res://scenes/pickups.tscn");
+	// Load the scene of the damage popup.
+	private PackedScene _damage_popup_node = GD.Load<PackedScene>("res://scenes/damage.tscn");
 
+	// Load the scene of the pickups items.
+	private PackedScene _dropScene = GD.Load<PackedScene>("res://scenes/pickups.tscn");
 
 	#endregion
 
-	#region setters
+	#region Setters / Getters
 
-	public float _health;
-
-	public float health
+	public EnemyType Type
+	{
+		get => type;
+		set
+		{
+			type = value;
+			_damage = value.damage;
+			_health = value.health;
+			_speed = value.speed;
+		}
+	}
+	/// <summary>
+	/// Health of the enemy. If it reaches 0, the enemy is removed from the scene.
+	/// </summary>
+	public float Health
 	{
 		get => _health;
 		set
@@ -45,134 +70,149 @@ public partial class Enemy : CharacterBody2D
 			}
 		}
 	}
-
-
-	public bool _elite = false;
-
-	public bool elite
+	public float Speed
+	{
+		get => _speed;
+	}
+	public float Damage
+	{
+		get => _damage;
+	}
+	public bool Elite
 	{
 		get => _elite;
 		set
 		{
 			_elite = value;
-			if (sprite2D != null && value)  // cf ligne 57
-			{
-				var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
-				sprite2D.Material = mat;
-				Scale = new Godot.Vector2(5f, 5f);
-			}
 		}
 	}
 
-
-
-	private EnemyType type;
-
-	public EnemyType Type
+	public Godot.Vector2 Knockback
 	{
-		get => type;
-		set
-		{
-			type = value;
-			damage = value.damage;
-			health = value.health;
-		}
+		get => _knockback;
+		set => _knockback = value;
+	}
+	public float Separation
+	{
+		get => _separation;
+		set => _separation = value;
+	}
+
+	public CharacterBody2D Player_reference
+	{
+		get => _player_reference;
+		set => _player_reference = value;
 	}
 
 	#endregion
 
 	#region methods
 
-	private void UpdateSpriteTexture()
-	{
-		if (sprite2D != null && type != null)
-		{
-			sprite2D.Texture = type.texture;
-			sprite2D.Hframes = type.frames;
-		}
-	}
-
+	// Called when the enemy is added to the scene.
+	// Link the sprite2D at this time and set the texture frames and shaders.
 	public override void _Ready()
 	{
-		sprite2D = GetNode<Sprite2D>("Sprite2D");
-		UpdateSpriteTexture();
-
-		var mat = GD.Load<ShaderMaterial>("res://Shaders/matOutline.tres");
-		sprite2D.Material = mat;
-
-		sprite2D.Scale = new Godot.Vector2(2f, 2f);
-
-		if (_elite)
+		_sprite2D = GetNode<Sprite2D>("Sprite2D");
+		if (_sprite2D != null && type != null)
 		{
-			var matRainbow = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres"); // call the rainbow effect
-			sprite2D.Material = matRainbow;
-			sprite2D.Scale = new Godot.Vector2(5f, 5f);
+			_sprite2D.Texture = type.texture;
+			_sprite2D.Hframes = type.frames;
+		}
+		else
+		{
+			QueueFree(); // If the sprite2D is not found, remove the enemy from the scene.
+		}
+
+		if (!_elite)
+		{
+			var mat = GD.Load<ShaderMaterial>("res://Shaders/matOutline.tres");
+			_sprite2D.Material = mat;
+			_sprite2D.Scale = new Godot.Vector2(2f, 2f);
+		}
+		else if (_elite)
+		{
+			var matRainbow = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
+			_sprite2D.Material = matRainbow;
+			_sprite2D.Scale = new Godot.Vector2(5f, 5f);
 		}
 	}
 
+	// Called every frame.
 	public override void _PhysicsProcess(double delta)
 	{
 		Animation(delta);
 		check_separation(delta);
 		knockback_update(delta);
-		GD.Print(knockback);
 	}
 
+	/// <summary>
+	/// Manage the sprite : animation of the enemy and the sprite flipping.
+	/// </summary>
 	public void Animation(double delta)
 	{
-		if (knockback == Godot.Vector2.Zero)
+		// If the enemy is in a knockback state, it doesn't flip the sprite.
+		if (Knockback == Godot.Vector2.Zero)
 		{
 			if (Velocity.X > 0)
 			{
-				sprite2D.FlipH = true;
+				_sprite2D.FlipH = true;
 			}
 			else if (Velocity.X < 0)
 			{
-				sprite2D.FlipH = false;
+				_sprite2D.FlipH = false;
 			}
 		}
 
+		// If there isn't any animation, return.
 		if (type.frames <= 1)
 			{
 				return;
 			}
 
-		duration += (float)delta;
+		_duration += (float)delta;
 
-		if (type.frames > 1 && duration >= 1f / fps)
+		if (type.frames > 1 && _duration >= 1f / _fps)
 		{
-			sprite2D.Frame = (sprite2D.Frame + 1) % type.frames;
-			duration = 0;
+			_sprite2D.Frame = (_sprite2D.Frame + 1) % type.frames;
+			_duration = 0;
 		}
 	}
 
+	/// <summary>
+	/// Check the distance between the enemy and the player.
+	/// Used to update _separation each frame.
+	/// </summary>
 	public void check_separation(double _delta)
 	{
-		separation = (player_reference.Position - Position).Length();
-		if (separation >= 500 && !elite) // if the mob is not elite and is too far of the player
+		Separation = (Player_reference.Position - Position).Length();
+		if (Separation >= 2000 && !Elite) // if the mob is not elite and is too far of the player
 		{
 			QueueFree(); // free memory by destroying the mob
 		}
 
-		var player = player_reference as PlayerControl; // cast player_reference
+		var player = Player_reference as PlayerControl; // cast player_reference
 
-		if (separation < player.nearest_enemy_distance) // updating nearest_enemy
+		if (Separation < player.nearest_enemy_distance) // updating nearest_enemy of player
 		{
-			player.nearest_enemy_distance = separation;
+			player.nearest_enemy_distance = Separation;
 			player.nearest_enemy = this;
 		}
 	}
 
-	public void knockback_update(double delta) // to make a knockback
+	/// <summary>
+	/// Manage the knockack that can be applied to an enemy.
+	/// Also manage the collision between enemies that result from a knockback.
+	/// </summary>
+	public void knockback_update(double delta)
 	{
-		Godot.Vector2 targetPosition = player_reference.Position;
+		Godot.Vector2 targetPosition = Player_reference.Position;
 		Godot.Vector2 moveDirection = targetPosition - Position;
 		moveDirection = moveDirection.Normalized();
 
-		Velocity = moveDirection * speed;
+		Velocity = moveDirection * _speed;
 
-		knockback = MoveToward(knockback, Godot.Vector2.Zero, 1);
-		Velocity += knockback;
+		Knockback = MoveToward(Knockback, Godot.Vector2.Zero, 1);
+		Velocity += Knockback;
 
 		var collider = MoveAndCollide(Velocity * (float)delta);
 		if (collider != null)
@@ -182,13 +222,18 @@ public partial class Enemy : CharacterBody2D
 			if (hitEnemy != null)
 			{
 				var hitEnemyPosition = hitEnemy.GlobalPosition;
-				hitEnemy.knockback = (hitEnemyPosition - GlobalPosition).Normalized() * 50;
+				hitEnemy.Knockback = (hitEnemyPosition - GlobalPosition).Normalized() * 50;
 			}
 		}
-		knockback = new Godot.Vector2(0,0);
 	}
 
-	// reproduction du fonctionnement de MoveToward parce que elle n'est pas implémentée en CS
+	/// <summary>
+	/// Allow to move an object toward a target position by a max distance per update.
+	/// </summary>
+	/// <param name="current">Current position of the object to move</param>
+	/// <param name="target">Current position of the target object</param>
+	/// <param name="maxDistanceDelta">The longest distance makable in this update</param>
+	/// <returns>The new position of the object to move</returns>
 	public Godot.Vector2 MoveToward(Godot.Vector2 current, Godot.Vector2 target, float maxDistanceDelta)
 	{
 		Godot.Vector2 direction = target - current;
@@ -204,45 +249,55 @@ public partial class Enemy : CharacterBody2D
 		return current + direction * maxDistanceDelta;
 	}
 
-	// function to instantiate damage popup & add it to the scene
+	/// <summary>
+	/// Display a damage popup when the enemy is hit.
+	/// </summary>
+	/// <param name="amount">Amount of damage</param>
 	public void damage_popup(float amount)
 	{
-		var popup = damage_popup_node.Instantiate<Damage>();
+		var popup = _damage_popup_node.Instantiate<Damage>();
 		popup.Text = amount.ToString();
 		popup.Position = Position + new Godot.Vector2(-50, -50);
 		GetTree().CurrentScene.AddChild(popup);
 	}
 
-	// whenever enemy is hit by a projectile
+	/// <summary>
+	/// Manage the behavior of the enemy when it is hit.
+	/// </summary>
+	/// <param name="amount">Amount of damage</param>
 	public void take_damage(float amount)
 	{
+		// Make the enemy flash when it is hit.
 		var tween = GetTree().CreateTween();
-		tween.TweenProperty(sprite2D, "modulate", new Godot.Color(3, (float)0.25, (float)0.25), 0.1);
-		tween.Chain().TweenProperty(sprite2D, "modulate", new Godot.Color(1, 1, 1), 0.1);
+		tween.TweenProperty(_sprite2D, "modulate", new Godot.Color(3, (float)0.25, (float)0.25), 0.1);
+		tween.Chain().TweenProperty(_sprite2D, "modulate", new Godot.Color(1, 1, 1), 0.1);
 		tween.BindNode(this);
 
 		damage_popup(amount);
-		health -= amount;
+		Health -= amount;
 	}
 
-
-	public void DropItem() // function called when an enemy died
+	/// <summary>
+	/// Called when an enemy is killed.
+	/// Manage the drop of items.
+	/// </summary>
+	public void DropItem()
 	{
+		// Return if there's nothing to drop.
 		if (type.drops.Length == 0)
 		{
 			return;
 		}
 
-
 		var random = new Random();
 		int index = random.Next(type.drops.Length);
 		var item = type.drops[index];
 
-		var itemToDrop = dropScene.Instantiate<Pickups>();
+		var itemToDrop = _dropScene.Instantiate<Pickups>();
 
 		itemToDrop.type = item;
 		itemToDrop.Position = Position;
-		itemToDrop.player_reference = player_reference;
+		itemToDrop.player_reference = Player_reference;
 
 		GetTree().CurrentScene.CallDeferred("add_child", itemToDrop); // add to the scene tree
 	}

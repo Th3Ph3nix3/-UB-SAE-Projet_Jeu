@@ -17,6 +17,9 @@ public partial class EnemyType : Resource
 	public float damage;
 
 	[Export]
+	public float speed;
+
+	[Export]
 	public int frames = 1;
 
 	[Export]

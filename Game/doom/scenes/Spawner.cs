@@ -18,7 +18,7 @@ public partial class Spawner : Node2D
 	[Export]
 	private Label SecondLabel;
 
-	private float distance = 400;
+	private float distance = 500;
 	private bool can_spawn = true;
 
 	private int enemyTypeIndex = 0;
@@ -85,8 +85,8 @@ public partial class Spawner : Node2D
 		// attributes of the mob that will spawn
 		enemyInstance.Type = enemy_types[enemyTypeIndex];
 		enemyInstance.Position = pos;
-		enemyInstance.player_reference = player;
-		enemyInstance.elite = elite; // true or false (to have a rainbow effect)
+		enemyInstance.Player_reference = player;
+		enemyInstance.Elite = elite; // true or false (to have a rainbow effect)
 
 		GetTree().CurrentScene.AddChild(enemyInstance); // add the enemy to the game scene
 	}

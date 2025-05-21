@@ -178,9 +178,9 @@ public partial class Enemy : CharacterBody2D
 
 		// If there isn't any animation, return.
 		if (type.frames <= 1)
-			{
-				return;
-			}
+		{
+			return;
+		}
 
 		_duration += (float)delta;
 

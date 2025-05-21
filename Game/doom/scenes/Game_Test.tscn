@@ -67,6 +67,7 @@ rotation = -0.00992376
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 repeat_size = Vector2(1168, 640)
+repeat_times = 3
 
 [node name="Ground" type="TileMapLayer" parent="Parallax2D"]
 rotation = 0.00988073

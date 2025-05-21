@@ -110,6 +110,10 @@ public partial class PlayerControl : CharacterBody2D
 	{
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down"); // moves of the player
 		Velocity = inputDirection * Speed;
+
+		if (Input.IsActionPressed("esc")){
+			GetTree().Quit();
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)

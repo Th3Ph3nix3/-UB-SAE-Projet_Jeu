@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=20 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
 [ext_resource type="Script" uid="uid://cggoyeqmcuocv" path="res://scenes/Options.cs" id="7_dbjji"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
+[ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -172,6 +173,14 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Magnet"]
 position = Vector2(5.90313, 4.05641)
 shape = SubResource("CircleShape2D_8fgde")
+
+[node name="Pause" type="Button" parent="CharacterBody2D"]
+offset_left = 1709.0
+offset_top = -83.0
+offset_right = 1788.0
+offset_bottom = -8.0
+rotation = 0.00871314
+icon = ExtResource("9_fdjp8")
 
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

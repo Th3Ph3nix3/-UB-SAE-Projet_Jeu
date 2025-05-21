@@ -16,10 +16,10 @@ enemy_types = Array[Object]([ExtResource("3_cmhla"), ExtResource("4_4wbs5"), Ext
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
-offset_left = 1096.0
-offset_top = 18.0
-offset_right = 1138.0
-offset_bottom = 60.0
+offset_left = 1731.0
+offset_top = 14.0
+offset_right = 1773.0
+offset_bottom = 56.0
 rotation = 0.00223713
 
 [node name="Minute" type="Label" parent="UI/HBoxContainer"]

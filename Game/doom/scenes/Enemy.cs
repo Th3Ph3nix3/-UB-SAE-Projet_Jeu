@@ -97,10 +97,15 @@ public partial class Enemy : CharacterBody2D
 		sprite2D = GetNode<Sprite2D>("Sprite2D");
 		UpdateSpriteTexture();
 
-		if (_elite && sprite2D.Material == null) // if the mob is elite
+		var mat = GD.Load<ShaderMaterial>("res://Shaders/matOutline.tres");
+		sprite2D.Material = mat;
+
+		sprite2D.Scale = new Godot.Vector2(2f, 2f);
+
+		if (_elite)
 		{
-			var mat = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres"); // call the rainbow effect
-			sprite2D.Material = mat;
+			var matRainbow = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres"); // call the rainbow effect
+			sprite2D.Material = matRainbow;
 			sprite2D.Scale = new Godot.Vector2(5f, 5f);
 		}
 	}

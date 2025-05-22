@@ -67,22 +67,13 @@ public partial class Options : VBoxContainer
 
 	public void show_options()
 	{
-		// OptionSlot optionSlot = (OptionSlot)OptionSlot.Instantiate();
-		// GD.Print(optionSlot.GetType());
-		// optionSlot.options = this; 
-		// AddChild(optionSlot);
-
-		// // Show the option slot and pause the game
-		// Show();
-		// GetTree().Paused = true;
-
 		var available_weapons = get_available_weapons(); // get the available weapons
 		if (available_weapons.Count == 0)
 		{
 			return; // if there is no weapon to upgrade, return
 		}
 
-		foreach (Slot slot in GetChildren())
+		foreach (OptionSlot slot in GetChildren())
 		{
 			slot.QueueFree(); // if there is any weapons, then remove previous ones
 		}
@@ -92,7 +83,7 @@ public partial class Options : VBoxContainer
 		{
 			if (Slots.weapon.is_upgradable())
 			{
-				var optionSlot = (OptionSlot)OptionSlot.Instantiate(); // instantiate the option slot
+				OptionSlot optionSlot = (OptionSlot)OptionSlot.Instantiate(); // instantiate the option slot
 				optionSlot.weapon = Slots.weapon; // set the weapon to the option slot
 				optionSlot.options = this; // set the options to the option slot so it can call the close_options function
 				AddChild(optionSlot); // add the option slot to the scene

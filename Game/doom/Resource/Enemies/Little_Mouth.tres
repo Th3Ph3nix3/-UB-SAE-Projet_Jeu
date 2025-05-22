@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=5 format=3 uid="uid://cwldgaomk7uxy"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=4 format=3 uid="uid://cwldgaomk7uxy"]
 
+[ext_resource type="Resource" uid="uid://cdite1myf5k0a" path="res://Resource/PickupsGems/Little_Mouth_Head.tres" id="1_4crm8"]
 [ext_resource type="Script" uid="uid://crpyfqk4iuv0w" path="res://scenes/EnemyType.cs" id="1_18qbq"]
-[ext_resource type="Resource" uid="uid://b7mkxqb1vojua" path="res://Resource/PickupsGems/blue_gem.tres" id="1_mx4tr"]
 [ext_resource type="Texture2D" uid="uid://cx5t0j4347gno" path="res://Sprite/Enemy/Little/Mouth/Walk/Little_Chaos_Mouth-Spritesheet.png" id="2_18qbq"]
-[ext_resource type="Resource" uid="uid://dkacp6agy8ll3" path="res://Resource/PickupsGems/green_gem.tres" id="2_aqvh6"]
 
 [resource]
 script = ExtResource("1_18qbq")
@@ -13,5 +12,5 @@ health = 50.0
 damage = 20.0
 speed = 50.0
 frames = 10
-drops = [ExtResource("1_mx4tr"), ExtResource("2_aqvh6")]
+drops = [ExtResource("1_4crm8")]
 metadata/_custom_type_script = "uid://crpyfqk4iuv0w"

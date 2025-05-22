@@ -5,13 +5,16 @@ using System.Collections.Generic;
 public partial class Options : VBoxContainer
 {
 	#region Attributes
-
-	
-
 	// Preload the option slot 
 	private PackedScene OptionSlot = GD.Load<PackedScene>("res://scenes/option_slot.tscn");
+
+	[Export]
+	private GpuParticles2D particles;
+
+	[Export]
+	private NinePatchRect panel;
 	#endregion
-	
+
 	#region Setters / Getters
 	// Variable to store weapon container
 	[Export]
@@ -26,18 +29,25 @@ public partial class Options : VBoxContainer
 		}
 	}
 	#endregion
-	#region Methods
+	#region Ready
 
 	// When the game starts, hide the option slot
 	public override void _Ready()
 	{
+		// Hide things when enter the game
 		Hide();
+		particles.Hide();
+		panel.Hide();
 	}
+	#endregion
+	#region Methods
 
 	// Hide the option slot and resume to the scene tree (called by OptionSlot)
 	public void close_options()
 	{
 		Hide();
+		particles.Hide();
+		panel.Hide();
 		GetTree().Paused = false;
 	}
 
@@ -51,7 +61,7 @@ public partial class Options : VBoxContainer
 				weapon_resource.Add(w); // /!\ maybe a problem here
 			}
 		}
-		GD.PrintErr("weapons are " + weapon_resource.Count);
+		// GD.PrintErr("weapons are " + weapon_resource.Count);
 		return weapon_resource;
 	}
 
@@ -96,6 +106,10 @@ public partial class Options : VBoxContainer
 		}
 
 		Show();
+
+		// show that while showing options
+		particles.Show();
+		panel.Show();
 		GetTree().Paused = true; // pause the game
 	}
 	#endregion

@@ -5,7 +5,7 @@ using System.Numerics;
 
 public partial class Enemy : CharacterBody2D
 {
-	#region  attributes
+	#region  Attributes
 
 	// Type of the enemy.
 	private EnemyType type;
@@ -108,7 +108,7 @@ public partial class Enemy : CharacterBody2D
 
 	#endregion
 
-	#region methods
+	#region Ready and Physics Process
 
 	// Called when the enemy is added to the scene.
 	// Link the sprite2D at this time and set the texture frames and shaders.
@@ -125,6 +125,9 @@ public partial class Enemy : CharacterBody2D
 		_sprite2D.Texture = type.texture;
 		_sprite2D.Hframes = type.frames;
 
+		//get the caracteristics of a non-elite mob
+		EnemyType NormalType = this.type;
+
 		if (!_elite)
 		{
 			// Set the shader for the sprite2D.
@@ -134,7 +137,9 @@ public partial class Enemy : CharacterBody2D
 			// Scale the enemy accordingly.
 			_sprite2D.Scale = new Godot.Vector2(2f, 2f);
 			_collisionShape2D.Scale = new Godot.Vector2(2f, 2f);
+			
 		}
+
 		else if (_elite)
 		{
 			// Set the shader for the sprite2D.
@@ -157,6 +162,10 @@ public partial class Enemy : CharacterBody2D
 		check_separation(delta);
 		knockback_update(delta);
 	}
+	#endregion
+
+	
+	#region Methods
 
 	/// <summary>
 	/// Manage the sprite : animation of the enemy and the sprite flipping.

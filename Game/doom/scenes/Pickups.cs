@@ -3,17 +3,17 @@ using System;
 
 public partial class Pickups : Area2D
 {
-    #region attributes
+    #region Attributes
     public bool can_follow = false;
 
     public Vector2 direction;
-    public float speed = 175;
+    public float speed = 1000;
 
     [Export]
     public PickupResource type;
 
     #endregion
-    #region setters
+    #region Setters / Getters
 
     [Export]
     public CharacterBody2D _player_reference;
@@ -40,15 +40,18 @@ public partial class Pickups : Area2D
     }
 
     #endregion
-    #region methods
+    #region Ready and Physics Process
 
     public override void _Ready()
     {
         var sprite2D = GetNode<Sprite2D>("Sprite2D");
+        var collisionShape2D = GetNode <CollisionShape2D>("CollisionShape2D");
 
         if (type != null)
         {
             sprite2D.Texture = type.Icon;
+            sprite2D.Scale = new Godot.Vector2(3f, 3f); // upscale the sprite of the resource
+            collisionShape2D.Scale = new Godot.Vector2(5f, 5f); // upscale the collision shape of the resource so the player needs to be less closer to pick it up
         }
         else
         {
@@ -64,7 +67,9 @@ public partial class Pickups : Area2D
             Position += direction * speed * (float)delta;
         }
     }
+    #endregion
 
+    #region Methods
     public void follow(CharacterBody2D _target)
     {
         player_reference = _target;

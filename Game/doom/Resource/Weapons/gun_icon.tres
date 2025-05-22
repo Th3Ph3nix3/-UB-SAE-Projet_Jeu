@@ -8,7 +8,7 @@
 script = ExtResource("2_dw5uh")
 title = "gun"
 texture = ExtResource("3_h2kok")
-damage = 10.0
+damage = 1000.0
 cooldown = 0.25
 speed = 1000.0
 projectile_node = ExtResource("1_n7vpy")

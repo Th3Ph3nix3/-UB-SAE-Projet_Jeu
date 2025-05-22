@@ -51,6 +51,7 @@ public partial class Options : VBoxContainer
 				weapon_resource.Add(w); // /!\ maybe a problem here
 			}
 		}
+		GD.PrintErr("weapons are " + weapon_resource.Count);
 		return weapon_resource;
 	}
 
@@ -76,18 +77,19 @@ public partial class Options : VBoxContainer
 			slot.QueueFree(); // if there is any weapons, then remove previous ones
 		}
 
-
 		var option_size = 0; // to store how many options are getting added
-		foreach (Weapon weapon in available_weapons)
+		foreach (Slot Slots in available_weapons)
 		{
-			if (weapon.is_upgradable())
+			if (Slots.weapon.is_upgradable())
 			{
 				var optionSlot = (OptionSlot)OptionSlot.Instantiate(); // instantiate the option slot
-				optionSlot.weapon = weapon; // set the weapon to the option slot
+				optionSlot.weapon = Slots.weapon; // set the weapon to the option slot
+				optionSlot.options = this; // set the options to the option slot so it can call the close_options function
 				AddChild(optionSlot); // add the option slot to the scene
 				option_size++;
 			}
 		}
+
 		if (option_size == 0)
 		{
 			return; // if none of the weapons can be upgraded, return

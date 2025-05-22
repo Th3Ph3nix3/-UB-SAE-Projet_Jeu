@@ -7,10 +7,11 @@
 
 [sub_resource type="Resource" id="Resource_dw5uh"]
 script = ExtResource("4_dw5uh")
-speed = 0.0
-damage = 2.0
-cooldown = -0.25
-description = "+2 damage, -0.25 cooldonw"
+speed = 10.0
+damage = 20.0
+cooldown = 0.0
+description = "TEST
+"
 metadata/_custom_type_script = "uid://bepkj1lt1n6nl"
 
 [resource]

@@ -29,10 +29,11 @@ public partial class OptionSlot : TextureButton
 			_weapon = value;
 
 			var label = GetNode<Label>("Label");
+			var description = GetNode<Label>("Description");
 
 			TextureNormal = value.texture;
-			//label.Text = "Lvl " + ToString(weapon.level + 1);
-
+			label.Text = "Lvl " + (weapon.level + 1).ToString();
+			description.Text = value.upgrades[value.level - 1].description;
 		}
 	}
 	#endregion
@@ -42,7 +43,8 @@ public partial class OptionSlot : TextureButton
 	{
 		if (inputEvent.IsActionPressed("click") == true)
 		{
-			options.close_options();
+			weapon.UpgradeItem(); // upgrade the weapon
+			options.close_options(); 
 		}
 	}
 

@@ -4,12 +4,25 @@ using System.Net.WebSockets;
 
 public partial class Slot : PanelContainer
 {
-	#region attributes	
-	[Export]
-	public Weapon _weapon;
+	#region attributes
 
 	public TextureRect tex;
 	public Timer Cooldown;
+	#endregion
+	#region setters / getters
+		
+	[Export]
+	public Weapon _weapon;
+	public Weapon weapon
+	{
+		get => _weapon;
+		set
+		{
+			_weapon = value;
+			tex.Texture = value.texture; // updating texturect and wait time for the timer
+			Cooldown.WaitTime = value.cooldown; // cooldown until weapon can be used
+		}
+	}
 	#endregion
 	#region methods
 
@@ -24,16 +37,6 @@ public partial class Slot : PanelContainer
 		}
 	}
 
-	public Weapon weapon
-	{
-		get => _weapon;
-		set
-		{
-			_weapon = value;
-			tex.Texture = value.texture; // updating texturect and wait time for the timer
-			Cooldown.WaitTime = value.cooldown; // cooldown until weapon can be used
-		}
-	}
 
 	public void _on_cooldown_timeout() {
 		if (weapon != null) {

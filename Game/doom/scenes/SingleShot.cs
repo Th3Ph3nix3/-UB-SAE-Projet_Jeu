@@ -29,5 +29,22 @@ public partial class SingleShot : Weapon
     {
         shoot(source, target, scene_tree); // call the shoot method
     }
+
+    public override void UpgradeItem()
+    {
+        if (!is_upgradable())
+        {
+            return; // if the weapon can't be upgraded, return
+        }
+
+        ProjectileUpgrade CurrentUpgrades = upgrades[level - 1];
+
+        // Upgrading the weapon stats
+        damage += CurrentUpgrades.damage;
+        cooldown += CurrentUpgrades.cooldown;
+        speed += CurrentUpgrades.speed;
+
+        level++; // increase the level of the weapon
+    }
     #endregion
 }

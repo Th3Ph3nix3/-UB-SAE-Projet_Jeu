@@ -151,6 +151,7 @@ public partial class PlayerControl : CharacterBody2D
 		xpBar = GetNode<TextureProgressBar>("UI/XP"); // xp
 		LevelLabel = GetNode<Label>("UI/XP/Level"); // level
 		options = (Options)GetNode<VBoxContainer>("UI/Options"); // options
+		options.weapons = GetNode<HBoxContainer>("UI/Weapons"); // weapons
 	}
 	#endregion
 	#endregion

@@ -282,15 +282,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -179.5
-offset_top = -118.5
-offset_right = 179.5
-offset_bottom = 118.5
+offset_left = -179.0
+offset_top = -163.0
+offset_right = 180.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 5
-size_flags_stretch_ratio = 10.0
+size_flags_stretch_ratio = 12.17
 theme_override_constants/separation = 30
 
 [node name="StartButton" type="Button" parent="PauseMenu/VBoxContainer"]
@@ -319,7 +319,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rmc8r")
 text = "OPTIONS"
 
-[node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
@@ -332,10 +332,24 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b3q0q")
 text = "BACK TO MENU"
 
+[node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3q0q")
+text = "RAGE QUIT"
+
 [connection signal="pressed" from="CharacterBody2D/UI/Button" to="PauseManager" method="_on_pause_pressed"]
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="CharacterBody2D/Magnet" to="CharacterBody2D" method="_on_magnet_area_entered"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/StartButton" to="PauseManager" method="_on_return_game_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsButton" to="PauseManager" method="_on_options_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/QuitButton" to="PauseManager" method="_on_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/MenuButton" to="PauseManager" method="_on_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/QuitButton" to="PauseManager" method="_on_quit_button_pressed"]

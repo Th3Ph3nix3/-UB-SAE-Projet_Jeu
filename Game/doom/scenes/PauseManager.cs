@@ -28,5 +28,13 @@ public partial class PauseManager : Node
 			GetTree().Paused = isPaused;
 		}
 	}
+	
+	
+	public void _on_pause_pressed()
+	{
+		isPaused = !isPaused;
 
+		EmitSignal(SignalName.GamePauseToggle, isPaused);
+		GetTree().Paused = isPaused;
+	}
 }

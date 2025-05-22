@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=26 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -19,6 +19,35 @@ texture = ExtResource("1_438ep")
 
 [sub_resource type="TileSet" id="TileSet_3k31l"]
 sources/0 = SubResource("TileSetAtlasSource_kf3hw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evlki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i36tt"]
+bg_color = Color(0.32783, 0.0144033, 3.60981e-08, 0.886275)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy76y"]
+bg_color = Color(0.24786, 2.00043e-07, 0.0139801, 0.972549)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evlki"]
+bg_color = Color(0.662005, 1.00353e-05, 0.112996, 0.733333)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fgde"]
 size = Vector2(41.6407, 36.4175)
@@ -132,6 +161,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_dbjji")
 
+[node name="Button" type="Button" parent="CharacterBody2D/UI"]
+offset_left = 1814.0
+offset_top = 15.0
+offset_right = 1886.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_evlki")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i36tt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qy76y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_evlki")
+icon = ExtResource("9_fdjp8")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(5.8919, 4.06805)
 rotation = -0.000617942
@@ -178,14 +219,6 @@ collision_mask = 4
 position = Vector2(5.90313, 4.05641)
 shape = SubResource("CircleShape2D_8fgde")
 
-[node name="Pause" type="Button" parent="CharacterBody2D"]
-offset_left = 1709.0
-offset_top = -83.0
-offset_right = 1788.0
-offset_bottom = -8.0
-rotation = 0.00871314
-icon = ExtResource("9_fdjp8")
-
 [node name="PauseManager" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("10_ran1e")
@@ -195,10 +228,13 @@ process_mode = 2
 script = ExtResource("4_evlki")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
-offset_right = 1901.0
-offset_bottom = 1200.0
+offset_left = -61.0
+offset_top = -46.0
+offset_right = 1960.0
+offset_bottom = 1242.0
 color = Color(0.286685, 1.04684e-06, 0.0228017, 0.501961)
 
+[connection signal="pressed" from="CharacterBody2D/UI/Button" to="PauseManager" method="_on_pause_pressed"]
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="CharacterBody2D/Magnet" to="CharacterBody2D" method="_on_magnet_area_entered"]

@@ -40,9 +40,6 @@ public partial class PlayerControl : CharacterBody2D
 			_level = value;
 			if (LevelLabel != null)
 				LevelLabel.Text = "Lvl " + value;
-			// GD.PrintErr("level label is" + LevelLabel);
-
-			// GD.PrintErr("options is " + options.GetType());
 			options.show_options(); // Show option menu when level up
 
 			if (xpBar != null)
@@ -151,7 +148,6 @@ public partial class PlayerControl : CharacterBody2D
 		xpBar = GetNode<TextureProgressBar>("UI/XP"); // xp
 		LevelLabel = GetNode<Label>("UI/XP/Level"); // level
 		options = (Options)GetNode<VBoxContainer>("UI/Options"); // options
-		options.weapons = GetNode<HBoxContainer>("UI/Weapons"); // weapons
 	}
 	#endregion
 	#endregion

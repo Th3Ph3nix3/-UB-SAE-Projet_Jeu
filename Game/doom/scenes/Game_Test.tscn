@@ -248,7 +248,7 @@ offset_right = 608.0
 offset_bottom = 43.0
 text = "Lvl 1"
 
-[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("particles", "panel", "_weapons")]
+[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_weapons")]
 unique_name_in_owner = true
 process_mode = 3
 anchors_preset = 8
@@ -263,8 +263,6 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_dbjji")
-particles = NodePath("../Particles")
-panel = NodePath("../Panel")
 _weapons = NodePath("../Weapons")
 
 [node name="Button" type="Button" parent="CharacterBody2D/UI"]

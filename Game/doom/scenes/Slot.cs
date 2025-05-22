@@ -8,7 +8,9 @@ public partial class Slot : PanelContainer
 
 	public TextureRect tex;
 	public Timer Cooldown;
+
 	#endregion
+
 	#region setters / getters
 		
 	[Export]
@@ -19,17 +21,19 @@ public partial class Slot : PanelContainer
 		set
 		{
 			_weapon = value;
-			tex.Texture = value.texture; // updating texturect and wait time for the timer
-			Cooldown.WaitTime = value.cooldown; // cooldown until weapon can be used
+			tex.Texture = value.Texture; // updating texturect and wait time for the timer
+			this.Cooldown.WaitTime = value.Cooldown; // cooldown until weapon can be used
 		}
 	}
+
 	#endregion
+
 	#region methods
 
 	public override void _Ready()
 	{
 		tex = GetNode<TextureRect>("TextureRect");
-		Cooldown = GetNode<Timer>("Cooldown");
+		this.Cooldown = GetNode<Timer>("Cooldown");
 
 		if (weapon != null)
 		{
@@ -40,12 +44,13 @@ public partial class Slot : PanelContainer
 
 	public void _on_cooldown_timeout() {
 		if (weapon != null) {
-			Cooldown.WaitTime = weapon.cooldown;
+			this.Cooldown.WaitTime = weapon.Cooldown;
 
-			var ownerPlayer = GetParent().GetParent().GetParent() as PlayerControl; // cast Owner as PlayerControl (usualy type Node)
+			PlayerControl ownerPlayer = GetParent().GetParent().GetParent() as PlayerControl; // cast Owner as PlayerControl (usualy type Node)
 			if (ownerPlayer == null) {
 				GD.Print("ownerplayer is null or have not been casted in a good way"); // print error message
 			}
+			
 			weapon.Activate(ownerPlayer, ownerPlayer.nearest_enemy, GetTree()); // func is defined like that : public void activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree)
 		}
 	}

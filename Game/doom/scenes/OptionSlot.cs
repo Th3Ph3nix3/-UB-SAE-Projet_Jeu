@@ -31,9 +31,9 @@ public partial class OptionSlot : TextureButton
 			var label = GetNode<Label>("Label");
 			var description = GetNode<Label>("Description");
 
-			TextureNormal = value.texture;
-			label.Text = "Lvl " + (weapon.level + 1).ToString();
-			description.Text = value.upgrades[value.level - 1].description;
+			TextureNormal = value.Texture;
+			label.Text = "Lvl " + (weapon.Level + 1).ToString();
+			description.Text = value.Upgrades[value.Level - 1].description;
 		}
 	}
 	#endregion

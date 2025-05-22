@@ -6,37 +6,125 @@ using System.Xml.Resolvers;
 public abstract partial class Weapon : Resource
 {
 	#region attributes
-	[Export]
-	public string title; // name of the weapon
 
+	/// <summary>
+	/// Title of the weapon.
+	/// </summary>
 	[Export]
-	public Texture2D texture; // icon of the weapon
+	private string _title;
 
-	// properties of the projectile / ! \ to change those values, double click on .tres file on the inspector and directly change in Godot
+	/// <summary>
+	/// Texture of the weapon.
+	/// </summary>
 	[Export]
-	public float damage; // damage of the projectile
-	[Export]
-	public float cooldown; // cooldown until next projectile
-	[Export]
-	public float speed; // speed of the projectile
+	private Texture2D _texture;
 
-	[Export]
-	public PackedScene projectile_node = GD.Load<PackedScene>("res://scenes/projectile.tscn"); // scene of the projectile
+	// Properties of the projectile / ! \
+	// To change those values, double click on .tres file on the inspector and directly change in Godot
+	#region projectile properties
 
+	/// <summary>
+	/// Damage of the projectile.
+	/// </summary>
 	[Export]
-	public ProjectileUpgrade[] upgrades = Array.Empty<ProjectileUpgrade>(); // Array of upgrades for the weapon
+	private float _damage;
 
-	public int level = 1; // level of the weapon
+	/// <summary>
+	/// Cooldown of the weapon before it shoots again.
+	/// </summary>
+	[Export]
+	private float _cooldown;
+
+	/// <summary>
+	/// Speed of the projectile.
+	/// </summary>
+	[Export]
+	private float _speed;
+
+	/// <summary>
+	/// Level of the weapon.
+	/// </summary>
+	private int _level = 1;
 
 	#endregion
-	#region methods
-	public abstract void Activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree); // abstract method, overriden in SingleShot.cs
-	public bool is_upgradable()
+
+	/// <summary>
+	/// Load the packedScene of the projectile to display it.
+	/// </summary>
+	[Export]
+	private PackedScene _projectile_node = GD.Load<PackedScene>("res://scenes/projectile.tscn");
+
+	/// <summary>
+	/// Array containing the upgrade path, each index per level, for the weapon.
+	/// </summary>
+	[Export]
+	private ProjectileUpgrade[] _upgrades = Array.Empty<ProjectileUpgrade>();
+
+	#endregion
+
+	#region Getter / Setter
+
+	public string Title
 	{
-		return level <= upgrades.Length; // check if the weapon can be upgraded
+		get => _title;
+	}
+	public Texture2D Texture
+	{
+		get => _texture;
+	}
+	public float Damage
+	{
+		get => _damage;
+		set => _damage = value;
+	}
+	public float Cooldown
+	{
+		get => _cooldown;
+		set => _cooldown = value;
+	}
+	public float Speed
+	{
+		get => _speed;
+		set => _speed = value;
+	}
+	public int Level
+	{
+		get => _level;
+		set => _level = value;
+	}
+	public PackedScene Projectile_node
+	{
+		get => _projectile_node;
+	}
+	public ProjectileUpgrade[] Upgrades
+	{
+		get => _upgrades;
 	}
 
-	public abstract void UpgradeItem(); // abstract method, overriden in SingleShot.cs
+	#endregion
+
+	#region methods
+
+	/// <summary>
+	/// Overriden in SingleShot.cs
+	/// </summary>
+	/// <param name="_source">The source of the shot</param>
+	/// <param name="_target">The target of the shot</param>
+	public abstract void Activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree);
+
+	/// <summary>
+	/// To know if the weapon have still an upgrade
+	/// </summary>
+	/// <returns>True if yes, False if no</returns>
+	public bool is_upgradable()
+	{
+		return Level <= Upgrades.Length; // check if the weapon can be upgraded
+	}
+
+	/// <summary>
+	/// overriden in SingleShot.cs
+	/// </summary>
+	public abstract void UpgradeItem();
 
 	#endregion
 }

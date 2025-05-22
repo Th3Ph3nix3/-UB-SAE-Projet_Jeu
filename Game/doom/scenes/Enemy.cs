@@ -7,39 +7,99 @@ public partial class Enemy : CharacterBody2D
 {
 	#region  Attributes
 
-	// Type of the enemy.
+	/// <summary>
+	/// Type of the enemy.
+	/// </summary>
 	private EnemyType type;
 
-	// Base stats shared by all enemies.
+	#region Base stats
+
+	/// <summary>
+	/// Health of the enemy. If it reaches 0, the enemy is removed from the scene.
+	/// </summary>
 	private float _health;
+
+	/// <summary>
+	/// Speed of the enemy.
+	/// </summary>
 	private float _speed;
+
+	/// <summary>
+	/// Damage of the enemy.
+	/// </summary>
 	private float _damage;
+
+	#endregion
+
+	/// <summary>
+	/// True if the enemy is an elite enemy, false otherwise.
+	/// </summary>
 	private bool _elite = false;
 
-	// Attributes used to determine the movement of the enemy.
+	#region Displacement
+
+	/// <summary>
+	/// Current direction and force of the enemy.
+	/// </summary>
 	private Godot.Vector2 _direction;
+
+	/// <summary>
+	/// Current direction and force of the knockback applied to this enemy.
+	/// </summary>
 	private Godot.Vector2 _knockback;
+
+	/// <summary>
+	/// Distance between the enemy and the player.
+	/// </summary>
 	private float _separation;
 
-	// Attributes used to parameter the animation of the enemy.
+	#endregion
+
+	#region animation
+
+	/// <summary>
+	/// Time since the last animation frame.
+	/// </summary>
 	private float _duration = 0;
+
+	/// <summary>
+	/// Frames per second of the animation.
+	/// </summary>
 	private int _fps = 10;
 
-	// Reference to the player it chase.
+	#endregion
+
+	#region Node/Scene
+
+	/// <summary>
+	/// Reference to the player it chase.
+	/// </summary>
 	[Export]
 	private CharacterBody2D _player_reference;
 
-	// Link the enemy to its Sprite2D and CollisionShape2D nodes.
+	/// <summary>
+	/// Link the sprite2D to the enemy.
+	/// </summary>
 	[Export]
 	private Sprite2D _sprite2D;
+
+	/// <summary>
+	/// Link the collision shape to the enemy.
+	/// </summary>
 	[Export]
 	private CollisionShape2D _collisionShape2D;
 
-	// Load the scene of the damage popup.
+	/// <summary>
+	/// Load the scene of the damage popup.
+	/// </summary>
 	private PackedScene _damage_popup_node = GD.Load<PackedScene>("res://scenes/damage.tscn");
 
-	// Load the scene of the pickups items.
+	/// <summary>
+	/// Load the scene of the pickups items.
+	/// </summary>
 	private PackedScene _dropScene = GD.Load<PackedScene>("res://scenes/pickups.tscn");
+
+	#endregion
 
 	#endregion
 
@@ -88,7 +148,6 @@ public partial class Enemy : CharacterBody2D
 			_elite = value;
 		}
 	}
-
 	public Godot.Vector2 Knockback
 	{
 		get => _knockback;
@@ -99,7 +158,6 @@ public partial class Enemy : CharacterBody2D
 		get => _separation;
 		set => _separation = value;
 	}
-
 	public CharacterBody2D Player_reference
 	{
 		get => _player_reference;
@@ -110,8 +168,10 @@ public partial class Enemy : CharacterBody2D
 
 	#region Ready and Physics Process
 
-	// Called when the enemy is added to the scene.
-	// Link the sprite2D at this time and set the texture frames and shaders.
+	/// <summary>
+	/// Called when the enemy is added to the scene.
+	/// Link the sprite2D at this time and set the texture frames and shaders.
+	/// </summary>
 	public override void _Ready()
 	{
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
@@ -139,8 +199,7 @@ public partial class Enemy : CharacterBody2D
 			_collisionShape2D.Scale = new Godot.Vector2(2f, 2f);
 			
 		}
-
-		else if (_elite)
+		else
 		{
 			// Set the shader for the sprite2D.
 			var matRainbow = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
@@ -152,7 +211,11 @@ public partial class Enemy : CharacterBody2D
 		}
 	}
 
-	// Called every frame.
+	/// <summary>
+	/// Each frame, update the velocity of the enemy to move toward the player,
+	/// the animation of the enemy, the separation between the enemy and the player and
+	/// the knockback state.
+	/// </summary>
 	public override void _PhysicsProcess(double delta)
 	{
 		// Update the mouvement of the enemy.
@@ -164,7 +227,6 @@ public partial class Enemy : CharacterBody2D
 	}
 	#endregion
 
-	
 	#region Methods
 
 	/// <summary>
@@ -212,7 +274,7 @@ public partial class Enemy : CharacterBody2D
 			QueueFree(); // free memory by destroying the mob
 		}
 
-		var player = Player_reference as PlayerControl; // cast player_reference
+		PlayerControl player = Player_reference as PlayerControl; // cast player_reference
 
 		if (Separation < player.nearest_enemy_distance) // updating nearest_enemy of player
 		{

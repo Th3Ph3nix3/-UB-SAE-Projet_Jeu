@@ -3,7 +3,20 @@ using System;
 
 public partial class OptionSlot : TextureButton
 {
-	#region setters
+	#region Attributes
+	private Options _options;
+
+	#endregion
+	#region Setters / Getters
+
+	public Options options
+	{
+		get => _options;
+		set
+		{
+			_options = value;
+		}
+	}
 
 	[Export]
 	public Weapon _weapon;
@@ -23,15 +36,15 @@ public partial class OptionSlot : TextureButton
 		}
 	}
 	#endregion
-	#region methods
+	#region Methods
 
-	// public void _on_gui_input(InputEvent inputEvent){
-	// 	if (inputEvent.IsActionPressed("click") == true && weapon != null)
-	// 	{
-	// 		GD.Print(weapon.title);
-	// 		GetParent().;
-	// 	}
-	// }
+	public void _on_gui_input(InputEvent inputEvent)
+	{
+		if (inputEvent.IsActionPressed("click") == true)
+		{
+			options.close_options();
+		}
+	}
 
 
 	#endregion

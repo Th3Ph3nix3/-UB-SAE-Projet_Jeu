@@ -11,13 +11,14 @@ public partial class PlayerControl : CharacterBody2D
 	private ProgressBar healthBar;
 	private int total_XP = 0;
 	private Label LevelLabel;
+	private Options options;
 	public TextureProgressBar xpBar;
 	public Enemy nearest_enemy;
 	public float nearest_enemy_distance = float.PositiveInfinity; // float.PositiveInfinity est la représentation de l'infini
 
 
 	#endregion
-	#region setters
+	#region Setters / Getters
 	public int _XP = 0;
 	public int XP
 	{
@@ -39,6 +40,10 @@ public partial class PlayerControl : CharacterBody2D
 			_level = value;
 			if (LevelLabel != null)
 				LevelLabel.Text = "Lvl " + value;
+			GD.PrintErr("level label is" + LevelLabel);
+
+			GD.PrintErr("options is " + options.GetType());
+			options.show_options(); // Show option menu when level up
 
 			if (xpBar != null)
 			{
@@ -116,12 +121,12 @@ public partial class PlayerControl : CharacterBody2D
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down"); // moves of the player
 		Velocity = inputDirection * Speed;
 
-		if (Input.IsActionPressed("esc"))
-		{
+	if (Input.IsActionPressed("esc")) {
 			GetTree().Quit();
 		}
 	}
 
+	#region Physics Process() and Ready()
 	public override void _PhysicsProcess(double delta)
 	{
 		if (IsInstanceValid(nearest_enemy))
@@ -145,6 +150,8 @@ public partial class PlayerControl : CharacterBody2D
 		healthBar = GetNode<ProgressBar>("Health"); // health
 		xpBar = GetNode<TextureProgressBar>("UI/XP"); // xp
 		LevelLabel = GetNode<Label>("UI/XP/Level"); // level
+		options = (Options)GetNode<VBoxContainer>("UI/Options"); // options
 	}
+	#endregion
 	#endregion
 }

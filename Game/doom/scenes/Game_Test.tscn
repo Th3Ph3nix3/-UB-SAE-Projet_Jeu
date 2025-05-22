@@ -1,14 +1,16 @@
-[gd_scene load_steps=20 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=22 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
 [ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://scenes/spawner.tscn" id="2_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://deh4ri5a0tcj3" path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" id="3_kf3hw"]
+[ext_resource type="Script" uid="uid://du8q5edxxuhd8" path="res://scenes/ToggleVisibilityOnPause.cs" id="4_evlki"]
 [ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://scenes/Slot.tscn" id="4_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
 [ext_resource type="Script" uid="uid://cggoyeqmcuocv" path="res://scenes/Options.cs" id="7_dbjji"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
+[ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -86,6 +88,8 @@ position = Vector2(100, 107)
 script = ExtResource("2_438ep")
 
 [node name="UI" type="CanvasLayer" parent="CharacterBody2D"]
+process_mode = 1
+script = ExtResource("4_evlki")
 
 [node name="Weapons" type="HBoxContainer" parent="CharacterBody2D/UI"]
 offset_left = 86.0
@@ -181,6 +185,19 @@ offset_right = 1788.0
 offset_bottom = -8.0
 rotation = 0.00871314
 icon = ExtResource("9_fdjp8")
+
+[node name="PauseManager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("10_ran1e")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 2
+script = ExtResource("4_evlki")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+offset_right = 1901.0
+offset_bottom = 1200.0
+color = Color(0.286685, 1.04684e-06, 0.0228017, 0.501961)
 
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

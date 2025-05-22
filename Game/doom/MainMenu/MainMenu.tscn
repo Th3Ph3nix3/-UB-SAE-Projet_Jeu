@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ku7riwone0r5"]
+[gd_scene load_steps=12 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
 [ext_resource type="Texture2D" uid="uid://pvcomq2ygtov" path="res://MainMenu/menu_background.jpg" id="1_cruaa"]
@@ -10,17 +10,8 @@ modulate_color = Color(0.370364, 0.370364, 0.370364, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_430ii"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cruaa"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0.34902, 0, 0, 1)
-shadow_size = 14
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlc1t"]
-bg_color = Color(0.337255, 0, 0, 1)
+bg_color = Color(0.403903, 7.64076e-07, 2.40654e-08, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -29,17 +20,35 @@ shadow_color = Color(0.34902, 0, 0, 1)
 shadow_size = 14
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b76km"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.282353, 0.0392157, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-shadow_color = Color(0.34902, 0, 0, 1)
+shadow_color = Color(0.282353, 0.0392157, 0, 1)
 shadow_size = 14
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbqne"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbqne"]
+bg_color = Color(0.282353, 0.0392157, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.282353, 0.0392157, 0, 1)
+shadow_size = 14
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b76km"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_430ii"]
+bg_color = Color(0.282353, 0.0392157, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.282353, 0.0392157, 0, 1)
+shadow_size = 14
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(575.8, 323.75)
@@ -79,14 +88,11 @@ theme_override_constants/separation = 30
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_b76km")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_430ii")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cruaa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b76km")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
@@ -95,32 +101,26 @@ text = "START NIGHTMARES"
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_b76km")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lbqne")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mlc1t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbqne")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_b76km")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b76km")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mlc1t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_430ii")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
 text = "RAGE QUIT"
 

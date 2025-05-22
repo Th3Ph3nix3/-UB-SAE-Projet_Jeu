@@ -16,25 +16,44 @@ public partial class PauseManager : Node
 		Instance = this;
 	}
 
-	public override void _Input(InputEvent @event)
-	{
-		if (@event is InputEventKey inputEventKey && inputEventKey.Pressed)
-		{
-			if (inputEventKey.Keycode != Key.Escape) return;
-
-			isPaused = !isPaused;
-
-			EmitSignal(SignalName.GamePauseToggle, isPaused);
-			GetTree().Paused = isPaused;
-		}
-	}
-	
-	
 	public void _on_pause_pressed()
 	{
 		isPaused = !isPaused;
 
 		EmitSignal(SignalName.GamePauseToggle, isPaused);
 		GetTree().Paused = isPaused;
+	}
+
+	public void _on_return_game_pressed()
+	{
+		isPaused = !isPaused;
+
+		EmitSignal(SignalName.GamePauseToggle, isPaused);
+		GetTree().Paused = isPaused;
+	}
+
+	public void _on_options_pressed()
+	{
+		// isPaused = !isPaused;
+
+		// EmitSignal(SignalName.GamePauseToggle, isPaused);
+		// GetTree().Paused = isPaused;
+
+		GD.Print("option pressed");
+	}
+
+	public void _on_menu_pressed()
+	{
+		isPaused = !isPaused;
+
+		EmitSignal(SignalName.GamePauseToggle, isPaused);
+		GetTree().Paused = isPaused;
+
+		GetTree().ChangeSceneToFile("res://MainMenu/MainMenu.tscn");
+	}
+
+	public void _on_quit_button_pressed()
+	{
+		GetTree().Quit();
 	}
 }

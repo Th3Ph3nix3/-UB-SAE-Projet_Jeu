@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=34 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
+[ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -94,6 +95,48 @@ size = Vector2(42.0396, 37.455)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8fgde"]
 radius = 57.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qy76y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4ekd"]
+bg_color = Color(0.403903, 7.64076e-07, 2.40654e-08, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.4, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvonm"]
+bg_color = Color(0.282353, 0.0392157, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.282353, 0.0392157, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3q0q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmc8r"]
+bg_color = Color(0.403903, 7.64076e-07, 2.40654e-08, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.4, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdwmh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3q0q"]
+bg_color = Color(0.403903, 7.64076e-07, 2.40654e-08, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.4, 0, 0, 1)
+shadow_size = 14
+
 [node name="Node2D" type="Node2D"]
 rotation = -0.00992376
 
@@ -118,7 +161,6 @@ script = ExtResource("2_438ep")
 
 [node name="UI" type="CanvasLayer" parent="CharacterBody2D"]
 process_mode = 1
-script = ExtResource("4_evlki")
 
 [node name="Weapons" type="HBoxContainer" parent="CharacterBody2D/UI"]
 offset_left = 86.0
@@ -234,7 +276,66 @@ offset_right = 1960.0
 offset_bottom = 1242.0
 color = Color(0.286685, 1.04684e-06, 0.0228017, 0.501961)
 
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -118.5
+offset_right = 179.5
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+size_flags_stretch_ratio = 10.0
+theme_override_constants/separation = 30
+
+[node name="StartButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qy76y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q4ekd")
+text = "RETURN TO HELL"
+
+[node name="OptionsButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3q0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rmc8r")
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3q0q")
+text = "BACK TO MENU"
+
 [connection signal="pressed" from="CharacterBody2D/UI/Button" to="PauseManager" method="_on_pause_pressed"]
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="CharacterBody2D/Magnet" to="CharacterBody2D" method="_on_magnet_area_entered"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/StartButton" to="PauseManager" method="_on_return_game_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsButton" to="PauseManager" method="_on_options_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/QuitButton" to="PauseManager" method="_on_menu_pressed"]

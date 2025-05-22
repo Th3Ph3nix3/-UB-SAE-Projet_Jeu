@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ku7riwone0r5"]
+[gd_scene load_steps=14 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
 [ext_resource type="Texture2D" uid="uid://pvcomq2ygtov" path="res://MainMenu/menu_background.jpg" id="1_cruaa"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_b76km"]
+[ext_resource type="Script" uid="uid://i67ebo1oh3jg" path="res://MainMenu/SettingsManager.cs" id="4_430ii"]
+[ext_resource type="Script" uid="uid://ch3e3p7t0asbt" path="res://MainMenu/ToggleVisibilityOnSettings.cs" id="5_3p42x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
 texture = ExtResource("1_cruaa")
@@ -60,8 +62,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -999.0
-offset_top = -581.0
+offset_left = -1015.0
+offset_top = -587.0
 offset_right = 970.0
 offset_bottom = 675.0
 grow_horizontal = 2
@@ -138,6 +140,54 @@ text = "SUBSISTENCE.IO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SettingsManager" type="Node" parent="."]
+script = ExtResource("4_430ii")
+
+[node name="SettingsMenu" type="CanvasLayer" parent="."]
+script = ExtResource("5_3p42x")
+
+[node name="ColorRect" type="ColorRect" parent="SettingsMenu"]
+offset_right = 1928.0
+offset_bottom = 1207.0
+color = Color(0.419, 0, 0.154, 0.856)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu"]
+offset_left = 766.0
+offset_top = 411.0
+offset_right = 1152.0
+offset_bottom = 671.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 23
+text = "RESOLUTION : "
+
+[node name="OptionButton" type="OptionButton" parent="SettingsMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuitButton" type="Button" parent="SettingsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b76km")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_430ii")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
+text = "TRY TO ESCAPE"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="SettingsManager" method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="item_selected" from="SettingsMenu/VBoxContainer/HBoxContainer/OptionButton" to="SettingsManager" method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="SettingsMenu/VBoxContainer/QuitButton" to="SettingsManager" method="_on_quit_button_pressed"]

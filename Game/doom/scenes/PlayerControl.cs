@@ -20,9 +20,11 @@ public partial class PlayerControl : CharacterBody2D
 	#endregion
 	#region Setters / Getters
 	public int _XP = 0;
-	public int XP {
+	public int XP
+	{
 		get => _XP;
-		set {
+		set
+		{
 			_XP = value;
 			if (xpBar != null)
 				xpBar.Value = value;
@@ -30,9 +32,11 @@ public partial class PlayerControl : CharacterBody2D
 	}
 
 	private int _level = 1;
-	public int level {
+	public int level
+	{
 		get => _level;
-		set {
+		set
+		{
 			_level = value;
 			if (LevelLabel != null)
 				LevelLabel.Text = "Lvl " + value;
@@ -87,7 +91,8 @@ public partial class PlayerControl : CharacterBody2D
 		collision.SetDeferred("disabled", false);
 	}
 
-	public void Gain_XP(int amount) { // function to gain xp
+	public void Gain_XP(int amount)
+	{ // function to gain xp
 		XP += amount;
 		total_XP += amount;
 	}
@@ -116,7 +121,7 @@ public partial class PlayerControl : CharacterBody2D
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down"); // moves of the player
 		Velocity = inputDirection * Speed;
 
-		if (Input.IsActionPressed("esc")) {
+	if (Input.IsActionPressed("esc")) {
 			GetTree().Quit();
 		}
 	}

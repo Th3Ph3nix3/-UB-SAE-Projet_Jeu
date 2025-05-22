@@ -40,9 +40,9 @@ public partial class PlayerControl : CharacterBody2D
 			_level = value;
 			if (LevelLabel != null)
 				LevelLabel.Text = "Lvl " + value;
-			GD.PrintErr("level label is" + LevelLabel);
+			// GD.PrintErr("level label is" + LevelLabel);
 
-			GD.PrintErr("options is " + options.GetType());
+			// GD.PrintErr("options is " + options.GetType());
 			options.show_options(); // Show option menu when level up
 
 			if (xpBar != null)
@@ -132,7 +132,7 @@ public partial class PlayerControl : CharacterBody2D
 		if (IsInstanceValid(nearest_enemy))
 		{ // if the player is near an enemy
 			nearest_enemy_distance = nearest_enemy.Separation;
-			GD.Print(nearest_enemy.Name); // print the enemy name
+			// GD.Print(nearest_enemy.Name); // print the enemy name
 		}
 		else
 		{

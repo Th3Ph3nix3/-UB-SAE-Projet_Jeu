@@ -7,20 +7,19 @@
 
 [sub_resource type="Resource" id="Resource_dw5uh"]
 script = ExtResource("4_dw5uh")
-speed = 10.0
-damage = 20.0
-cooldown = 0.0
-description = "TEST
-"
+speed = 100.0
+damage = 2.0
+cooldown = -0.25
+description = "+100 Speed, +2 Damage, -0.25 Cooldown"
 metadata/_custom_type_script = "uid://bepkj1lt1n6nl"
 
 [resource]
 script = ExtResource("2_dw5uh")
 title = "gun"
 texture = ExtResource("3_h2kok")
-damage = 1000.0
+damage = 10.0
 cooldown = 0.75
 speed = 500.0
 projectile_node = ExtResource("1_n7vpy")
-upgrades = [SubResource("Resource_dw5uh")]
+upgrades = [SubResource("Resource_dw5uh"), null]
 metadata/_custom_type_script = "uid://dyxl55qf2eu1k"

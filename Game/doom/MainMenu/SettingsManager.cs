@@ -6,7 +6,7 @@ public partial class SettingsManager : Node
 	public static SettingsManager Instance { get; private set; }
 
 	private OptionButton dropDownMenu;
-
+	
 	[Signal]
 	public delegate void GameSettingsToggleEventHandler(bool inSettings);
 
@@ -16,7 +16,7 @@ public partial class SettingsManager : Node
 	public override void _Ready()
 	{
 		Instance = this;
-		AddItems();
+		// AddItems();
 	}
 
 	public void _on_options_pressed()
@@ -33,27 +33,27 @@ public partial class SettingsManager : Node
 		EmitSignal(SignalName.GameSettingsToggle, inSettings);
 	}
 
-	private void AddItems()
-	{
-		dropDownMenu.AddItem("1024x546");
-		dropDownMenu.AddItem("1280x720");
-		dropDownMenu.AddItem("1600x900");
-		dropDownMenu.AddItem("1920x1080");
-	}
+	// private void AddItems()
+	// {
+	// 	dropDownMenu.AddItem("1024x546");
+	// 	dropDownMenu.AddItem("1280x720");
+	// 	dropDownMenu.AddItem("1600x900");
+	// 	dropDownMenu.AddItem("1920x1080");
+	// }
 
-	public void _on_OptionButton_item_selected(long index)
-	{
-		var currentSelected = index;
-		// Récupérer la fenêtre courante
-		var window = GetWindow();
+	// public void _on_OptionButton_item_selected(long index)
+	// {
+	// 	var currentSelected = index;
+	// 	// Récupérer la fenêtre courante
+	// 	var window = GetWindow();
 
-		if (currentSelected == 0)
-			window.Size = new Vector2I(1024, 546);
-		if (currentSelected == 1)
-			window.Size = new Vector2I(1280, 720);
-		if (currentSelected == 2)
-			window.Size = new Vector2I(1600, 900);
-		if (currentSelected == 3)
-			window.Size = new Vector2I(1920, 1080);
-	}
+	// 	if (currentSelected == 0)
+	// 		window.Size = new Vector2I(1024, 546);
+	// 	if (currentSelected == 1)
+	// 		window.Size = new Vector2I(1280, 720);
+	// 	if (currentSelected == 2)
+	// 		window.Size = new Vector2I(1600, 900);
+	// 	if (currentSelected == 3)
+	// 		window.Size = new Vector2I(1920, 1080);
+	// }
 }

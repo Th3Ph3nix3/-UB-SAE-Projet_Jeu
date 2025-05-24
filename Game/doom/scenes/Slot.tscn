@@ -1,13 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkycldrf2b6a5"]
+[gd_scene load_steps=2 format=3 uid="uid://dkycldrf2b6a5"]
 
 [ext_resource type="Script" uid="uid://cxp5peip4w0lc" path="res://scenes/Slot.cs" id="1_otx1m"]
-[ext_resource type="Resource" uid="uid://ctxx47ayg26pp" path="res://Resource/Weapons/gun_icon.tres" id="2_miv4b"]
 
 [node name="Slot" type="PanelContainer"]
 offset_right = 139.0
 offset_bottom = 132.0
 script = ExtResource("1_otx1m")
-_weapon = ExtResource("2_miv4b")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(40, 40)

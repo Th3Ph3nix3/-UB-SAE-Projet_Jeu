@@ -121,8 +121,9 @@ public partial class PlayerControl : CharacterBody2D
 		collision.SetDeferred("disabled", false);
 	}
 
+	// function to gain xp
 	public void Gain_XP(int amount)
-	{ // function to gain xp
+	{
 		XP += amount * growth;
 		total_XP += amount * growth;
 	}
@@ -151,7 +152,8 @@ public partial class PlayerControl : CharacterBody2D
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down"); // moves of the player
 		Velocity = inputDirection * movement_speed;
 
-	if (Input.IsActionPressed("esc")) {
+		if (Input.IsActionPressed("esc"))
+		{
 			GetTree().Quit();
 		}
 	}

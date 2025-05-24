@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=43 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -11,10 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://dfg84bayi867r" path="res://platformer_metroidvania asset pack v1.01/others_test/hell_background_panel.png" id="5_jvonm"]
 [ext_resource type="Script" uid="uid://cggoyeqmcuocv" path="res://scenes/Options.cs" id="7_dbjji"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
+[ext_resource type="PackedScene" uid="uid://dsiyt4q0jsk1x" path="res://scenes/option_slot.tscn" id="7_vdwmh"]
+[ext_resource type="Resource" uid="uid://ctxx47ayg26pp" path="res://Resource/Weapons/gun_icon.tres" id="8_b3q0q"]
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
-[ext_resource type="Script" uid="uid://yvaqg0cr3yrl" path="res://scenes/PassiveSlot.cs" id="12_q4ekd"]
+[ext_resource type="PackedScene" uid="uid://beaiaf2pkn8br" path="res://scenes/PassiveSlot.tscn" id="13_rmc8r"]
+[ext_resource type="Resource" uid="uid://cqhguypm6dnl5" path="res://Resource/PassiveItems/Recovery.tres" id="14_b3q0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -223,6 +226,13 @@ theme_override_fonts/font = ExtResource("12_i36tt")
 theme_override_font_sizes/font_size = 70
 text = "LEVEL UP"
 
+[node name="OptionSlot" parent="CharacterBody2D/UI/Panel" instance=ExtResource("7_vdwmh")]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 338.5
+offset_right = 1073.0
+offset_bottom = 378.5
+
 [node name="Weapons" type="HBoxContainer" parent="CharacterBody2D/UI"]
 offset_left = 86.0
 offset_top = 29.0
@@ -232,6 +242,7 @@ offset_bottom = 69.0
 [node name="Slot" parent="CharacterBody2D/UI/Weapons" instance=ExtResource("4_kf3hw")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+_weapon = ExtResource("8_b3q0q")
 
 [node name="XP" type="TextureProgressBar" parent="CharacterBody2D/UI"]
 unique_name_in_owner = true
@@ -250,7 +261,7 @@ offset_right = 608.0
 offset_bottom = 43.0
 text = "Lvl 1"
 
-[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_weapons")]
+[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_particles", "_panel", "_weapons")]
 unique_name_in_owner = true
 process_mode = 3
 anchors_preset = 8
@@ -265,6 +276,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_dbjji")
+_particles = NodePath("../Particles")
+_panel = NodePath("../Panel")
 _weapons = NodePath("../Weapons")
 
 [node name="Button" type="Button" parent="CharacterBody2D/UI"]
@@ -282,16 +295,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_evlki")
 icon = ExtResource("9_fdjp8")
 
 [node name="PassiveItems" type="HBoxContainer" parent="CharacterBody2D/UI"]
-offset_left = 643.0
-offset_top = 5.0
-offset_right = 683.0
-offset_bottom = 45.0
+offset_left = 628.0
+offset_top = 4.0
+offset_right = 668.0
+offset_bottom = 44.0
 
-[node name="PassiveSlot1" type="PanelContainer" parent="CharacterBody2D/UI/PassiveItems"]
-custom_minimum_size = Vector2(40, 40)
+[node name="PassiveSlot" parent="CharacterBody2D/UI/PassiveItems" instance=ExtResource("13_rmc8r")]
 layout_mode = 2
-script = ExtResource("12_q4ekd")
-metadata/_custom_type_script = "uid://yvaqg0cr3yrl"
+_item = ExtResource("14_b3q0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(5.8919, 4.06805)
@@ -346,6 +357,7 @@ script = ExtResource("10_ran1e")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 script = ExtResource("4_evlki")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]

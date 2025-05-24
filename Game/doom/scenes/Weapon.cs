@@ -3,7 +3,7 @@ using System;
 using System.Xml.Resolvers;
 
 [GlobalClass]
-public abstract partial class Weapon : Resource
+public abstract partial class Weapon : Item
 {
 	#region attributes
 

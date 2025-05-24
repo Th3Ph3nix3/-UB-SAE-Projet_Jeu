@@ -1,30 +1,43 @@
 using Godot;
 using System;
+using System.Net.WebSockets;
 
-[GlobalClass]
 public partial class PassiveSlot : PanelContainer
 {
+	#region attributes
+
+	public TextureRect tex;
+
+	#endregion
+
+	#region setters / getters
+		
 	[Export]
-	private PassiveItem _item; // store the passive item
-	private TextureRect texture;
-	public PassiveItem item
+	public Item _item;
+	public Item item
 	{
 		get => _item;
 		set
 		{
-			item = value;
-			texture.Texture = value.texture;
+			_item = value;
+			if (tex != null && value != null)
+				tex.Texture = value.texture;
 		}
 	}
+
+
+	#endregion
+
+	#region methods
 
 	public override void _Ready()
 	{
-		texture = GetNode<TextureRect>("TextureRect");
+		tex = GetNode<TextureRect>("TextureRect");
 
 		if (item != null)
 		{
-			item.player_reference = (PlayerControl)Owner;
+			tex.Texture = _item.texture; // activate setter
 		}
 	}
-
+	#endregion
 }

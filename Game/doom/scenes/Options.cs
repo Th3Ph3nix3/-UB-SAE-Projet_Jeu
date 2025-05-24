@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class Options : VBoxContainer
 {
@@ -10,6 +11,11 @@ public partial class Options : VBoxContainer
 	/// Preload the option slot.
 	/// </summary>
 	private PackedScene _optionSlot = GD.Load<PackedScene>("res://scenes/option_slot.tscn");
+
+	/// <summary>
+	/// Preload the passive slot.
+	/// </summary>
+	private PackedScene _passiveSlot = GD.Load<PackedScene>("res://scenes/PassiveSlot.tscn");
 
 	/// <summary>
 	/// To add particles in the background when a level up happen.
@@ -29,9 +35,12 @@ public partial class Options : VBoxContainer
 	[Export]
 	private HBoxContainer _weapons;
 
+	[Export]
+	private HBoxContainer passive_items;
+
 	#endregion
 
-	#region Ready
+	#region _Ready()
 
 	/// <summary>
 	/// Called when the node enters the scene tree for the first time.
@@ -42,6 +51,7 @@ public partial class Options : VBoxContainer
 		_weapons = GetNode<HBoxContainer>("../Weapons");
 		_particles = GetNode<GpuParticles2D>("../Particles");
 		_panel = GetNode<NinePatchRect>("../Panel");
+		passive_items = GetNode<HBoxContainer>("../PassiveItems");
 
 		// Hide things when enter the game
 		Hide();
@@ -64,22 +74,58 @@ public partial class Options : VBoxContainer
 		GetTree().Paused = false;
 	}
 
-	/// <summary>
-	/// Get the available weapons for upgrade
-	/// </summary>
-	/// <returns>List of the available weapons</returns>
-	public List<Slot> get_available_weapons()
+	public List<Slot> get_available_resource()
 	{
-		List<Slot> weapon_resource = new List<Slot>();
-		foreach (Slot w in _weapons.GetChildren())
+		List<Slot> resources = new List<Slot>();
+
+		foreach (Node child in passive_items.GetChildren())
 		{
-			if (w != null)
+			if (child is Slot slot && slot.weapon != null)
 			{
-				weapon_resource.Add(w);
+				resources.Add(slot);
 			}
 		}
+		return resources;
+	}
 
-		return weapon_resource;
+
+	public List<PassiveSlot> get_available_resource_slot()
+	{
+		List<PassiveSlot> pi = new List<PassiveSlot>();
+
+		foreach (PassiveSlot passiveSlot in passive_items.GetChildren())
+		{
+			if (passiveSlot.item != null)
+			{
+				pi.Add(passiveSlot);
+			}
+		}
+		return pi;
+	}
+	
+
+	public int add_options_weapon(Weapon weapon)
+	{
+		if (weapon.is_upgradable())
+		{
+			Slot option_slot = _optionSlot.Instantiate<Slot>();
+			option_slot.weapon = weapon;
+			AddChild(option_slot);
+			return 1;
+		}
+		return 0;
+	}
+
+	public int add_options_item(Item item)
+	{
+		if (item is PassiveItem passiveItem && passiveItem.is_upgradable())
+		{
+			PassiveSlot passiveSlot = _passiveSlot.Instantiate<PassiveSlot>();
+			passiveSlot.item = item;
+			AddChild(passiveSlot);
+			return 1;
+		}
+		return 0;
 	}
 
 	/// <summary>
@@ -88,8 +134,9 @@ public partial class Options : VBoxContainer
 	public void show_options()
 	{
 		// Get the available weapons
-		List<Slot> available_weapons = get_available_weapons();
-		if (available_weapons.Count == 0)
+		List<Slot> available_weapons = get_available_resource();
+		List<PassiveSlot> available_passive_item = get_available_resource_slot();
+		if (available_weapons.Count == 0 && available_passive_item.Count == 0)
 		{
 			// If there is no weapon to upgrade, return
 			return;
@@ -102,18 +149,15 @@ public partial class Options : VBoxContainer
 		}
 
 		// To count how many options are getting added
-		int option_size = 0; 
+		int option_size = 0;
 		foreach (Slot Slots in available_weapons)
 		{
-			if (Slots.weapon.is_upgradable())
-			{
-				OptionSlot optionSlot = (OptionSlot)_optionSlot.Instantiate();
-				optionSlot.weapon = Slots.weapon;
-				// Set the options to the option slot so it can call the close_options function
-				optionSlot.options = this;
-				AddChild(optionSlot); 
-				option_size++;
-			}
+			option_size += add_options_weapon(Slots.weapon);
+		}
+
+		foreach (PassiveSlot passiveSlot in available_passive_item)
+		{
+			option_size += add_options_item(passiveSlot.item);
 		}
 
 		if (option_size == 0)

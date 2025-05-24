@@ -8,12 +8,15 @@ public partial class PassiveItem : Item
     private Stats[] upgrades = Array.Empty<Stats>();
     public PlayerControl player_reference;
 
+    [Export]
+    public Texture2D Texture {get; set; }
+
     public bool is_upgradable()
     {
         return (level <= upgrades.Length);
     }
 
-    public void uprgade_item()
+    public void upgrade_item()
     {
         if (!is_upgradable() || player_reference == null)
         {

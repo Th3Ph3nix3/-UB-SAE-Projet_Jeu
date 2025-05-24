@@ -41,7 +41,7 @@ public partial class OptionSlot : TextureButton
 
 	public void _on_gui_input(InputEvent inputEvent)
 	{
-		if (inputEvent.IsActionPressed("click") == true)
+		if (inputEvent.IsActionPressed("click"))
 		{
 			weapon.UpgradeItem(); // upgrade the weapon
 			options.close_options(); 

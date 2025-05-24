@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=40 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
+[ext_resource type="Script" uid="uid://yvaqg0cr3yrl" path="res://scenes/PassiveSlot.cs" id="12_q4ekd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -229,6 +230,7 @@ offset_right = 126.0
 offset_bottom = 69.0
 
 [node name="Slot" parent="CharacterBody2D/UI/Weapons" instance=ExtResource("4_kf3hw")]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="XP" type="TextureProgressBar" parent="CharacterBody2D/UI"]
@@ -279,6 +281,18 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qy76y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_evlki")
 icon = ExtResource("9_fdjp8")
 
+[node name="PassiveItems" type="HBoxContainer" parent="CharacterBody2D/UI"]
+offset_left = 643.0
+offset_top = 5.0
+offset_right = 683.0
+offset_bottom = 45.0
+
+[node name="PassiveSlot1" type="PanelContainer" parent="CharacterBody2D/UI/PassiveItems"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+script = ExtResource("12_q4ekd")
+metadata/_custom_type_script = "uid://yvaqg0cr3yrl"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(5.8919, 4.06805)
 rotation = -0.000617942
@@ -321,7 +335,8 @@ autostart = true
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Magnet"]
+[node name="MagnetZone" type="CollisionShape2D" parent="CharacterBody2D/Magnet"]
+unique_name_in_owner = true
 position = Vector2(5.90313, 4.05641)
 shape = SubResource("CircleShape2D_8fgde")
 

@@ -21,6 +21,7 @@ public partial class SingleShot : Weapon
 		projectile.Position = source.Position; // position of the player
 		projectile.damage = Damage;
 		projectile.speed = Speed;
+		projectile.source = source; // set a source for the projectile
 		projectile.direction = (target.Position - source.Position).Normalized(); // go to nearest enemy (target) at a certain speed
 
 		source.GetTree().CurrentScene.AddChild(projectile); // add the projectile to the scene /!\ maybe the enemy targeted is already dead, so godot will display an error.

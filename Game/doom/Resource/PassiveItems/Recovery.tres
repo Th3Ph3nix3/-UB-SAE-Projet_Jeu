@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PassiveItem" load_steps=6 format=3 uid="uid://cqhguypm6dnl5"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cqhguypm6dnl5"]
 
 [ext_resource type="Texture2D" uid="uid://dskvbqkjd2cl5" path="res://icons_for_items/recovery.png" id="2_6fhn8"]
 [ext_resource type="Script" uid="uid://c7x3nmfkbhqxr" path="res://scenes/PassiveItem.cs" id="2_xlffo"]

@@ -25,6 +25,7 @@ public partial class PlayerControl : CharacterBody2D
 
 
 	#endregion
+
 	#region Setters / Getters
 	public int _XP = 0;
 	public int XP
@@ -103,6 +104,7 @@ public partial class PlayerControl : CharacterBody2D
 
 
 	#endregion
+
 	#region methods
 	public void take_damage(float amount) // function to reduce health
 	{
@@ -158,6 +160,29 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
+	/// <summary>
+	/// Handles the player animation based on movement and direction.
+	/// </summary>
+	private void Animation()
+	{
+		if (Velocity != Godot.Vector2.Zero)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Walk");
+		}
+		else
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Idle");
+		}
+		if (Velocity.X > 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = true;
+		}
+		else if (Velocity.X < 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
+		}
+	}
+
 	#region Physics Process() and Ready()
 	public override void _PhysicsProcess(double delta)
 	{
@@ -176,6 +201,8 @@ public partial class PlayerControl : CharacterBody2D
 		MoveAndSlide();
 		Check_XP();
 		health += recovery * (float)delta;
+		
+		Animation();
 	}
 
 	// used to instantiate players attributes on the game scene 
@@ -189,5 +216,6 @@ public partial class PlayerControl : CharacterBody2D
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
 	}
 	#endregion
+
 	#endregion
 }

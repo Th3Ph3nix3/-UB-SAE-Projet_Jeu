@@ -1,11 +1,10 @@
-[gd_scene load_steps=49 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=66 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
 [ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://scenes/spawner.tscn" id="2_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://hqybj4gr74sw" path="res://GroundElements/crack1.png" id="2_m7s4s"]
 [ext_resource type="Texture2D" uid="uid://b01l8q4jnwx4a" path="res://GroundElements/crack2.png" id="3_fipq1"]
-[ext_resource type="Texture2D" uid="uid://deh4ri5a0tcj3" path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" id="3_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://jdpprbievrw2" path="res://GroundElements/crack3.png" id="4_1b0yd"]
 [ext_resource type="Script" uid="uid://du8q5edxxuhd8" path="res://scenes/ToggleVisibilityOnPause.cs" id="4_evlki"]
 [ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://scenes/Slot.tscn" id="4_kf3hw"]
@@ -24,6 +23,28 @@
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
 [ext_resource type="PackedScene" uid="uid://beaiaf2pkn8br" path="res://scenes/PassiveSlot.tscn" id="13_rmc8r"]
 [ext_resource type="Resource" uid="uid://cqhguypm6dnl5" path="res://Resource/PassiveItems/Recovery.tres" id="14_b3q0q"]
+[ext_resource type="Texture2D" uid="uid://by1ybnqhtptnk" path="res://Sprite/Hero/Idle/Hero_Idle_0001.png" id="22_htbbg"]
+[ext_resource type="Texture2D" uid="uid://bm31irlakvr0s" path="res://Sprite/Hero/Idle/Hero_Idle_0002.png" id="23_3v2os"]
+[ext_resource type="Texture2D" uid="uid://6uki4i23wfo6" path="res://Sprite/Hero/Idle/Hero_Idle_0003.png" id="24_gx5gv"]
+[ext_resource type="Texture2D" uid="uid://8rcgoqi0pihd" path="res://Sprite/Hero/Idle/Hero_Idle_0004.png" id="25_lbadk"]
+[ext_resource type="Texture2D" uid="uid://c450bs6kw3elp" path="res://Sprite/Hero/Idle/Hero_Idle_0005.png" id="26_vtj28"]
+[ext_resource type="Texture2D" uid="uid://btdsrm6ntiejb" path="res://Sprite/Hero/Idle/Hero_Idle_0006.png" id="27_pjfot"]
+[ext_resource type="Texture2D" uid="uid://dbaqb351k3rhh" path="res://Sprite/Hero/Idle/Hero_Idle_0007.png" id="28_dyo2p"]
+[ext_resource type="Texture2D" uid="uid://grnv6vi8m0nj" path="res://Sprite/Hero/Idle/Hero_Idle_0008.png" id="29_nqyu7"]
+[ext_resource type="Texture2D" uid="uid://dhcnx41tl43au" path="res://Sprite/Hero/Idle/Hero_Idle_0009.png" id="30_xdt2h"]
+[ext_resource type="Texture2D" uid="uid://bmm202t7qm16n" path="res://Sprite/Hero/Idle/Hero_Idle_0010.png" id="31_5axpl"]
+[ext_resource type="Texture2D" uid="uid://dinaqypf5stk7" path="res://Sprite/Hero/Idle/Hero_Idle_0011.png" id="32_nkbnv"]
+[ext_resource type="Texture2D" uid="uid://dhtkkg427cdid" path="res://Sprite/Hero/Idle/Hero_Idle_0012.png" id="33_rni8i"]
+[ext_resource type="Texture2D" uid="uid://b7hgo6suyr6nl" path="res://Sprite/Hero/Walk/Hero_Walk_0001.png" id="34_5s4mg"]
+[ext_resource type="Texture2D" uid="uid://bvcnc7gt6ee34" path="res://Sprite/Hero/Walk/Hero_Walk_0002.png" id="35_yjmkb"]
+[ext_resource type="Texture2D" uid="uid://bramg72s3gb5c" path="res://Sprite/Hero/Walk/Hero_Walk_0003.png" id="36_uurvf"]
+[ext_resource type="Texture2D" uid="uid://da1v33fh4v881" path="res://Sprite/Hero/Walk/Hero_Walk_0004.png" id="37_avtxo"]
+[ext_resource type="Texture2D" uid="uid://dqyyx61bjevwc" path="res://Sprite/Hero/Walk/Hero_Walk_0005.png" id="38_2toy3"]
+[ext_resource type="Texture2D" uid="uid://dd5b3nnw8krf8" path="res://Sprite/Hero/Walk/Hero_Walk_0006.png" id="39_vodu0"]
+[ext_resource type="Texture2D" uid="uid://wkt1mdlnh2ww" path="res://Sprite/Hero/Walk/Hero_Walk_0007.png" id="40_7rr5r"]
+[ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Sprite/Hero/Walk/Hero_Walk_0008.png" id="41_5ue2x"]
+[ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Sprite/Hero/Walk/Hero_Walk_0009.png" id="42_jcst1"]
+[ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Sprite/Hero/Walk/Hero_Walk_0010.png" id="43_aq156"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -86,46 +107,89 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fgde"]
-size = Vector2(41.6407, 36.4175)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7isy1"]
-atlas = ExtResource("3_kf3hw")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0te0"]
-atlas = ExtResource("3_kf3hw")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1aqrp"]
-atlas = ExtResource("3_kf3hw")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ql8ek"]
-atlas = ExtResource("3_kf3hw")
-region = Rect2(48, 0, 16, 16)
+size = Vector2(21.9988, 49.9867)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rfbgh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7isy1")
+"texture": ExtResource("22_htbbg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i0te0")
+"texture": ExtResource("23_3v2os")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1aqrp")
+"texture": ExtResource("24_gx5gv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ql8ek")
+"texture": ExtResource("25_lbadk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_vtj28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_pjfot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_dyo2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nqyu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xdt2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_5axpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_nkbnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_rni8i")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_5s4mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_yjmkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_uurvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_avtxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_2toy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_vodu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_7rr5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_5ue2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_jcst1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_aq156")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_438ep"]
-size = Vector2(42.0396, 37.455)
+size = Vector2(21.9988, 51.0024)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8fgde"]
 radius = 57.0
@@ -335,16 +399,18 @@ layout_mode = 2
 _item = ExtResource("14_b3q0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(5.8919, 4.06805)
+position = Vector2(5.90622, 9.04031)
 rotation = -0.000617942
 shape = SubResource("RectangleShape2D_8fgde")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
-position = Vector2(5.83982, 3.89412)
+position = Vector2(5.90476, 4.21254)
 rotation = 0.0112123
-scale = Vector2(2.55291, 2.33202)
+scale = Vector2(2.12049, 1.93702)
 sprite_frames = SubResource("SpriteFrames_rfbgh")
+animation = &"Idle"
+frame_progress = 0.756869
 
 [node name="SelfDamage" type="Area2D" parent="CharacterBody2D"]
 rotation = 0.0110523
@@ -353,8 +419,9 @@ collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="CharacterBody2D/SelfDamage"]
 unique_name_in_owner = true
-position = Vector2(5.95102, 4.23767)
-rotation = 9.5271e-05
+position = Vector2(5.94643, 9.49213)
+rotation = 9.52706e-05
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_438ep")
 
 [node name="Health" type="ProgressBar" parent="CharacterBody2D"]

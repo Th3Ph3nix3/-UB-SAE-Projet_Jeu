@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PassiveItem" load_steps=6 format=3 uid="uid://cqhguypm6dnl5"]
 
-[ext_resource type="Texture2D" uid="uid://dtwopufio085d" path="res://Items/heart.png" id="1_6fhn8"]
+[ext_resource type="Texture2D" uid="uid://dskvbqkjd2cl5" path="res://icons_for_items/recovery.png" id="2_6fhn8"]
 [ext_resource type="Script" uid="uid://c7x3nmfkbhqxr" path="res://scenes/PassiveItem.cs" id="2_xlffo"]
 [ext_resource type="Script" uid="uid://ch1gwq3dki4bn" path="res://scenes/Stats.cs" id="3_4dd6a"]
 
@@ -36,5 +36,5 @@ metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
 script = ExtResource("2_xlffo")
 upgrades = [SubResource("Resource_dssxm"), SubResource("Resource_p3t88")]
 title = "Recovery"
-texture = ExtResource("1_6fhn8")
+texture = ExtResource("2_6fhn8")
 metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

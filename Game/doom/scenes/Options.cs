@@ -78,7 +78,7 @@ public partial class Options : VBoxContainer
 	{
 		List<Slot> resources = new List<Slot>();
 
-		foreach (Node child in passive_items.GetChildren())
+		foreach (Node child in _weapons.GetChildren())
 		{
 			if (child is Slot slot && slot.weapon != null)
 			{
@@ -88,14 +88,13 @@ public partial class Options : VBoxContainer
 		return resources;
 	}
 
-
 	public List<PassiveSlot> get_available_resource_slot()
 	{
 		List<PassiveSlot> pi = new List<PassiveSlot>();
 
-		foreach (PassiveSlot passiveSlot in passive_items.GetChildren())
+		foreach (Node child in passive_items.GetChildren())
 		{
-			if (passiveSlot.item != null)
+			if (child is PassiveSlot passiveSlot && passiveSlot.item != null)
 			{
 				pi.Add(passiveSlot);
 			}
@@ -103,14 +102,23 @@ public partial class Options : VBoxContainer
 		return pi;
 	}
 	
-
 	public int add_options_weapon(Weapon weapon)
 	{
 		if (weapon.is_upgradable())
 		{
-			Slot option_slot = _optionSlot.Instantiate<Slot>();
-			option_slot.weapon = weapon;
+			var option_slot = _optionSlot.Instantiate();
 			AddChild(option_slot);
+			
+			if (option_slot is OptionSlot optionSlot)
+			{
+				optionSlot.weapon = weapon;
+				optionSlot.options = this;
+			}
+			else if (option_slot is Slot slot)
+			{
+				slot.weapon = weapon;
+			}
+			
 			return 1;
 		}
 		return 0;
@@ -120,9 +128,14 @@ public partial class Options : VBoxContainer
 	{
 		if (item is PassiveItem passiveItem && passiveItem.is_upgradable())
 		{
-			PassiveSlot passiveSlot = _passiveSlot.Instantiate<PassiveSlot>();
-			passiveSlot.item = item;
+			var passiveSlot = _passiveSlot.Instantiate();
 			AddChild(passiveSlot);
+			
+			if (passiveSlot is PassiveSlot slot)
+			{
+				slot.item = item;
+			}
+			
 			return 1;
 		}
 		return 0;
@@ -133,28 +146,43 @@ public partial class Options : VBoxContainer
 	/// </summary>
 	public void show_options()
 	{
-		// Get the available weapons
+		// Get the available weapons and passive items
 		List<Slot> available_weapons = get_available_resource();
 		List<PassiveSlot> available_passive_item = get_available_resource_slot();
+		
 		if (available_weapons.Count == 0 && available_passive_item.Count == 0)
 		{
-			// If there is no weapon to upgrade, return
+			// If there is no weapon or passive item to upgrade, return
 			return;
 		}
 
-		foreach (OptionSlot slot in GetChildren())
+		// Clean ALL previous children (upgrade options)
+		var childrenToRemove = new List<Node>();
+		foreach (Node child in GetChildren())
 		{
-			// Clean the previous upgrade options
-			slot.QueueFree();
+			if (child is OptionSlot || child is PassiveSlot)
+			{
+				childrenToRemove.Add(child);
+			}
+		}
+		
+		// Remove upgrade option children only
+		foreach (Node child in childrenToRemove)
+		{
+			RemoveChild(child);
+			child.QueueFree();
 		}
 
 		// To count how many options are getting added
 		int option_size = 0;
-		foreach (Slot Slots in available_weapons)
+		
+		// Add weapon options
+		foreach (Slot slot in available_weapons)
 		{
-			option_size += add_options_weapon(Slots.weapon);
+			option_size += add_options_weapon(slot.weapon);
 		}
 
+		// Add passive item options
 		foreach (PassiveSlot passiveSlot in available_passive_item)
 		{
 			option_size += add_options_item(passiveSlot.item);
@@ -162,11 +190,11 @@ public partial class Options : VBoxContainer
 
 		if (option_size == 0)
 		{
-			// If none of the weapons can be upgraded, return
+			// If none of the weapons/items can be upgraded, return
 			return;
 		}
 
-		// Show that while showing options
+		// Show the upgrade panel
 		_particles.Show();
 		_panel.Show();
 		Show();

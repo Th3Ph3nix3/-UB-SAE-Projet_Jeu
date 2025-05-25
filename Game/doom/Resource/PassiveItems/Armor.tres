@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=6 format=3 uid="uid://cguxggdrkwrw8"]
+
+[ext_resource type="Script" uid="uid://c7x3nmfkbhqxr" path="res://scenes/PassiveItem.cs" id="1_bkhtj"]
+[ext_resource type="Texture2D" uid="uid://b8y0w4t1a3g76" path="res://icons_for_items/armor.png" id="2_8h5wt"]
+[ext_resource type="Script" uid="uid://ch1gwq3dki4bn" path="res://scenes/Stats.cs" id="3_q2o5l"]
+
+[sub_resource type="Resource" id="Resource_ggt16"]
+script = ExtResource("3_q2o5l")
+description = "+25 armor"
+max_health = 0.0
+recovery = 0.0
+armor = 25.0
+movement_speed = 0.0
+might = 0.0
+area = 0.0
+magnet = 0.0
+revival = 0
+growth = 0.0
+metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
+
+[sub_resource type="Resource" id="Resource_bgp0d"]
+script = ExtResource("3_q2o5l")
+description = "+50 armor"
+max_health = 0.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 0.0
+might = 0.0
+area = 50.0
+magnet = 0.0
+revival = 0
+growth = 0.0
+metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
+
+[resource]
+script = ExtResource("1_bkhtj")
+upgrades = [SubResource("Resource_ggt16"), SubResource("Resource_bgp0d")]
+title = "armor"
+texture = ExtResource("2_8h5wt")
+metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

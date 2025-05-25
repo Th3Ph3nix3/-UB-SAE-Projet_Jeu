@@ -1,11 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
-[ext_resource type="Texture2D" uid="uid://pvcomq2ygtov" path="res://MainMenu/menu_background.jpg" id="1_cruaa"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_b76km"]
+[ext_resource type="Texture2D" uid="uid://cpj07hfkjfno4" path="res://MainMenu/menu_background__upscaled.jpg" id="2_lbqne"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
-texture = ExtResource("1_cruaa")
+texture = ExtResource("2_lbqne")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 modulate_color = Color(0.370364, 0.370364, 0.370364, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_430ii"]
@@ -51,7 +53,7 @@ shadow_color = Color(0.282353, 0.0392157, 0, 1)
 shadow_size = 14
 
 [node name="MainMenu" type="Node2D"]
-position = Vector2(575.8, 323.75)
+position = Vector2(1264, 685)
 script = ExtResource("1_b76km")
 
 [node name="Panel" type="Panel" parent="."]
@@ -60,10 +62,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -599.5
-offset_top = -349.5
-offset_right = 599.5
-offset_bottom = 349.5
+offset_left = -1428.0
+offset_top = -799.0
+offset_right = 1514.0
+offset_bottom = 853.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lbqne")

@@ -7,10 +7,10 @@
 
 [sub_resource type="Resource" id="Resource_h2kok"]
 script = ExtResource("3_dw5uh")
-speed = 10.0
-damage = 10.0
-cooldown = 10.0
-description = "+10 speed, +10 damages"
+speed = 300.0
+damage = 2.0
+cooldown = 0.0
+description = "+300 speed, +2 damages"
 metadata/_custom_type_script = "uid://bepkj1lt1n6nl"
 
 [resource]

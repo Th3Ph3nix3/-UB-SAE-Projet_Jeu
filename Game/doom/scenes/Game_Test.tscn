@@ -1,16 +1,22 @@
-[gd_scene load_steps=43 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=49 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
 [ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://scenes/spawner.tscn" id="2_kf3hw"]
+[ext_resource type="Texture2D" uid="uid://hqybj4gr74sw" path="res://GroundElements/crack1.png" id="2_m7s4s"]
+[ext_resource type="Texture2D" uid="uid://b01l8q4jnwx4a" path="res://GroundElements/crack2.png" id="3_fipq1"]
 [ext_resource type="Texture2D" uid="uid://deh4ri5a0tcj3" path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" id="3_kf3hw"]
+[ext_resource type="Texture2D" uid="uid://jdpprbievrw2" path="res://GroundElements/crack3.png" id="4_1b0yd"]
 [ext_resource type="Script" uid="uid://du8q5edxxuhd8" path="res://scenes/ToggleVisibilityOnPause.cs" id="4_evlki"]
 [ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://scenes/Slot.tscn" id="4_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://cw6fdhia0ta27" path="res://platformer_metroidvania asset pack v1.01/others_test/blood_drop_pixelor.png" id="4_qy76y"]
 [ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
+[ext_resource type="Texture2D" uid="uid://d3gywx4v3f27d" path="res://GroundElements/crack4.png" id="5_fvutr"]
 [ext_resource type="Texture2D" uid="uid://dfg84bayi867r" path="res://platformer_metroidvania asset pack v1.01/others_test/hell_background_panel.png" id="5_jvonm"]
+[ext_resource type="Texture2D" uid="uid://0874bntsjs7k" path="res://GroundElements/crack5.png" id="6_cexyb"]
 [ext_resource type="Script" uid="uid://cggoyeqmcuocv" path="res://scenes/Options.cs" id="7_dbjji"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
+[ext_resource type="Texture2D" uid="uid://b0m4o0h0eb8am" path="res://GroundElements/crack6.png" id="7_nbbkb"]
 [ext_resource type="PackedScene" uid="uid://dsiyt4q0jsk1x" path="res://scenes/option_slot.tscn" id="7_vdwmh"]
 [ext_resource type="Resource" uid="uid://ctxx47ayg26pp" path="res://Resource/Weapons/gun_icon.tres" id="8_b3q0q"]
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
@@ -179,6 +185,30 @@ tile_map_data = PackedByteArray("AAAAAAAAAAACAAgAAAAAAAEAAAACAAgAAAAAAAIAAAACAAg
 tile_set = SubResource("TileSet_3k31l")
 
 [node name="Decoration (optional)" type="TileMapLayer" parent="Parallax2D"]
+
+[node name="Crack1" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(556.241, 381.539)
+texture = ExtResource("2_m7s4s")
+
+[node name="Crack2" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(188.935, 712.91)
+texture = ExtResource("3_fipq1")
+
+[node name="Crack3" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(934.379, 470.296)
+texture = ExtResource("4_1b0yd")
+
+[node name="Crack4" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(896.93, 716.936)
+texture = ExtResource("5_fvutr")
+
+[node name="Crack5" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(1214.49, 460.075)
+texture = ExtResource("6_cexyb")
+
+[node name="Crack6" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(340.939, 612.414)
+texture = ExtResource("7_nbbkb")
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_kf3hw")]
 position = Vector2(136.785, 22.3585)
@@ -357,7 +387,6 @@ script = ExtResource("10_ran1e")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
-visible = false
 script = ExtResource("4_evlki")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]

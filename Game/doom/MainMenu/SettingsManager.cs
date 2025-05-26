@@ -1,51 +1,88 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Manages game settings including display modes and UI interactions
+/// Implements singleton pattern for global access
+/// </summary>
 public partial class SettingsManager : Node
 {
-	private bool _isFullscreen = true;
-	public static SettingsManager Instance { get; private set; }
+    #region Variables
 
-	private OptionButton dropDownMenu;
-	
-	[Signal]
-	public delegate void GameSettingsToggleEventHandler(bool inSettings);
+    /// <summary>
+    /// Singleton instance for global access
+    /// </summary>
+    public static SettingsManager Instance { get; private set; }
 
-	private bool inSettings = false;
+    // Window display state
+    private bool _isFullscreen = true;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		Instance = this;
-		// AddItems();
-	}
+    private OptionButton dropDownMenu;
 
-	public void _on_options_pressed()
-	{
-		inSettings = !inSettings;
+    // Current settings menu visibility state
+    private bool inSettings = false;
 
-		EmitSignal(SignalName.GameSettingsToggle, inSettings);
-	}
+    #endregion
 
-	public void _on_quit_button_pressed()
-	{
-		inSettings = !inSettings;
+    #region Signals
 
-		EmitSignal(SignalName.GameSettingsToggle, inSettings);
-	}
+    /// <summary>
+    /// Signal emitted when settings menu visibility changes
+    /// </summary>
+    /// <param name="inSettings">True if settings menu is visible</param>
+    [Signal]
+    public delegate void GameSettingsToggleEventHandler(bool inSettings);
 
-	private void _on_fullscreen_pressed()
-	{
-		if (_isFullscreen)
-		{
-			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
-			_isFullscreen = false;
-		}
-		else
-		{
-			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
-			_isFullscreen = true;
-		}
-			
+    #endregion
+
+    #region Methods
+
+    /// <summary>
+    /// Called when the node enters the scene tree
+    /// </summary>
+    public override void _Ready()
+    {
+        Instance = this;
+        // AddItems();
     }
+
+    /// <summary>
+    /// Handles options button press to toggle settings menu
+    /// </summary>
+    public void _on_options_pressed()
+    {
+        ToggleSettingsMenu();
+    }
+
+    /// <summary>
+    /// Handles quit button press to close settings menu
+    /// </summary>
+    public void _on_quit_button_pressed()
+    {
+        ToggleSettingsMenu();
+    }
+
+    /// <summary>
+    /// Toggles window mode between fullscreen and windowed
+    /// </summary>
+    private void _on_fullscreen_pressed()
+    {
+        _isFullscreen = !_isFullscreen;
+        var mode = _isFullscreen 
+            ? DisplayServer.WindowMode.Fullscreen 
+            : DisplayServer.WindowMode.Windowed;
+        
+        DisplayServer.WindowSetMode(mode);
+    }
+
+    /// <summary>
+    /// Toggles settings menu visibility and emits state change signal
+    /// </summary>
+    private void ToggleSettingsMenu()
+    {
+        inSettings = !inSettings;
+        EmitSignal(SignalName.GameSettingsToggle, inSettings);
+    }
+
+    #endregion
 }

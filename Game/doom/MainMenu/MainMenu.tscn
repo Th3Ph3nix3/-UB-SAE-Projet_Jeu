@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ku7riwone0r5"]
+[gd_scene load_steps=20 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
 [ext_resource type="Texture2D" uid="uid://pvcomq2ygtov" path="res://MainMenu/menu_background.jpg" id="1_cruaa"]
@@ -52,6 +52,40 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_color = Color(0.282353, 0.0392157, 0, 1)
 shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p42x"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3clmd"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsanu"]
+bg_color = Color(0.0110876, 0.0110876, 0.0110876, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kftou"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3p42x"]
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(960, 540)
@@ -152,49 +186,119 @@ offset_right = 1928.0
 offset_bottom = 1207.0
 color = Color(0.419, 0, 0.154, 0.856)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu"]
+[node name="settings_zone" type="VBoxContainer" parent="SettingsMenu"]
 offset_left = 766.0
 offset_top = 411.0
 offset_right = 1152.0
 offset_bottom = 671.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/VBoxContainer"]
+[node name="resolution_zone" type="HBoxContainer" parent="SettingsMenu/settings_zone"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="SettingsMenu/VBoxContainer/HBoxContainer"]
+[node name="resolution_label" type="Label" parent="SettingsMenu/settings_zone/resolution_zone"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("2_b76km")
 theme_override_font_sizes/font_size = 23
 text = "RESOLUTION : "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/VBoxContainer/HBoxContainer"]
+[node name="button_resolution_zone" type="VBoxContainer" parent="SettingsMenu/settings_zone/resolution_zone"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
 script = ExtResource("6_3p42x")
 
-[node name="1024x546" type="Button" parent="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="1024x546" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "1024 x 546"
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1024 X 546"
 
-[node name="1280x720" type="Button" parent="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="1280x720" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "1280 x 720"
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1280 X 720"
 
-[node name="1600x900" type="Button" parent="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="1600x900" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "1600 x 900"
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1600 X 900"
 
-[node name="1920x1080" type="Button" parent="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="1920x1080" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "1920 x 1080"
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1920 X 1080"
 
-[node name="QuitButton" type="Button" parent="SettingsMenu/VBoxContainer"]
+[node name="1920x1200" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1920 X 1200"
+
+[node name="fullscreen_zone" type="HBoxContainer" parent="SettingsMenu/settings_zone"]
+layout_mode = 2
+
+[node name="fullscreen_label" type="Label" parent="SettingsMenu/settings_zone/fullscreen_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 23
+text = "FULLSCREEN : "
+
+[node name="fullscreen_button" type="Button" parent="SettingsMenu/settings_zone/fullscreen_zone"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3p42x")
+text = "ACTIVATE / DEACTIVATE"
+
+[node name="QuitButton" type="Button" parent="SettingsMenu/settings_zone"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
@@ -210,8 +314,10 @@ text = "TRY TO ESCAPE"
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="SettingsManager" method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer/1024x546" to="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer" method="_on_1024x546_pressed"]
-[connection signal="pressed" from="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer/1280x720" to="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer" method="_on_1280x720_pressed"]
-[connection signal="pressed" from="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer/1600x900" to="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer" method="_on_1600x900_pressed"]
-[connection signal="pressed" from="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer/1920x1080" to="SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer" method="_on_1920x1080_pressed"]
-[connection signal="pressed" from="SettingsMenu/VBoxContainer/QuitButton" to="SettingsManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1024x546" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1024x546_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1280x720" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1280x720_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1600x900" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1600x900_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1920x1080" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1080_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1920x1200" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1200_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/fullscreen_zone/fullscreen_button" to="SettingsManager" method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/QuitButton" to="SettingsManager" method="_on_quit_button_pressed"]

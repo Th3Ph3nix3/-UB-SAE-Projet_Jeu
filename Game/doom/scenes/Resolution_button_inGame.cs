@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Resolution_button : VBoxContainer
+public partial class Resolution_button_inGame : VBoxContainer
 {
 
 	private bool _isFullscreen = true;

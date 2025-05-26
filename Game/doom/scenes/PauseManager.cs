@@ -8,7 +8,11 @@ public partial class PauseManager : Node
 	[Signal]
 	public delegate void GamePauseToggleEventHandler(bool isPaused);
 
+	[Signal]
+	public delegate void GameSettingsToggleEventHandler(bool inSettings);
 	private bool isPaused = false;
+
+	private bool inSettings = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -30,16 +34,6 @@ public partial class PauseManager : Node
 
 		EmitSignal(SignalName.GamePauseToggle, isPaused);
 		GetTree().Paused = isPaused;
-	}
-
-	public void _on_options_pressed()
-	{
-		// isPaused = !isPaused;
-
-		// EmitSignal(SignalName.GamePauseToggle, isPaused);
-		// GetTree().Paused = isPaused;
-
-		GD.Print("option pressed");
 	}
 
 	public void _on_menu_pressed()

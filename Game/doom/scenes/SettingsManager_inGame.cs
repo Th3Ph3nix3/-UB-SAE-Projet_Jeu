@@ -1,15 +1,15 @@
 using Godot;
 using System;
 
-public partial class SettingsManager : Node
+public partial class SettingsManager_inGame : Node
 {
 	private bool _isFullscreen = true;
-	public static SettingsManager Instance { get; private set; }
+	public static SettingsManager_inGame Instance { get; private set; }
 
 	private OptionButton dropDownMenu;
 	
 	[Signal]
-	public delegate void GameSettingsToggleEventHandler(bool inSettings);
+	public delegate void GameSettingsToggle_inGameEventHandler(bool inSettings);
 
 	private bool inSettings = false;
 
@@ -24,14 +24,14 @@ public partial class SettingsManager : Node
 	{
 		inSettings = !inSettings;
 
-		EmitSignal(SignalName.GameSettingsToggle, inSettings);
+		EmitSignal(SignalName.GameSettingsToggle_inGame, inSettings);
 	}
 
 	public void _on_quit_button_pressed()
 	{
 		inSettings = !inSettings;
 
-		EmitSignal(SignalName.GameSettingsToggle, inSettings);
+		EmitSignal(SignalName.GameSettingsToggle_inGame, inSettings);
 	}
 
 	private void _on_fullscreen_pressed()

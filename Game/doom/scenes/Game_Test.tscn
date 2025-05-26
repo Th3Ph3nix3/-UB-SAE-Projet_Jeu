@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=48 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -173,6 +173,27 @@ corner_radius_bottom_left = 16
 corner_detail = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4ekd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fipq1"]
+bg_color = Color(0.144063, 0.144063, 0.144062, 0.702)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b0yd"]
+bg_color = Color(0.162, 0.162, 0.162, 0.873)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xflgg"]
+bg_color = Color(0.194, 0.194, 0.194, 0.591)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xflgg"]
 
@@ -447,6 +468,7 @@ theme_override_constants/separation = 10
 script = ExtResource("15_q4ekd")
 
 [node name="1024x546" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
@@ -460,6 +482,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
 text = "1024 X 546"
 
 [node name="1280x720" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
@@ -473,6 +496,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
 text = "1280 X 720"
 
 [node name="1600x900" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
@@ -486,6 +510,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
 text = "1600 X 900"
 
 [node name="1920x1080" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
@@ -499,6 +524,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
 text = "1920 X 1080"
 
 [node name="1920x1200" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
@@ -524,12 +550,20 @@ theme_override_font_sizes/font_size = 23
 text = "FULLSCREEN : "
 
 [node name="fullscreen_button" type="Button" parent="SettingsMenu_inGame/settings_zone/fullscreen_zone"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.852177, 0, 0.155031, 1)
+theme_override_colors/font_pressed_color = Color(0.788499, 0, 0.173173, 1)
 theme_override_fonts/font = ExtResource("12_i36tt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q4ekd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fipq1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1b0yd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xflgg")
 text = "ACTIVATE / DEACTIVATE"
 
 [node name="QuitButton" type="Button" parent="SettingsMenu_inGame/settings_zone"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)

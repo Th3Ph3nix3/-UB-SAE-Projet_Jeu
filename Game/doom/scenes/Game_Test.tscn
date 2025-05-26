@@ -107,7 +107,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fgde"]
-size = Vector2(21.9988, 49.9867)
+size = Vector2(20.3031, 80.1959)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rfbgh"]
 animations = [{
@@ -189,7 +189,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_438ep"]
-size = Vector2(21.9988, 51.0024)
+size = Vector2(21.967, 81.9925)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8fgde"]
 radius = 57.0
@@ -281,6 +281,7 @@ player = NodePath("../CharacterBody2D")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(100, 107)
 script = ExtResource("2_438ep")
+movement_speed = 300.0
 
 [node name="UI" type="CanvasLayer" parent="CharacterBody2D"]
 process_mode = 1
@@ -333,10 +334,11 @@ offset_top = 29.0
 offset_right = 126.0
 offset_bottom = 69.0
 
-[node name="Slot" parent="CharacterBody2D/UI/Weapons" instance=ExtResource("4_kf3hw")]
+[node name="Slot" parent="CharacterBody2D/UI/Weapons" node_paths=PackedStringArray("_owner") instance=ExtResource("4_kf3hw")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 _weapon = ExtResource("8_b3q0q")
+_owner = NodePath("../../..")
 
 [node name="XP" type="TextureProgressBar" parent="CharacterBody2D/UI"]
 unique_name_in_owner = true
@@ -355,7 +357,7 @@ offset_right = 608.0
 offset_bottom = 43.0
 text = "Lvl 1"
 
-[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_particles", "_panel", "_weapons")]
+[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_player", "_particles", "_panel", "_weapons", "passive_items")]
 unique_name_in_owner = true
 process_mode = 3
 anchors_preset = 8
@@ -370,9 +372,11 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_dbjji")
+_player = NodePath("../..")
 _particles = NodePath("../Particles")
 _panel = NodePath("../Panel")
 _weapons = NodePath("../Weapons")
+passive_items = NodePath("../PassiveItems")
 
 [node name="Button" type="Button" parent="CharacterBody2D/UI"]
 anchors_preset = 1
@@ -399,7 +403,7 @@ layout_mode = 2
 _item = ExtResource("14_b3q0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(5.90622, 9.04031)
+position = Vector2(5.34369, 10.1671)
 rotation = -0.000617942
 shape = SubResource("RectangleShape2D_8fgde")
 
@@ -407,7 +411,7 @@ shape = SubResource("RectangleShape2D_8fgde")
 texture_filter = 1
 position = Vector2(5.90476, 4.21254)
 rotation = 0.0112123
-scale = Vector2(2.12049, 1.93702)
+scale = Vector2(3.17497, 2.90026)
 sprite_frames = SubResource("SpriteFrames_rfbgh")
 animation = &"Idle"
 frame_progress = 0.756869
@@ -419,8 +423,8 @@ collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="CharacterBody2D/SelfDamage"]
 unique_name_in_owner = true
-position = Vector2(5.94643, 9.49213)
-rotation = 9.52706e-05
+position = Vector2(5.93047, 9.98476)
+rotation = 9.52703e-05
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_438ep")
 

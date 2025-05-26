@@ -6,49 +6,62 @@ public partial class Slot : PanelContainer
 {
 	#region attributes
 
-	public TextureRect tex;
-	public Timer Cooldown;
+	/// <summary>
+	/// Texture of the weapon to be displayed in this slot.
+	/// </summary>
+	private TextureRect _tex;
+
+	/// <summary>
+	/// Weapon to be displayed in this slot.
+	/// </summary>
+	[Export]
+	public Weapon _weapon;
+
+	/// <summary>
+	/// Cooldown timer for the weapon activation.
+	/// </summary>
+	private Timer _cooldown;
+
+	[Export]
+	private PlayerControl _owner;
 
 	#endregion
 
 	#region setters / getters
-		
-	[Export]
-	public Weapon _weapon;
-	public Weapon weapon
+
+	public Weapon Weapon
 	{
 		get => _weapon;
-		set
-		{
-			_weapon = value;
-			tex.Texture = value.Texture; // updating texturect and wait time for the timer
-			this.Cooldown.WaitTime = value.Cooldown; // cooldown until weapon can be used
-		}
 	}
 
 	#endregion
 
 	#region methods
 
+	/// <summary>
+	/// Called when the node is added to the scene. Load the texture of the item on the scene.
+	/// Also set the cooldown timer to the weapon's cooldown time.
+	/// </summary>
 	public override void _Ready()
 	{
-		tex = GetNode<TextureRect>("TextureRect");
-		this.Cooldown = GetNode<Timer>("Cooldown");
+		_tex = GetNode<TextureRect>("TextureRect");
+		this._cooldown = GetNode<Timer>("Cooldown");
 
-		if (weapon != null)
+		if (_tex != null && _weapon != null)
 		{
-			weapon = _weapon; // activate setter
+			_tex.Texture = _weapon.Texture; // update texture
+			this._cooldown.WaitTime = _weapon.Cooldown; // update cooldown timer
 		}
 	}
 
-
+	/// <summary>
+	/// Called when the cooldown timer times out. This method activates the weapon.
+	/// </summary>
 	public void _on_cooldown_timeout() {
-		if (weapon != null) {
-			this.Cooldown.WaitTime = weapon.Cooldown;
-
-			PlayerControl ownerPlayer = GetParent().GetParent().GetParent() as PlayerControl; // cast Owner as PlayerControl (usualy type Node)
-			
-			weapon.Activate(ownerPlayer, ownerPlayer.nearest_enemy, GetTree()); // func is defined like that : public void activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree)
+		if (Weapon != null) 
+		{
+			this._cooldown.WaitTime = Weapon.Cooldown;
+			Weapon.Activate(_owner, _owner.nearest_enemy, GetTree()); // func is defined like that : public void activate(PlayerControl _source, Enemy _target, SceneTree _scene_tree)
 		}
 	}
 	#endregion

@@ -1,40 +1,11 @@
-[gd_resource type="Resource" script_class="PassiveItem" load_steps=6 format=3 uid="uid://cp7gwsvxgy4xr"]
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=3 format=3 uid="uid://cp7gwsvxgy4xr"]
 
 [ext_resource type="Script" uid="uid://c7x3nmfkbhqxr" path="res://scenes/PassiveItem.cs" id="1_0jmhd"]
 [ext_resource type="Texture2D" uid="uid://w2lbubnjvr7g" path="res://icons_for_items/magnet.png" id="2_0uo0w"]
-[ext_resource type="Script" uid="uid://ch1gwq3dki4bn" path="res://scenes/Stats.cs" id="3_xhh8n"]
-
-[sub_resource type="Resource" id="Resource_1fdnj"]
-script = ExtResource("3_xhh8n")
-description = "+50 magnet area"
-max_health = 0.0
-recovery = 0.0
-armor = 0.0
-movement_speed = 0.0
-might = 0.0
-area = 0.0
-magnet = 50.0
-revival = 0
-growth = 0.0
-metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
-
-[sub_resource type="Resource" id="Resource_0s08p"]
-script = ExtResource("3_xhh8n")
-description = "+100 magnet area"
-max_health = 0.0
-recovery = 0.0
-armor = 0.0
-movement_speed = 0.0
-might = 0.0
-area = 0.0
-magnet = 100.0
-revival = 0
-growth = 0.0
-metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
 
 [resource]
 script = ExtResource("1_0jmhd")
-upgrades = [SubResource("Resource_1fdnj"), SubResource("Resource_0s08p")]
+_upgrades = []
 title = "magnet"
-texture = ExtResource("2_0uo0w")
+_texture = ExtResource("2_0uo0w")
 metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

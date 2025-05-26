@@ -57,7 +57,7 @@ public partial class PlayerControl : CharacterBody2D
 		get => _magnet;
 		set
 		{
-			magnet = value;
+			_magnet = value;
 			
 			if (magnetArea.Shape is CircleShape2D circleShape)
 			{
@@ -212,8 +212,8 @@ public partial class PlayerControl : CharacterBody2D
 		healthBar = GetNode<ProgressBar>("Health"); // health
 		xpBar = GetNode<TextureProgressBar>("UI/XP"); // xp
 		LevelLabel = GetNode<Label>("UI/XP/Level"); // level
-		options = (Options)GetNode<VBoxContainer>("UI/Options"); // options
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
+		options = (Options)GetNode<VBoxContainer>("UI/Options"); // options
 	}
 	#endregion
 

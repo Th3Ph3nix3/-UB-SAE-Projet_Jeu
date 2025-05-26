@@ -1,40 +1,11 @@
-[gd_resource type="Resource" script_class="PassiveItem" load_steps=6 format=3 uid="uid://dl6dba0lgvyum"]
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=3 format=3 uid="uid://dl6dba0lgvyum"]
 
 [ext_resource type="Script" uid="uid://c7x3nmfkbhqxr" path="res://scenes/PassiveItem.cs" id="1_bdnkg"]
 [ext_resource type="Texture2D" uid="uid://rcg2ptlay3e2" path="res://icons_for_items/max_health.png" id="2_w4ff2"]
-[ext_resource type="Script" uid="uid://ch1gwq3dki4bn" path="res://scenes/Stats.cs" id="3_8r81e"]
-
-[sub_resource type="Resource" id="Resource_yf0ps"]
-script = ExtResource("3_8r81e")
-description = "+25 max health"
-max_health = 25.0
-recovery = 0.0
-armor = 0.0
-movement_speed = 0.0
-might = 0.0
-area = 0.0
-magnet = 0.0
-revival = 0
-growth = 0.0
-metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
-
-[sub_resource type="Resource" id="Resource_2k4m2"]
-script = ExtResource("3_8r81e")
-description = "+50 max health"
-max_health = 50.0
-recovery = 0.0
-armor = 0.0
-movement_speed = 0.0
-might = 0.0
-area = 0.0
-magnet = 0.0
-revival = 0
-growth = 0.0
-metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
 
 [resource]
 script = ExtResource("1_bdnkg")
-upgrades = [SubResource("Resource_yf0ps"), SubResource("Resource_2k4m2")]
+_upgrades = []
 title = "max_health"
-texture = ExtResource("2_w4ff2")
+_texture = ExtResource("2_w4ff2")
 metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

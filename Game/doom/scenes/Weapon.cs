@@ -13,12 +13,6 @@ public abstract partial class Weapon : Item
 	[Export]
 	private string _title;
 
-	/// <summary>
-	/// Texture of the weapon.
-	/// </summary>
-	[Export]
-	private Texture2D _texture;
-
 	// Properties of the projectile / ! \
 	// To change those values, double click on .tres file on the inspector and directly change in Godot
 	#region projectile properties
@@ -67,10 +61,6 @@ public abstract partial class Weapon : Item
 	public string Title
 	{
 		get => _title;
-	}
-	public Texture2D Texture
-	{
-		get => _texture;
 	}
 	public float Damage
 	{

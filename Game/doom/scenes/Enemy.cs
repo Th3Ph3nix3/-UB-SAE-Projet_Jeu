@@ -191,19 +191,17 @@ public partial class Enemy : CharacterBody2D
 		if (!_elite)
 		{
 			// Set the shader for the sprite2D.
-			var mat = GD.Load<ShaderMaterial>("res://Shaders/matOutline.tres");
-			_sprite2D.Material = mat;
+			// _sprite2D.Material = GD.Load<ShaderMaterial>("res://Shaders/matOutline.tres");
 
 			// Scale the enemy accordingly.
-			_sprite2D.Scale = new Godot.Vector2(2f, 2f);
-			_collisionShape2D.Scale = new Godot.Vector2(2f, 2f);
+			_sprite2D.Scale = new Godot.Vector2(2.5f, 2.5f);
+			_collisionShape2D.Scale = new Godot.Vector2(2.5f, 2.5f);
 			
 		}
 		else
 		{
 			// Set the shader for the sprite2D.
-			var matRainbow = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
-			_sprite2D.Material = matRainbow;
+			_sprite2D.Material = GD.Load<ShaderMaterial>("res://Shaders/Rainbow.tres");
 
 			// Scale the enemy accordingly.
 			_sprite2D.Scale = new Godot.Vector2(5f, 5f);

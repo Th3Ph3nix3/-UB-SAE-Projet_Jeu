@@ -6,38 +6,42 @@ public partial class PassiveSlot : PanelContainer
 {
 	#region attributes
 
-	public TextureRect tex;
+	/// <summary>
+	/// Texture of the passive item to be displayed in this slot.
+	/// </summary>
+	private TextureRect _tex;
+
+	/// <summary>
+	/// Passive item to be displayed in this slot.
+	/// </summary>
+	[Export]
+	private PassiveItem _item;
 
 	#endregion
 
 	#region setters / getters
-		
-	[Export]
-	public Item _item;
-	public Item item
+
+	public PassiveItem Item
 	{
 		get => _item;
-		set
-		{
-			_item = value;
-			if (tex != null && value != null)
-				tex.Texture = value.texture;
-		}
 	}
-
 
 	#endregion
 
 	#region methods
 
+	/// <summary>
+	/// Called when the node is added to the scene. Load the texture of the item on the scene.
+	/// </summary>
 	public override void _Ready()
 	{
-		tex = GetNode<TextureRect>("TextureRect");
+		_tex = GetNode<TextureRect>("TextureRect");
 
-		if (item != null)
+		if (_tex != null && _item != null)
 		{
-			tex.Texture = _item.texture; // activate setter
+			_tex.Texture = _item.Texture; // update texture
 		}
 	}
+
 	#endregion
 }

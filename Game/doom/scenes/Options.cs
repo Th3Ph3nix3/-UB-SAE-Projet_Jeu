@@ -45,7 +45,7 @@ public partial class Options : VBoxContainer
 	/// Variable to store passive items container. Which contains the passive items that can be upgraded.
 	/// </summary>
 	[Export]
-	private HBoxContainer passive_items;
+	private HBoxContainer _passive_items;
 
 	#endregion
 
@@ -93,7 +93,7 @@ public partial class Options : VBoxContainer
 			}
 		}
 
-		foreach (PassiveSlot child in passive_items.GetChildren())
+		foreach (PassiveSlot child in _passive_items.GetChildren())
 		{
 			if (child is PassiveSlot passiveSlot && passiveSlot.Item != null)
 			{
@@ -119,7 +119,7 @@ public partial class Options : VBoxContainer
 				AddChild(option_slot);
 
 				option_slot.weapon = weapon;
-				option_slot.options = this;
+				option_slot.Options = this;
 
 				return 1;
 			}
@@ -132,7 +132,7 @@ public partial class Options : VBoxContainer
 				AddChild(option_slot);
 
 				option_slot.passive_item = passiveItem;
-				option_slot.options = this;
+				option_slot.Options = this;
 
 				return 1;
 			}

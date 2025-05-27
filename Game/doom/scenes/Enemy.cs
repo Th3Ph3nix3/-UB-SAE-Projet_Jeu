@@ -10,7 +10,7 @@ public partial class Enemy : CharacterBody2D
 	/// <summary>
 	/// Type of the enemy.
 	/// </summary>
-	private EnemyType type;
+	private EnemyType _type;
 
 	#region Base stats
 
@@ -107,10 +107,10 @@ public partial class Enemy : CharacterBody2D
 
 	public EnemyType Type
 	{
-		get => type;
+		get => _type;
 		set
 		{
-			type = value;
+			_type = value;
 			_damage = value.damage;
 			_health = value.health;
 			_speed = value.speed;
@@ -177,16 +177,16 @@ public partial class Enemy : CharacterBody2D
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
 		_collisionShape2D = GetNode<CollisionShape2D>("CollisionShape2D");
 
-		if (_sprite2D == null && _collisionShape2D == null && type == null)
+		if (_sprite2D == null && _collisionShape2D == null && _type == null)
 		{
 			QueueFree(); // If the sprite2D, CollisionShape2D or type is not found, remove the enemy from the scene.
 		}
 
-		_sprite2D.Texture = type.texture;
-		_sprite2D.Hframes = type.frames;
+		_sprite2D.Texture = _type.texture;
+		_sprite2D.Hframes = _type.frames;
 
 		//get the caracteristics of a non-elite mob
-		EnemyType NormalType = this.type;
+		EnemyType NormalType = this._type;
 
 		if (!_elite)
 		{
@@ -246,16 +246,16 @@ public partial class Enemy : CharacterBody2D
 		}
 
 		// If there isn't any animation, return.
-		if (type.frames <= 1)
+		if (_type.frames <= 1)
 		{
 			return;
 		}
 
 		_duration += (float)delta;
 
-		if (type.frames > 1 && _duration >= 1f / _fps)
+		if (_type.frames > 1 && _duration >= 1f / _fps)
 		{
-			_sprite2D.Frame = (_sprite2D.Frame + 1) % type.frames;
+			_sprite2D.Frame = (_sprite2D.Frame + 1) % _type.frames;
 			_duration = 0;
 		}
 	}
@@ -360,14 +360,14 @@ public partial class Enemy : CharacterBody2D
 	public void DropItem()
 	{
 		// Return if there's nothing to drop.
-		if (type.drops.Length == 0)
+		if (_type.drops.Length == 0)
 		{
 			return;
 		}
 
 		var random = new Random();
-		int index = random.Next(type.drops.Length);
-		var item = type.drops[index];
+		int index = random.Next(_type.drops.Length);
+		var item = _type.drops[index];
 
 		var itemToDrop = _dropScene.Instantiate<Pickups>();
 

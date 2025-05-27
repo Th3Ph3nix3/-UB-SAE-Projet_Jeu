@@ -16,11 +16,11 @@ metadata/_custom_type_script = "uid://bepkj1lt1n6nl"
 [resource]
 script = ExtResource("2_dw5uh")
 _title = "Weapon"
-_texture = ExtResource("2_n7vpy")
 _damage = 500.0
 _cooldown = 0.25
 _speed = 1000.0
 _projectile_node = ExtResource("1_n7vpy")
 _upgrades = [SubResource("Resource_h2kok")]
-title = ""
+_title = "Weapon"
+_texture = ExtResource("2_n7vpy")
 metadata/_custom_type_script = "uid://dyxl55qf2eu1k"

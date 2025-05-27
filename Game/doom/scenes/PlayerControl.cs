@@ -11,7 +11,7 @@ public partial class PlayerControl : CharacterBody2D
 	public int total_XP = 0;
 	public float recovery = 0;
 	public float armor = 0;
-	public float might = 1.5f; // public so that Projectile.cs can access to it
+	public float might = 1f; // public so that Projectile.cs can access to it
 	public float area = 500; // area from where the player start shooting at enemies ( = range)
 	public int growth = 1;
 	private Label LevelLabel;
@@ -200,7 +200,7 @@ public partial class PlayerControl : CharacterBody2D
 		GetInput();
 		MoveAndSlide();
 		Check_XP();
-		health += recovery * (float)delta;
+		health += (recovery / 10) * (float)delta;
 		
 		Animation();
 	}

@@ -35,6 +35,6 @@ metadata/_custom_type_script = "uid://ch1gwq3dki4bn"
 [resource]
 script = ExtResource("2_xlffo")
 _upgrades = [SubResource("Resource_6fhn8"), SubResource("Resource_xlffo")]
-title = "Recovery"
+_title = ""
 _texture = ExtResource("2_6fhn8")
 metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

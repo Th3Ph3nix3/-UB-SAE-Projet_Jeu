@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=65 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://cggoyeqmcuocv" path="res://scenes/Options.cs" id="7_dbjji"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
 [ext_resource type="Texture2D" uid="uid://b0m4o0h0eb8am" path="res://GroundElements/crack6.png" id="7_nbbkb"]
-[ext_resource type="PackedScene" uid="uid://dsiyt4q0jsk1x" path="res://scenes/option_slot.tscn" id="7_vdwmh"]
 [ext_resource type="Resource" uid="uid://ctxx47ayg26pp" path="res://Resource/Weapons/gun_icon.tres" id="8_b3q0q"]
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
@@ -288,8 +287,8 @@ process_mode = 1
 
 [node name="Particles" type="GPUParticles2D" parent="CharacterBody2D/UI"]
 process_mode = 3
-position = Vector2(1000, 0)
-amount = 500
+position = Vector2(1378, -72)
+amount = 100
 texture = ExtResource("4_qy76y")
 lifetime = 5.0
 speed_scale = 2.5
@@ -321,13 +320,6 @@ theme_override_fonts/font = ExtResource("12_i36tt")
 theme_override_font_sizes/font_size = 70
 text = "LEVEL UP"
 
-[node name="OptionSlot" parent="CharacterBody2D/UI/Panel" instance=ExtResource("7_vdwmh")]
-layout_mode = 0
-offset_left = 636.0
-offset_top = 338.5
-offset_right = 1073.0
-offset_bottom = 378.5
-
 [node name="Weapons" type="HBoxContainer" parent="CharacterBody2D/UI"]
 offset_left = 86.0
 offset_top = 29.0
@@ -357,7 +349,7 @@ offset_right = 608.0
 offset_bottom = 43.0
 text = "Lvl 1"
 
-[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_player", "_particles", "_panel", "_weapons", "passive_items")]
+[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_player", "_particles", "_panel", "_weapons", "_passive_items")]
 unique_name_in_owner = true
 process_mode = 3
 anchors_preset = 8
@@ -376,7 +368,7 @@ _player = NodePath("../..")
 _particles = NodePath("../Particles")
 _panel = NodePath("../Panel")
 _weapons = NodePath("../Weapons")
-passive_items = NodePath("../PassiveItems")
+_passive_items = NodePath("../PassiveItems")
 
 [node name="Button" type="Button" parent="CharacterBody2D/UI"]
 anchors_preset = 1
@@ -425,7 +417,6 @@ collision_mask = 2
 unique_name_in_owner = true
 position = Vector2(5.93047, 9.98476)
 rotation = 9.52703e-05
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_438ep")
 
 [node name="Health" type="ProgressBar" parent="CharacterBody2D"]

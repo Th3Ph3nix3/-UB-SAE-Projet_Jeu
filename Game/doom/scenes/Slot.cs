@@ -22,6 +22,9 @@ public partial class Slot : PanelContainer
 	/// </summary>
 	private Timer _cooldown;
 
+	/// <summary>
+	/// Owwer of this slot, usually the player.
+	/// </summary>
 	[Export]
 	private PlayerControl _owner;
 

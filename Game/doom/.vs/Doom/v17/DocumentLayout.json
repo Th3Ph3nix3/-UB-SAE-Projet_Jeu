@@ -3,40 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\optionslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\optionslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\slot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\slot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\enemytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\enemytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\optionslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\optionslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|c:\\users\\teolt\\mythings\\but_info\\ann\u00E9e_1\\info\\poo\\-ub-sae-projet_jeu\\game\\doom\\scenes\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20053DB6-8880-48DC-90E8-DD182568BFD7}|Doom.csproj|solutionrelative:scenes\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -49,102 +53,109 @@
           "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Slot.cs",
-              "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Slot.cs",
-              "RelativeDocumentMoniker": "scenes\\Slot.cs",
-              "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Slot.cs",
-              "RelativeToolTip": "scenes\\Slot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:45:08.324Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "PauseManager.cs",
+              "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\PauseManager.cs",
+              "RelativeDocumentMoniker": "scenes\\PauseManager.cs",
+              "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\PauseManager.cs",
+              "RelativeToolTip": "scenes\\PauseManager.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:30:06.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Slot.cs",
+              "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Slot.cs",
+              "RelativeDocumentMoniker": "scenes\\Slot.cs",
+              "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Slot.cs",
+              "RelativeToolTip": "scenes\\Slot.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T14:45:08.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "OptionSlot.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\OptionSlot.cs",
               "RelativeDocumentMoniker": "scenes\\OptionSlot.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\OptionSlot.cs",
               "RelativeToolTip": "scenes\\OptionSlot.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC4AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:43:04.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T14:43:04.732Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Options.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Options.cs",
               "RelativeDocumentMoniker": "scenes\\Options.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Options.cs",
               "RelativeToolTip": "scenes\\Options.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAkwFAAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAwCUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-22T14:41:51.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "Weapon.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Weapon.cs",
               "RelativeDocumentMoniker": "scenes\\Weapon.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Weapon.cs",
               "RelativeToolTip": "scenes\\Weapon.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCQAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:38:38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T14:38:38Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "PlayerControl.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\PlayerControl.cs",
               "RelativeDocumentMoniker": "scenes\\PlayerControl.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\PlayerControl.cs",
               "RelativeToolTip": "scenes\\PlayerControl.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAUwJcAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAwwMIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T16:33:24.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T16:33:24.126Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Projectile.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Projectile.cs",
               "RelativeDocumentMoniker": "scenes\\Projectile.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Projectile.cs",
               "RelativeToolTip": "scenes\\Projectile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T15:48:05.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T15:48:05.483Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Spawner.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Spawner.cs",
               "RelativeDocumentMoniker": "scenes\\Spawner.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Spawner.cs",
               "RelativeToolTip": "scenes\\Spawner.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T09:45:29.689Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "EnemyType.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\EnemyType.cs",
               "RelativeDocumentMoniker": "scenes\\EnemyType.cs",
@@ -156,16 +167,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Enemy.cs",
               "RelativeDocumentMoniker": "scenes\\Enemy.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Enemy.cs",
               "RelativeToolTip": "scenes\\Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIYAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:42:53.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:42:53.457Z"
             }
           ]
         }

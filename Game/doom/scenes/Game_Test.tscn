@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=79 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -20,13 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
-
 [ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://scenes/SettingsManager_inGame.cs" id="13_q4ekd"]
-[ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://scenes/ToggleVisibilityOnSettings_inGame.cs" id="14_rmc8r"]
-[ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="15_q4ekd"]
-
 [ext_resource type="PackedScene" uid="uid://beaiaf2pkn8br" path="res://scenes/PassiveSlot.tscn" id="13_rmc8r"]
 [ext_resource type="Resource" uid="uid://cqhguypm6dnl5" path="res://Resource/PassiveItems/Recovery.tres" id="14_b3q0q"]
+[ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://scenes/ToggleVisibilityOnSettings_inGame.cs" id="14_rmc8r"]
+[ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="15_q4ekd"]
 [ext_resource type="Texture2D" uid="uid://by1ybnqhtptnk" path="res://Sprite/Hero/Idle/Hero_Idle_0001.png" id="22_htbbg"]
 [ext_resource type="Texture2D" uid="uid://bm31irlakvr0s" path="res://Sprite/Hero/Idle/Hero_Idle_0002.png" id="23_3v2os"]
 [ext_resource type="Texture2D" uid="uid://6uki4i23wfo6" path="res://Sprite/Hero/Idle/Hero_Idle_0003.png" id="24_gx5gv"]
@@ -49,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Sprite/Hero/Walk/Hero_Walk_0008.png" id="41_5ue2x"]
 [ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Sprite/Hero/Walk/Hero_Walk_0009.png" id="42_jcst1"]
 [ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Sprite/Hero/Walk/Hero_Walk_0010.png" id="43_aq156"]
-
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -625,15 +622,15 @@ script = ExtResource("14_rmc8r")
 [node name="ColorRect" type="ColorRect" parent="SettingsMenu_inGame"]
 offset_left = -57.0
 offset_top = -45.0
-offset_right = 1958.0
-offset_bottom = 1242.0
+offset_right = 2625.0
+offset_bottom = 1494.0
 color = Color(0.419, 0, 0.154, 0.856)
 
 [node name="settings_zone" type="VBoxContainer" parent="SettingsMenu_inGame"]
-offset_left = 766.0
-offset_top = 411.0
-offset_right = 1152.0
-offset_bottom = 671.0
+offset_left = 1069.0
+offset_top = 484.0
+offset_right = 1455.0
+offset_bottom = 884.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 30

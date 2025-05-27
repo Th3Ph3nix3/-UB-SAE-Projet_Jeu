@@ -1,14 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
+[ext_resource type="Texture2D" uid="uid://cpj07hfkjfno4" path="res://MainMenu/menu_background__upscaled.jpg" id="2_3p42x"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_b76km"]
 [ext_resource type="Script" uid="uid://i67ebo1oh3jg" path="res://MainMenu/SettingsManager.cs" id="4_430ii"]
 [ext_resource type="Script" uid="uid://ch3e3p7t0asbt" path="res://MainMenu/ToggleVisibilityOnSettings.cs" id="5_3p42x"]
 [ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="6_3p42x"]
 
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
-texture = ExtResource("2_lbqne")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 modulate_color = Color(0.370364, 0.370364, 0.370364, 1)
@@ -113,15 +112,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-
 offset_left = -1428.0
 offset_top = -799.0
 offset_right = 1514.0
 offset_bottom = 853.0
-
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lbqne")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_3p42x")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = -179.5
@@ -200,17 +203,17 @@ script = ExtResource("4_430ii")
 script = ExtResource("5_3p42x")
 
 [node name="ColorRect" type="ColorRect" parent="SettingsMenu"]
-offset_left = -32.0
-offset_top = -36.0
-offset_right = 1967.0
-offset_bottom = 1173.0
+offset_left = -160.0
+offset_top = -107.0
+offset_right = 2772.0
+offset_bottom = 1538.0
 color = Color(0.419, 0, 0.154, 0.856)
 
 [node name="settings_zone" type="VBoxContainer" parent="SettingsMenu"]
-offset_left = 766.0
+offset_left = 1066.0
 offset_top = 411.0
-offset_right = 1177.0
-offset_bottom = 761.0
+offset_right = 1477.0
+offset_bottom = 811.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 30

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=3 format=3 uid="uid://cp7gwsvxgy4xr"]
+
+[ext_resource type="Script" uid="uid://c7x3nmfkbhqxr" path="res://scenes/PassiveItem.cs" id="1_0jmhd"]
+[ext_resource type="Texture2D" uid="uid://w2lbubnjvr7g" path="res://icons_for_items/magnet.png" id="2_0uo0w"]
+
+[resource]
+script = ExtResource("1_0jmhd")
+_upgrades = []
+title = "magnet"
+_texture = ExtResource("2_0uo0w")
+metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

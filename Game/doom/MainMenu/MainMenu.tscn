@@ -1,14 +1,16 @@
 [gd_scene load_steps=22 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
-[ext_resource type="Texture2D" uid="uid://pvcomq2ygtov" path="res://MainMenu/menu_background.jpg" id="1_cruaa"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_b76km"]
 [ext_resource type="Script" uid="uid://i67ebo1oh3jg" path="res://MainMenu/SettingsManager.cs" id="4_430ii"]
 [ext_resource type="Script" uid="uid://ch3e3p7t0asbt" path="res://MainMenu/ToggleVisibilityOnSettings.cs" id="5_3p42x"]
 [ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="6_3p42x"]
 
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
-texture = ExtResource("1_cruaa")
+texture = ExtResource("2_lbqne")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 modulate_color = Color(0.370364, 0.370364, 0.370364, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_430ii"]
@@ -102,7 +104,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="MainMenu" type="Node2D"]
-position = Vector2(960, 540)
+position = Vector2(1264, 685)
 script = ExtResource("1_b76km")
 
 [node name="Panel" type="Panel" parent="."]
@@ -111,10 +113,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1015.0
-offset_top = -587.0
-offset_right = 970.0
-offset_bottom = 675.0
+
+offset_left = -1428.0
+offset_top = -799.0
+offset_right = 1514.0
+offset_bottom = 853.0
+
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lbqne")

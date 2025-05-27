@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=3 format=3 uid="uid://cguxggdrkwrw8"]
+
+[ext_resource type="Script" uid="uid://c7x3nmfkbhqxr" path="res://scenes/PassiveItem.cs" id="1_bkhtj"]
+[ext_resource type="Texture2D" uid="uid://b8y0w4t1a3g76" path="res://icons_for_items/armor.png" id="2_8h5wt"]
+
+[resource]
+script = ExtResource("1_bkhtj")
+_upgrades = []
+title = "armor"
+_texture = ExtResource("2_8h5wt")
+metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

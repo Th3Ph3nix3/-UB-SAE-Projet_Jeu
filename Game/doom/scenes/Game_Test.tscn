@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=68 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -20,6 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
+
+[ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://scenes/SettingsManager_inGame.cs" id="13_q4ekd"]
+[ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://scenes/ToggleVisibilityOnSettings_inGame.cs" id="14_rmc8r"]
+[ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="15_q4ekd"]
+
 [ext_resource type="PackedScene" uid="uid://beaiaf2pkn8br" path="res://scenes/PassiveSlot.tscn" id="13_rmc8r"]
 [ext_resource type="Resource" uid="uid://cqhguypm6dnl5" path="res://Resource/PassiveItems/Recovery.tres" id="14_b3q0q"]
 [ext_resource type="Texture2D" uid="uid://by1ybnqhtptnk" path="res://Sprite/Hero/Idle/Hero_Idle_0001.png" id="22_htbbg"]
@@ -44,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Sprite/Hero/Walk/Hero_Walk_0008.png" id="41_5ue2x"]
 [ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Sprite/Hero/Walk/Hero_Walk_0009.png" id="42_jcst1"]
 [ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Sprite/Hero/Walk/Hero_Walk_0010.png" id="43_aq156"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -233,6 +239,81 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_color = Color(0.4, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdwmh"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yymvb"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fope"]
+bg_color = Color(0.0110876, 0.0110876, 0.0110876, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_757b6"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4ekd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fipq1"]
+bg_color = Color(0.144063, 0.144063, 0.144062, 0.702)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b0yd"]
+bg_color = Color(0.162, 0.162, 0.162, 0.873)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xflgg"]
+bg_color = Color(0.194, 0.194, 0.194, 0.591)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xflgg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m856m"]
+bg_color = Color(0.403903, 7.64076e-07, 2.40654e-08, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.34902, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7s4s"]
+bg_color = Color(0.282353, 0.0392157, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.282353, 0.0392157, 0, 1)
 shadow_size = 14
 
 [node name="Node2D" type="Node2D"]
@@ -534,11 +615,170 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b3q0q")
 text = "RAGE QUIT"
 
+[node name="SettingsManager_inGame" type="Node" parent="."]
+script = ExtResource("13_q4ekd")
+
+[node name="SettingsMenu_inGame" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("14_rmc8r")
+
+[node name="ColorRect" type="ColorRect" parent="SettingsMenu_inGame"]
+offset_left = -57.0
+offset_top = -45.0
+offset_right = 1958.0
+offset_bottom = 1242.0
+color = Color(0.419, 0, 0.154, 0.856)
+
+[node name="settings_zone" type="VBoxContainer" parent="SettingsMenu_inGame"]
+offset_left = 766.0
+offset_top = 411.0
+offset_right = 1152.0
+offset_bottom = 671.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="resolution_zone" type="HBoxContainer" parent="SettingsMenu_inGame/settings_zone"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="resolution_label" type="Label" parent="SettingsMenu_inGame/settings_zone/resolution_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 23
+text = "RESOLUTION : "
+
+[node name="button_resolution_zone" type="VBoxContainer" parent="SettingsMenu_inGame/settings_zone/resolution_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+script = ExtResource("15_q4ekd")
+
+[node name="1024x546" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0fope")
+theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
+text = "1024 X 546"
+
+[node name="1280x720" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0fope")
+theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
+text = "1280 X 720"
+
+[node name="1600x900" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0fope")
+theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
+text = "1600 X 900"
+
+[node name="1920x1080" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0fope")
+theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
+text = "1920 X 1080"
+
+[node name="1920x1200" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0fope")
+theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
+text = "1920 X 1200"
+
+[node name="fullscreen_zone" type="HBoxContainer" parent="SettingsMenu_inGame/settings_zone"]
+layout_mode = 2
+
+[node name="fullscreen_label" type="Label" parent="SettingsMenu_inGame/settings_zone/fullscreen_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 23
+text = "FULLSCREEN : "
+
+[node name="fullscreen_button" type="Button" parent="SettingsMenu_inGame/settings_zone/fullscreen_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.852177, 0, 0.155031, 1)
+theme_override_colors/font_pressed_color = Color(0.788499, 0, 0.173173, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q4ekd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fipq1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1b0yd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xflgg")
+text = "ACTIVATE / DEACTIVATE"
+
+[node name="QuitButton" type="Button" parent="SettingsMenu_inGame/settings_zone"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xflgg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m856m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m7s4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m856m")
+text = "TRY TO ESCAPE"
+
 [connection signal="pressed" from="CharacterBody2D/UI/Button" to="PauseManager" method="_on_pause_pressed"]
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="CharacterBody2D/Magnet" to="CharacterBody2D" method="_on_magnet_area_entered"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/StartButton" to="PauseManager" method="_on_return_game_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsButton" to="PauseManager" method="_on_options_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsButton" to="SettingsManager_inGame" method="_on_options_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/MenuButton" to="PauseManager" method="_on_menu_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/QuitButton" to="PauseManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone/1024x546" to="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone" method="_on_1024x546_pressed"]
+[connection signal="pressed" from="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone/1280x720" to="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone" method="_on_1280x720_pressed"]
+[connection signal="pressed" from="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone/1600x900" to="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone" method="_on_1600x900_pressed"]
+[connection signal="pressed" from="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone/1920x1080" to="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1080_pressed"]
+[connection signal="pressed" from="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone/1920x1200" to="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1200_pressed"]
+[connection signal="pressed" from="SettingsMenu_inGame/settings_zone/fullscreen_zone/fullscreen_button" to="SettingsManager_inGame" method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="SettingsMenu_inGame/settings_zone/QuitButton" to="SettingsManager_inGame" method="_on_quit_button_pressed"]

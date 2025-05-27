@@ -9,11 +9,6 @@ public partial class MainMenu : Node2D
 		GetTree().ChangeSceneToFile("res://scenes/Game_Test.tscn");
 	}
 
-	public void _on_options_pressed()
-	{
-		GD.Print("option pressed");
-	}
-
 	public void _on_quit_pressed()
 	{
 		GetTree().Quit();

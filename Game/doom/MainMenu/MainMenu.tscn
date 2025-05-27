@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ku7riwone0r5"]
+[gd_scene load_steps=22 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_b76km"]
-[ext_resource type="Texture2D" uid="uid://cpj07hfkjfno4" path="res://MainMenu/menu_background__upscaled.jpg" id="2_lbqne"]
+[ext_resource type="Script" uid="uid://i67ebo1oh3jg" path="res://MainMenu/SettingsManager.cs" id="4_430ii"]
+[ext_resource type="Script" uid="uid://ch3e3p7t0asbt" path="res://MainMenu/ToggleVisibilityOnSettings.cs" id="5_3p42x"]
+[ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="6_3p42x"]
+
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
 texture = ExtResource("2_lbqne")
@@ -52,6 +55,54 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0.282353, 0.0392157, 0, 1)
 shadow_size = 14
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p42x"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3clmd"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsanu"]
+bg_color = Color(0.0110876, 0.0110876, 0.0110876, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kftou"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 0.669)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3p42x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nre7b"]
+bg_color = Color(0.144063, 0.144063, 0.144062, 0.702)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxm3p"]
+bg_color = Color(0.162, 0.162, 0.162, 0.873)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [node name="MainMenu" type="Node2D"]
 position = Vector2(1264, 685)
 script = ExtResource("1_b76km")
@@ -62,26 +113,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
 offset_left = -1428.0
 offset_top = -799.0
 offset_right = 1514.0
 offset_bottom = 853.0
+
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lbqne")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -179.5
 offset_top = -118.5
 offset_right = 179.5
 offset_bottom = 118.5
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 5
 size_flags_stretch_ratio = 10.0
@@ -147,6 +193,164 @@ text = "SUBSISTENCE.IO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SettingsManager" type="Node" parent="."]
+script = ExtResource("4_430ii")
+
+[node name="SettingsMenu" type="CanvasLayer" parent="."]
+script = ExtResource("5_3p42x")
+
+[node name="ColorRect" type="ColorRect" parent="SettingsMenu"]
+offset_left = -32.0
+offset_top = -36.0
+offset_right = 1967.0
+offset_bottom = 1173.0
+color = Color(0.419, 0, 0.154, 0.856)
+
+[node name="settings_zone" type="VBoxContainer" parent="SettingsMenu"]
+offset_left = 766.0
+offset_top = 411.0
+offset_right = 1177.0
+offset_bottom = 761.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="resolution_zone" type="HBoxContainer" parent="SettingsMenu/settings_zone"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="resolution_label" type="Label" parent="SettingsMenu/settings_zone/resolution_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 23
+text = "RESOLUTION : "
+
+[node name="button_resolution_zone" type="VBoxContainer" parent="SettingsMenu/settings_zone/resolution_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+script = ExtResource("6_3p42x")
+
+[node name="1024x546" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1024 X 546"
+
+[node name="1280x720" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1280 X 720"
+
+[node name="1600x900" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1600 X 900"
+
+[node name="1920x1080" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1920 X 1080"
+
+[node name="1920x1200" type="Button" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3clmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
+text = "1920 X 1200"
+
+[node name="fullscreen_zone" type="HBoxContainer" parent="SettingsMenu/settings_zone"]
+layout_mode = 2
+
+[node name="fullscreen_label" type="Label" parent="SettingsMenu/settings_zone/fullscreen_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 23
+text = "FULLSCREEN : "
+
+[node name="fullscreen_button" type="Button" parent="SettingsMenu/settings_zone/fullscreen_zone"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.870535, 0, 0.20061, 1)
+theme_override_colors/font_pressed_color = Color(0.698867, 0, 0.174993, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3p42x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nre7b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nxm3p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nre7b")
+text = "ON / OFF"
+
+[node name="QuitButton" type="Button" parent="SettingsMenu/settings_zone"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b76km")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_430ii")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
+text = "TRY TO ESCAPE"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="SettingsManager" method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1024x546" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1024x546_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1280x720" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1280x720_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1600x900" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1600x900_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1920x1080" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1080_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1920x1200" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1200_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/fullscreen_zone/fullscreen_button" to="SettingsManager" method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="SettingsMenu/settings_zone/QuitButton" to="SettingsManager" method="_on_quit_button_pressed"]

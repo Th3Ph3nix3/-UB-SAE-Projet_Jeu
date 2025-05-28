@@ -7,7 +7,7 @@ public partial class Spawner : Node2D
 
 	#region attributes
 	[Export]
-	CharacterBody2D player;
+	PlayerControl player;
 
 	[Export]
 	PackedScene enemy;

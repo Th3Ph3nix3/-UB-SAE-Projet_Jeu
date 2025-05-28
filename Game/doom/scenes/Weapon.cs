@@ -35,11 +35,6 @@ public abstract partial class Weapon : Item
 	[Export]
 	private float _speed;
 
-	/// <summary>
-	/// Level of the weapon.
-	/// </summary>
-	private int _level = 1;
-
 	#endregion
 
 	/// <summary>
@@ -76,11 +71,6 @@ public abstract partial class Weapon : Item
 	{
 		get => _speed;
 		set => _speed = value;
-	}
-	public int Level
-	{
-		get => _level;
-		set => _level = value;
 	}
 	public PackedScene Projectile_node
 	{

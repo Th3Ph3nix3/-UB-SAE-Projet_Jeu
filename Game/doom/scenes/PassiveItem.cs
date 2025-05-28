@@ -13,7 +13,7 @@ public partial class PassiveItem : Item
 	}
 	public bool is_upgradable()
 	{
-		return (Level <= _upgrades.Length);
+		return Level <= _upgrades.Length;
 	}
 
 	public void upgrade_item(PlayerControl player)

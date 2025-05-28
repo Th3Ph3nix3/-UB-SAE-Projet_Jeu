@@ -23,6 +23,9 @@ public partial class Item : Resource
     /// </summary>
     private int _level = 1;
 
+    // To change when player is better encapsulated
+    protected PlayerControl _owner;
+
     #endregion
 
     #region Getter / Setter
@@ -46,5 +49,8 @@ public partial class Item : Resource
         }
     }
 
+    #endregion
+
+    #region methods
     #endregion
 }

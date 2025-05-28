@@ -365,6 +365,7 @@ process_mode = 1
 
 [node name="Particles" type="GPUParticles2D" parent="CharacterBody2D/UI"]
 process_mode = 3
+visible = false
 position = Vector2(1378, -72)
 amount = 100
 texture = ExtResource("4_qy76y")
@@ -375,6 +376,7 @@ process_material = SubResource("ParticleProcessMaterial_jvonm")
 
 [node name="Panel" type="NinePatchRect" parent="CharacterBody2D/UI"]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -389,6 +391,7 @@ grow_vertical = 2
 texture = ExtResource("5_jvonm")
 
 [node name="Label" type="Label" parent="CharacterBody2D/UI/Panel"]
+visible = false
 layout_mode = 0
 offset_left = 725.0
 offset_top = 34.5
@@ -535,10 +538,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1010.5
-offset_top = -644.0
-offset_right = 1010.5
-offset_bottom = 644.0
+offset_left = -1325.0
+offset_top = -769.0
+offset_right = 1323.0
+offset_bottom = 762.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.286685, 1.04684e-06, 0.0228017, 0.501961)
@@ -617,6 +620,7 @@ script = ExtResource("13_q4ekd")
 
 [node name="SettingsMenu_inGame" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("14_rmc8r")
 
 [node name="ColorRect" type="ColorRect" parent="SettingsMenu_inGame"]

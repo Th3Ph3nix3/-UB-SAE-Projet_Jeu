@@ -76,3 +76,6 @@ Game/doom/.vs/Doom/v17/DocumentLayout.json
 Game/doom/.vs/ProjectEvaluation/doom.metadata.v9.bin
 Game/doom/.vs/ProjectEvaluation/doom.projects.v9.bin
 Game/doom/.vs/ProjectEvaluation/doom.strings.v9.bin
+Game/doom/.vscode/tasks.json
+Game/doom/.vscode/launch.json
+Game/doom/.continue/docs/new-doc.yaml

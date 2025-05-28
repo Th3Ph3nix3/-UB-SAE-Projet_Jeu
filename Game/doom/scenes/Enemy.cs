@@ -75,7 +75,7 @@ public partial class Enemy : CharacterBody2D
 	/// Reference to the player it chase.
 	/// </summary>
 	[Export]
-	private CharacterBody2D _player_reference;
+	private PlayerControl _player_reference;
 
 	/// <summary>
 	/// Link the sprite2D to the enemy.
@@ -158,7 +158,7 @@ public partial class Enemy : CharacterBody2D
 		get => _separation;
 		set => _separation = value;
 	}
-	public CharacterBody2D Player_reference
+	public PlayerControl Player_reference
 	{
 		get => _player_reference;
 		set => _player_reference = value;
@@ -177,16 +177,13 @@ public partial class Enemy : CharacterBody2D
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
 		_collisionShape2D = GetNode<CollisionShape2D>("CollisionShape2D");
 
-		if (_sprite2D == null && _collisionShape2D == null && _type == null)
+		if (_sprite2D == null || _collisionShape2D == null || _type == null)
 		{
 			QueueFree(); // If the sprite2D, CollisionShape2D or type is not found, remove the enemy from the scene.
 		}
 
 		_sprite2D.Texture = _type.texture;
 		_sprite2D.Hframes = _type.frames;
-
-		//get the caracteristics of a non-elite mob
-		EnemyType NormalType = this._type;
 
 		if (!_elite)
 		{
@@ -220,7 +217,7 @@ public partial class Enemy : CharacterBody2D
 		Velocity = (Player_reference.Position - Position).Normalized() * _speed;
 
 		Animation(delta);
-		check_separation(delta);
+		check_separation();
 		knockback_update(delta);
 	}
 	#endregion
@@ -264,20 +261,18 @@ public partial class Enemy : CharacterBody2D
 	/// Check the distance between the enemy and the player.
 	/// Used to update _separation each frame.
 	/// </summary>
-	public void check_separation(double _delta)
+	public void check_separation()
 	{
-		Separation = (Player_reference.Position - Position).Length();
-		if (Separation >= 2000 && !Elite) // if the mob is not elite and is too far of the player
+		_separation = (_player_reference.Position - Position).Length();
+		if (_separation >= 2000 && !Elite) // if the mob is not elite and is too far of the player
 		{
 			QueueFree(); // free memory by destroying the mob
 		}
 
-		PlayerControl player = Player_reference as PlayerControl; // cast player_reference
-
-		if (Separation < player.nearest_enemy_distance) // updating nearest_enemy of player
+		if (_player_reference != null && _separation < _player_reference.nearest_enemy_distance) // updating nearest_enemy of player
 		{
-			player.nearest_enemy_distance = Separation;
-			player.nearest_enemy = this;
+			_player_reference.nearest_enemy_distance = _separation;
+			_player_reference.nearest_enemy = this;
 		}
 	}
 
@@ -297,8 +292,7 @@ public partial class Enemy : CharacterBody2D
 			var hitEnemy = hitNode as Enemy;
 			if (hitEnemy != null)
 			{
-				var hitEnemyPosition = hitEnemy.GlobalPosition;
-				hitEnemy.Knockback = (hitEnemyPosition - GlobalPosition).Normalized() * 50;
+				hitEnemy.Knockback = (hitEnemy.GlobalPosition - GlobalPosition).Normalized() * 50;
 			}
 		}
 	}

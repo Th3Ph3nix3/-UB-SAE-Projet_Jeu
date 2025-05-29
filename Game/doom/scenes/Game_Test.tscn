@@ -770,7 +770,6 @@ process_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
 stream = ExtResource("48_gx5gv")
-volume_db = -8.0
 autoplay = true
 
 [connection signal="pressed" from="CharacterBody2D/UI/Button" to="PauseManager" method="_on_pause_pressed"]

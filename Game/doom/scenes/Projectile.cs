@@ -22,8 +22,21 @@ public partial class Projectile : Area2D
 
 	public override void _Ready()
 	{
-		playerShoot = this.GetNode<AudioStreamPlayer>("PlayerShoot");
-		playerShoot.Play(); // play the sound of the projectile when it is created
+		// Get the reference AudioStreamPlayer node (for example, in _Ready)
+		var playerShootRef = GetNode<AudioStreamPlayer>("PlayerShoot");
+
+		// Duplicate the AudioStreamPlayer node to make it independent
+		var playerShoot = (AudioStreamPlayer)playerShootRef.Duplicate();
+		playerShoot.Stream = playerShootRef.Stream; // Make sure the audio stream is copied
+
+		// Add the duplicated node to the scene root so it won't be deleted with 'this'
+		GetTree().Root.AddChild(playerShoot);
+
+		// Play the shooting sound
+		playerShoot.Play();
+
+		// Automatically delete the audio node when the sound finishes playing
+		playerShoot.Finished += () => playerShoot.QueueFree();
 	}
 
 	public void _on_body_entered(Node2D body)

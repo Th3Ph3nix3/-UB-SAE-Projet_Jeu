@@ -66,8 +66,7 @@
               "RelativeToolTip": "scenes\\PauseManager.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:30:06.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T06:30:06.204Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "scenes\\Slot.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAAwCMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:45:08.324Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T14:45:08.324Z"
             },
             {
               "$type": "Document",
@@ -92,8 +90,7 @@
               "RelativeToolTip": "scenes\\OptionSlot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:43:04.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T14:43:04.732Z"
             },
             {
               "$type": "Document",
@@ -103,7 +100,7 @@
               "RelativeDocumentMoniker": "scenes\\Options.cs",
               "ToolTip": "C:\\Users\\teolt\\MyThings\\BUT_Info\\Ann\u00E9e_1\\info\\POO\\-UB-SAE-Projet_Jeu\\Game\\doom\\scenes\\Options.cs",
               "RelativeToolTip": "scenes\\Options.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAQwCUAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAwCUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-22T14:41:51.557Z",
               "EditorCaption": ""
@@ -118,8 +115,7 @@
               "RelativeToolTip": "scenes\\Weapon.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:38:38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T14:38:38Z"
             },
             {
               "$type": "Document",
@@ -131,8 +127,7 @@
               "RelativeToolTip": "scenes\\PlayerControl.cs",
               "ViewState": "AgIAAJYAAAAAAAAAAAAwwMIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T16:33:24.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T16:33:24.126Z"
             },
             {
               "$type": "Document",
@@ -144,8 +139,7 @@
               "RelativeToolTip": "scenes\\Projectile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T15:48:05.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T15:48:05.483Z"
             },
             {
               "$type": "Document",
@@ -157,8 +151,7 @@
               "RelativeToolTip": "scenes\\Spawner.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:45:29.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:45:29.689Z"
             },
             {
               "$type": "Document",
@@ -170,8 +163,7 @@
               "RelativeToolTip": "scenes\\EnemyType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:44:37.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:44:37.149Z"
             },
             {
               "$type": "Document",
@@ -183,8 +175,7 @@
               "RelativeToolTip": "scenes\\Enemy.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:42:53.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:42:53.457Z"
             }
           ]
         }

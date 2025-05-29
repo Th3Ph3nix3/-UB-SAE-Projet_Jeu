@@ -1,15 +1,17 @@
 using Godot;
 using System;
 
-public partial class Regeneration : Passive
+/// <summary>
+/// Represents a passive item that regenerates the player's health over time.
+/// </summary>
+[GlobalClass]
+public partial class Regeneration : Passives
 {
-    public override void OnApply(PlayerControl owner)
-    {
-        _owner = owner;
-    }
-
-    public override void EffectUpdate()
-    {
-        _owner.health += _upgrades[Level];
-    }
+    /// <summary>
+    /// Applies the regeneration effect to the player by increasing their health.
+    /// </summary>
+    protected override void EffectUpdate()
+	{
+		_owner.health += _upgrades[Level].stat;
+	}
 }

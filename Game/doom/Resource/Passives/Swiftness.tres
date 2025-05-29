@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Swiftness" load_steps=7 format=3 uid="uid://ckpkdts2lpfyk"]
+
+[ext_resource type="Texture2D" uid="uid://betv300c1btwb" path="res://icons_for_items/speed.png" id="1_upp4e"]
+[ext_resource type="Script" uid="uid://boy4i3ijaijpx" path="res://scenes/Items/Upgrades/Passives_Upgrade.cs" id="2_6jqvv"]
+[ext_resource type="Script" uid="uid://bvnlnigrn5a44" path="res://scenes/Items/Passive_Items/Swiftness.cs" id="3_0p1ur"]
+
+[sub_resource type="Resource" id="Resource_bjane"]
+script = ExtResource("2_6jqvv")
+stat = 50.0
+cooldown = 0.0
+description = "You now have +50 Speed."
+
+[sub_resource type="Resource" id="Resource_6m4vx"]
+script = ExtResource("2_6jqvv")
+stat = 100.0
+cooldown = 0.0
+description = "You now have +100 Speed"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[sub_resource type="Resource" id="Resource_kkbks"]
+script = ExtResource("2_6jqvv")
+stat = 200.0
+cooldown = 0.0
+description = "You now have +200 Speed"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[resource]
+script = ExtResource("3_0p1ur")
+_upgrades = [SubResource("Resource_bjane"), SubResource("Resource_6m4vx"), SubResource("Resource_kkbks")]
+_name = "Passive : Swiftness"
+_texture = ExtResource("1_upp4e")
+metadata/_custom_type_script = "uid://bvnlnigrn5a44"

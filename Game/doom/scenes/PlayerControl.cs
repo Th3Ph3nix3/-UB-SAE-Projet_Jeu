@@ -21,8 +21,17 @@ public partial class PlayerControl : CharacterBody2D
 	public CollisionShape2D magnetArea;
 	public float nearest_enemy_distance; // float.PositiveInfinity est la représentation de l'infini
 
-	
 
+	/// <summary>
+	/// Weapons that the player currently have.
+	/// </summary>
+	[Export]
+	private Weapons _weapon;
+
+	/// <summary>
+	/// Passives that the player currently have.
+	/// </summary>
+	private Passives[] _passives = Array.Empty<Passives>();
 
 	#endregion
 
@@ -183,6 +192,8 @@ public partial class PlayerControl : CharacterBody2D
 		}
 	}
 
+	#endregion
+
 	#region Physics Process() and Ready()
 	public override void _PhysicsProcess(double delta)
 	{
@@ -201,8 +212,9 @@ public partial class PlayerControl : CharacterBody2D
 		MoveAndSlide();
 		Check_XP();
 		health += (recovery / 10) * (float)delta;
-		
 		Animation();
+
+		foreach (Passives passive in _passives) { passive.UpdateEffectTimer(delta); } _weapon.UpdateEffectTimer(delta);
 	}
 
 	// used to instantiate players attributes on the game scene 
@@ -214,8 +226,9 @@ public partial class PlayerControl : CharacterBody2D
 		LevelLabel = GetNode<Label>("UI/XP/Level"); // level
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
 		options = (Options)GetNode<VBoxContainer>("UI/Options"); // options
+
+		_weapon.Owner = this; // set the owner of the weapons container to this player
 	}
 	#endregion
 
-	#endregion
 }

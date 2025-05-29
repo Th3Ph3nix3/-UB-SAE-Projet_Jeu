@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=80 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b0m4o0h0eb8am" path="res://GroundElements/crack6.png" id="7_nbbkb"]
 [ext_resource type="Resource" uid="uid://ctxx47ayg26pp" path="res://Resource/Weapons/gun_icon.tres" id="8_b3q0q"]
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
+[ext_resource type="Resource" uid="uid://b4bwf8thy1gex" path="res://Resource/Weapons/Pistol.tres" id="10_gx5gv"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://scenes/PauseManager.cs" id="10_ran1e"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
 [ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://scenes/SettingsManager_inGame.cs" id="13_q4ekd"]
@@ -359,6 +360,7 @@ player = NodePath("../CharacterBody2D")
 position = Vector2(100, 107)
 script = ExtResource("2_438ep")
 movement_speed = 300.0
+_weapon = ExtResource("10_gx5gv")
 
 [node name="UI" type="CanvasLayer" parent="CharacterBody2D"]
 process_mode = 1

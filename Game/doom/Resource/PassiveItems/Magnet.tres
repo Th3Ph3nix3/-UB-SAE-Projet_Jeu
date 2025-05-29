@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_0jmhd")
 _upgrades = []
-title = "magnet"
+_title = ""
 _texture = ExtResource("2_0uo0w")
 metadata/_custom_type_script = "uid://c7x3nmfkbhqxr"

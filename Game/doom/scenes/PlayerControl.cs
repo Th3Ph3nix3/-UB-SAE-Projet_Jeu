@@ -20,7 +20,6 @@ public partial class PlayerControl : CharacterBody2D
 	public Enemy nearest_enemy;
 	public CollisionShape2D magnetArea;
 	public float nearest_enemy_distance; // float.PositiveInfinity est la représentation de l'infini
-
 	
 
 

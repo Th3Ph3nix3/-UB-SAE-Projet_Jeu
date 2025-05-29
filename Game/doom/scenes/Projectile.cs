@@ -10,7 +10,7 @@ public partial class Projectile : Area2D
 	public float damage = 1;
 	public PlayerControl source;
 	public Vector2 knockback;
-
+	public AudioStreamPlayer playerShoot;
 	#endregion
 
 	#region methods
@@ -18,6 +18,12 @@ public partial class Projectile : Area2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Position += direction * speed * (float)delta; // Move the projectile at a certain speed
+	}
+
+	public override void _Ready()
+	{
+		playerShoot = this.GetNode<AudioStreamPlayer>("PlayerShoot");
+		playerShoot.Play(); // play the sound of the projectile when it is created
 	}
 
 	public void _on_body_entered(Node2D body)

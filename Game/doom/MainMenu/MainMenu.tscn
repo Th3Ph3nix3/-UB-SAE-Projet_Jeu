@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ku7riwone0r5"]
+[gd_scene load_steps=23 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
 [ext_resource type="Texture2D" uid="uid://cpj07hfkjfno4" path="res://MainMenu/menu_background__upscaled.jpg" id="2_3p42x"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://i67ebo1oh3jg" path="res://MainMenu/SettingsManager.cs" id="4_430ii"]
 [ext_resource type="Script" uid="uid://ch3e3p7t0asbt" path="res://MainMenu/ToggleVisibilityOnSettings.cs" id="5_3p42x"]
 [ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="6_3p42x"]
+[ext_resource type="AudioStream" uid="uid://c6l202mylg6p4" path="res://sounds/MainMenu_Music.wav" id="7_3clmd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
 axis_stretch_horizontal = 1
@@ -346,6 +347,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_430ii")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
 text = "TRY TO ESCAPE"
+
+[node name="SoundManager" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
+stream = ExtResource("7_3clmd")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="SettingsManager" method="_on_options_pressed"]

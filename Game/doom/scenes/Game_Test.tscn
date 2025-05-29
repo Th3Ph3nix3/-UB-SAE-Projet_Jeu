@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=80 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Sprite/Hero/Walk/Hero_Walk_0008.png" id="41_5ue2x"]
 [ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Sprite/Hero/Walk/Hero_Walk_0009.png" id="42_jcst1"]
 [ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Sprite/Hero/Walk/Hero_Walk_0010.png" id="43_aq156"]
+[ext_resource type="AudioStream" uid="uid://b1symyynowv5y" path="res://sounds/something wrong.wav" id="48_gx5gv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -535,10 +536,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1010.5
-offset_top = -644.0
-offset_right = 1010.5
-offset_bottom = 644.0
+offset_left = -1323.0
+offset_top = -796.0
+offset_right = 1337.0
+offset_bottom = 768.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.286685, 1.04684e-06, 0.0228017, 0.501961)
@@ -763,6 +764,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_m856m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_m7s4s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_m856m")
 text = "TRY TO ESCAPE"
+
+[node name="SoundManager" type="Node" parent="."]
+process_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
+stream = ExtResource("48_gx5gv")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="pressed" from="CharacterBody2D/UI/Button" to="PauseManager" method="_on_pause_pressed"]
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]

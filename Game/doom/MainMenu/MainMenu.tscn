@@ -1,14 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://ku7riwone0r5"]
+[gd_scene load_steps=27 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
 [ext_resource type="Texture2D" uid="uid://cpj07hfkjfno4" path="res://MainMenu/menu_background__upscaled.jpg" id="2_3p42x"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_b76km"]
-[ext_resource type="Script" uid="uid://4eyp7bvrw3wf" path="res://MainMenu/SettingsManager.cs" id="4_430ii"]
 [ext_resource type="Script" uid="uid://ch3e3p7t0asbt" path="res://MainMenu/ToggleVisibilityOnSettings.cs" id="5_3p42x"]
 [ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="6_3p42x"]
 [ext_resource type="AudioStream" uid="uid://c6l202mylg6p4" path="res://sounds/MainMenu_Music.wav" id="7_3clmd"]
 [ext_resource type="AudioStream" uid="uid://1nnskdw5wng8" path="res://sounds/CMPTKey_Souris raspberry simple clic (ID 1735)_LS.mp3" id="7_bsanu"]
 [ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="8_kftou"]
+[ext_resource type="Script" uid="uid://4eyp7bvrw3wf" path="res://MainMenu/SettingsManager.cs" id="10_nre7b"]
+[ext_resource type="Script" uid="uid://ppqgm752416r" path="res://MainMenu/CreditsManager.cs" id="10_nxm3p"]
+[ext_resource type="Script" uid="uid://cao6g61dsjry3" path="res://MainMenu/ToggleVisibilityOnCredits.cs" id="11_nxm3p"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
 axis_stretch_horizontal = 1
@@ -130,10 +132,10 @@ offset_bottom = 40.0
 texture = ExtResource("2_3p42x")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = -179.5
-offset_top = -118.5
-offset_right = 179.5
-offset_bottom = 118.5
+offset_left = -179.0
+offset_top = -118.0
+offset_right = 180.0
+offset_bottom = 255.0
 size_flags_horizontal = 4
 size_flags_vertical = 5
 size_flags_stretch_ratio = 10.0
@@ -164,6 +166,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lbqne")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
 text = "OPTIONS"
+
+[node name="CreditButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lbqne")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbqne")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
+text = "CREDITS"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -200,13 +215,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsManager" type="Node" parent="."]
-script = ExtResource("4_430ii")
+script = ExtResource("10_nre7b")
 
 [node name="ClickClickSound" type="AudioStreamPlayer" parent="SettingsManager"]
 stream = ExtResource("7_bsanu")
 bus = &"Click"
 
 [node name="SettingsMenu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("5_3p42x")
 
 [node name="ColorRect" type="ColorRect" parent="SettingsMenu"]
@@ -475,12 +491,64 @@ volume_db = -10.0
 autoplay = true
 bus = &"Music"
 
+[node name="CreditsManager" type="Node" parent="."]
+script = ExtResource("10_nxm3p")
+
+[node name="ClickClickSound" type="AudioStreamPlayer" parent="CreditsManager"]
+stream = ExtResource("7_bsanu")
+bus = &"Click"
+
+[node name="CreditsMenu" type="CanvasLayer" parent="."]
+script = ExtResource("11_nxm3p")
+
+[node name="ColorRect" type="ColorRect" parent="CreditsMenu"]
+offset_left = -39.0
+offset_top = -55.0
+offset_right = 2631.0
+offset_bottom = 1500.0
+color = Color(0, 0, 0, 0.884)
+
+[node name="Label" type="Label" parent="CreditsMenu"]
+offset_left = 868.0
+offset_top = 446.0
+offset_right = 1663.0
+offset_bottom = 893.0
+theme_override_font_sizes/font_size = 30
+text = "Pixel art : Cozhmisus
+
+Development : Th3Ph3nix3, RemRem04 and Cozhmisus
+
+Home picture : Zen Maps (Patreon)
+
+Music : 8bit Syndrome - Z3r0 (Youtube) 
+             and Something wrong - Beloboba (Itch.io)
+
+Sound : Universal-Soundbank.com and SoundFishing"
+
+[node name="QuitButton" type="Button" parent="CreditsMenu"]
+custom_minimum_size = Vector2(0, 60)
+offset_left = 1032.0
+offset_top = 986.0
+offset_right = 1495.0
+offset_bottom = 1088.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b76km")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mlc1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_430ii")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mlc1t")
+text = "TRY TO ESCAPE"
+
 [node name="ClickClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_bsanu")
 bus = &"Click"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="SettingsManager" method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditButton" to="CreditsManager" method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1024x546" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1024x546_pressed"]
 [connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1280x720" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1280x720_pressed"]
@@ -489,3 +557,4 @@ bus = &"Click"
 [connection signal="pressed" from="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone/1920x1200" to="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1200_pressed"]
 [connection signal="pressed" from="SettingsMenu/settings_zone/fullscreen_zone/fullscreen_button" to="SettingsManager" method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="SettingsMenu/settings_zone/QuitButton" to="SettingsManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsMenu/QuitButton" to="CreditsManager" method="_on_quit_button_pressed"]

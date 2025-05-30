@@ -639,9 +639,9 @@ color = Color(0.419, 0, 0.154, 0.856)
 
 [node name="settings_zone" type="VBoxContainer" parent="SettingsMenu_inGame"]
 offset_left = 1069.0
-offset_top = 484.0
+offset_top = 350.0
 offset_right = 1455.0
-offset_bottom = 884.0
+offset_bottom = 1077.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 30

@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=82 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://scenes/PlayerControl.cs" id="2_438ep"]
@@ -49,11 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Sprite/Hero/Walk/Hero_Walk_0010.png" id="43_aq156"]
 [ext_resource type="AudioStream" uid="uid://1nnskdw5wng8" path="res://sounds/CMPTKey_Souris raspberry simple clic (ID 1735)_LS.mp3" id="46_lbadk"]
 [ext_resource type="AudioStream" uid="uid://b1symyynowv5y" path="res://sounds/something wrong.wav" id="48_gx5gv"]
-[ext_resource type="Script" uid="uid://dkwcj5nhchc27" path="res://MainMenu/GeneralVolumeSlider.cs" id="49_xdt2h"]
-[ext_resource type="Script" uid="uid://b4flfy1gcdqrr" path="res://MainMenu/MusicVolumeSlider.cs" id="50_5axpl"]
-[ext_resource type="Script" uid="uid://bwyiwovx2pkdr" path="res://MainMenu/ClickVolumeSlider.cs" id="51_nkbnv"]
-[ext_resource type="Script" uid="uid://thxg1g43s7b4" path="res://MainMenu/MonsterVolumeSlider.cs" id="52_rni8i"]
-[ext_resource type="Script" uid="uid://njabtspojd03" path="res://MainMenu/PlayerVolumeSlider.cs" id="53_5s4mg"]
+[ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="49_vtj28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -776,7 +772,7 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("49_xdt2h")
+script = ExtResource("49_vtj28")
 
 [node name="MusicVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
 layout_mode = 2
@@ -794,7 +790,8 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("50_5axpl")
+script = ExtResource("49_vtj28")
+volumeType = 1
 
 [node name="ClickVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
 layout_mode = 2
@@ -811,7 +808,8 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("51_nkbnv")
+script = ExtResource("49_vtj28")
+volumeType = 2
 
 [node name="MonsterVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
 layout_mode = 2
@@ -829,7 +827,8 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("52_rni8i")
+script = ExtResource("49_vtj28")
+volumeType = 3
 
 [node name="PlayerVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
 layout_mode = 2
@@ -847,7 +846,8 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("53_5s4mg")
+script = ExtResource("49_vtj28")
+volumeType = 4
 
 [node name="fullscreen_zone" type="HBoxContainer" parent="SettingsMenu_inGame/settings_zone"]
 layout_mode = 2

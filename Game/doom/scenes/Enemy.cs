@@ -11,7 +11,7 @@ public partial class Enemy : CharacterBody2D
 	/// Type of the enemy.
 	/// </summary>
 	private EnemyType _type;
-	private AudioStreamPlayer soundMonster;
+	private AudioStreamPlayer2D soundMonster;
 	private Timer soundTimer;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
 
@@ -215,7 +215,7 @@ public partial class Enemy : CharacterBody2D
 			_collisionShape2D.Scale = new Godot.Vector2(5f, 5f);
 		}
 
-		soundMonster = GetNode<AudioStreamPlayer>("AudioStreamPlayer2D");
+		soundMonster = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 		soundTimer = GetNode<Timer>("Timer");
 
 		soundTimer.Timeout += OnSoundTimerTimeout;

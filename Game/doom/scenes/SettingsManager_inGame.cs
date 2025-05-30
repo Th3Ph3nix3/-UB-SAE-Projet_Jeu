@@ -20,7 +20,7 @@ public partial class SettingsManager_inGame : Node
 
     // Current settings menu state
     private bool inSettings = false;
-
+    private AudioStreamPlayer clickcliksound;
     #endregion
 
     #region Signals
@@ -50,6 +50,8 @@ public partial class SettingsManager_inGame : Node
     /// </summary>
     public void _on_options_pressed()
     {
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
         ToggleSettingsMenu();
     }
 
@@ -58,6 +60,8 @@ public partial class SettingsManager_inGame : Node
     /// </summary>
     public void _on_quit_button_pressed()
     {
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
         ToggleSettingsMenu();
     }
 
@@ -66,6 +70,8 @@ public partial class SettingsManager_inGame : Node
     /// </summary>
     private void _on_fullscreen_pressed()
     {
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
         _isFullscreen = !_isFullscreen;
         var mode = _isFullscreen
             ? DisplayServer.WindowMode.Fullscreen

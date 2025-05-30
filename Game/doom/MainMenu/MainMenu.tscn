@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ku7riwone0r5"]
+[gd_scene load_steps=29 format=3 uid="uid://ku7riwone0r5"]
 
 [ext_resource type="Script" uid="uid://bso54dmdjkt4f" path="res://MainMenu/MainMenu.cs" id="1_b76km"]
 [ext_resource type="Texture2D" uid="uid://cpj07hfkjfno4" path="res://MainMenu/menu_background__upscaled.jpg" id="2_3p42x"]
@@ -7,6 +7,12 @@
 [ext_resource type="Script" uid="uid://ch3e3p7t0asbt" path="res://MainMenu/ToggleVisibilityOnSettings.cs" id="5_3p42x"]
 [ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="6_3p42x"]
 [ext_resource type="AudioStream" uid="uid://c6l202mylg6p4" path="res://sounds/MainMenu_Music.wav" id="7_3clmd"]
+[ext_resource type="AudioStream" uid="uid://1nnskdw5wng8" path="res://sounds/CMPTKey_Souris raspberry simple clic (ID 1735)_LS.mp3" id="7_bsanu"]
+[ext_resource type="Script" uid="uid://b4flfy1gcdqrr" path="res://MainMenu/MusicVolumeSlider.cs" id="9_npjie"]
+[ext_resource type="Script" uid="uid://dkwcj5nhchc27" path="res://MainMenu/GeneralVolumeSlider.cs" id="9_nxm3p"]
+[ext_resource type="Script" uid="uid://bwyiwovx2pkdr" path="res://MainMenu/ClickVolumeSlider.cs" id="10_7t2hb"]
+[ext_resource type="Script" uid="uid://thxg1g43s7b4" path="res://MainMenu/MonsterVolumeSlider.cs" id="11_gej64"]
+[ext_resource type="Script" uid="uid://njabtspojd03" path="res://MainMenu/PlayerVolumeSlider.cs" id="12_qvidt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbqne"]
 axis_stretch_horizontal = 1
@@ -200,6 +206,10 @@ vertical_alignment = 1
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("4_430ii")
 
+[node name="ClickClickSound" type="AudioStreamPlayer" parent="SettingsManager"]
+stream = ExtResource("7_bsanu")
+bus = &"Click"
+
 [node name="SettingsMenu" type="CanvasLayer" parent="."]
 script = ExtResource("5_3p42x")
 
@@ -309,6 +319,115 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bsanu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_kftou")
 text = "1920 X 1200"
 
+[node name="ClickClickSound" type="AudioStreamPlayer" parent="SettingsMenu/settings_zone/resolution_zone/button_resolution_zone"]
+stream = ExtResource("7_bsanu")
+bus = &"Click"
+
+[node name="sound_zone" type="HBoxContainer" parent="SettingsMenu/settings_zone"]
+layout_mode = 2
+
+[node name="Volumes" type="Label" parent="SettingsMenu/settings_zone/sound_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 23
+text = "VOLUMES :"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/settings_zone/sound_zone"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 13
+
+[node name="GeneralVolume" type="Label" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 18
+text = "GENERAL VOLUME :"
+
+[node name="GeneralSlider" type="HSlider" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("9_nxm3p")
+
+[node name="MusicVolume" type="Label" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 18
+text = "MUSIC VOLUME :"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("9_npjie")
+
+[node name="ClickVolume" type="Label" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 18
+text = "CLICK VOLUME :"
+
+[node name="ClickSlider" type="HSlider" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("10_7t2hb")
+
+[node name="MonsterVolume" type="Label" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 18
+text = "MONSTER VOLUME :"
+
+[node name="MonsterSlider" type="HSlider" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("11_gej64")
+
+[node name="PlayerVolume" type="Label" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_b76km")
+theme_override_font_sizes/font_size = 18
+text = "PLAYER VOLUME :"
+
+[node name="PlayerSlider" type="HSlider" parent="SettingsMenu/settings_zone/sound_zone/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("12_qvidt")
+
 [node name="fullscreen_zone" type="HBoxContainer" parent="SettingsMenu/settings_zone"]
 layout_mode = 2
 
@@ -354,6 +473,11 @@ text = "TRY TO ESCAPE"
 stream = ExtResource("7_3clmd")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
+
+[node name="ClickClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bsanu")
+bus = &"Click"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="SettingsManager" method="_on_options_pressed"]

@@ -19,7 +19,7 @@ public partial class PauseManager : Node
 
     // Current state of the settings menu (not used in this script but declared for future use).
     private bool inSettings = false;
-
+    private AudioStreamPlayer clickcliksound;
     #endregion
 
     #region Signals
@@ -57,6 +57,8 @@ public partial class PauseManager : Node
     /// </summary>
     public void _on_pause_pressed()
     {
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
         isPaused = !isPaused;
         EmitSignal(SignalName.GamePauseToggle, isPaused);
         GetTree().Paused = isPaused;
@@ -68,6 +70,8 @@ public partial class PauseManager : Node
     /// </summary>
     public void _on_return_game_pressed()
     {
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
         isPaused = !isPaused;
         EmitSignal(SignalName.GamePauseToggle, isPaused);
         GetTree().Paused = isPaused;
@@ -79,6 +83,8 @@ public partial class PauseManager : Node
     /// </summary>
     public void _on_menu_pressed()
     {
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
         isPaused = !isPaused;
         EmitSignal(SignalName.GamePauseToggle, isPaused);
         GetTree().Paused = isPaused;
@@ -93,6 +99,8 @@ public partial class PauseManager : Node
     /// </summary>
     public void _on_quit_button_pressed()
     {
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
         GetTree().Quit();
     }
 

@@ -10,12 +10,6 @@ public abstract partial class Passives : Items
     #region attributes
 
     /// <summary>
-    /// Level at which the player first acquires the passive item.
-    /// </summary>
-    [Export]
-    private int _firstOccurence;
-
-    /// <summary>
     /// Array of upgrades available for the passive item.
     /// The first index of the list are the base stats of the passive item, and the next indices are the upgrades.
     /// </summary>

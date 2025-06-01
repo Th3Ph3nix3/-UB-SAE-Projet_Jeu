@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://csx7hrfdco6wi"]
+
+[ext_resource type="Texture2D" uid="uid://3emhq00yyxcx" path="res://Game/Sprite/Enemy/Little/Eyes/Little_Chaos_Eyes-HeadOnly.png" id="1_mwi76"]
+[ext_resource type="Script" uid="uid://dhpptnn6w1ysl" path="res://Game/Code/Gem.cs" id="2_taips"]
+
+[resource]
+script = ExtResource("2_taips")
+XP = 1
+Title = "Little_Eyes_Head"
+Icon = ExtResource("1_mwi76")
+Description = ""
+metadata/_custom_type_script = "uid://dhpptnn6w1ysl"

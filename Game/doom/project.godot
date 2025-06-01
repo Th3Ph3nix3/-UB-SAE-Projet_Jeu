@@ -15,6 +15,10 @@ run/main_scene="uid://ku7riwone0r5"
 config/features=PackedStringArray("4.4", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Game/Code/Global/Global.cs"
+
 [display]
 
 window/size/viewport_width=2560
@@ -30,11 +34,14 @@ project/assembly_name="Doom"
 [file_customization]
 
 folder_colors={
-"res://Resource/Enemies/": "red",
-"res://Resource/PickupsGems/": "green",
-"res://Resources/": "blue",
-"res://Shaders/": "pink",
-"res://scenes/": "pink"
+"res://Game/Code/": "pink",
+"res://Game/Resource/": "teal",
+"res://Game/Resource/Enemies/": "teal",
+"res://Game/Resource/Pickups/": "teal",
+"res://Game/Scenes/": "green",
+"res://Game/Shaders/": "yellow",
+"res://Game/Sprite/": "orange",
+"res://Resources/": "blue"
 }
 
 [input]

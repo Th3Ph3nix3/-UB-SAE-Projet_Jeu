@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkycldrf2b6a5"]
+
+[ext_resource type="Script" uid="uid://dsjlw3x1hg42u" path="res://Game/Code/UI/Items_Display/Items_Display.cs" id="1_58a71"]
+
+[node name="Items_Display" type="PanelContainer"]
+offset_right = 139.0
+offset_bottom = 132.0
+script = ExtResource("1_58a71")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Test"
+horizontal_alignment = 2

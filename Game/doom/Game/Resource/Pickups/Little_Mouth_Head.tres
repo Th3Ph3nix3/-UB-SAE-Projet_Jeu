@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://cdite1myf5k0a"]
+
+[ext_resource type="Texture2D" uid="uid://cautnh7585mrh" path="res://Game/Sprite/Enemy/Little/Mouth/Little_Chaos_Mouth-HeadOnly.png" id="1_ama4t"]
+[ext_resource type="Script" uid="uid://dhpptnn6w1ysl" path="res://Game/Code/Gem.cs" id="2_2ast1"]
+
+[resource]
+script = ExtResource("2_2ast1")
+XP = 1
+Title = "Little_Mouth_Head"
+Icon = ExtResource("1_ama4t")
+Description = ""
+metadata/_custom_type_script = "uid://dhpptnn6w1ysl"

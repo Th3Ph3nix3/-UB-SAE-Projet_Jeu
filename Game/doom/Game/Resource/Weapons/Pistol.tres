@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Pistol" load_steps=8 format=3 uid="uid://det7kyshbql0c"]
+
+[ext_resource type="PackedScene" uid="uid://cbhkf7rb45q10" path="res://Game/Scenes/projectile.tscn" id="1_mpc1j"]
+[ext_resource type="Script" uid="uid://df64gmd12j0lt" path="res://Game/Code/Items/Weapons/Pistol/Pistol.cs" id="2_llvnh"]
+[ext_resource type="Texture2D" uid="uid://ccap45eo2gk2h" path="res://Game/Sprite/Item/Weapons/Pistol/colt_icon.png" id="3_wsker"]
+[ext_resource type="Script" uid="uid://bmh3tuygoeu1i" path="res://Game/Code/Items/Upgrades/Weapons_Upgrade.cs" id="4_rmxrv"]
+
+[sub_resource type="Resource" id="Resource_qyep6"]
+script = ExtResource("4_rmxrv")
+damage = 500
+speed = 500
+cooldown = 0.5
+description = "Base Stats"
+
+[sub_resource type="Resource" id="Resource_7txi4"]
+script = ExtResource("4_rmxrv")
+damage = 700
+speed = 500
+cooldown = 0.5
+description = "Test 1"
+metadata/_custom_type_script = "uid://bmh3tuygoeu1i"
+
+[sub_resource type="Resource" id="Resource_tldve"]
+script = ExtResource("4_rmxrv")
+damage = 900
+speed = 500
+cooldown = 0.5
+description = "Test 2"
+metadata/_custom_type_script = "uid://bmh3tuygoeu1i"
+
+[resource]
+script = ExtResource("2_llvnh")
+projectile = ExtResource("1_mpc1j")
+upgrades = [SubResource("Resource_qyep6"), SubResource("Resource_7txi4"), SubResource("Resource_tldve")]
+name = "Pistol"
+texture = ExtResource("3_wsker")
+metadata/_custom_type_script = "uid://df64gmd12j0lt"

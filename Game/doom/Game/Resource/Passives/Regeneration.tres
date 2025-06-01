@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Regeneration" load_steps=7 format=3 uid="uid://du8310vod27mq"]
+
+[ext_resource type="Script" uid="uid://bpqel7k7chovy" path="res://Game/Code/Items/Passives/Regeneration/Regeneration.cs" id="1_0ujd2"]
+[ext_resource type="Texture2D" uid="uid://dsijp4o61b6jg" path="res://Game/Sprite/Item/Passives/Regeneration/recovery.png" id="2_1nnig"]
+[ext_resource type="Script" uid="uid://boy4i3ijaijpx" path="res://Game/Code/Items/Upgrades/Passives_Upgrade.cs" id="2_ccvpx"]
+
+[sub_resource type="Resource" id="Resource_1nnig"]
+script = ExtResource("2_ccvpx")
+stat = 1.0
+cooldown = 2.0
+description = "Recover 1 HP / 2 sec"
+
+[sub_resource type="Resource" id="Resource_0ujd2"]
+script = ExtResource("2_ccvpx")
+stat = 2.0
+cooldown = 2.0
+description = "Recover 2 HP / 	2 sec"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[sub_resource type="Resource" id="Resource_ccvpx"]
+script = ExtResource("2_ccvpx")
+stat = 2.0
+cooldown = 1.0
+description = "Recover 2 HP / 1 sec"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[resource]
+script = ExtResource("1_0ujd2")
+upgrades = [SubResource("Resource_1nnig"), SubResource("Resource_0ujd2"), SubResource("Resource_ccvpx")]
+name = "Regeneration"
+texture = ExtResource("2_1nnig")
+metadata/_custom_type_script = "uid://bpqel7k7chovy"

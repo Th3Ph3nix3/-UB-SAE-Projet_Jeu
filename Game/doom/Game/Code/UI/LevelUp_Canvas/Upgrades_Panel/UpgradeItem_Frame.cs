@@ -11,6 +11,11 @@ public partial class UpgradeItem_Frame : TextureButton
 	/// </summary>
 	private Items _item;
 
+	/// <summary>
+	/// Flag to know if a item upgrade is a new item or not.
+	/// </summary>
+	private bool _newItem = false;
+
 	#endregion
 
 	#region Methods
@@ -19,12 +24,13 @@ public partial class UpgradeItem_Frame : TextureButton
 	/// Custom constructor to instantiate a new Option frame from its scene.
 	/// </summary>
 	/// <param name="item">Item to give to the Option frame.</param>
-	/// <param name="options">Refenrence of the Options class.</param>
-	/// <returns>Returns a reference the the newly instantiated Option frame.</returns>
-	static public UpgradeItem_Frame new_UpgradeItem_Frame(Items item)
+	/// <param name="newItem">True if the item is a new item, false otherwise.</param>
+	/// <returns>Returns a reference the the newly instantiated UpgradeItem frame.</returns>
+	static public UpgradeItem_Frame new_UpgradeItem_Frame(Items item, bool newItem)
 	{
 		UpgradeItem_Frame upgrade_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/Upgrade_UI/UpgradeItem_Frame.tscn").Instantiate<UpgradeItem_Frame>();
 		upgrade_frame._item = item;
+		upgrade_frame._newItem = newItem;
 		return upgrade_frame;
 	}
 
@@ -37,8 +43,8 @@ public partial class UpgradeItem_Frame : TextureButton
 		Godot.Label description = GetNode<Godot.Label>("Description");
 
 		TextureNormal = _item.Texture;
-		label.Text = "Lvl " + (_item.Level + 1).ToString();
-		description.Text = _item.Upgrades[_item.Level + 1].description;
+		label.Text = _newItem ? "New !" : "Lvl " + (_item.Level + 1).ToString();
+		description.Text = _item.Upgrades[_item.Level + (_newItem ? 0 : 1)].description;
 	}
 
 	/// <summary>
@@ -51,7 +57,15 @@ public partial class UpgradeItem_Frame : TextureButton
 		{
 			if (_item != null)
 			{
-				_item.LevelUp(); // upgrade the weapon
+				if (_newItem)
+				{
+					PlayerControl.Player.AddPassive(_item);
+				}
+				else
+				{
+					_item.LevelUp(); // upgrade the weapon
+				}
+				
 				UI.LevelUp_Panel.Close(); // close the options panel
 			}
 			else

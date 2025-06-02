@@ -22,11 +22,10 @@ public partial class PlayerControl : CharacterBody2D
 	public CollisionShape2D magnetArea;
 	public float nearest_enemy_distance; // float.PositiveInfinity est la représentation de l'infini
 
-
 	/// <summary>
 	/// Weapons that the player currently have.
 	/// </summary>
-	private Items _weapon = new Items();
+	private Items _weapon;
 
 	/// <summary>
 	/// Passives that the player currently have.
@@ -36,6 +35,12 @@ public partial class PlayerControl : CharacterBody2D
 	#endregion
 
 	#region Setters / Getters
+
+	/// <summary>
+	/// Static getter to the player reference.
+	/// </summary>
+	static public PlayerControl Player { get; private set; }
+
 	public int _XP = 0;
 	public int XP
 	{
@@ -195,26 +200,21 @@ public partial class PlayerControl : CharacterBody2D
 	}
 
 	/// <summary>
-	/// Change the current weapon of the player.
-	/// </summary>
-	/// <param name="weapon">Weapon the change to.</param>
-	public void ChangeWeapon(Items_Data weapon)
-	{
-		_weapon.SetData(weapon);
-		UI.UpdateItemsDisplay(_weapon); // Update the weapon display in the UI
-	}
-
-	/// <summary>
 	/// Add a new passive to the player.
 	/// </summary>
 	/// <param name="passive">Passive to add.</param>
-	public void AddPassive(Items_Data passive)
+	public void AddPassive(Items item)
 	{
-		_passives.Add(new Items());
-		_passives.Last().SetData(passive);
-		_passives.Last().Holder = this;
+		if (item.Type != Items_Type.Passive)
+		{
+			GD.PrintErr("AddPassive : Item isn't a passive.");
+			return;
+		}
 
-		UI.AddItemDisplay(_passives.Last()); // Add the passive display in the UI
+		item.Holder = this;
+		_passives.Add(item);
+
+		UI.AddItemDisplay(item); // Add the passive display in the UI
 	}
 
 	#endregion
@@ -245,22 +245,19 @@ public partial class PlayerControl : CharacterBody2D
 	// used to instantiate players attributes on the game scene 
 	public override void _Ready()
 	{
+		// Set the static getter to its reference.
+		Player = this;
+
 		nearest_enemy_distance = 150 + area; // set nearest enemy distance to 150 + area (go in attributes to learn more)
 		healthBar = GetNode<ProgressBar>("Health"); // health
 		xpBar = GetNode<TextureProgressBar>("UI_s/XP"); // xp
 		LevelLabel = GetNode<Label>("UI_s/XP/Level"); // level
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
 
-		// Set thez reference of the player in the global access.
-		Global.PlayerManager.SetPlayer(this);
-
 		// Set a base weapon.
-		AddChild(_weapon);
-		_weapon.SetData(Global.Database.WeaponsList[0]);
+		_weapon = new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/Pistol.tres"));
 		_weapon.Holder = this; // set the owner of the weapons container to this player
 		UI.AddItemDisplay(_weapon); // Add the weapon display in the UI
-
-		AddPassive(Global.Database.PassivesList[0]); // Add the first passive to the player
 	}
 
 	#endregion

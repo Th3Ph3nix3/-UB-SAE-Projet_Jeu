@@ -8,11 +8,6 @@ public partial class UI : CanvasLayer
     #region attributes
 
     /// <summary>
-    /// Panel that displays the level up options when the player levels up.
-    /// </summary>
-    static private LevelUp_Panel _levelUp_Panel;
-
-    /// <summary>
     /// Container for passive items frames in the UI.
     /// </summary>
     static private BoxContainer _passiveItemsContainer;
@@ -22,6 +17,11 @@ public partial class UI : CanvasLayer
     /// </summary>
     static private BoxContainer _weaponItemsContainer;
 
+    /// <summary>
+    /// Panel that displays the level up options when the player levels up.
+    /// </summary>
+    static private LevelUp_Canvas _levelUp_Panel;
+
     #endregion
 
     #region Setters / Getters
@@ -29,7 +29,7 @@ public partial class UI : CanvasLayer
     /// <summary>
     /// Gets the level up panel instance.
     /// </summary>
-    public static LevelUp_Panel LevelUp_Panel { get => _levelUp_Panel; }
+    public static LevelUp_Canvas LevelUp_Panel { get => _levelUp_Panel; }
 
     #endregion
 
@@ -38,7 +38,7 @@ public partial class UI : CanvasLayer
     public override void _Ready()
     {
         // Initialize the level up panel.
-        _levelUp_Panel = GetNode<LevelUp_Panel>("LevelUp_Panel");
+        _levelUp_Panel = GetNode<LevelUp_Canvas>("LevelUp_Canvas");
         _levelUp_Panel.Hide(); // Hide the panel initially
 
         // Initialize the containers for passive and weapon items.

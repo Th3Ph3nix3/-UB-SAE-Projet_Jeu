@@ -76,6 +76,15 @@ public partial class Items : Node
 	#region methods
 
 	/// <summary>
+	/// Constructor of items.
+	/// </summary>
+	/// <param name="items_Data">Data set that is to be used by the item.</param>
+	public Items(Items_Data items_Data)
+	{
+		_data = items_Data;
+	}
+
+	/// <summary>
 	/// Upgrade the item to the next level if possible.
 	/// </summary>
 	public void LevelUp()

@@ -14,6 +14,8 @@ public abstract partial class Passives_Data : Items_Data
     [Export]
     public Passives_Upgrade[] upgrades = Array.Empty<Passives_Upgrade>();
 
-    public override Upgrades[] Upgrades => upgrades;
+    public override Base_Upgrades[] Upgrades => upgrades;
+
+    public override Items_Type Type => Items_Type.Passive;
 
 }

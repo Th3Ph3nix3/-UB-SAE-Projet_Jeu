@@ -2,15 +2,13 @@ using Godot;
 using System;
 using System.Reflection.Emit;
 
-public partial class Option_Frame : TextureButton
+public partial class UpgradeItem_Frame : TextureButton
 {
 	#region Attributes
 
 	/// <summary>
-	/// Reference to the options class to call _close_options() method when the player click on the slot.
+	/// Item to give to the upgrade item frame.
 	/// </summary>
-	private Options _options;
-
 	private Items _item;
 
 	#endregion
@@ -23,12 +21,11 @@ public partial class Option_Frame : TextureButton
 	/// <param name="item">Item to give to the Option frame.</param>
 	/// <param name="options">Refenrence of the Options class.</param>
 	/// <returns>Returns a reference the the newly instantiated Option frame.</returns>
-	static public Option_Frame new_OptionSlot(Items item, Options options)
+	static public UpgradeItem_Frame new_UpgradeItem_Frame(Items item)
 	{
-		Option_Frame option_frame = GD.Load<PackedScene>("res://Game/Scenes/Option_Frame.tscn").Instantiate<Option_Frame>();
-		option_frame._item = item;
-		option_frame._options = options;
-		return option_frame;
+		UpgradeItem_Frame upgrade_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/Upgrade_UI/UpgradeItem_Frame.tscn").Instantiate<UpgradeItem_Frame>();
+		upgrade_frame._item = item;
+		return upgrade_frame;
 	}
 
 	/// <summary>
@@ -44,7 +41,6 @@ public partial class Option_Frame : TextureButton
 		description.Text = _item.Upgrades[_item.Level + 1].description;
 	}
 
-
 	/// <summary>
 	/// Called when the player clicks on the slot to upgrade the weapon or passive item.
 	/// </summary>
@@ -56,17 +52,15 @@ public partial class Option_Frame : TextureButton
 			if (_item != null)
 			{
 				_item.LevelUp(); // upgrade the weapon
-			}
-
-			if (_options != null)
-			{
-				_options.close_options();
+				UI.LevelUp_Panel.Close(); // close the options panel
 			}
 			else
 			{
-				GD.PrintErr("Options reference is null in OptionSlot");
+				GD.PrintErr("Upgrade_Frame : Item cannot be null.");
 			}
 		}
 	}
+
 	#endregion
+
 }

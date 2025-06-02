@@ -20,7 +20,9 @@ public abstract partial class Weapons_Data : Items_Data
     [Export]
     public Weapons_Upgrade[] upgrades = Array.Empty<Weapons_Upgrade>();
 
-    public override Upgrades[] Upgrades => upgrades;
+    public override Base_Upgrades[] Upgrades => upgrades;
+
+    public override Items_Type Type => Items_Type.Weapon;
 
     /// <summary>
     /// Does nothing as a weapon won't have an effect on upgrade.

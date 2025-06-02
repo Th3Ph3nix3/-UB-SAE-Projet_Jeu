@@ -17,7 +17,6 @@ public partial class PlayerControl : CharacterBody2D
 	public float area = 500; // area from where the player start shooting at enemies ( = range)
 	public int growth = 1;
 	private Label LevelLabel;
-	private Options options;
 	public TextureProgressBar xpBar;
 	public Enemy nearest_enemy;
 	public CollisionShape2D magnetArea;
@@ -85,7 +84,7 @@ public partial class PlayerControl : CharacterBody2D
 			_level = value;
 			if (LevelLabel != null)
 				LevelLabel.Text = "Lvl " + value;
-			options.show_options(); // Show option menu when level up
+				UI.LevelUp_Panel.Open(); // Open the level up panel when the player levels up
 
 			if (xpBar != null)
 			{
@@ -202,6 +201,7 @@ public partial class PlayerControl : CharacterBody2D
 	public void ChangeWeapon(Items_Data weapon)
 	{
 		_weapon.SetData(weapon);
+		UI.UpdateItemsDisplay(_weapon); // Update the weapon display in the UI
 	}
 
 	/// <summary>
@@ -213,6 +213,8 @@ public partial class PlayerControl : CharacterBody2D
 		_passives.Add(new Items());
 		_passives.Last().SetData(passive);
 		_passives.Last().Holder = this;
+
+		UI.AddItemDisplay(_passives.Last()); // Add the passive display in the UI
 	}
 
 	#endregion
@@ -234,7 +236,6 @@ public partial class PlayerControl : CharacterBody2D
 		GetInput();
 		MoveAndSlide();
 		Check_XP();
-		health += (recovery / 10) * (float)delta;
 		Animation();
 
 		foreach (Items passive in _passives) { passive.UpdateEffectTimer(delta); }
@@ -246,20 +247,20 @@ public partial class PlayerControl : CharacterBody2D
 	{
 		nearest_enemy_distance = 150 + area; // set nearest enemy distance to 150 + area (go in attributes to learn more)
 		healthBar = GetNode<ProgressBar>("Health"); // health
-		xpBar = GetNode<TextureProgressBar>("UI/XP"); // xp
-		LevelLabel = GetNode<Label>("UI/XP/Level"); // level
+		xpBar = GetNode<TextureProgressBar>("UI_s/XP"); // xp
+		LevelLabel = GetNode<Label>("UI_s/XP/Level"); // level
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
-		options = (Options)GetNode<VBoxContainer>("UI/Options"); // options
 
 		// Set thez reference of the player in the global access.
 		Global.PlayerManager.SetPlayer(this);
 
 		// Set a base weapon.
 		AddChild(_weapon);
-		ChangeWeapon(Global.Database.WeaponsList[0]);
+		_weapon.SetData(Global.Database.WeaponsList[0]);
 		_weapon.Holder = this; // set the owner of the weapons container to this player
+		UI.AddItemDisplay(_weapon); // Add the weapon display in the UI
 
-		AddPassive(Global.Database.PassivesList[0]);
+		AddPassive(Global.Database.PassivesList[0]); // Add the first passive to the player
 	}
 
 	#endregion

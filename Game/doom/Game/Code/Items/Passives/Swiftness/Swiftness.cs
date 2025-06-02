@@ -19,7 +19,7 @@ public partial class Swiftness : Passives_Data
     {
         if (level == 0)
         {
-            holder.movement_speed = upgrades[level].stat; // Set initial movement speed
+            holder.movement_speed += upgrades[level].stat; // Set initial movement speed
         }
         else
         {

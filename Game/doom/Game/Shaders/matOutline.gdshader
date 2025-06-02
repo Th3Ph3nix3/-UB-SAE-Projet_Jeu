@@ -15,7 +15,7 @@ void fragment() {
 	outline += texture(TEXTURE, UV + vec2(-size.x, -size.y)).a;
 	outline += texture(TEXTURE, UV + vec2(size.x, -size.y)).a;
 	outline = min(outline, 1.0);
-	
+
 	vec4 color = texture(TEXTURE, UV);
 	COLOR = mix(color, outline_color, outline - color.a);
 }

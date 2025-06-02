@@ -42,6 +42,11 @@ public partial class Items : Node
 	}
 
 	/// <summary>
+	/// Get the data of the current loaded item.
+	/// </summary>
+	public Items_Data Data { get => _data; }
+
+	/// <summary>
 	/// Get the current level of the item.
 	/// </summary>
 	public int Level { get => _data.level; }
@@ -59,7 +64,12 @@ public partial class Items : Node
 	/// <summary>
 	/// Get the upgrade path of the current loaded item.
 	/// </summary>
-	public Upgrades[] Upgrades { get => _data.Upgrades; }
+	public Base_Upgrades[] Upgrades { get => _data.Upgrades; }
+
+	/// <summary>
+	/// Get the type of the item, which can be a weapon or passive.
+	/// </summary>
+	public Items_Type Type { get => _data.Type; }
 
 	#endregion
 
@@ -74,6 +84,7 @@ public partial class Items : Node
 		{
 			_data.level++;
 			_data.OnUpgrade(); // Call the upgrade method to apply changes
+			UI.UpdateItemsDisplay(this);
 
 			if (_data.level >= _data.Upgrades.Length - 1)
 			{
@@ -108,8 +119,13 @@ public partial class Items : Node
 	/// <param name="data">Data to set to the weapon.</param>
 	public void SetData(Items_Data data)
 	{
+		if (data == null)
+		{
+			GD.PrintErr("Items_Data cannot be null.");
+			return;
+		}
+
 		_data = data;
-		GD.PrintErr(_data);
     }
 
     #endregion

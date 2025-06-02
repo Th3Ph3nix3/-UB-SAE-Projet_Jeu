@@ -24,6 +24,12 @@ public partial class Items_Frame : PanelContainer
 
 	#endregion
 
+	#region properties
+
+	public Items Item { get => _item; }
+
+	#endregion
+
 	#region methods
 
 	/// <summary>
@@ -33,7 +39,7 @@ public partial class Items_Frame : PanelContainer
 	/// <returns>Returns a reference the the newly instantiated Item frame.</returns>
 	static public Items_Frame new_Items_Frame(Items item)
 	{
-		Items_Frame items_frame = GD.Load<PackedScene>("res://Game/Scenes/Items_Frame").Instantiate<Items_Frame>();
+		Items_Frame items_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/Items_Display/Items_Frame.tscn").Instantiate<Items_Frame>();
 		items_frame._item = item;
 		return items_frame;
 	}
@@ -50,6 +56,15 @@ public partial class Items_Frame : PanelContainer
 		_label.Text = "Lvl " + _item.Level;
 	}
 
+	/// <summary>
+	/// Update the frame with the current item data.
+	/// </summary>
+	public void UpdateFrame()
+	{
+		_tex.Texture = _item.Texture;
+		_label.Text = "Lvl " + _item.Level;
+	}
+
 	#endregion
-	
+
 }

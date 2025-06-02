@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=78 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://Game/Code/PlayerControl.cs" id="2_438ep"]
@@ -7,21 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://b01l8q4jnwx4a" path="res://GroundElements/crack2.png" id="3_fipq1"]
 [ext_resource type="Texture2D" uid="uid://jdpprbievrw2" path="res://GroundElements/crack3.png" id="4_1b0yd"]
 [ext_resource type="Script" uid="uid://du8q5edxxuhd8" path="res://Game/Code/ToggleVisibilityOnPause.cs" id="4_evlki"]
-[ext_resource type="PackedScene" uid="uid://dkycldrf2b6a5" path="res://Game/Scenes/Items_Frame.tscn" id="4_kf3hw"]
 [ext_resource type="Texture2D" uid="uid://cw6fdhia0ta27" path="res://platformer_metroidvania asset pack v1.01/others_test/blood_drop_pixelor.png" id="4_qy76y"]
 [ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
 [ext_resource type="Texture2D" uid="uid://d3gywx4v3f27d" path="res://GroundElements/crack4.png" id="5_fvutr"]
 [ext_resource type="Texture2D" uid="uid://dfg84bayi867r" path="res://platformer_metroidvania asset pack v1.01/others_test/hell_background_panel.png" id="5_jvonm"]
 [ext_resource type="Texture2D" uid="uid://0874bntsjs7k" path="res://GroundElements/crack5.png" id="6_cexyb"]
-[ext_resource type="Script" uid="uid://cggoyeqmcuocv" path="res://Game/Code/Options.cs" id="7_dbjji"]
 [ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
 [ext_resource type="Texture2D" uid="uid://b0m4o0h0eb8am" path="res://GroundElements/crack6.png" id="7_nbbkb"]
+[ext_resource type="Script" uid="uid://cg3jxl7aws2bq" path="res://Game/Code/UI/UI.cs" id="9_bubr0"]
 [ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
+[ext_resource type="Script" uid="uid://ugv0skosowrs" path="res://Game/Code/UI/LevelUp_panel/LevelUp_Panel.cs" id="10_6we6e"]
 [ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://Game/Code/PauseManager.cs" id="10_ran1e"]
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
 [ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://Game/Code/SettingsManager_inGame.cs" id="13_q4ekd"]
 [ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://Game/Code/ToggleVisibilityOnSettings_inGame.cs" id="14_rmc8r"]
+[ext_resource type="Script" uid="uid://ysj8hhru6x0r" path="res://Game/Code/UI/Test.cs" id="15_60l3t"]
 [ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="15_q4ekd"]
+[ext_resource type="Texture2D" uid="uid://dsijp4o61b6jg" path="res://Game/Sprite/Item/Passives/Regeneration/recovery.png" id="15_tbl1a"]
 [ext_resource type="Texture2D" uid="uid://by1ybnqhtptnk" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0001.png" id="22_htbbg"]
 [ext_resource type="Texture2D" uid="uid://bm31irlakvr0s" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0002.png" id="23_3v2os"]
 [ext_resource type="Texture2D" uid="uid://6uki4i23wfo6" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0003.png" id="24_gx5gv"]
@@ -53,14 +55,14 @@ texture = ExtResource("1_438ep")
 [sub_resource type="TileSet" id="TileSet_3k31l"]
 sources/0 = SubResource("TileSetAtlasSource_kf3hw")
 
-[sub_resource type="Gradient" id="Gradient_q4ekd"]
+[sub_resource type="Gradient" id="Gradient_ivo3h"]
 offsets = PackedFloat32Array(0.0206186, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0784314)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_rmc8r"]
-gradient = SubResource("Gradient_q4ekd")
+gradient = SubResource("Gradient_ivo3h")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jvonm"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6we6e"]
 particle_flag_disable_z = true
 emission_shape_offset = Vector3(1, 1, 1)
 emission_shape_scale = Vector3(1500, 1, 1)
@@ -352,46 +354,43 @@ texture = ExtResource("7_nbbkb")
 position = Vector2(136.785, 22.3585)
 player = NodePath("../CharacterBody2D")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(100, 107)
-script = ExtResource("2_438ep")
-movement_speed = 300.0
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("9_bubr0")
 
-[node name="UI" type="CanvasLayer" parent="CharacterBody2D"]
-process_mode = 1
+[node name="PassiveItemsContainer" type="HBoxContainer" parent="UI"]
+offset_left = 627.0
+offset_top = 11.0
+offset_right = 1367.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Options" type="VBoxContainer" parent="CharacterBody2D/UI" node_paths=PackedStringArray("_particles", "_panel")]
-unique_name_in_owner = true
+[node name="WeaponItemsContainer" type="HBoxContainer" parent="UI"]
+offset_left = 628.0
+offset_top = 61.0
+offset_right = 668.0
+offset_bottom = 101.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelUp_Panel" type="CanvasLayer" parent="UI" node_paths=PackedStringArray("_particles", "_panel", "_levelUp_Container")]
 process_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_dbjji")
-_particles = NodePath("../Particles")
-_panel = NodePath("../Panel")
+layer = 2
+script = ExtResource("10_6we6e")
+_particles = NodePath("Particles")
+_panel = NodePath("Panel")
+_levelUp_Container = NodePath("LevelUp_Container")
 
-[node name="Particles" type="GPUParticles2D" parent="CharacterBody2D/UI"]
+[node name="Particles" type="GPUParticles2D" parent="UI/LevelUp_Panel"]
 process_mode = 3
-visible = false
-position = Vector2(1378, -72)
+position = Vector2(1271, -72)
 amount = 100
 texture = ExtResource("4_qy76y")
 lifetime = 5.0
 speed_scale = 2.5
 fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_jvonm")
+process_material = SubResource("ParticleProcessMaterial_6we6e")
 
-[node name="Panel" type="NinePatchRect" parent="CharacterBody2D/UI"]
+[node name="Panel" type="NinePatchRect" parent="UI/LevelUp_Panel"]
 process_mode = 3
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -404,39 +403,50 @@ offset_bottom = 442.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_jvonm")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CharacterBody2D/UI/Panel"]
-visible = false
+[node name="Label" type="Label" parent="UI/LevelUp_Panel/Panel"]
 layout_mode = 0
-offset_left = 725.0
-offset_top = 34.5
-offset_right = 1009.0
-offset_bottom = 108.5
+offset_left = 672.0
+offset_top = 79.5
+offset_right = 956.0
+offset_bottom = 153.5
 theme_override_fonts/font = ExtResource("12_i36tt")
 theme_override_font_sizes/font_size = 70
 text = "LEVEL UP"
+metadata/_edit_use_anchors_ = true
 
-[node name="Weapons" type="HBoxContainer" parent="CharacterBody2D/UI"]
-offset_left = 628.0
-offset_top = 61.0
-offset_right = 668.0
-offset_bottom = 101.0
+[node name="LevelUp_Container" type="HBoxContainer" parent="UI/LevelUp_Panel"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.553
+anchor_right = 0.5
+anchor_bottom = 0.553
+offset_left = -595.0
+offset_top = -167.32
+offset_right = 597.0
+offset_bottom = 168.68
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Items_Frame" parent="CharacterBody2D/UI/Weapons" instance=ExtResource("4_kf3hw")]
-custom_minimum_size = Vector2(40, 40)
+[node name="Test" type="TextureButton" parent="UI/LevelUp_Panel/LevelUp_Container"]
 layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("15_tbl1a")
+stretch_mode = 5
+script = ExtResource("15_60l3t")
 
-[node name="Passives" type="HBoxContainer" parent="CharacterBody2D/UI"]
-offset_left = 627.0
-offset_top = 11.0
-offset_right = 1367.0
-offset_bottom = 51.0
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(100, 107)
+script = ExtResource("2_438ep")
+movement_speed = 300.0
 
-[node name="Items_Frame" parent="CharacterBody2D/UI/Passives" instance=ExtResource("4_kf3hw")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+[node name="UI_s" type="CanvasLayer" parent="CharacterBody2D"]
+process_mode = 1
 
-[node name="XP" type="TextureProgressBar" parent="CharacterBody2D/UI"]
+[node name="XP" type="TextureProgressBar" parent="CharacterBody2D/UI_s"]
 unique_name_in_owner = true
 offset_right = 620.0
 offset_bottom = 40.0
@@ -444,7 +454,7 @@ max_value = 10.0
 texture_under = ExtResource("5_8fgde")
 texture_progress = ExtResource("7_i0te0")
 
-[node name="Level" type="Label" parent="CharacterBody2D/UI/XP"]
+[node name="Level" type="Label" parent="CharacterBody2D/UI_s/XP"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 568.0
@@ -453,13 +463,14 @@ offset_right = 608.0
 offset_bottom = 43.0
 text = "Lvl 1"
 
-[node name="Button" type="Button" parent="CharacterBody2D/UI"]
+[node name="Button" type="Button" parent="CharacterBody2D/UI_s"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -72.0
 offset_bottom = 72.0
 grow_horizontal = 0
+mouse_filter = 1
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_evlki")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i36tt")
@@ -494,11 +505,12 @@ shape = SubResource("RectangleShape2D_438ep")
 
 [node name="Health" type="ProgressBar" parent="CharacterBody2D"]
 unique_name_in_owner = true
-offset_left = 20.1505
-offset_top = -20.8035
-offset_right = 24.1505
-offset_bottom = 6.19655
+offset_left = 19.617
+offset_top = -67.8111
+offset_right = 23.617
+offset_bottom = -40.8111
 rotation = 1.58058
+mouse_filter = 1
 value = 100.0
 metadata/_edit_use_anchors_ = true
 
@@ -761,7 +773,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_m7s4s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_m856m")
 text = "TRY TO ESCAPE"
 
-[connection signal="pressed" from="CharacterBody2D/UI/Button" to="PauseManager" method="_on_pause_pressed"]
+[connection signal="pressed" from="CharacterBody2D/UI_s/Button" to="PauseManager" method="_on_pause_pressed"]
 [connection signal="body_entered" from="CharacterBody2D/SelfDamage" to="CharacterBody2D" method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="CharacterBody2D/Magnet" to="CharacterBody2D" method="_on_magnet_area_entered"]

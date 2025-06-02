@@ -5,7 +5,7 @@ using Godot;
 /// Base class holding the attributes for passive item upgrades.
 /// </summary>
 [GlobalClass]
-public partial class Passives_Upgrade : Upgrades
+public partial class Passives_Upgrade : Base_Upgrades
 {
 
     /// <summary>

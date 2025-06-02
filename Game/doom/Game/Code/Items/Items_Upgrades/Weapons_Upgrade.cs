@@ -5,7 +5,7 @@ using Godot;
 /// Base class for weapon upgrades, defining attributes such as damage, cooldown, speed, and description.
 /// </summary>
 [GlobalClass]
-public partial class Weapons_Upgrade : Upgrades
+public partial class Weapons_Upgrade : Base_Upgrades
 {
     /// <summary>
     /// Damage of the weapon at its current level.

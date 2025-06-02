@@ -8,7 +8,7 @@ using Godot;
 /// <summary>
 /// Base class holding the attributes for item upgrades.
 /// </summary>
-public abstract partial class Upgrades : Resource
+public abstract partial class Base_Upgrades : Resource
 {
 
     /// <summary>

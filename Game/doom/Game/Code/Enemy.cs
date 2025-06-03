@@ -11,6 +11,13 @@ public partial class Enemy : CharacterBody2D
 	/// Type of the enemy.
 	/// </summary>
 	private EnemyType _type;
+	private AudioStreamPlayer2D soundMonster;
+	private Timer soundTimer;
+	private RandomNumberGenerator rng = new RandomNumberGenerator();
+
+	// Set your min and max delay (in seconds)
+	[Export] public float MinDelay = 1.0f;
+	[Export] public float MaxDelay = 3.0f;
 
 	#region Base stats
 
@@ -193,7 +200,7 @@ public partial class Enemy : CharacterBody2D
 			// Scale the enemy accordingly.
 			_sprite2D.Scale = new Godot.Vector2(2.5f, 2.5f);
 			_collisionShape2D.Scale = new Godot.Vector2(2.5f, 2.5f);
-			
+
 		}
 		else
 		{
@@ -204,6 +211,12 @@ public partial class Enemy : CharacterBody2D
 			_sprite2D.Scale = new Godot.Vector2(5f, 5f);
 			_collisionShape2D.Scale = new Godot.Vector2(5f, 5f);
 		}
+
+		soundMonster = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+		soundTimer = GetNode<Timer>("Timer");
+
+		soundTimer.Timeout += OnSoundTimerTimeout;
+		StartRandomSoundLoop();
 	}
 
 	/// <summary>
@@ -371,6 +384,24 @@ public partial class Enemy : CharacterBody2D
 
 		GetTree().CurrentScene.CallDeferred("add_child", itemToDrop); // add to the scene tree
 	}
+	private void StartRandomSoundLoop()
+    {
+        SetRandomTimer();
+        soundTimer.Start();
+    }
+
+    private void OnSoundTimerTimeout()
+    {
+        soundMonster.Play();
+        SetRandomTimer();
+        soundTimer.Start();
+    }
+
+    private void SetRandomTimer()
+    {
+        float delay = rng.RandfRange(MinDelay, MaxDelay);
+        soundTimer.WaitTime = delay;
+    }
 
 	#endregion
 }

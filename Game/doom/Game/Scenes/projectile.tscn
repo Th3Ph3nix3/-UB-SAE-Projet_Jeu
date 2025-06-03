@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbhkf7rb45q10"]
+[gd_scene load_steps=5 format=3 uid="uid://cbhkf7rb45q10"]
 
 [ext_resource type="Script" uid="uid://ci82jvi4umprf" path="res://Game/Code/Projectile.cs" id="1_f8cdk"]
+[ext_resource type="AudioStream" uid="uid://bik1ket5wseo2" path="res://sounds/45automatique.mp3" id="2_q3m7n"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qxf0c"]
 size = Vector2(10, 10)
@@ -22,6 +23,11 @@ texture = SubResource("PlaceholderTexture2D_qxf0c")
 shape = SubResource("RectangleShape2D_dgwo2")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="PlayerShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q3m7n")
+volume_db = -30.0
+bus = &"Player"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

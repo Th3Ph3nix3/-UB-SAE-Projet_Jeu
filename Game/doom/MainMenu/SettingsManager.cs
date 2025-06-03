@@ -21,6 +21,7 @@ public partial class SettingsManager : Node
 
 	// Current settings menu visibility state
 	private bool inSettings = false;
+	public AudioStreamPlayer clickcliksound;
 
 	#endregion
 
@@ -51,6 +52,8 @@ public partial class SettingsManager : Node
 	/// </summary>
 	public void _on_options_pressed()
 	{
+		clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
 		ToggleSettingsMenu();
 	}
 
@@ -59,6 +62,8 @@ public partial class SettingsManager : Node
 	/// </summary>
 	public void _on_quit_button_pressed()
 	{
+		clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
 		ToggleSettingsMenu();
 	}
 
@@ -67,6 +72,8 @@ public partial class SettingsManager : Node
 	/// </summary>
 	private void _on_fullscreen_pressed()
 	{
+		clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
+		clickcliksound.Play();
 		_isFullscreen = !_isFullscreen;
 		var mode = _isFullscreen 
 			? DisplayServer.WindowMode.Fullscreen 

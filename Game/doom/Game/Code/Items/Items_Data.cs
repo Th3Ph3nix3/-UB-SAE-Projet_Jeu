@@ -22,7 +22,7 @@ public abstract partial class Items_Data : Resource
     /// <summary>
     /// Owner of the item, typically the player character.
     /// </summary>
-    public PlayerControl holder; // /!\ To change when player is better encapsulated
+    public Player holder; // /!\ To change when player is better encapsulated
 
     /// <summary>
 	/// Current level of the item. Start at 0.

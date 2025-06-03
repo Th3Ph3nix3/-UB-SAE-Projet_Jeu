@@ -5,7 +5,21 @@ using Godot;
 public partial class UI : CanvasLayer
 {
 
-    #region attributes
+    #region methods
+
+    public override void _Ready()
+    {
+        // Initialize the containers for passive and weapon items.
+        _passiveItemsContainer = GetNode<BoxContainer>("PassiveItemsContainer");
+        _weaponItemsContainer = GetNode<BoxContainer>("WeaponItemsContainer");
+
+        // Initialize the level up panel.
+        _levelUp_Canvas = GetNode<LevelUp_Canvas>("LevelUp_Canvas");
+    }
+
+    #region Player UI
+
+    #region Items Display
 
     /// <summary>
     /// Container for passive items frames in the UI.
@@ -16,39 +30,6 @@ public partial class UI : CanvasLayer
     /// Container for weapon items frames in the UI.
     /// </summary>
     static private BoxContainer _weaponItemsContainer;
-
-    /// <summary>
-    /// Panel that displays the level up options when the player levels up.
-    /// </summary>
-    static private LevelUp_Canvas _levelUp_Panel;
-
-    #endregion
-
-    #region Setters / Getters
-
-    /// <summary>
-    /// Gets the level up panel instance.
-    /// </summary>
-    public static LevelUp_Canvas LevelUp_Panel { get => _levelUp_Panel; }
-
-    #endregion
-
-    #region methods
-
-    public override void _Ready()
-    {
-        // Initialize the level up panel.
-        _levelUp_Panel = GetNode<LevelUp_Canvas>("LevelUp_Canvas");
-        _levelUp_Panel.Hide(); // Hide the panel initially
-
-        // Initialize the containers for passive and weapon items.
-        _passiveItemsContainer = GetNode<BoxContainer>("PassiveItemsContainer");
-        _weaponItemsContainer = GetNode<BoxContainer>("WeaponItemsContainer");
-
-        
-    }
-
-    #region Items Display
 
     /// <summary>
     /// Adds an item frame to the UI based on the type of item.
@@ -68,7 +49,7 @@ public partial class UI : CanvasLayer
         }
         else
         {
-            GD.PrintErr("Unknown item type: " + item.Type);
+            GD.PrintErr("UI : Unknown item type: " + item.Type);
         }
     }
 
@@ -101,7 +82,64 @@ public partial class UI : CanvasLayer
         }
         else
         {
-            GD.PrintErr("Unknown item type: " + item.Type);
+            GD.PrintErr("UI : Unknown item type: " + item.Type);
+        }
+    }
+
+    #endregion
+
+    #region Player Info
+
+    /// <summary>
+    /// Display the player's current level.
+    /// </summary>
+    private Label LevelLabel;
+
+    /// <summary>
+    /// Displays the player's xp as a progress bar.
+    /// </summary>
+	private TextureProgressBar xpBar;
+
+    #endregion
+
+    #endregion
+
+    #region Level Up Canvas
+
+    /// <summary>
+    /// Panel that displays the level up options when the player levels up.
+    /// </summary>
+    static private LevelUp_Canvas _levelUp_Canvas;
+
+    /// <summary>
+    /// Opens the Level Up panel to allow the player to choose upgrades after leveling up.
+    /// If the panel is not initialized, it will print an error message.
+    /// </summary>
+    static public void LevelUp_Open()
+    {
+        if (_levelUp_Canvas != null)
+        {
+            _levelUp_Canvas.Open();
+        }
+        else
+        {
+            GD.PrintErr("UI : LevelUp_Canvas is not initialized.");
+        }
+    }
+
+    /// <summary>
+    /// Closes the Level Up panel.
+    /// If the panel is not initialized, it will print an error message.
+    /// </summary>
+    static public void LevelUp_Close()
+    {
+        if (_levelUp_Canvas != null)
+        {
+            _levelUp_Canvas.Close();
+        }
+        else
+        {
+            GD.PrintErr("UI : LevelUp_Canvas is not initialized.");
         }
     }
 

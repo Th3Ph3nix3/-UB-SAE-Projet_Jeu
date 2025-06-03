@@ -14,7 +14,7 @@ public partial class Gem : PickupResource
 	{
 		base.Activate();
 
-		if (PlayerReference is PlayerControl player)
+		if (PlayerReference is Player player)
 		{
 			player.Gain_XP(XP);
 		}

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6p2ltleshmk7"]
 
-[ext_resource type="Script" uid="uid://bllns0bkbp6oi" path="res://Game/Code/Enemy.cs" id="1_7k104"]
+[ext_resource type="Script" uid="uid://ct5pyum3xinj0" path="res://Game/Code/Characters/Enemy/Enemy.cs" id="1_7k104"]
 [ext_resource type="Texture2D" uid="uid://gvbiqadtt55y" path="res://Game/Sprite/Enemy/Little/Ear/Little_Chaos_Ear.png" id="2_md0e3"]
 [ext_resource type="AudioStream" uid="uid://b4n7fcmur1awl" path="res://sounds/monstre_ingame.mp3" id="3_4ra3w"]
 

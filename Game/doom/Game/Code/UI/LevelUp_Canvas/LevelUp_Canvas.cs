@@ -52,6 +52,8 @@ public partial class LevelUp_Canvas : CanvasLayer
     /// </summary>
     public override void _Ready()
     {
+        this.Hide(); // Hide the level up panel initially
+
         foreach (string file in Directory.GetFiles("Game/Resource/Passives/"))
         {
             if (Path.GetExtension(file) == ".tres")
@@ -75,50 +77,35 @@ public partial class LevelUp_Canvas : CanvasLayer
     /// </summary>
     public void Open()
     {
-        if (PlayerControl.Player.level % NEW_PASSIVE_INTERVAL == 0)
+        // Get all upgradable items for the player, including weapon and passives
+        List<Items> upgradableItems = Player.Ref.Passives.Where(item => item.IsUpgradable).ToList();
+        if (Player.Ref.Weapon.IsUpgradable) upgradableItems.Add(Player.Ref.Weapon);
+
+        if (upgradableItems.Count > 0)
         {
-            // Gets all the passives that the player does not have yet
+            _levelUp_Container.AddChild(new UpgradeItem_Container(upgradableItems, false));
+        }
+        else
+        {
+            GD.PrintErr("No upgradable items available for the player.");
+        }
+
+        if (Player.Ref.level % NEW_PASSIVE_INTERVAL == 0)
+        {
             List<Items> newPassivesItems = new();
 
-            foreach (Passives_Data passives_Data in _passivesList.Where(passive => !PlayerControl.Player.Passives.Any(item => item.Data == passive)).ToList())
+            // Gets all the passives that the player does not have yet
+            foreach (Passives_Data passives_Data in _passivesList.Where(passive => !Player.Ref.Passives.Any(item => item.Data == passive)).ToList())
             {
                 newPassivesItems.Add(new Items(passives_Data));
             }
 
             if (newPassivesItems.Count > 0)
-                {
-                    VBoxContainer newItem_Container = new VBoxContainer();
-                    newItem_Container.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-
-                    foreach (Items passive in newPassivesItems)
-                    {
-                        newItem_Container.AddChild(UpgradeItem_Frame.new_UpgradeItem_Frame(passive, true));
-                    }
-
-                    _levelUp_Container.AddChild(newItem_Container);
-                }
-                else
-                    GD.PrintErr("No new passive available for the player.");
-        }
-
-        List<Items> upgradableItems = PlayerControl.Player.Passives.Where(item => item.IsUpgradable).ToList();
-        if (PlayerControl.Player.Weapon.IsUpgradable) upgradableItems.Add(PlayerControl.Player.Weapon);
-
-        if (upgradableItems.Count > 0)
-        {
-            VBoxContainer upgradeItem_Container = new VBoxContainer();
-            upgradeItem_Container.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-
-            foreach (Items item in upgradableItems)
             {
-                upgradeItem_Container.AddChild(UpgradeItem_Frame.new_UpgradeItem_Frame(item, false));
+                _levelUp_Container.AddChild(new UpgradeItem_Container(newPassivesItems, true));
             }
-
-            _levelUp_Container.AddChild(upgradeItem_Container);
-        }
-        else
-        {
-            GD.PrintErr("No upgradable items available for the player.");
+            else
+                GD.PrintErr("No new passive available for the player.");
         }
 
         Show();
@@ -130,9 +117,9 @@ public partial class LevelUp_Canvas : CanvasLayer
     /// </summary>
     public void Close()
     {
-        foreach (Node child in _levelUp_Container.GetChildren())
+        foreach (UpgradeItem_Container child in _levelUp_Container.GetChildren())
         {
-            RemoveChild(child);
+            child.Close();
             child.QueueFree();
         }
 

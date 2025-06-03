@@ -8,7 +8,7 @@ public partial class Projectile : Area2D
 	public Vector2 direction = Vector2.Right;
 	public float speed = 200;
 	public float damage = 1;
-	public PlayerControl source;
+	public Player source;
 	public Vector2 knockback;
 	public AudioStreamPlayer playerShoot;
 	#endregion

@@ -13,7 +13,7 @@ public partial class PickupResource : Resource
 	[Export(PropertyHint.MultilineText)]
 	public string Description = "";
 
-	public PlayerControl PlayerReference;
+	public Player PlayerReference;
 
 	#endregion
 	#region methods

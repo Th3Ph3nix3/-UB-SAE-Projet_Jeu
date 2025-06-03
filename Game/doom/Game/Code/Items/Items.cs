@@ -32,7 +32,7 @@ public partial class Items : Node
 	/// <summary>
 	/// Set the owner of the item.
 	/// </summary>
-	public PlayerControl Holder
+	public Player Holder
 	{
 		set
 		{

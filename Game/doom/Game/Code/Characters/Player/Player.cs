@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class PlayerControl : CharacterBody2D
+public partial class Player : CharacterBody2D
 {
 
 	#region attributes
@@ -16,11 +16,19 @@ public partial class PlayerControl : CharacterBody2D
 	public float might = 1f; // public so that Projectile.cs can access to it
 	public float area = 500; // area from where the player start shooting at enemies ( = range)
 	public int growth = 1;
-	private Label LevelLabel;
-	public TextureProgressBar xpBar;
 	public Enemy nearest_enemy;
 	public CollisionShape2D magnetArea;
 	public float nearest_enemy_distance; // float.PositiveInfinity est la représentation de l'infini
+
+	/// <summary>
+    /// Display the player's current level.
+    /// </summary>
+    private Label LevelLabel;
+
+    /// <summary>
+    /// Displays the player's xp as a progress bar.
+    /// </summary>
+	private TextureProgressBar xpBar;
 
 	/// <summary>
 	/// Weapons that the player currently have.
@@ -39,7 +47,7 @@ public partial class PlayerControl : CharacterBody2D
 	/// <summary>
 	/// Static getter to the player reference.
 	/// </summary>
-	static public PlayerControl Player { get; private set; }
+	static public Player Ref { get; private set; }
 
 	public int _XP = 0;
 	public int XP
@@ -88,8 +96,10 @@ public partial class PlayerControl : CharacterBody2D
 		{
 			_level = value;
 			if (LevelLabel != null)
-				LevelLabel.Text = "Lvl " + value;
-				UI.LevelUp_Panel.Open(); // Open the level up panel when the player levels up
+			{
+				LevelLabel.Text = "Level: " + value; // update the level label
+			}
+			UI.LevelUp_Open(); // Open the level up panel when the player levels up
 
 			if (xpBar != null)
 			{
@@ -225,7 +235,6 @@ public partial class PlayerControl : CharacterBody2D
 		if (IsInstanceValid(nearest_enemy))
 		{ // if the player is near an enemy
 			nearest_enemy_distance = nearest_enemy.Separation;
-			// GD.Print(nearest_enemy.Name); // print the enemy name
 		}
 		else
 		{
@@ -246,12 +255,10 @@ public partial class PlayerControl : CharacterBody2D
 	public override void _Ready()
 	{
 		// Set the static getter to its reference.
-		Player = this;
+		Ref = this;
 
 		nearest_enemy_distance = 150 + area; // set nearest enemy distance to 150 + area (go in attributes to learn more)
 		healthBar = GetNode<ProgressBar>("Health"); // health
-		xpBar = GetNode<TextureProgressBar>("UI_s/XP"); // xp
-		LevelLabel = GetNode<Label>("UI_s/XP/Level"); // level
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
 
 		// Set a base weapon.

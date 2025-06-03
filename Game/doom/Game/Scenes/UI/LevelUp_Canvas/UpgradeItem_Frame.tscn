@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsiyt4q0jsk1x"]
 
-[ext_resource type="Texture2D" uid="uid://b8be26uv54vxo" path="res://platformer_metroidvania asset pack v1.01/weapon_test/colt_icon.jpg" id="1_ew7lo"]
-[ext_resource type="Script" uid="uid://corg5qevxdwuc" path="res://Game/Code/UI/LevelUp_Canvas/Upgrades_Panel/UpgradeItem_Frame.cs" id="2_ew7lo"]
-[ext_resource type="Texture2D" uid="uid://cy6f7b63ykrci" path="res://platformer_metroidvania asset pack v1.01/others_test/banner_weapon_description.png" id="3_hsb6a"]
+[ext_resource type="Texture2D" uid="uid://b8be26uv54vxo" path="res://platformer_metroidvania asset pack v1.01/weapon_test/colt_icon.jpg" id="1_3fubn"]
+[ext_resource type="Script" uid="uid://corg5qevxdwuc" path="res://Game/Code/UI/LevelUp_Canvas/Upgrades_Panel/UpgradeItem_Frame.cs" id="2_t25av"]
+[ext_resource type="Texture2D" uid="uid://cy6f7b63ykrci" path="res://platformer_metroidvania asset pack v1.01/others_test/banner_weapon_description.png" id="3_105ak"]
 
 [node name="UpgradeItem_Frame" type="TextureButton"]
 custom_minimum_size = Vector2(315, 40)
 offset_right = 437.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
-texture_normal = ExtResource("1_ew7lo")
+texture_normal = ExtResource("1_3fubn")
 ignore_texture_size = true
 stretch_mode = 4
-script = ExtResource("2_ew7lo")
+script = ExtResource("2_t25av")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 show_behind_parent = true
@@ -20,7 +20,7 @@ custom_minimum_size = Vector2(315, 40)
 layout_mode = 0
 offset_right = 436.0
 offset_bottom = 40.0
-texture = ExtResource("3_hsb6a")
+texture = ExtResource("3_105ak")
 region_rect = Rect2(71.1306, 39.6983, 210.777, 42.8339)
 
 [node name="Label" type="Label" parent="."]

@@ -27,7 +27,7 @@ public partial class Pickups : Area2D
 
 			if (type != null)
 			{
-				if (value is PlayerControl playerControl)
+				if (value is Player playerControl)
 				{
 					type.PlayerReference = playerControl;
 				}

@@ -28,7 +28,7 @@ public partial class UpgradeItem_Frame : TextureButton
 	/// <returns>Returns a reference the the newly instantiated UpgradeItem frame.</returns>
 	static public UpgradeItem_Frame new_UpgradeItem_Frame(Items item, bool newItem)
 	{
-		UpgradeItem_Frame upgrade_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/Upgrade_UI/UpgradeItem_Frame.tscn").Instantiate<UpgradeItem_Frame>();
+		UpgradeItem_Frame upgrade_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/LevelUp_Canvas/UpgradeItem_Frame.tscn").Instantiate<UpgradeItem_Frame>();
 		upgrade_frame._item = item;
 		upgrade_frame._newItem = newItem;
 		return upgrade_frame;
@@ -59,14 +59,14 @@ public partial class UpgradeItem_Frame : TextureButton
 			{
 				if (_newItem)
 				{
-					PlayerControl.Player.AddPassive(_item);
+					Player.Ref.AddPassive(_item);
 				}
 				else
 				{
 					_item.LevelUp(); // upgrade the weapon
 				}
 				
-				UI.LevelUp_Panel.Close(); // close the options panel
+				UI.LevelUp_Close(); // close the options panel
 			}
 			else
 			{

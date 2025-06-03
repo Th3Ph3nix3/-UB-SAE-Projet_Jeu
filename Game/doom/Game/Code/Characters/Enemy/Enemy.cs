@@ -82,7 +82,7 @@ public partial class Enemy : CharacterBody2D
 	/// Reference to the player it chase.
 	/// </summary>
 	[Export]
-	private PlayerControl _player_reference;
+	private Player _player_reference;
 
 	/// <summary>
 	/// Link the sprite2D to the enemy.
@@ -165,7 +165,7 @@ public partial class Enemy : CharacterBody2D
 		get => _separation;
 		set => _separation = value;
 	}
-	public PlayerControl Player_reference
+	public Player Player_reference
 	{
 		get => _player_reference;
 		set => _player_reference = value;

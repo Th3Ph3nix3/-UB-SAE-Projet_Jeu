@@ -9,5 +9,9 @@ using System.Linq;
 /// </summary>
 public partial class UpgradeItem_Container : VBoxContainer
 {
-	
+
+    public UpgradeItem_Container(List<Items> items, bool newItem)
+    {
+        foreach (Items item in items) AddChild(UpgradeItem_Frame.new_UpgradeItem_Frame(item, newItem));
+    }
 }

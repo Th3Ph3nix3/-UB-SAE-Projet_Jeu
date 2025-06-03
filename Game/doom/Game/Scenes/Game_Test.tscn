@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=79 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://b6plla68u6xv1" path="res://Game/Code/PlayerControl.cs" id="2_438ep"]

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 public partial class Player : CharacterBody2D
@@ -21,19 +22,34 @@ public partial class Player : CharacterBody2D
 	public float nearest_enemy_distance; // float.PositiveInfinity est la représentation de l'infini
 
 	/// <summary>
-    /// Display the player's current level.
-    /// </summary>
-    private Label LevelLabel;
+	/// Current health of the player.
+	/// </summary>
+	private int _health = Global.BASE_MAX_PLAYER_HEALTH;
 
-    /// <summary>
-    /// Displays the player's xp as a progress bar.
-    /// </summary>
-	private TextureProgressBar xpBar;
+	/// <summary>
+	/// Max health the player can have at any given point.
+	/// </summary>
+	private int _maxHealth = Global.BASE_MAX_PLAYER_HEALTH;
+
+	/// <summary>
+	/// Current level of the player.
+	/// </summary>
+	private int _level = 0;
+
+	/// <summary>
+	/// Current Xp of the player.
+	/// </summary>
+	private int _xp = 0;
+
+	/// <summary>
+	/// Xp needed to level up to the next level.
+	/// </summary>
+	private int _nextLevelXpNeeded = Global.BASE_XP_TO_GET;
 
 	/// <summary>
 	/// Weapons that the player currently have.
 	/// </summary>
-	private Items _weapon;
+	private Items _weapon = new Items();
 
 	/// <summary>
 	/// Passives that the player currently have.
@@ -42,36 +58,77 @@ public partial class Player : CharacterBody2D
 
 	#endregion
 
-	#region Setters / Getters
+	#region Events
 
 	/// <summary>
-	/// Static getter to the player reference.
+	/// Event raised when the player level up.
 	/// </summary>
-	static public Player Ref { get; private set; }
+	public event EventHandler<LevelUpEventArgs> LevelUpEvent;
 
-	public int _XP = 0;
-	public int XP
+	/// <summary>
+	/// Class used to pass the LevelUp event data.
+	/// Contains the current level of the player.
+	/// </summary>
+	public class LevelUpEventArgs : EventArgs
 	{
-		get => _XP;
-		set
-		{
-			_XP = value;
-			if (xpBar != null)
-				xpBar.Value = value;
-		}
+		public int CurrentLvl { get; }
+		public int CurrentNextLevelXpNeeded { get; }
+		public LevelUpEventArgs(int currentlvl, int currentNextLevelXpNeeded)
+		{ CurrentLvl = currentlvl; CurrentNextLevelXpNeeded = currentNextLevelXpNeeded; }
 	}
 
-	private float _max_health = 100;
-	public float max_health
+	/// <summary>
+	/// Event raised when the player gaines Xp.
+	/// </summary>
+	public event EventHandler<XpGainedEventArgs> XpGainedEvent;
+
+	/// <summary>
+	/// Class used to pass the XpGained event data.
+	/// Contains the current xp of the player and how much xp he will need for this level.
+	/// </summary>
+	public class XpGainedEventArgs : EventArgs
 	{
-		get => _max_health;
-		set
-		{
-			_max_health = value;
-			healthBar.MaxValue = value;
-		}
+		public int CurrentXp { get; }
+		public XpGainedEventArgs(int currentXp)
+		{ CurrentXp = currentXp; }
 	}
 
+	/// <summary>
+	/// Event raised when an item is added to the player.
+	/// </summary>
+	public event EventHandler<ItemAddedEventArgs> ItemAddedEvent;
+
+	/// <summary>
+	/// Class used to pass the ItemAdded event data.
+	/// Contains the item added to the player.
+	/// </summary>
+	public class ItemAddedEventArgs : EventArgs
+	{
+		public Items AddedItem { get; }
+		public ItemAddedEventArgs(Items addedItem)
+		{ AddedItem = addedItem; }
+	}
+
+	/// <summary>
+	/// Event raised when the player lose or gain health.
+	/// </summary>
+	public event EventHandler<HealthChangedEventArgs> HealthChangedEvent;
+
+	/// <summary>
+	/// Class used to pass the HealthChanged event data.
+	/// Contain the current health of the player.
+	/// </summary>
+	public class HealthChangedEventArgs : EventArgs
+	{
+		public int CurrentHealth { get; }
+		public int CurrentMaxHealth { get; }
+		public HealthChangedEventArgs(int currentHealth, int currentMaxHealth)
+		{ CurrentHealth = currentHealth; CurrentMaxHealth = currentMaxHealth; }
+	}
+
+	#endregion
+
+	#region Setters / Getters
 
 	private float _magnet = 0;
 	public float magnet
@@ -88,82 +145,36 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	private int _level = 1;
-	public int level
-	{
-		get => _level;
-		set
-		{
-			_level = value;
-			if (LevelLabel != null)
-			{
-				LevelLabel.Text = "Level: " + value; // update the level label
-			}
-			UI.LevelUp_Open(); // Open the level up panel when the player levels up
-
-			if (xpBar != null)
-			{
-				if (value >= 7)
-					xpBar.MaxValue = 40;
-				else if (value >= 3)
-					xpBar.MaxValue = 20;
-			}
-		}
-	}
-
-	private float _health = 100;
-	public float health
+	public int Health
 	{
 		get => _health;
 		set
 		{
-			_health = Mathf.Max(value, 0);
+			if (value < 0) _health = 0;
+			else if (value > MaxHealth) _health = MaxHealth;
+			else _health = value;
 
-			if (healthBar != null)
-			{
-				healthBar.Value = _health;
-			}
+			HealthChangedEvent?.Invoke(this, new HealthChangedEventArgs(_health, _maxHealth));
 		}
 	}
+	public int MaxHealth
+	{
+		get => _maxHealth;
+		set
+		{
+			if (value < 1) _maxHealth = 1;
+			else _maxHealth = value;
 
+			HealthChangedEvent?.Invoke(this, new HealthChangedEventArgs(_health, _maxHealth));
+		}
+	}
+	public int Level { get => _level; }
 	public Items Weapon { get => _weapon; }
 	public List<Items> Passives { get => _passives; }
 
 	#endregion
 
 	#region methods
-	public void take_damage(float amount) // function to reduce health
-	{
-		health -= Mathf.Max(amount - armor, 0);
-	}
-
-	public void _on_self_damage_body_entered(Enemy body) // this function is called everytime an enemy touch the player 
-	{
-		take_damage(body.Damage);
-	}
-
-	public void _on_timer_timeout()
-	{
-		var collision = GetNode<CollisionShape2D>("SelfDamage/Collision");
-		collision.SetDeferred("disabled", true);
-		collision.SetDeferred("disabled", false);
-	}
-
-	// function to gain xp
-	public void Gain_XP(int amount)
-	{
-		XP += amount * growth;
-		total_XP += amount * growth;
-	}
-
-	public void Check_XP() // function to check if the player has enough XP to level up
-	{
-		if (xpBar != null && XP > xpBar.MaxValue)
-		{
-			XP -= (int)xpBar.MaxValue;
-			level += 1;
-		}
-	}
 
 	public void _on_magnet_area_entered(Area2D area) // to attract bonus and xp rewards.
 	{
@@ -174,7 +185,6 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-
 	public void GetInput()
 	{
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down"); // moves of the player
@@ -184,6 +194,56 @@ public partial class Player : CharacterBody2D
 		{
 			GetTree().Quit();
 		}
+	}
+
+	/// <summary>
+	/// Function called when the body of an enemy touch the player.
+	/// The player take damage accordingly.
+	/// </summary>
+	/// <param name="body">Enemy which touched the player.</param>
+	public void _on_self_damage_body_entered(Enemy body)
+	{
+		int Damage = (int)(body.Damage - armor);
+		Health = _health - Damage;
+	}
+
+	/// <summary>
+	/// Give a certain amount of xp to the player, raise the XpGained event and LevelUp event if the player level up.
+	/// </summary>
+	/// <param name="amount">Amount of xp to give to the player.</param>
+	public void GainXp(int amount)
+	{
+		// /!\ To change later, so the player can gain multiple level at once.
+		if (_xp + amount > _nextLevelXpNeeded)
+		{
+			_level += 1;
+			_xp = 0;
+			_nextLevelXpNeeded = Global.BASE_XP_TO_GET + Level * Global.XP_SCALE;
+
+			LevelUpEvent?.Invoke(this, new LevelUpEventArgs(_level, _nextLevelXpNeeded));
+		}
+		else _xp += amount;
+
+		XpGainedEvent?.Invoke(this, new XpGainedEventArgs(_xp));
+	}
+
+	/// <summary>
+	/// Add a new passive to the player.
+	/// </summary>
+	/// <param name="item">Item to add.</param>
+	public void AddItem(Items item)
+	{
+		if (item.Type == Items_Type.Passive)
+		{
+			item.Holder = this;
+			_passives.Add(item);
+		}
+		else if (item.Type == Items_Type.Weapon)
+		{
+			_weapon = item;
+		}
+
+		ItemAddedEvent?.Invoke(this, new ItemAddedEventArgs(item));
 	}
 
 	/// <summary>
@@ -209,24 +269,6 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	/// <summary>
-	/// Add a new passive to the player.
-	/// </summary>
-	/// <param name="passive">Passive to add.</param>
-	public void AddPassive(Items item)
-	{
-		if (item.Type != Items_Type.Passive)
-		{
-			GD.PrintErr("AddPassive : Item isn't a passive.");
-			return;
-		}
-
-		item.Holder = this;
-		_passives.Add(item);
-
-		UI.AddItemDisplay(item); // Add the passive display in the UI
-	}
-
 	#endregion
 
 	#region Physics Process() and Ready()
@@ -244,7 +286,6 @@ public partial class Player : CharacterBody2D
 
 		GetInput();
 		MoveAndSlide();
-		Check_XP();
 		Animation();
 
 		foreach (Items passive in _passives) { passive.UpdateEffectTimer(delta); }
@@ -254,20 +295,13 @@ public partial class Player : CharacterBody2D
 	// used to instantiate players attributes on the game scene 
 	public override void _Ready()
 	{
-		// Set the static getter to its reference.
-		Ref = this;
-
 		nearest_enemy_distance = 150 + area; // set nearest enemy distance to 150 + area (go in attributes to learn more)
-		healthBar = GetNode<ProgressBar>("Health"); // health
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
 
-		// Set a base weapon.
-		_weapon = new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/Pistol.tres"));
+		AddItem(new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/Pistol.tres")));
 		_weapon.Holder = this; // set the owner of the weapons container to this player
-		UI.AddItemDisplay(_weapon); // Add the weapon display in the UI
 	}
 
 	#endregion
-
 
 }

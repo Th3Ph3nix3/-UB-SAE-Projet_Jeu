@@ -4,146 +4,68 @@ using Godot;
 
 public partial class UI : CanvasLayer
 {
+    /// <summary>
+    /// Reference to the player.
+    /// </summary>
+    [Export]
+    private Player _player;
+
+    /// <summary>
+    /// Canvas that holds all UI element informing the player.
+    /// </summary>
+    private PlayerInfo_Canvas _playerInfo_Canvas;
+
+    /// <summary>
+    /// Panel that displays the level up options when the player levels up.
+    /// </summary>
+    private LevelUp_Canvas _levelUp_Canvas;
 
     #region methods
 
     public override void _Ready()
     {
-        // Initialize the containers for passive and weapon items.
-        _passiveItemsContainer = GetNode<BoxContainer>("PassiveItemsContainer");
-        _weaponItemsContainer = GetNode<BoxContainer>("WeaponItemsContainer");
-
-        // Initialize the level up panel.
+        _playerInfo_Canvas = GetNode<PlayerInfo_Canvas>("PlayerInfo_Canvas");
         _levelUp_Canvas = GetNode<LevelUp_Canvas>("LevelUp_Canvas");
+
+        _player.LevelUpEvent += LevelUpEvent;
+        _player.ItemAddedEvent += ItemAddedEvent;
+        _player.XpGainedEvent += XpGainedEvent;
+        _player.HealthChangedEvent += HealthChangedEvent;
+
+        _playerInfo_Canvas.AddItemDisplay(_player.Weapon);
+        _playerInfo_Canvas.LevelUpUpdate(0, Global.BASE_XP_TO_GET);
+        _playerInfo_Canvas.UpdateHealthBar(Global.BASE_MAX_PLAYER_HEALTH, Global.BASE_MAX_PLAYER_HEALTH);
     }
 
-    #region Player UI
-
-    #region Items Display
-
     /// <summary>
-    /// Container for passive items frames in the UI.
+    /// Function openning the level up canvas and updating the xp label when the player level up.
     /// </summary>
-    static private BoxContainer _passiveItemsContainer;
-
-    /// <summary>
-    /// Container for weapon items frames in the UI.
-    /// </summary>
-    static private BoxContainer _weaponItemsContainer;
-
-    /// <summary>
-    /// Adds an item frame to the UI based on the type of item.
-    /// </summary>
-    /// <param name="item">Item to add.</param>
-    static public void AddItemDisplay(Items item)
+    public void LevelUpEvent(object sender, Player.LevelUpEventArgs e)
     {
-        Items_Frame itemFrame = Items_Frame.new_Items_Frame(item);
-
-        if (item.Type == Items_Type.Passive)
-        {
-            _passiveItemsContainer.AddChild(itemFrame);
-        }
-        else if (item.Type == Items_Type.Weapon)
-        {
-            _weaponItemsContainer.AddChild(itemFrame);
-        }
-        else
-        {
-            GD.PrintErr("UI : Unknown item type: " + item.Type);
-        }
+        _levelUp_Canvas.Open((Player)sender);
+        _playerInfo_Canvas.LevelUpUpdate(e.CurrentLvl, e.CurrentNextLevelXpNeeded);
     }
 
     /// <summary>
-    /// Update a item frame in the UI based on the item.
+    /// Function adding a new item to the item display. Also link it to the new item.
     /// </summary>
-    static public void UpdateItemsDisplay(Items item)
+    public void ItemAddedEvent(object sender, Player.ItemAddedEventArgs e)
     {
-        if (item.Type == Items_Type.Passive)
-        {
-            foreach (Items_Frame itemsFrame in _passiveItemsContainer.GetChildren())
-            {
-                if (itemsFrame.Item == item)
-                {
-                    itemsFrame.UpdateFrame();
-                    return;
-                }
-            }
-        }
-        else if (item.Type == Items_Type.Weapon)
-        {
-            foreach (Items_Frame itemsFrame in _weaponItemsContainer.GetChildren())
-            {
-                if (itemsFrame.Item == item)
-                {
-                    itemsFrame.UpdateFrame();
-                    return;
-                }
-            }
-        }
-        else
-        {
-            GD.PrintErr("UI : Unknown item type: " + item.Type);
-        }
+        _playerInfo_Canvas.AddItemDisplay(e.AddedItem);
     }
 
-    #endregion
-
-    #region Player Info
-
     /// <summary>
-    /// Display the player's current level.
+    /// Update the xp bar when the player gain xp.
     /// </summary>
-    private Label LevelLabel;
-
-    /// <summary>
-    /// Displays the player's xp as a progress bar.
-    /// </summary>
-	private TextureProgressBar xpBar;
-
-    #endregion
-
-    #endregion
-
-    #region Level Up Canvas
-
-    /// <summary>
-    /// Panel that displays the level up options when the player levels up.
-    /// </summary>
-    static private LevelUp_Canvas _levelUp_Canvas;
-
-    /// <summary>
-    /// Opens the Level Up panel to allow the player to choose upgrades after leveling up.
-    /// If the panel is not initialized, it will print an error message.
-    /// </summary>
-    static public void LevelUp_Open()
+    public void XpGainedEvent(object sender, Player.XpGainedEventArgs e)
     {
-        if (_levelUp_Canvas != null)
-        {
-            _levelUp_Canvas.Open();
-        }
-        else
-        {
-            GD.PrintErr("UI : LevelUp_Canvas is not initialized.");
-        }
+        _playerInfo_Canvas.UpdateXpBar(e.CurrentXp);
     }
 
-    /// <summary>
-    /// Closes the Level Up panel.
-    /// If the panel is not initialized, it will print an error message.
-    /// </summary>
-    static public void LevelUp_Close()
+    public void HealthChangedEvent(object sender, Player.HealthChangedEventArgs e)
     {
-        if (_levelUp_Canvas != null)
-        {
-            _levelUp_Canvas.Close();
-        }
-        else
-        {
-            GD.PrintErr("UI : LevelUp_Canvas is not initialized.");
-        }
+        _playerInfo_Canvas.UpdateHealthBar(e.CurrentHealth, e.CurrentMaxHealth);
     }
-
-    #endregion
 
     #endregion
 

@@ -28,13 +28,10 @@ scale_over_velocity_min = 233.64
 scale_over_velocity_max = 233.64
 color_ramp = SubResource("GradientTexture1D_rmc8r")
 
-[node name="LevelUp_Canvas" type="CanvasLayer" node_paths=PackedStringArray("_particles", "_panel", "_levelUp_Container")]
+[node name="LevelUp_Canvas" type="CanvasLayer"]
 process_mode = 3
 layer = 2
 script = ExtResource("1_08ow2")
-_particles = NodePath("Particles")
-_panel = NodePath("Panel")
-_levelUp_Container = NodePath("LevelUp_Container")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 position = Vector2(1271, -72)

@@ -54,10 +54,12 @@ public partial class Items_Frame : PanelContainer
 
 		_tex.Texture = _item.Texture;
 		_label.Text = "Lvl " + _item.Level;
+
+		_item.ItemLeveledUpEvent += UpdateFrame;
 	}
 
 	/// <summary>
-	/// Update the frame with the current item data.
+	/// Update the frame with the current item data. Called by the ItemLeveledUp event.
 	/// </summary>
 	public void UpdateFrame()
 	{

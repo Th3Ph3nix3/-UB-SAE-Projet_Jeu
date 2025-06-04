@@ -18,6 +18,25 @@ public partial class UpgradeItem_Frame : TextureButton
 
 	#endregion
 
+	#region event
+
+	/// <summary>
+	/// Event raised when the button as been clicked.
+	/// </summary>
+	public event EventHandler<ItemClickedEventArgs> ItemClickedEvent;
+
+	/// <summary>
+	/// Class used to pass the ItemClicked event data.
+	/// </summary>
+	public class ItemClickedEventArgs : EventArgs
+	{
+		public Items Item { get; }
+		public bool IsNew { get; }
+		public ItemClickedEventArgs(Items item, bool isNew) { Item = item; IsNew = isNew; }
+	}
+
+	#endregion
+
 	#region Methods
 
 	/// <summary>
@@ -57,16 +76,7 @@ public partial class UpgradeItem_Frame : TextureButton
 		{
 			if (_item != null)
 			{
-				if (_newItem)
-				{
-					Player.Ref.AddPassive(_item);
-				}
-				else
-				{
-					_item.LevelUp(); // upgrade the weapon
-				}
-				
-				UI.LevelUp_Close(); // close the options panel
+				ItemClickedEvent?.Invoke(this, new ItemClickedEventArgs(_item, _newItem));
 			}
 			else
 			{

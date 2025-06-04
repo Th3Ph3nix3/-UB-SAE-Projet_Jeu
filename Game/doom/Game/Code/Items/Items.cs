@@ -73,7 +73,21 @@ public partial class Items : Node
 
 	#endregion
 
+	#region Events
+
+	/// <summary>
+	/// Event raised when the item levels up.
+	/// </summary>
+	public event Action ItemLeveledUpEvent;
+
+	#endregion
+
 	#region methods
+
+	/// <summary>
+	/// Default constructor of Items.
+	/// </summary>
+	public Items() {}
 
 	/// <summary>
 	/// Constructor of items.
@@ -93,7 +107,7 @@ public partial class Items : Node
 		{
 			_data.level++;
 			_data.OnUpgrade(); // Call the upgrade method to apply changes
-			UI.UpdateItemsDisplay(this);
+			ItemLeveledUpEvent?.Invoke();
 
 			if (_data.level >= _data.Upgrades.Length - 1)
 			{

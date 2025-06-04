@@ -378,6 +378,7 @@ public partial class Enemy : CharacterBody2D
 
 		var itemToDrop = _dropScene.Instantiate<Pickups>();
 
+		itemToDrop.ZIndex = 0;
 		itemToDrop.type = item;
 		itemToDrop.Position = Position;
 		itemToDrop.player_reference = Player_reference;

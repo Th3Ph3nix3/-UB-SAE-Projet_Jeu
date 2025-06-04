@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://bw7uankx8vgwa" path="res://Game/Resource/Pickups/Liitle_Ear_Head.tres" id="1_53hlq"]
 [ext_resource type="Script" uid="uid://blnre80vhxquy" path="res://Game/Code/Characters/Enemy/EnemyType.cs" id="1_gm1fg"]
-[ext_resource type="Texture2D" uid="uid://gvbiqadtt55y" path="res://Game/Sprite/Enemy/Little/Ear/Little_Chaos_Ear.png" id="3_prhuc"]
+[ext_resource type="Texture2D" uid="uid://dplxe3jhvlmgs" path="res://Game/Sprite/Enemy/Little/Ear/Walk/Little_Chaos_Ear-Spritesheet.png" id="3_prhuc"]
 
 [resource]
 script = ExtResource("1_gm1fg")

@@ -12,7 +12,7 @@ public partial class Regeneration : Passives_Data
     /// </summary>
     public override void EffectUpdate()
     {
-        holder.health += upgrades[level].stat;
+        holder.Health += (int)upgrades[level].stat;
     }
 
     /// <summary>

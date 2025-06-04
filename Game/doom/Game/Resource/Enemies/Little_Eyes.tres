@@ -2,12 +2,12 @@
 
 [ext_resource type="Resource" uid="uid://csx7hrfdco6wi" path="res://Game/Resource/Pickups/Little_Eyes_Head.tres" id="1_p5d27"]
 [ext_resource type="Script" uid="uid://blnre80vhxquy" path="res://Game/Code/Characters/Enemy/EnemyType.cs" id="2_pocjs"]
-[ext_resource type="Texture2D" uid="uid://jqseqxnd14bl" path="res://Game/Sprite/Enemy/Little/Eyes/Little_Chaos_Eyes.png" id="3_ek1ix"]
+[ext_resource type="Texture2D" uid="uid://b84enjujht56d" path="res://Game/Sprite/Enemy/Little/Eyes/Walk/Little_Chaos_Eyes-Spritesheet.png" id="3_pocjs"]
 
 [resource]
 script = ExtResource("2_pocjs")
 title = "Little_Eyes"
-texture = ExtResource("3_ek1ix")
+texture = ExtResource("3_pocjs")
 health = 50.0
 damage = 20.0
 speed = 50.0

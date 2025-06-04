@@ -17,7 +17,7 @@ public partial class UpgradeItem_Container : VBoxContainer
     /// </summary>
     /// <param name="items">Items list to add in the container.</param>
     /// <param name="newItem">Set if the items in the list are new or not.</param>
-    public UpgradeItem_Container(List<Items> items, bool newItem)
+    public UpgradeItem_Container(Player player, List<Items> items, bool newItem)
     {
         this.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
         foreach (Items item in items) AddChild(UpgradeItem_Frame.new_UpgradeItem_Frame(item, newItem));

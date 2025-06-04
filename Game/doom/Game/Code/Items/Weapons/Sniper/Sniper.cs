@@ -1,15 +1,9 @@
-using System;
 using Godot;
+using System;
 
-/// <summary>
-/// A pistol weapon that shoots one projectile at a time towards the nearest enemy.
-/// </summary>
 [GlobalClass]
-public partial class Pistol : Weapons_Data
+public partial class Sniper : Weapons_Data
 {
-	/// <summary>
-	/// Shoots a projectile towards the nearest enemy of the owner.
-	/// </summary>
 	public override void EffectUpdate()
 	{
 		if (holder.nearest_enemy == null)

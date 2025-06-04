@@ -255,7 +255,7 @@ public partial class PlayerControl : CharacterBody2D
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
 
 		// Set a base weapon.
-		_weapon = new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/Pistol.tres"));
+		_weapon = new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/Sniper.tres"));
 		_weapon.Holder = this; // set the owner of the weapons container to this player
 		UI.AddItemDisplay(_weapon); // Add the weapon display in the UI
 	}

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class Spawner : Node2D
 {
@@ -25,7 +26,7 @@ public partial class Spawner : Node2D
 	private int vagueCounter = 0;
 
 	[Export]
-	EnemyType[] enemy_types;
+	EnemyType[] enemy_types = new EnemyType[3];
 
 	private int minute;
 	private int second;
@@ -49,17 +50,34 @@ public partial class Spawner : Node2D
 		set
 		{
 			second = value;
-			if (second >= 10) // à changer par la suite ! (je comprends pas trop car on a la fonction _on_pattern_timeout() mais bon)
+			if (second >= 60)
 			{
-				second -= 10; // même remarque (pour que les minutes soient bien représentées)
+				second -= 60; 
 				Minute += 1;
 			}
 			if (SecondLabel != null)
 				SecondLabel.Text = second.ToString().PadLeft(2, '0');
 		}
 	}
-	#endregion
-	#region methods
+    #endregion
+    #region methods
+
+    public override void _Ready()
+    {
+		InitializeEnemies();
+    }
+
+	public void InitializeEnemies()
+	{
+		EnemyType LittleEar = GD.Load<EnemyType>("res://Game/Resource/Enemies/Little_Ear.tres");
+		EnemyType LittleMouth = GD.Load<EnemyType>("res://Game/Resource/Enemies/Little_Mouth.tres");
+		EnemyType LittleEyes = GD.Load<EnemyType>("res://Game/Resource/Enemies/Little_Eyes.tres");
+		
+		enemy_types[0] = LittleEar;
+		enemy_types[1] = LittleMouth;
+		enemy_types[2] = LittleEyes;
+	}
+
 
 	public override void _PhysicsProcess(double _delta)
 	{
@@ -111,30 +129,23 @@ public partial class Spawner : Node2D
 	{
 		Second += 1;
 
-		// Toutes les 10 secondes : nouvelle vague
-		// attention, les 10 premières secondes, personne ne spawn car le nb de secondes n'est pas divisible par 10
-		if (Second % 1 == 0) // changer au besoin le chiffre x dans (Second % x == 0). Il correspond au nombre de secondes à attendre pour qu'une vague d'ennemis arrive.
+		if(Second >= 0 && Second <= 4)
 		{
-			// Met à jour le type d'ennemi pour cette vague
+			// Update number of enemies for this wave
 			enemyTypeIndex = vagueCounter % enemy_types.Length;
 			vagueCounter++;
 
-			// Fais apparaître 3 ennemis d’un coup (changer au besoin)
-			amount(3);
+			amount((int)GD.Randi() % 15);
 		}
 	}
 
-	public void _on_pattern_timeout() // pour les grosses vagues. Doit etre changer dans Godot -> spawner -> Pattern, puis à droite dans Inspecteur il faut changer Wait Time.
+	public void _on_pattern_timeout() // For big waves. To change how much time until next, go to Godot -> Spawner.tscn -> Pattern, then in the inspector, you change Wait Time.
 	{
-		// mettre un nombre aléatoire de monstres ? -> GD.Randi() % 11 genere un nombre aléatoire entre 1 et 10
-		for (int i = 0; i < GD.Randi() % 11; i++) // grâce à ça les ennemis arrivent en cercle autour du player (changer le nombre d'itération pour plus ou moins d'ennemis)
-		{
-			spawn(get_random_position());
-		}
+		amount(20); // spawn 25 enemis 
 	}
 	public void _on_elite_timeout()
 	{
-		spawn(get_random_position(),true); // pour le mob elite. Doit etre changer dans Godot -> spawner -> Elite, puis à droite dans Inspecteur il faut changer Wait Time.
+		spawn(get_random_position(), true); // For Elite mob.
 	}
 	#endregion
 }

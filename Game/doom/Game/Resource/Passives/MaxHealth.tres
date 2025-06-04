@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="MaxHealth" load_steps=7 format=3 uid="uid://c2ub0ismnjlwu"]
+
+[ext_resource type="Script" uid="uid://dgbu6lwsboo7h" path="res://Game/Code/Items/Passives/MaxHealth/MaxHealth.cs" id="1_sj4b6"]
+[ext_resource type="Texture2D" uid="uid://rcg2ptlay3e2" path="res://icons_for_items/max_health.png" id="2_l5d1w"]
+[ext_resource type="Script" uid="uid://boy4i3ijaijpx" path="res://Game/Code/Items/Items_Upgrades/Passives_Upgrade.cs" id="3_b66j4"]
+
+[sub_resource type="Resource" id="Resource_qv1po"]
+script = ExtResource("3_b66j4")
+stat = 25.0
+cooldown = 0.0
+description = "+25 health"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[sub_resource type="Resource" id="Resource_h4ob8"]
+script = ExtResource("3_b66j4")
+stat = 50.0
+cooldown = 0.0
+description = "+50 health"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[sub_resource type="Resource" id="Resource_qsdk7"]
+script = ExtResource("3_b66j4")
+stat = 100.0
+cooldown = 0.0
+description = "Full health"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[resource]
+script = ExtResource("1_sj4b6")
+upgrades = [SubResource("Resource_qv1po"), SubResource("Resource_h4ob8"), SubResource("Resource_qsdk7")]
+name = "MaxHealth"
+texture = ExtResource("2_l5d1w")
+metadata/_custom_type_script = "uid://dgbu6lwsboo7h"

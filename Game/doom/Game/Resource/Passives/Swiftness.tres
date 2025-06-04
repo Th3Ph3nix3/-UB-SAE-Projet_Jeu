@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btglwxp51gn63" path="res://Game/Code/Items/Passives/Swiftness/Swiftness.cs" id="1_8ddfd"]
 [ext_resource type="Texture2D" uid="uid://c8gi03dapnw7n" path="res://Game/Sprite/Item/Passives/Swiftness/speed.png" id="2_0160l"]
-[ext_resource type="Script" uid="uid://boy4i3ijaijpx" path="res://Game/Code/Items/Upgrades/Passives_Upgrade.cs" id="2_mkq84"]
+[ext_resource type="Script" uid="uid://boy4i3ijaijpx" path="res://Game/Code/Items/Items_Upgrades/Passives_Upgrade.cs" id="2_mkq84"]
 
 [sub_resource type="Resource" id="Resource_mkq84"]
 script = ExtResource("2_mkq84")

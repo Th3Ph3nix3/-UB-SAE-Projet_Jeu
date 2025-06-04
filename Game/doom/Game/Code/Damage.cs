@@ -13,7 +13,7 @@ public partial class Damage : Label
     }
 
 
-    public async Task pop() // add comment
+    public async Task pop()
     {
         var tween = GetTree().CreateTween();
         tween.TweenProperty(this, "scale", new Godot.Vector2(2, 2), 0.1);

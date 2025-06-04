@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=7 format=3 uid="uid://dkkeixwy1ijl7"]
+
+[ext_resource type="Script" uid="uid://bbsllwfloq4i6" path="res://Game/Code/Items/Passives/Armor/Armor.cs" id="1_201g2"]
+[ext_resource type="Texture2D" uid="uid://b8y0w4t1a3g76" path="res://icons_for_items/armor.png" id="2_fqdlg"]
+[ext_resource type="Script" uid="uid://boy4i3ijaijpx" path="res://Game/Code/Items/Items_Upgrades/Passives_Upgrade.cs" id="3_ujsjd"]
+
+[sub_resource type="Resource" id="Resource_tcxis"]
+script = ExtResource("3_ujsjd")
+stat = 10.0
+cooldown = 0.0
+description = "+10 armor"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[sub_resource type="Resource" id="Resource_l2jpd"]
+script = ExtResource("3_ujsjd")
+stat = 25.0
+cooldown = 0.0
+description = "+25 armor"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[sub_resource type="Resource" id="Resource_11axm"]
+script = ExtResource("3_ujsjd")
+stat = 50.0
+cooldown = 0.0
+description = "+50 armor"
+metadata/_custom_type_script = "uid://boy4i3ijaijpx"
+
+[resource]
+script = ExtResource("1_201g2")
+upgrades = [SubResource("Resource_tcxis"), SubResource("Resource_l2jpd"), SubResource("Resource_11axm")]
+name = "Armor"
+texture = ExtResource("2_fqdlg")
+metadata/_custom_type_script = "uid://bbsllwfloq4i6"

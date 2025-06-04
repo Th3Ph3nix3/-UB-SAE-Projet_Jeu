@@ -12,6 +12,6 @@ public partial class Passives_Upgrade : Base_Upgrades
     /// Stat of the passive item at a given level. This could represent various attributes such as health, speed, or damage.
     /// </summary>
     [Export]
-    public float stat = 0;
+    public int stat = 0;
 
 }

@@ -4,15 +4,11 @@ using System;
 [GlobalClass]
 public partial class Armor : Passives_Data
 {
-	public override void EffectUpdate()
-	{
-	}
+	public override void EffectUpdate() { return; }
 
-	
-	
 	public override void OnUpgrade()
 	{
-		holder.armor = upgrades[level].stat;
-		GD.Print("Actual armor : ", holder.armor);
+		if (level == 0) holder.growth += upgrades[level].stat;
+        else holder.growth += upgrades[level].stat - upgrades[level - 1].stat;
 	}
 }

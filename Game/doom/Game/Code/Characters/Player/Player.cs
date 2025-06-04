@@ -9,13 +9,9 @@ public partial class Player : CharacterBody2D
 
 	#region attributes
 	[Export]
-	public float movement_speed { get; set; } = 400;
-	private ProgressBar healthBar;
-	public int total_XP = 0;
-	public float recovery = 0;
-	public float armor = 0;
-	public float might = 1f; // public so that Projectile.cs can access to it
-	public float area = 500; // area from where the player start shooting at enemies ( = range)
+	public int movement_speed { get; set; } = 400;
+	public int armor = 0;
+	public int area = 500; // area from where the player start shooting at enemies ( = range)
 	public int growth = 1;
 	public Enemy nearest_enemy;
 	public CollisionShape2D magnetArea;

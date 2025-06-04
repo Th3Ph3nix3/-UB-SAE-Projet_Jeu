@@ -5,13 +5,11 @@ using System;
 public partial class Area : Passives_Data
 {
 
-	public override void EffectUpdate()
-	{
-		holder.area += upgrades[level].stat;
-	}
+	public override void EffectUpdate() { return; }
 
 	public override void OnUpgrade()
 	{
-		return;
+		if (level == 0) holder.growth += upgrades[level].stat;
+        else holder.growth += upgrades[level].stat - upgrades[level - 1].stat;
 	}
 }

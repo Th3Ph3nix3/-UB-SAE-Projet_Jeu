@@ -11,7 +11,7 @@ public partial class MaxHealth : Passives_Data
 
 	public override void OnUpgrade()
 	{
-		holder.health = upgrades[level].stat;
-		GD.Print("Health recovered : ", holder.health);
+		if (level == 0) holder.MaxHealth += upgrades[level].stat;
+        else holder.MaxHealth += upgrades[level].stat - upgrades[level - 1].stat;
 	}
 }

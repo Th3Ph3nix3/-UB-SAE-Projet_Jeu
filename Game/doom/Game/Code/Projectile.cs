@@ -45,7 +45,7 @@ public partial class Projectile : Area2D
 		{
 			if (source.GetType().GetField("might") != null) // if Source (the player) contains a property might that is not null
 			{
-				enemy.take_damage(damage * source.might);
+				enemy.take_damage(damage);
 				GD.Print("I work in this condition !");
 			}
 			else

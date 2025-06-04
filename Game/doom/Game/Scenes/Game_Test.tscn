@@ -56,61 +56,6 @@ texture = ExtResource("1_438ep")
 [sub_resource type="TileSet" id="TileSet_3k31l"]
 sources/0 = SubResource("TileSetAtlasSource_kf3hw")
 
-[sub_resource type="Gradient" id="Gradient_ivo3h"]
-offsets = PackedFloat32Array(0.0206186, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0784314)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rmc8r"]
-gradient = SubResource("Gradient_ivo3h")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6we6e"]
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(1, 1, 1)
-emission_shape_scale = Vector3(1500, 1, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-angle_min = 1.07288e-05
-angle_max = 1.07288e-05
-spread = 70.92
-gravity = Vector3(0, 98, 0)
-scale_min = 2.0
-scale_max = 2.0
-scale_over_velocity_min = 233.64
-scale_over_velocity_max = 233.64
-color_ramp = SubResource("GradientTexture1D_rmc8r")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evlki"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i36tt"]
-bg_color = Color(0.32783, 0.0144033, 3.60981e-08, 0.886275)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy76y"]
-bg_color = Color(0.24786, 2.00043e-07, 0.0139801, 0.972549)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evlki"]
-bg_color = Color(0.662005, 1.00353e-05, 0.112996, 0.733333)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fgde"]
-size = Vector2(20.3031, 80.1959)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_rfbgh"]
 animations = [{
 "frames": [{
@@ -388,7 +333,6 @@ player = NodePath("../Player")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(100, 107)
 script = ExtResource("2_438ep")
-movement_speed = 300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 texture_filter = 1
@@ -500,6 +444,7 @@ bus = &"Click"
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 script = ExtResource("4_evlki")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -594,6 +539,7 @@ bus = &"Click"
 
 [node name="SettingsMenu_inGame" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("14_rmc8r")
 
 [node name="ColorRect" type="ColorRect" parent="SettingsMenu_inGame"]

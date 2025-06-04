@@ -17,13 +17,7 @@ public partial class Swiftness : Passives_Data
     /// </summary>
     public override void OnUpgrade()
     {
-        if (level == 0)
-        {
-            holder.movement_speed += upgrades[level].stat; // Set initial movement speed
-        }
-        else
-        {
-            holder.movement_speed += upgrades[level].stat - upgrades[level - 1].stat; // Increase movement speed by the difference between current and previous upgrade
-        }
+        if (level == 0) holder.movement_speed += upgrades[level].stat; // Set initial movement speed
+        else holder.movement_speed += upgrades[level].stat - upgrades[level - 1].stat; // Increase movement speed by the difference between current and previous upgrade
     }
 }

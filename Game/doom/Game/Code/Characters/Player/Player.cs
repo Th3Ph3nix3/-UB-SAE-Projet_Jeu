@@ -241,13 +241,9 @@ public partial class Player : CharacterBody2D
 		}
 		else if (item.Type == Items_Type.Weapon)
 		{
-<<<<<<< Updated upstream
-			_weapon = item;
-=======
 			_weapon = new Items(item.Data);
 			_weapon.Holder = this;
 			ItemAddedEvent?.Invoke(this, new ItemAddedEventArgs(_weapon));
->>>>>>> Stashed changes
 		}
 
 		
@@ -276,8 +272,6 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-<<<<<<< Updated upstream
-=======
 	public void WeaponChoosedEvent(object sender, WeaponChoice_Canvas.WeaponChoosedEventArgs e)
     {
 		AddItem(e.Weapon);
@@ -300,7 +294,6 @@ public partial class Player : CharacterBody2D
 		magnet = 0;
 	}
 
->>>>>>> Stashed changes
 	#endregion
 
 	#region Physics Process() and Ready()

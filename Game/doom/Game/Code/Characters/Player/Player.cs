@@ -146,7 +146,11 @@ public partial class Player : CharacterBody2D
 		get => _health;
 		set
 		{
-			if (value < 0) _health = 0;
+			if (value < 0)
+			{
+				_health = 0;
+				GameOverManager.GameOver();
+			}
 			else if (value > MaxHealth) _health = MaxHealth;
 			else _health = value;
 

@@ -71,6 +71,7 @@ public partial class GameOverManager : Node
         Instance = this;
         musicPlayer = GetNode<AudioStreamPlayer>("Music");
         deathSound = Instance.GetNode<AudioStreamPlayer>("Death");
+        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
     }
 
     // #endregion
@@ -104,7 +105,6 @@ public partial class GameOverManager : Node
     /// </summary>
     public void _on_start_pressed()
     {
-        clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
         clickcliksound.Play();
         isPaused = !isPaused;
         EmitSignal(SignalName.GameOverToggle, isPaused);

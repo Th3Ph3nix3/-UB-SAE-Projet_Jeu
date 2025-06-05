@@ -39,7 +39,7 @@ public partial class Items_Frame : PanelContainer
 	/// <returns>Returns a reference the the newly instantiated Item frame.</returns>
 	static public Items_Frame new_Items_Frame(Items item)
 	{
-		Items_Frame items_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/Items_Display/Items_Frame.tscn").Instantiate<Items_Frame>();
+		Items_Frame items_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/PlayerInfo_Canvas/Items_Display/Items_Frame.tscn").Instantiate<Items_Frame>();
 		items_frame._item = item;
 		return items_frame;
 	}

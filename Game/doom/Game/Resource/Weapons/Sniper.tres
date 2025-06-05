@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cbhkf7rb45q10" path="res://Game/Scenes/projectile.tscn" id="1_gxfcb"]
 [ext_resource type="Script" uid="uid://bqs3tmrypvvic" path="res://Game/Code/Items/Weapons/OneBulletPerShot/OneBulletPerShot.cs" id="2_ui7ai"]
-[ext_resource type="Texture2D" uid="uid://cl64utb0bmf73" path="res://platformer_metroidvania asset pack v1.01/weapon_test/sniper_icon.png" id="3_32p0l"]
+[ext_resource type="Texture2D" uid="uid://cl64utb0bmf73" path="res://Game/Sprite/Item/Weapons/Sniper/sniper_icon.png" id="3_32p0l"]
 [ext_resource type="Script" uid="uid://bmh3tuygoeu1i" path="res://Game/Code/Items/Items_Upgrades/Weapons_Upgrade.cs" id="4_2snuj"]
 
 [sub_resource type="Resource" id="Resource_rsut7"]
 script = ExtResource("4_2snuj")
-damage = 100
+damage = 50
 speed = 1000
 cooldown = 2.0
-description = "Base Stats"
+description = "Hard hitting but slow."
 metadata/_custom_type_script = "uid://bmh3tuygoeu1i"
 
 [sub_resource type="Resource" id="Resource_cepq6"]

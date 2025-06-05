@@ -1,48 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsiyt4q0jsk1x"]
+[gd_scene load_steps=6 format=3 uid="uid://dsiyt4q0jsk1x"]
 
-[ext_resource type="Texture2D" uid="uid://b8be26uv54vxo" path="res://platformer_metroidvania asset pack v1.01/weapon_test/colt_icon.jpg" id="1_3fubn"]
 [ext_resource type="Script" uid="uid://corg5qevxdwuc" path="res://Game/Code/UI/LevelUp_Canvas/Upgrades_Panel/UpgradeItem_Frame.cs" id="2_t25av"]
+[ext_resource type="Texture2D" uid="uid://ccap45eo2gk2h" path="res://Game/Sprite/Item/Weapons/Pistol/colt_icon.png" id="3_3fubn"]
 [ext_resource type="Texture2D" uid="uid://cy6f7b63ykrci" path="res://platformer_metroidvania asset pack v1.01/others_test/banner_weapon_description.png" id="3_105ak"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t25av"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_105ak"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
 
 [node name="UpgradeItem_Frame" type="TextureButton"]
 custom_minimum_size = Vector2(315, 40)
-offset_top = 6.0
-offset_right = 437.0
-offset_bottom = 46.0
-size_flags_horizontal = 3
-texture_normal = ExtResource("1_3fubn")
+anchors_preset = -1
+anchor_left = 0.516
+anchor_top = 0.495
+anchor_right = 0.516
+anchor_bottom = 0.495
+offset_left = -185.96
+offset_top = 15.2
+offset_right = 185.04
+offset_bottom = 65.2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("3_3fubn")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("2_t25av")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 show_behind_parent = true
+clip_contents = true
 custom_minimum_size = Vector2(315, 40)
 layout_mode = 0
-offset_right = 436.0
-offset_bottom = 40.0
+offset_left = 56.0
+offset_top = 5.0
+offset_right = 371.0
+offset_bottom = 45.0
 texture = ExtResource("3_105ak")
-region_rect = Rect2(71.1306, 39.6983, 210.777, 42.8339)
+region_rect = Rect2(81.5, 39.5, 197, 50)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 20.0
-offset_right = 79.0
-offset_bottom = 43.0
+offset_left = 291.0
+offset_top = 36.0
+offset_right = 336.0
+offset_bottom = 64.0
+rotation = -1.5708
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Lvl 2"
+label_settings = SubResource("LabelSettings_t25av")
 
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="Label" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 7.0
-offset_right = 420.0
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 279.0
 offset_bottom = 30.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Description"
+text = "Lorem Ipsum alerte "
+label_settings = SubResource("LabelSettings_105ak")
 horizontal_alignment = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -235,7 +235,8 @@ public partial class Player : CharacterBody2D
 		}
 		else if (item.Type == Items_Type.Weapon)
 		{
-			_weapon = item;
+			_weapon = new Items(item.Data);
+			_weapon.Holder = this;
 		}
 
 		ItemAddedEvent?.Invoke(this, new ItemAddedEventArgs(item));
@@ -263,6 +264,11 @@ public partial class Player : CharacterBody2D
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
 		}
 	}
+
+	public void WeaponChoosedEvent(object sender, WeaponChoice_Canvas.WeaponChoosedEventArgs e)
+    {
+		AddItem(e.Weapon);
+    }
 
 	#endregion
 
@@ -292,9 +298,6 @@ public partial class Player : CharacterBody2D
 	{
 		nearest_enemy_distance = 150 + area; // set nearest enemy distance to 150 + area (go in attributes to learn more)
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
-
-		AddItem(new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/OneBulletPerShot/Sniper.tres")));
-		_weapon.Holder = this; // set the owner of the weapons container to this player
 	}
 
 	#endregion

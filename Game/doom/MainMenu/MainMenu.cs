@@ -9,7 +9,7 @@ public partial class MainMenu : Node2D
 	{
 		clickcliksound = GetNode<AudioStreamPlayer>("ClickClickSound");
 		clickcliksound.Play();
-		GetTree().ChangeSceneToFile("res://Game/Scenes/Game_Test.tscn");
+		GetTree().ChangeSceneToFile("res://Game/Scenes/GameScene.tscn");
 	}
 
 	public void _on_quit_pressed()

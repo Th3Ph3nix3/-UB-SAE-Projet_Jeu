@@ -34,6 +34,7 @@ public partial class Items : Node
 	/// </summary>
 	public Player Holder
 	{
+		get => _data.holder;
 		set
 		{
 			_data.holder = value;

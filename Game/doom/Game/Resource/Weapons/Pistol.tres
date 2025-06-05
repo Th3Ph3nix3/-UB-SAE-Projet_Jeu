@@ -7,17 +7,17 @@
 
 [sub_resource type="Resource" id="Resource_qyep6"]
 script = ExtResource("4_rmxrv")
-damage = 10
+damage = 25
 speed = 500
 cooldown = 1.0
-description = "Base Stats"
+description = "Balanced choice."
 
 [sub_resource type="Resource" id="Resource_7txi4"]
 script = ExtResource("4_rmxrv")
-damage = 25
+damage = 35
 speed = 500
 cooldown = 0.75
-description = "25 damage, 0.75 cooldown"
+description = "35 damage, 0.75 cooldown"
 metadata/_custom_type_script = "uid://bmh3tuygoeu1i"
 
 [sub_resource type="Resource" id="Resource_tldve"]

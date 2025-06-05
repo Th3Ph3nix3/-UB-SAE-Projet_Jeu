@@ -1,55 +1,53 @@
-[gd_scene load_steps=76 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=74 format=4 uid="uid://bk8itfvtfphjg"]
 
-[ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
-[ext_resource type="Script" uid="uid://2mqou0gm1a4a" path="res://Game/Code/Characters/Player/Player.cs" id="2_438ep"]
-[ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://Game/Scenes/spawner.tscn" id="2_kf3hw"]
-[ext_resource type="Texture2D" uid="uid://hqybj4gr74sw" path="res://GroundElements/crack1.png" id="2_m7s4s"]
-[ext_resource type="Texture2D" uid="uid://b01l8q4jnwx4a" path="res://GroundElements/crack2.png" id="3_fipq1"]
-[ext_resource type="Texture2D" uid="uid://jdpprbievrw2" path="res://GroundElements/crack3.png" id="4_1b0yd"]
-[ext_resource type="Script" uid="uid://du8q5edxxuhd8" path="res://Game/Code/ToggleVisibilityOnPause.cs" id="4_evlki"]
-[ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="5_8fgde"]
-[ext_resource type="Texture2D" uid="uid://d3gywx4v3f27d" path="res://GroundElements/crack4.png" id="5_fvutr"]
-[ext_resource type="Texture2D" uid="uid://0874bntsjs7k" path="res://GroundElements/crack5.png" id="6_cexyb"]
-[ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="7_i0te0"]
-[ext_resource type="Texture2D" uid="uid://b0m4o0h0eb8am" path="res://GroundElements/crack6.png" id="7_nbbkb"]
-[ext_resource type="Script" uid="uid://cg3jxl7aws2bq" path="res://Game/Code/UI/UI.cs" id="9_bubr0"]
-[ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="9_fdjp8"]
-[ext_resource type="PackedScene" uid="uid://bfsj8dal8ftvt" path="res://Game/Scenes/UI/LevelUp_Canvas/LevelUp_Canvas.tscn" id="10_bubr0"]
-[ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://Game/Code/PauseManager.cs" id="10_ran1e"]
-[ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="12_i36tt"]
-[ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://Game/Code/SettingsManager_inGame.cs" id="13_q4ekd"]
-[ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://Game/Code/ToggleVisibilityOnSettings_inGame.cs" id="14_rmc8r"]
-[ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="15_q4ekd"]
-[ext_resource type="Texture2D" uid="uid://by1ybnqhtptnk" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0001.png" id="22_htbbg"]
-[ext_resource type="Texture2D" uid="uid://bm31irlakvr0s" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0002.png" id="23_3v2os"]
-[ext_resource type="Texture2D" uid="uid://6uki4i23wfo6" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0003.png" id="24_gx5gv"]
-[ext_resource type="Texture2D" uid="uid://8rcgoqi0pihd" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0004.png" id="25_lbadk"]
-[ext_resource type="Texture2D" uid="uid://c450bs6kw3elp" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0005.png" id="26_vtj28"]
-[ext_resource type="Texture2D" uid="uid://btdsrm6ntiejb" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0006.png" id="27_pjfot"]
-[ext_resource type="Texture2D" uid="uid://dbaqb351k3rhh" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0007.png" id="28_dyo2p"]
-[ext_resource type="Texture2D" uid="uid://grnv6vi8m0nj" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0008.png" id="29_nqyu7"]
-[ext_resource type="Texture2D" uid="uid://dhcnx41tl43au" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0009.png" id="30_xdt2h"]
-[ext_resource type="Texture2D" uid="uid://bmm202t7qm16n" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0010.png" id="31_5axpl"]
-[ext_resource type="Texture2D" uid="uid://dinaqypf5stk7" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0011.png" id="32_nkbnv"]
-[ext_resource type="Script" uid="uid://dnhktenfjp05d" path="res://Game/Code/UI/PlayerInfo_Canvas/PlayerInfo_Canvas.cs" id="33_60l3t"]
-[ext_resource type="Texture2D" uid="uid://dhtkkg427cdid" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0012.png" id="33_rni8i"]
-[ext_resource type="Texture2D" uid="uid://b7hgo6suyr6nl" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0001.png" id="34_5s4mg"]
-[ext_resource type="Texture2D" uid="uid://cf47fa8p0x2vs" path="res://platformer_metroidvania asset pack v1.01/Health_Bar.png" id="35_gfbed"]
-[ext_resource type="Texture2D" uid="uid://bvcnc7gt6ee34" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0002.png" id="35_yjmkb"]
-[ext_resource type="Texture2D" uid="uid://bramg72s3gb5c" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0003.png" id="36_uurvf"]
-[ext_resource type="Texture2D" uid="uid://da1v33fh4v881" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0004.png" id="37_avtxo"]
-[ext_resource type="Texture2D" uid="uid://dqyyx61bjevwc" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0005.png" id="38_2toy3"]
-[ext_resource type="Texture2D" uid="uid://dd5b3nnw8krf8" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0006.png" id="39_vodu0"]
-[ext_resource type="Texture2D" uid="uid://wkt1mdlnh2ww" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0007.png" id="40_7rr5r"]
-[ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0008.png" id="41_5ue2x"]
-[ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0009.png" id="42_jcst1"]
-[ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0010.png" id="43_aq156"]
-[ext_resource type="AudioStream" uid="uid://1nnskdw5wng8" path="res://sounds/CMPTKey_Souris raspberry simple clic (ID 1735)_LS.mp3" id="46_lbadk"]
-[ext_resource type="AudioStream" uid="uid://b1symyynowv5y" path="res://sounds/something wrong.wav" id="48_gx5gv"]
-[ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="49_vtj28"]
+[ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_ne67t"]
+[ext_resource type="Texture2D" uid="uid://hqybj4gr74sw" path="res://GroundElements/crack1.png" id="2_wnrt6"]
+[ext_resource type="Texture2D" uid="uid://b01l8q4jnwx4a" path="res://GroundElements/crack2.png" id="3_ac0et"]
+[ext_resource type="Texture2D" uid="uid://jdpprbievrw2" path="res://GroundElements/crack3.png" id="4_cf2yj"]
+[ext_resource type="Texture2D" uid="uid://d3gywx4v3f27d" path="res://GroundElements/crack4.png" id="5_ncvp8"]
+[ext_resource type="Texture2D" uid="uid://0874bntsjs7k" path="res://GroundElements/crack5.png" id="6_oov1t"]
+[ext_resource type="Texture2D" uid="uid://b0m4o0h0eb8am" path="res://GroundElements/crack6.png" id="7_2yyjj"]
+[ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://Game/Scenes/spawner.tscn" id="8_2jkpk"]
+[ext_resource type="Script" uid="uid://2mqou0gm1a4a" path="res://Game/Code/Characters/Player/Player.cs" id="9_45xf1"]
+[ext_resource type="Texture2D" uid="uid://by1ybnqhtptnk" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0001.png" id="10_g2apa"]
+[ext_resource type="Texture2D" uid="uid://bm31irlakvr0s" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0002.png" id="11_hqgig"]
+[ext_resource type="Texture2D" uid="uid://6uki4i23wfo6" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0003.png" id="12_x1aj2"]
+[ext_resource type="Texture2D" uid="uid://8rcgoqi0pihd" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0004.png" id="13_rlwhv"]
+[ext_resource type="Texture2D" uid="uid://c450bs6kw3elp" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0005.png" id="14_m5ij4"]
+[ext_resource type="Texture2D" uid="uid://btdsrm6ntiejb" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0006.png" id="15_7ig8f"]
+[ext_resource type="Texture2D" uid="uid://dbaqb351k3rhh" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0007.png" id="16_s5lxj"]
+[ext_resource type="Texture2D" uid="uid://grnv6vi8m0nj" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0008.png" id="17_prrhx"]
+[ext_resource type="Texture2D" uid="uid://dhcnx41tl43au" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0009.png" id="18_q7r26"]
+[ext_resource type="Texture2D" uid="uid://bmm202t7qm16n" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0010.png" id="19_q32f4"]
+[ext_resource type="Texture2D" uid="uid://dinaqypf5stk7" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0011.png" id="20_f3y6l"]
+[ext_resource type="Texture2D" uid="uid://dhtkkg427cdid" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0012.png" id="21_gy165"]
+[ext_resource type="Texture2D" uid="uid://b7hgo6suyr6nl" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0001.png" id="22_pprmc"]
+[ext_resource type="Texture2D" uid="uid://bvcnc7gt6ee34" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0002.png" id="23_18kbp"]
+[ext_resource type="Texture2D" uid="uid://bramg72s3gb5c" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0003.png" id="24_u8ani"]
+[ext_resource type="Texture2D" uid="uid://da1v33fh4v881" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0004.png" id="25_noox7"]
+[ext_resource type="Texture2D" uid="uid://dqyyx61bjevwc" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0005.png" id="26_tn6wp"]
+[ext_resource type="Texture2D" uid="uid://dd5b3nnw8krf8" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0006.png" id="27_52n1c"]
+[ext_resource type="Texture2D" uid="uid://wkt1mdlnh2ww" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0007.png" id="28_eto7m"]
+[ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0008.png" id="29_kamm3"]
+[ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0009.png" id="30_301x5"]
+[ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0010.png" id="31_snhll"]
+[ext_resource type="Script" uid="uid://cg3jxl7aws2bq" path="res://Game/Code/UI/UI.cs" id="32_1s7v1"]
+[ext_resource type="PackedScene" uid="uid://dlnvbtmxjmj85" path="res://Game/Scenes/UI/PlayerInfo_Canvas/PlayerInfo_Canvas.tscn" id="33_uuo2y"]
+[ext_resource type="PackedScene" uid="uid://bfsj8dal8ftvt" path="res://Game/Scenes/UI/LevelUp_Canvas/LevelUp_Canvas.tscn" id="34_vddla"]
+[ext_resource type="PackedScene" uid="uid://dp7bcqr8mdmot" path="res://Game/Scenes/UI/WeaponChoice_Canvas/WeaponChoice_Canvas.tscn" id="35_iaj0j"]
+[ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="36_vrvua"]
+[ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://Game/Code/PauseManager.cs" id="37_0ehri"]
+[ext_resource type="AudioStream" uid="uid://1nnskdw5wng8" path="res://sounds/CMPTKey_Souris raspberry simple clic (ID 1735)_LS.mp3" id="38_5xooq"]
+[ext_resource type="Script" uid="uid://du8q5edxxuhd8" path="res://Game/Code/ToggleVisibilityOnPause.cs" id="39_kkxpk"]
+[ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="40_htgjt"]
+[ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://Game/Code/SettingsManager_inGame.cs" id="41_xiv4v"]
+[ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://Game/Code/ToggleVisibilityOnSettings_inGame.cs" id="42_a8qh3"]
+[ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="43_tvbpf"]
+[ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="44_5scdb"]
+[ext_resource type="AudioStream" uid="uid://b1symyynowv5y" path="res://sounds/something wrong.wav" id="45_g8rga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
-texture = ExtResource("1_438ep")
+texture = ExtResource("1_ne67t")
 2:8/0 = 0
 20:1/0 = 0
 
@@ -60,40 +58,40 @@ sources/0 = SubResource("TileSetAtlasSource_kf3hw")
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("22_htbbg")
+"texture": ExtResource("10_g2apa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_3v2os")
+"texture": ExtResource("11_hqgig")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_gx5gv")
+"texture": ExtResource("12_x1aj2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_lbadk")
+"texture": ExtResource("13_rlwhv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_vtj28")
+"texture": ExtResource("14_m5ij4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_pjfot")
+"texture": ExtResource("15_7ig8f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_dyo2p")
+"texture": ExtResource("16_s5lxj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_nqyu7")
+"texture": ExtResource("17_prrhx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_xdt2h")
+"texture": ExtResource("18_q7r26")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_5axpl")
+"texture": ExtResource("19_q32f4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_nkbnv")
+"texture": ExtResource("20_f3y6l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("33_rni8i")
+"texture": ExtResource("21_gy165")
 }],
 "loop": true,
 "name": &"Idle",
@@ -101,34 +99,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_5s4mg")
+"texture": ExtResource("22_pprmc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_yjmkb")
+"texture": ExtResource("23_18kbp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_uurvf")
+"texture": ExtResource("24_u8ani")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_avtxo")
+"texture": ExtResource("25_noox7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_2toy3")
+"texture": ExtResource("26_tn6wp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_vodu0")
+"texture": ExtResource("27_52n1c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_7rr5r")
+"texture": ExtResource("28_eto7m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("41_5ue2x")
+"texture": ExtResource("29_kamm3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("42_jcst1")
+"texture": ExtResource("30_301x5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("43_aq156")
+"texture": ExtResource("31_snhll")
 }],
 "loop": true,
 "name": &"Walk",
@@ -304,35 +302,35 @@ tile_set = SubResource("TileSet_3k31l")
 
 [node name="Crack1" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(556.241, 381.539)
-texture = ExtResource("2_m7s4s")
+texture = ExtResource("2_wnrt6")
 
 [node name="Crack2" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(188.935, 712.91)
-texture = ExtResource("3_fipq1")
+texture = ExtResource("3_ac0et")
 
 [node name="Crack3" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(934.379, 470.296)
-texture = ExtResource("4_1b0yd")
+texture = ExtResource("4_cf2yj")
 
 [node name="Crack4" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(896.93, 716.936)
-texture = ExtResource("5_fvutr")
+texture = ExtResource("5_ncvp8")
 
 [node name="Crack5" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(1214.49, 460.075)
-texture = ExtResource("6_cexyb")
+texture = ExtResource("6_oov1t")
 
 [node name="Crack6" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(340.939, 612.414)
-texture = ExtResource("7_nbbkb")
+texture = ExtResource("7_2yyjj")
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_kf3hw")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_2jkpk")]
 position = Vector2(136.785, 22.3585)
 player = NodePath("../Player")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(100, 107)
-script = ExtResource("2_438ep")
+position = Vector2(1271.93, 726.94)
+script = ExtResource("9_45xf1")
 movement_speed = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
@@ -373,51 +371,17 @@ position = Vector2(5.74434, 9.84274)
 shape = SubResource("RectangleShape2D_gfbed")
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("_player")]
-script = ExtResource("9_bubr0")
+process_mode = 3
+script = ExtResource("32_1s7v1")
 _player = NodePath("../Player")
 
-[node name="PlayerInfo_Canvas" type="CanvasLayer" parent="UI"]
-script = ExtResource("33_60l3t")
+[node name="PlayerInfo_Canvas" parent="UI" instance=ExtResource("33_uuo2y")]
 
-[node name="PassiveItemsContainer" type="HBoxContainer" parent="UI/PlayerInfo_Canvas"]
-offset_left = 627.0
-offset_top = 11.0
-offset_right = 1368.0
-offset_bottom = 51.0
-metadata/_edit_use_anchors_ = true
+[node name="LevelUp_Canvas" parent="UI" instance=ExtResource("34_vddla")]
+process_mode = 0
+visible = false
 
-[node name="WeaponItemsContainer" type="HBoxContainer" parent="UI/PlayerInfo_Canvas"]
-offset_left = 628.0
-offset_top = 61.0
-offset_right = 668.0
-offset_bottom = 101.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Health" type="TextureProgressBar" parent="UI/PlayerInfo_Canvas"]
-offset_top = 7.0
-offset_right = 620.0
-offset_bottom = 47.0
-texture_under = ExtResource("5_8fgde")
-texture_progress = ExtResource("35_gfbed")
-
-[node name="XP" type="TextureProgressBar" parent="UI/PlayerInfo_Canvas"]
-unique_name_in_owner = true
-offset_top = 30.0
-offset_right = 620.0
-offset_bottom = 70.0
-texture_under = ExtResource("5_8fgde")
-texture_progress = ExtResource("7_i0te0")
-
-[node name="Level" type="Label" parent="UI/PlayerInfo_Canvas/XP"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 568.0
-offset_top = 20.0
-offset_right = 608.0
-offset_bottom = 43.0
-text = "Lvl 1"
-
-[node name="LevelUp_Canvas" parent="UI" instance=ExtResource("10_bubr0")]
+[node name="WeaponChoice_Canvas" parent="UI" instance=ExtResource("35_iaj0j")]
 visible = false
 
 [node name="Button" type="Button" parent="UI"]
@@ -433,20 +397,21 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_evlki")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i36tt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qy76y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_evlki")
-icon = ExtResource("9_fdjp8")
+icon = ExtResource("36_vrvua")
 
 [node name="PauseManager" type="Node" parent="."]
 process_mode = 3
-script = ExtResource("10_ran1e")
+script = ExtResource("37_0ehri")
 
 [node name="ClickClickSound" type="AudioStreamPlayer" parent="PauseManager"]
-stream = ExtResource("46_lbadk")
+stream = ExtResource("38_5xooq")
 bus = &"Click"
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
+layer = 3
 visible = false
-script = ExtResource("4_evlki")
+script = ExtResource("39_kkxpk")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
 anchors_preset = 8
@@ -484,7 +449,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qy76y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
@@ -497,7 +462,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b3q0q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
@@ -510,7 +475,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
@@ -523,7 +488,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
@@ -532,16 +497,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_b3q0q")
 text = "RAGE QUIT"
 
 [node name="SettingsManager_inGame" type="Node" parent="."]
-script = ExtResource("13_q4ekd")
+script = ExtResource("41_xiv4v")
 
 [node name="ClickClickSound" type="AudioStreamPlayer" parent="SettingsManager_inGame"]
-stream = ExtResource("46_lbadk")
+stream = ExtResource("38_5xooq")
 bus = &"Click"
 
 [node name="SettingsMenu_inGame" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 3
 visible = false
-script = ExtResource("14_rmc8r")
+script = ExtResource("42_a8qh3")
 
 [node name="ColorRect" type="ColorRect" parent="SettingsMenu_inGame"]
 offset_left = -57.0
@@ -569,7 +535,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 23
 text = "RESOLUTION : "
 
@@ -577,7 +543,7 @@ text = "RESOLUTION : "
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
-script = ExtResource("15_q4ekd")
+script = ExtResource("43_tvbpf")
 
 [node name="1024x546" type="Button" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
 custom_minimum_size = Vector2(0, 40)
@@ -585,7 +551,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
@@ -599,7 +565,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
@@ -613,7 +579,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
@@ -627,7 +593,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
@@ -641,7 +607,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0.697313, 0.0561088, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.698039, 0.054902, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yymvb")
@@ -650,7 +616,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_757b6")
 text = "1920 X 1200"
 
 [node name="ClickClickSound" type="AudioStreamPlayer" parent="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone"]
-stream = ExtResource("46_lbadk")
+stream = ExtResource("38_5xooq")
 bus = &"Click"
 
 [node name="sound_zone" type="HBoxContainer" parent="SettingsMenu_inGame/settings_zone"]
@@ -661,7 +627,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 23
 text = "VOLUMES :"
 
@@ -674,7 +640,7 @@ theme_override_constants/separation = 13
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 18
 text = "GENERAL VOLUME :"
 
@@ -685,14 +651,14 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("49_vtj28")
+script = ExtResource("44_5scdb")
 
 [node name="MusicVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 18
 text = "MUSIC VOLUME :"
 
@@ -703,14 +669,14 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("49_vtj28")
+script = ExtResource("44_5scdb")
 volumeType = 1
 
 [node name="ClickVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 18
 text = "CLICK VOLUME :"
 
@@ -721,7 +687,7 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("49_vtj28")
+script = ExtResource("44_5scdb")
 volumeType = 2
 
 [node name="MonsterVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
@@ -729,7 +695,7 @@ layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 18
 text = "MONSTER VOLUME :"
 
@@ -740,7 +706,7 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("49_vtj28")
+script = ExtResource("44_5scdb")
 volumeType = 3
 
 [node name="PlayerVolume" type="Label" parent="SettingsMenu_inGame/settings_zone/sound_zone/VBoxContainer"]
@@ -748,7 +714,7 @@ layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 18
 text = "PLAYER VOLUME :"
 
@@ -759,7 +725,7 @@ size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
 value = 1.0
-script = ExtResource("49_vtj28")
+script = ExtResource("44_5scdb")
 volumeType = 4
 
 [node name="fullscreen_zone" type="HBoxContainer" parent="SettingsMenu_inGame/settings_zone"]
@@ -770,7 +736,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 23
 text = "FULLSCREEN : "
 
@@ -780,7 +746,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_hover_color = Color(0.852177, 0, 0.155031, 1)
 theme_override_colors/font_pressed_color = Color(0.788499, 0, 0.173173, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q4ekd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fipq1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1b0yd")
@@ -793,7 +759,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xflgg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_m856m")
@@ -805,7 +771,7 @@ text = "TRY TO ESCAPE"
 process_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource("48_gx5gv")
+stream = ExtResource("45_g8rga")
 autoplay = true
 bus = &"Music"
 
@@ -823,5 +789,3 @@ bus = &"Music"
 [connection signal="pressed" from="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone/1920x1200" to="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1200_pressed"]
 [connection signal="pressed" from="SettingsMenu_inGame/settings_zone/fullscreen_zone/fullscreen_button" to="SettingsManager_inGame" method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="SettingsMenu_inGame/settings_zone/QuitButton" to="SettingsManager_inGame" method="_on_quit_button_pressed"]
-
-[editable path="UI/LevelUp_Canvas"]

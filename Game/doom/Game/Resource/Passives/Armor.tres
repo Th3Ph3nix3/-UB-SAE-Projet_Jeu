@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Armor" load_steps=7 format=3 uid="uid://dkkeixwy1ijl7"]
 
 [ext_resource type="Script" uid="uid://bbsllwfloq4i6" path="res://Game/Code/Items/Passives/Armor/Armor.cs" id="1_201g2"]
-[ext_resource type="Texture2D" uid="uid://b8y0w4t1a3g76" path="res://icons_for_items/armor.png" id="2_fqdlg"]
+[ext_resource type="Texture2D" uid="uid://b8y0w4t1a3g76" path="res://Game/Sprite/Item/Passives/Armor/armor.png" id="2_fqdlg"]
 [ext_resource type="Script" uid="uid://boy4i3ijaijpx" path="res://Game/Code/Items/Items_Upgrades/Passives_Upgrade.cs" id="3_ujsjd"]
 
 [sub_resource type="Resource" id="Resource_tcxis"]

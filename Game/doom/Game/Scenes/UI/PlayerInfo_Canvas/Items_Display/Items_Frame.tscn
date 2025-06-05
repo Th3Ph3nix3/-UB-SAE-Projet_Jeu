@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkycldrf2b6a5"]
 
-[ext_resource type="Script" uid="uid://dm430nwfhahvp" path="res://Game/Code/UI/PlayerInfo_Canvas/Items_Display/Items_Frame.cs" id="1_58a71"]
+[ext_resource type="Script" uid="uid://dm430nwfhahvp" path="res://Game/Code/UI/PlayerInfo_Canvas/Items_Display/Items_Frame.cs" id="1_t7lmp"]
 
 [node name="Items_Display" type="PanelContainer"]
 offset_right = 139.0
 offset_bottom = 132.0
-script = ExtResource("1_58a71")
+script = ExtResource("1_t7lmp")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(40, 40)

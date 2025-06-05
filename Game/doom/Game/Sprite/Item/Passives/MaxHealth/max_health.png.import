@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl64utb0bmf73"
-path="res://.godot/imported/sniper_icon.png-4895ed4c96f02c5269da547e57d13c0c.ctex"
+uid="uid://rcg2ptlay3e2"
+path="res://.godot/imported/max_health.png-0829ad64023aeb20772efbfb5631a29d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://platformer_metroidvania asset pack v1.01/weapon_test/sniper_icon.png"
-dest_files=["res://.godot/imported/sniper_icon.png-4895ed4c96f02c5269da547e57d13c0c.ctex"]
+source_file="res://Game/Sprite/Item/Passives/MaxHealth/max_health.png"
+dest_files=["res://.godot/imported/max_health.png-0829ad64023aeb20772efbfb5631a29d.ctex"]
 
 [params]
 

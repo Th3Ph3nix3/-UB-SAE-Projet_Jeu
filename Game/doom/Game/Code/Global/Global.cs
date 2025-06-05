@@ -19,7 +19,7 @@ public partial class Global : Node
     /// <summary>
     /// Interval of level between the possibily to add a new passive item.
     /// </summary>
-    static public readonly int NEW_PASSIVE_INTERVAL = 3;
+    static public readonly int NEW_PASSIVE_INTERVAL = 2;
 
     /// <summary>
     /// Base max player health.

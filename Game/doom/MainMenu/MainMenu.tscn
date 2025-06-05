@@ -499,6 +499,7 @@ stream = ExtResource("7_bsanu")
 bus = &"Click"
 
 [node name="CreditsMenu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("11_nxm3p")
 
 [node name="ColorRect" type="ColorRect" parent="CreditsMenu"]

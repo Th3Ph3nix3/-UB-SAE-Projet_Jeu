@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlnvbtmxjmj85"]
+
+[ext_resource type="Script" uid="uid://dnhktenfjp05d" path="res://Game/Code/UI/PlayerInfo_Canvas/PlayerInfo_Canvas.cs" id="1_kx2vi"]
+[ext_resource type="Texture2D" uid="uid://cfddwqtuvih6h" path="res://platformer_metroidvania asset pack v1.01/XPBar2.png" id="2_y7i6k"]
+[ext_resource type="Texture2D" uid="uid://cf47fa8p0x2vs" path="res://platformer_metroidvania asset pack v1.01/Health_Bar.png" id="3_bpllc"]
+[ext_resource type="Texture2D" uid="uid://biu2j02vswqm7" path="res://platformer_metroidvania asset pack v1.01/XPBar.png" id="4_lif3e"]
+
+[node name="PlayerInfo_Canvas" type="CanvasLayer"]
+script = ExtResource("1_kx2vi")
+
+[node name="PassiveItemsContainer" type="HBoxContainer" parent="."]
+offset_left = 627.0
+offset_top = 11.0
+offset_right = 1368.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="WeaponItemsContainer" type="HBoxContainer" parent="."]
+offset_left = 628.0
+offset_top = 61.0
+offset_right = 668.0
+offset_bottom = 101.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Health" type="TextureProgressBar" parent="."]
+offset_top = 7.0
+offset_right = 620.0
+offset_bottom = 47.0
+texture_under = ExtResource("2_y7i6k")
+texture_progress = ExtResource("3_bpllc")
+
+[node name="XP" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+offset_top = 30.0
+offset_right = 620.0
+offset_bottom = 70.0
+texture_under = ExtResource("2_y7i6k")
+texture_progress = ExtResource("4_lif3e")
+
+[node name="Level" type="Label" parent="XP"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 568.0
+offset_top = 20.0
+offset_right = 608.0
+offset_bottom = 43.0
+text = "Lvl 1"

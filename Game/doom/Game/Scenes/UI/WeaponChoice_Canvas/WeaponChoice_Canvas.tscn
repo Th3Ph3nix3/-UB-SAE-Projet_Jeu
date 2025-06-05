@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp7bcqr8mdmot"]
+
+[ext_resource type="Script" uid="uid://cib1lsf3i8xhu" path="res://Game/Code/UI/WeaponChoice_Canvas/WeaponChoice_Canvas.cs" id="1_ejjy0"]
+[ext_resource type="Texture2D" uid="uid://pvcomq2ygtov" path="res://MainMenu/menu_background.jpg" id="1_kjevc"]
+[ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="2_du8cu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ejjy0"]
+font_size = 80
+
+[node name="WeaponChoice_Canvas" type="CanvasLayer"]
+script = ExtResource("1_ejjy0")
+
+[node name="Panel" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.385
+anchor_right = 0.5
+anchor_bottom = 0.385
+offset_left = -513.0
+offset_top = -222.4
+offset_right = 524.0
+offset_bottom = 77.6
+texture = ExtResource("1_kjevc")
+region_rect = Rect2(0, 36.5, 736, 253)
+
+[node name="Level_Up" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.01157
+anchor_top = -1.12575
+anchor_right = -0.489875
+anchor_bottom = -1.04966
+offset_left = 1142.0
+offset_top = 410.0
+offset_right = 1426.0
+offset_bottom = 484.0
+theme_override_fonts/font = ExtResource("2_du8cu")
+theme_override_font_sizes/font_size = 70
+text = "CHOOSE YOUR WEAPON"
+label_settings = SubResource("LabelSettings_ejjy0")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Weapons_Container" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.384
+anchor_right = 0.5
+anchor_bottom = 0.384
+offset_left = -481.0
+offset_top = -39.96
+offset_right = 481.0
+offset_bottom = 40.04
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1

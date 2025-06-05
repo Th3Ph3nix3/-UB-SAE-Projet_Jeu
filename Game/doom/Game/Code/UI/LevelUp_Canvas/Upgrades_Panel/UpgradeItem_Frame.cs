@@ -45,11 +45,11 @@ public partial class UpgradeItem_Frame : TextureButton
 	/// <param name="item">Item to give to the Option frame.</param>
 	/// <param name="newItem">True if the item is a new item, false otherwise.</param>
 	/// <returns>Returns a reference the the newly instantiated UpgradeItem frame.</returns>
-	static public UpgradeItem_Frame new_UpgradeItem_Frame(Items item, bool newItem)
+	static public UpgradeItem_Frame new_UpgradeItem_Frame(Items item)
 	{
 		UpgradeItem_Frame upgrade_frame = GD.Load<PackedScene>("res://Game/Scenes/UI/LevelUp_Canvas/UpgradeItem_Frame.tscn").Instantiate<UpgradeItem_Frame>();
 		upgrade_frame._item = item;
-		upgrade_frame._newItem = newItem;
+		upgrade_frame._newItem = item.Holder == null;
 		return upgrade_frame;
 	}
 
@@ -58,8 +58,8 @@ public partial class UpgradeItem_Frame : TextureButton
 	/// </summary>
 	public override void _Ready()
 	{
-		Godot.Label label = GetNode<Godot.Label>("Label");
-		Godot.Label description = GetNode<Godot.Label>("Description");
+		Godot.Label label = GetNode<Godot.Label>("NinePatchRect/Label");
+		Godot.Label description = GetNode<Godot.Label>("NinePatchRect/Description");
 
 		TextureNormal = _item.Texture;
 		label.Text = _newItem ? "New !" : "Lvl " + (_item.Level + 1).ToString();

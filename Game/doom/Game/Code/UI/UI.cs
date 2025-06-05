@@ -16,9 +16,14 @@ public partial class UI : CanvasLayer
     private PlayerInfo_Canvas _playerInfo_Canvas;
 
     /// <summary>
-    /// Panel that displays the level up options when the player levels up.
+    /// Canvas that displays the level up options when the player levels up.
     /// </summary>
     private LevelUp_Canvas _levelUp_Canvas;
+
+    /// <summary>
+    /// Canvas that displays the weapons the player can choose at the start of the game.
+    /// </summary>
+    private WeaponChoice_Canvas _weaponChoice_Canvas;
 
     #region methods
 
@@ -26,13 +31,15 @@ public partial class UI : CanvasLayer
     {
         _playerInfo_Canvas = GetNode<PlayerInfo_Canvas>("PlayerInfo_Canvas");
         _levelUp_Canvas = GetNode<LevelUp_Canvas>("LevelUp_Canvas");
+        _weaponChoice_Canvas = GetNode<WeaponChoice_Canvas>("WeaponChoice_Canvas");
 
         _player.LevelUpEvent += LevelUpEvent;
         _player.ItemAddedEvent += ItemAddedEvent;
         _player.XpGainedEvent += XpGainedEvent;
         _player.HealthChangedEvent += HealthChangedEvent;
 
-        _playerInfo_Canvas.AddItemDisplay(_player.Weapon);
+        _weaponChoice_Canvas.WeaponChoosedEvent += _player.WeaponChoosedEvent;
+
         _playerInfo_Canvas.LevelUpUpdate(0, Global.BASE_XP_TO_GET);
         _playerInfo_Canvas.UpdateHealthBar(Global.BASE_MAX_PLAYER_HEALTH, Global.BASE_MAX_PLAYER_HEALTH);
     }
@@ -66,6 +73,8 @@ public partial class UI : CanvasLayer
     {
         _playerInfo_Canvas.UpdateHealthBar(e.CurrentHealth, e.CurrentMaxHealth);
     }
+
+    
 
     #endregion
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w2lbubnjvr7g"
-path="res://.godot/imported/magnet.png-79e055d30ecefcf701de0b1a054efdcb.ctex"
+uid="uid://cl64utb0bmf73"
+path="res://.godot/imported/sniper_icon.png-557b6a9579da8c45ae9e9c7adb3856cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons_for_items/magnet.png"
-dest_files=["res://.godot/imported/magnet.png-79e055d30ecefcf701de0b1a054efdcb.ctex"]
+source_file="res://Game/Sprite/Item/Weapons/Sniper/sniper_icon.png"
+dest_files=["res://.godot/imported/sniper_icon.png-557b6a9579da8c45ae9e9c7adb3856cd.ctex"]
 
 [params]
 

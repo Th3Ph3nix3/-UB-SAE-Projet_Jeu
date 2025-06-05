@@ -62,14 +62,6 @@ public partial class LevelUp_Canvas : CanvasLayer
                 _passivesList.Add(GD.Load<Passives_Data>(file));
             }
         }
-
-        foreach (string file in Directory.GetFiles("Game/Resource/Weapons/"))
-        {
-            if (Path.GetExtension(file) == ".tres")
-            {
-                _weaponsList.Add(GD.Load<Weapons_Data>(file));
-            }
-        }
     }
 
     /// <summary>
@@ -79,33 +71,13 @@ public partial class LevelUp_Canvas : CanvasLayer
     public void Open(Player player)
     {
         _player = player;
-        bool toShow = false; // Will be set true if something has to be displayed.
 
         // Get all upgradable items for the player, including weapon and passives
         List<Items> upgradableItems = player.Passives.Where(item => item.IsUpgradable).ToList();
         if (player.Weapon.IsUpgradable) upgradableItems.Add(player.Weapon);
 
-        if (upgradableItems.Count > 0)
-        {
-            toShow = true;
-
-            VBoxContainer upgradeContainer = new VBoxContainer();
-            upgradeContainer.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-
-            foreach (Items item in upgradableItems)
-            {
-                // Create the necessary item frame and connect the canvas to it.
-                UpgradeItem_Frame upgradeFrame = UpgradeItem_Frame.new_UpgradeItem_Frame(item, false);
-                upgradeFrame.ItemClickedEvent += (sender, e) => ItemClicked(e.Item, e.IsNew);
-                upgradeContainer.AddChild(upgradeFrame);
-            }
-
-            _levelUp_Container.AddChild(upgradeContainer);
-        }
-        else
-        {
-            GD.PrintErr("No upgradable items available for the player.");
-        }
+        if (upgradableItems.Count > 0) AddSubContainer(upgradableItems);
+        else GD.PrintErr("No upgradable items available for the player.");
 
         if (player.Level % Global.NEW_PASSIVE_INTERVAL == 0)
         {
@@ -117,28 +89,12 @@ public partial class LevelUp_Canvas : CanvasLayer
                 newPassivesItems.Add(new Items(passives_Data));
             }
 
-            if (newPassivesItems.Count > 0)
-            {
-                toShow = true;
-
-                VBoxContainer newItemContainer = new VBoxContainer();
-                newItemContainer.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-
-                foreach (Items item in newPassivesItems)
-                {
-                    // Create the necessary item frame and connect the canvas to it.
-                    UpgradeItem_Frame upgradeFrame = UpgradeItem_Frame.new_UpgradeItem_Frame(item, true);
-                    upgradeFrame.ItemClickedEvent += (sender, e) => ItemClicked(e.Item, e.IsNew);
-                    newItemContainer.AddChild(upgradeFrame);
-                }
-
-                _levelUp_Container.AddChild(newItemContainer);
-            }
-            else
-                GD.PrintErr("No new passive available for the player.");
+            if (newPassivesItems.Count > 0) AddSubContainer(newPassivesItems);
+            else GD.PrintErr("No new passive available for the player.");
+                
         }
 
-        if (toShow)
+        if (_levelUp_Container.GetChildCount() > 0)
         {
             Show();
             GetTree().Paused = true;
@@ -156,6 +112,27 @@ public partial class LevelUp_Canvas : CanvasLayer
         if (isNew) _player.AddItem(item);
         else item.LevelUp();
         Close();
+    }
+
+    /// <summary>
+    /// Add a sub container to _levelUp_Container.
+    /// </summary>
+    /// <param name="itemsToAdd">Items to add to the container.</param>
+    /// <param name="isNew">If the item are new or not.</param>
+    private void AddSubContainer(List<Items> itemsToAdd)
+    {
+        VBoxContainer subContainer = new VBoxContainer();
+        subContainer.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
+
+        foreach (Items item in itemsToAdd)
+        {
+            // Create the necessary item frame and connect the canvas to it.
+            UpgradeItem_Frame upgradeFrame = UpgradeItem_Frame.new_UpgradeItem_Frame(item);
+            upgradeFrame.ItemClickedEvent += (sender, e) => ItemClicked(e.Item, e.IsNew);
+            subContainer.AddChild(upgradeFrame);
+        }
+
+        _levelUp_Container.AddChild(subContainer);
     }
 
     /// <summary>

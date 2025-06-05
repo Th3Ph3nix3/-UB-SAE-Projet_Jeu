@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8y0w4t1a3g76"
-path="res://.godot/imported/armor.png-a5e5a086c5055279f2e069de9d679ca5.ctex"
+path="res://.godot/imported/armor.png-9a8c53e1efcb8ca307a99d8026c2dc4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons_for_items/armor.png"
-dest_files=["res://.godot/imported/armor.png-a5e5a086c5055279f2e069de9d679ca5.ctex"]
+source_file="res://Game/Sprite/Item/Passives/Armor/armor.png"
+dest_files=["res://.godot/imported/armor.png-9a8c53e1efcb8ca307a99d8026c2dc4b.ctex"]
 
 [params]
 

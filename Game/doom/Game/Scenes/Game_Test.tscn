@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=82 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://2mqou0gm1a4a" path="res://Game/Code/Characters/Player/Player.cs" id="2_438ep"]
@@ -48,6 +48,7 @@
 [ext_resource type="Script" uid="uid://bga0ucb1exksn" path="res://Game/Code/GameOverManager.cs" id="47_n2dve"]
 [ext_resource type="AudioStream" uid="uid://b1symyynowv5y" path="res://sounds/something wrong.wav" id="48_gx5gv"]
 [ext_resource type="Script" uid="uid://bjutgccxjppl5" path="res://Game/Code/ToggleVisibilityGameOver.cs" id="48_n7y1o"]
+[ext_resource type="AudioStream" uid="uid://bg85re37xskqd" path="res://sounds/DeathSound.mp3" id="49_n7y1o"]
 [ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="49_vtj28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
@@ -826,8 +827,18 @@ text = "TRY TO ESCAPE"
 script = ExtResource("47_n2dve")
 
 [node name="ClickClickSound" type="AudioStreamPlayer" parent="GameOverManager"]
+process_mode = 3
 stream = ExtResource("46_lbadk")
 bus = &"Click"
+
+[node name="Music" type="AudioStreamPlayer" parent="GameOverManager"]
+stream = ExtResource("48_gx5gv")
+autoplay = true
+bus = &"Music"
+
+[node name="Death" type="AudioStreamPlayer" parent="GameOverManager"]
+stream = ExtResource("49_n7y1o")
+bus = &"Music"
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
 script = ExtResource("48_n7y1o")
@@ -840,9 +851,9 @@ offset_bottom = 1473.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="GameOverScreen"]
-offset_left = 968.0
+offset_left = 908.0
 offset_top = 361.0
-offset_right = 1742.0
+offset_right = 1682.0
 offset_bottom = 555.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.964, 0.189, 0, 0.304)
@@ -854,10 +865,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen"]
-offset_left = 979.0
-offset_top = 693.0
-offset_right = 1721.0
-offset_bottom = 1092.0
+offset_left = 933.0
+offset_top = 699.0
+offset_right = 1675.0
+offset_bottom = 1098.0
 theme_override_constants/separation = 75
 
 [node name="StartButton" type="Button" parent="GameOverScreen/VBoxContainer"]
@@ -887,14 +898,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b3q0q")
 text = "RAGE QUIT"
-
-[node name="SoundManager" type="Node" parent="."]
-process_mode = 3
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource("48_gx5gv")
-autoplay = true
-bus = &"Music"
 
 [connection signal="body_entered" from="Player/SelfDamage" to="Player" method="_on_self_damage_body_entered"]
 [connection signal="area_entered" from="Player/Magnet" to="Player" method="_on_magnet_area_entered"]

@@ -10,7 +10,7 @@ public partial class Regeneration : Passives_Data
     /// <summary>
     /// Applies the regeneration effect to the player by increasing their health.
     /// </summary>
-    public override void EffectUpdate()
+    public override void EffectUpdate(int level)
     {
         holder.Health += upgrades[level].stat;
     }
@@ -18,6 +18,6 @@ public partial class Regeneration : Passives_Data
     /// <summary>
     /// This passives doesn't have an effect on upgrade.
     /// </summary>
-    public override void OnUpgrade() { return; }
+    public override void OnUpgrade(int level) { return; }
 
 }

@@ -10,12 +10,12 @@ public partial class Swiftness : Passives_Data
     /// <summary>
     /// This passive doesn't have an continuous effect.
     /// </summary>
-    public override void EffectUpdate() { return; }
+    public override void EffectUpdate(int level) { return; }
 
     /// <summary>
     /// When the passive is equipped or when it's upgraded, it add it's current level value to the player movement speed.
     /// </summary>
-    public override void OnUpgrade()
+    public override void OnUpgrade(int level)
     {
         if (level == 0) holder.movement_speed += upgrades[level].stat; // Set initial movement speed
         else holder.movement_speed += upgrades[level].stat - upgrades[level - 1].stat; // Increase movement speed by the difference between current and previous upgrade

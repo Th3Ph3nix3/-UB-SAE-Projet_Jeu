@@ -109,7 +109,7 @@ public partial class GameOverManager : Node
         isPaused = !isPaused;
         EmitSignal(SignalName.GameOverToggle, isPaused);
         GetTree().Paused = isPaused;
-        GetTree().ChangeSceneToFile("res://Game/Scenes/Game_Test.tscn");
+        GetTree().ReloadCurrentScene();
     }
 
     /// <summary>

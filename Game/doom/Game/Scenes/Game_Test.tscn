@@ -1,5 +1,6 @@
-[gd_scene load_steps=82 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=80 format=4 uid="uid://bk8itfvtfphjg"]
 
+<<<<<<< Updated upstream:Game/doom/Game/Scenes/Game_Test.tscn
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_438ep"]
 [ext_resource type="Script" uid="uid://2mqou0gm1a4a" path="res://Game/Code/Characters/Player/Player.cs" id="2_438ep"]
 [ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://Game/Scenes/spawner.tscn" id="2_kf3hw"]
@@ -44,12 +45,60 @@
 [ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0008.png" id="41_5ue2x"]
 [ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0009.png" id="42_jcst1"]
 [ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0010.png" id="43_aq156"]
+=======
+[ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_ne67t"]
+[ext_resource type="Texture2D" uid="uid://hqybj4gr74sw" path="res://GroundElements/crack1.png" id="2_wnrt6"]
+[ext_resource type="Texture2D" uid="uid://b01l8q4jnwx4a" path="res://GroundElements/crack2.png" id="3_ac0et"]
+[ext_resource type="Texture2D" uid="uid://jdpprbievrw2" path="res://GroundElements/crack3.png" id="4_cf2yj"]
+[ext_resource type="Texture2D" uid="uid://d3gywx4v3f27d" path="res://GroundElements/crack4.png" id="5_ncvp8"]
+[ext_resource type="Texture2D" uid="uid://0874bntsjs7k" path="res://GroundElements/crack5.png" id="6_oov1t"]
+[ext_resource type="Texture2D" uid="uid://b0m4o0h0eb8am" path="res://GroundElements/crack6.png" id="7_2yyjj"]
+[ext_resource type="PackedScene" uid="uid://dbof3g4qpm8cw" path="res://Game/Scenes/spawner.tscn" id="8_2jkpk"]
+[ext_resource type="Script" uid="uid://2mqou0gm1a4a" path="res://Game/Code/Characters/Player/Player.cs" id="9_45xf1"]
+[ext_resource type="Texture2D" uid="uid://by1ybnqhtptnk" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0001.png" id="10_g2apa"]
+[ext_resource type="Texture2D" uid="uid://bm31irlakvr0s" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0002.png" id="11_hqgig"]
+[ext_resource type="Texture2D" uid="uid://6uki4i23wfo6" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0003.png" id="12_x1aj2"]
+[ext_resource type="Texture2D" uid="uid://8rcgoqi0pihd" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0004.png" id="13_rlwhv"]
+[ext_resource type="Texture2D" uid="uid://c450bs6kw3elp" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0005.png" id="14_m5ij4"]
+[ext_resource type="Texture2D" uid="uid://btdsrm6ntiejb" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0006.png" id="15_7ig8f"]
+[ext_resource type="Texture2D" uid="uid://dbaqb351k3rhh" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0007.png" id="16_s5lxj"]
+[ext_resource type="Texture2D" uid="uid://grnv6vi8m0nj" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0008.png" id="17_prrhx"]
+[ext_resource type="Texture2D" uid="uid://dhcnx41tl43au" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0009.png" id="18_q7r26"]
+[ext_resource type="Texture2D" uid="uid://bmm202t7qm16n" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0010.png" id="19_q32f4"]
+[ext_resource type="Texture2D" uid="uid://dinaqypf5stk7" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0011.png" id="20_f3y6l"]
+[ext_resource type="Texture2D" uid="uid://dhtkkg427cdid" path="res://Game/Sprite/Hero/Idle/Hero_Idle_0012.png" id="21_gy165"]
+[ext_resource type="Texture2D" uid="uid://b7hgo6suyr6nl" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0001.png" id="22_pprmc"]
+[ext_resource type="Texture2D" uid="uid://bvcnc7gt6ee34" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0002.png" id="23_18kbp"]
+[ext_resource type="Texture2D" uid="uid://bramg72s3gb5c" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0003.png" id="24_u8ani"]
+[ext_resource type="Texture2D" uid="uid://da1v33fh4v881" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0004.png" id="25_noox7"]
+[ext_resource type="Texture2D" uid="uid://dqyyx61bjevwc" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0005.png" id="26_tn6wp"]
+[ext_resource type="Texture2D" uid="uid://dd5b3nnw8krf8" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0006.png" id="27_52n1c"]
+[ext_resource type="Texture2D" uid="uid://wkt1mdlnh2ww" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0007.png" id="28_eto7m"]
+[ext_resource type="Texture2D" uid="uid://dccmywbtqljbp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0008.png" id="29_kamm3"]
+[ext_resource type="Texture2D" uid="uid://bdbw6yhlksr6n" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0009.png" id="30_301x5"]
+[ext_resource type="Texture2D" uid="uid://cs6co6ucfh7yp" path="res://Game/Sprite/Hero/Walk/Hero_Walk_0010.png" id="31_snhll"]
+[ext_resource type="Script" uid="uid://cg3jxl7aws2bq" path="res://Game/Code/UI/UI.cs" id="32_1s7v1"]
+[ext_resource type="PackedScene" uid="uid://dlnvbtmxjmj85" path="res://Game/Scenes/UI/PlayerInfo_Canvas/PlayerInfo_Canvas.tscn" id="33_uuo2y"]
+[ext_resource type="PackedScene" uid="uid://bfsj8dal8ftvt" path="res://Game/Scenes/UI/LevelUp_Canvas/LevelUp_Canvas.tscn" id="34_vddla"]
+[ext_resource type="PackedScene" uid="uid://dp7bcqr8mdmot" path="res://Game/Scenes/UI/WeaponChoice_Canvas/WeaponChoice_Canvas.tscn" id="35_iaj0j"]
+[ext_resource type="Texture2D" uid="uid://dhrlfqc41qniv" path="res://platformer_metroidvania asset pack v1.01/others_test/pause_button_temp.png" id="36_vrvua"]
+[ext_resource type="Script" uid="uid://4ko8lomgjeyx" path="res://Game/Code/PauseManager.cs" id="37_0ehri"]
+[ext_resource type="Script" uid="uid://du8q5edxxuhd8" path="res://Game/Code/ToggleVisibilityOnPause.cs" id="39_kkxpk"]
+[ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="40_htgjt"]
+[ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://Game/Code/SettingsManager_inGame.cs" id="41_xiv4v"]
+[ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://Game/Code/ToggleVisibilityOnSettings_inGame.cs" id="42_a8qh3"]
+[ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="43_tvbpf"]
+[ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="44_5scdb"]
+>>>>>>> Stashed changes:Game/doom/Game/Scenes/GameScene.tscn
 [ext_resource type="AudioStream" uid="uid://1nnskdw5wng8" path="res://sounds/CMPTKey_Souris raspberry simple clic (ID 1735)_LS.mp3" id="46_lbadk"]
 [ext_resource type="Script" uid="uid://bga0ucb1exksn" path="res://Game/Code/GameOverManager.cs" id="47_n2dve"]
 [ext_resource type="AudioStream" uid="uid://b1symyynowv5y" path="res://sounds/something wrong.wav" id="48_gx5gv"]
 [ext_resource type="Script" uid="uid://bjutgccxjppl5" path="res://Game/Code/ToggleVisibilityGameOver.cs" id="48_n7y1o"]
 [ext_resource type="AudioStream" uid="uid://bg85re37xskqd" path="res://sounds/DeathSound.mp3" id="49_n7y1o"]
+<<<<<<< Updated upstream:Game/doom/Game/Scenes/Game_Test.tscn
 [ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="49_vtj28"]
+=======
+>>>>>>> Stashed changes:Game/doom/Game/Scenes/GameScene.tscn
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf3hw"]
 texture = ExtResource("1_438ep")
@@ -354,8 +403,13 @@ position = Vector2(136.785, 22.3585)
 player = NodePath("../Player")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+<<<<<<< Updated upstream:Game/doom/Game/Scenes/Game_Test.tscn
 position = Vector2(100, 107)
 script = ExtResource("2_438ep")
+=======
+position = Vector2(1271.93, 726.94)
+script = ExtResource("9_45xf1")
+>>>>>>> Stashed changes:Game/doom/Game/Scenes/GameScene.tscn
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 texture_filter = 1
@@ -841,6 +895,7 @@ stream = ExtResource("49_n7y1o")
 bus = &"Music"
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("48_n7y1o")
 
 [node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
@@ -858,7 +913,7 @@ offset_bottom = 555.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.964, 0.189, 0, 0.304)
 theme_override_constants/shadow_outline_size = 30
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 140
 text = "GAME OVER"
 horizontal_alignment = 1
@@ -877,7 +932,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2dlc2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_266v7")
@@ -891,7 +946,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")

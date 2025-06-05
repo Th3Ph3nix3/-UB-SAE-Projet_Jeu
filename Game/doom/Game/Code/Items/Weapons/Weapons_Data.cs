@@ -27,5 +27,5 @@ public abstract partial class Weapons_Data : Items_Data
     /// <summary>
     /// Does nothing as a weapon won't have an effect on upgrade.
     /// </summary>
-    public override void OnUpgrade() { return; }
+    public override void OnUpgrade(int level) { return; }
 }

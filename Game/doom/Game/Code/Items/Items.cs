@@ -25,6 +25,11 @@ public partial class Items : Node
 	/// </summary>
 	private double _effectTimer = 0;
 
+	/// <summary>
+	/// Current level of the item. Start at 0.
+	/// </summary>
+	private int _level = 0;
+
 	#endregion
 
 	#region properties
@@ -37,7 +42,7 @@ public partial class Items : Node
 		set
 		{
 			_data.holder = value;
-			_data.OnUpgrade(); // Call the upgrade method to apply changes when the owner is set
+			_data.OnUpgrade(_level); // Call the upgrade method to apply changes when the owner is set
 		}
 	}
 
@@ -49,7 +54,7 @@ public partial class Items : Node
 	/// <summary>
 	/// Get the current level of the item.
 	/// </summary>
-	public int Level { get => _data.level; }
+	public int Level { get => _level; }
 
 	/// <summary>
 	/// Get if the item can be upgraded.
@@ -105,11 +110,11 @@ public partial class Items : Node
 	{
 		if (_isUpgradable)
 		{
-			_data.level++;
-			_data.OnUpgrade(); // Call the upgrade method to apply changes
+			_level++;
+			_data.OnUpgrade(_level); // Call the upgrade method to apply changes
 			ItemLeveledUpEvent?.Invoke();
 
-			if (_data.level >= _data.Upgrades.Length - 1)
+			if (_level >= _data.Upgrades.Length - 1)
 			{
 				_isUpgradable = false;
 			}
@@ -122,17 +127,17 @@ public partial class Items : Node
 	/// <param name="delta">Time elapsed since the last frame.</param>
 	public void UpdateEffectTimer(double delta)
 	{
-		if (_data.Upgrades[_data.level].cooldown <= 0)
+		if (_data.Upgrades[_level].cooldown <= 0)
 		{
 			return; // No effect to apply if occurence is 0 or less
 		}
 
 		_effectTimer += delta;
 
-		if (_effectTimer >= _data.Upgrades[_data.level].cooldown)
+		if (_effectTimer >= _data.Upgrades[_level].cooldown)
 		{
 			_effectTimer = 0;
-			_data.EffectUpdate();
+			_data.EffectUpdate(_level);
 		}
 	}
 

@@ -10,7 +10,7 @@ public partial class OneBulletPerShot : Weapons_Data
 	/// <summary>
 	/// Shoots a projectile towards the nearest enemy of the owner.
 	/// </summary>
-	public override void EffectUpdate()
+	public override void EffectUpdate(int level)
 	{
 		if (holder.nearest_enemy == null)
 		{

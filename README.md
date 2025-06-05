@@ -7,6 +7,21 @@ As part of our training in the use of classes and objects in C#, our SAE project
 
 Although our game is for schools, we intend to improve it and push it further once it has been submitted to our teachers.
 
+## How to play ?
+First, when you arrive on the game, a menu is displayed. You can click on the four buttons to interact wtih them.
+
+### Start Nightmares button
+When you click on this button, you enter the main scene where the game is. There, you can move your character with the arrows on your keyboard, or with ZQSD (respectively up, left, down and right). When you kill an enemy, he drops his head that you can pick to gain XP and level up, only there you can choose between upgrading your weapon or having a passive item that upgrades one of your stats. If you click on the top-left corner button, the game pauses and you can go top options, the same as in the main menu.
+
+### Options button
+On this window, you can change the volume of each sound of the game such as main music or enemies' growl. You can change the screen resolution of the game, or simply return to the menu.
+
+### Credits button
+There, you can see main contributors of the project (Th3Ph3nix3, Cozhmisus and un3xpct3d5), but also where are the images and sounds that we used come from.
+
+### Rage Quit
+This button makes you leave the game.
+
 
 ## Developer support for GitHub - FR
 ### Application

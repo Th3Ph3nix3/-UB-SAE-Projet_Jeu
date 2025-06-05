@@ -11,7 +11,7 @@ script = ExtResource("1_yp5lu")
 enemy = ExtResource("2_ttk4a")
 MinuteLabel = NodePath("UI/HBoxContainer/Minute")
 SecondLabel = NodePath("UI/HBoxContainer/Second")
-enemy_types = Array[Object]([ExtResource("3_cmhla"), ExtResource("4_4wbs5"), ExtResource("5_30a77")])
+enemy_types = [ExtResource("3_cmhla"), ExtResource("4_4wbs5"), ExtResource("5_30a77")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 

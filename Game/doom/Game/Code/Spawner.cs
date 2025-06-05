@@ -26,7 +26,7 @@ public partial class Spawner : Node2D
 	private int vagueCounter = 0;
 
 	[Export]
-	EnemyType[] enemy_types = new EnemyType[3];
+	EnemyType[] enemy_types;
 
 	private int minute;
 	private int second;
@@ -62,22 +62,6 @@ public partial class Spawner : Node2D
     #endregion
     #region methods
 
-    public override void _Ready()
-    {
-		InitializeEnemies();
-    }
-
-	public void InitializeEnemies()
-	{
-		EnemyType LittleEar = GD.Load<EnemyType>("res://Game/Resource/Enemies/Little_Ear.tres");
-		EnemyType LittleMouth = GD.Load<EnemyType>("res://Game/Resource/Enemies/Little_Mouth.tres");
-		EnemyType LittleEyes = GD.Load<EnemyType>("res://Game/Resource/Enemies/Little_Eyes.tres");
-		
-		enemy_types[0] = LittleEar;
-		enemy_types[1] = LittleMouth;
-		enemy_types[2] = LittleEyes;
-	}
-
 
 	public override void _PhysicsProcess(double _delta)
 	{
@@ -102,6 +86,11 @@ public partial class Spawner : Node2D
 
 		// attributes of the mob that will spawn
 		enemyInstance.Type = enemy_types[enemyTypeIndex];
+		
+		// Update number of enemies for this wave
+		enemyTypeIndex = vagueCounter % enemy_types.Length;
+		vagueCounter++;
+
 		enemyInstance.Position = pos;
 		enemyInstance.Player_reference = player;
 		enemyInstance.Elite = elite; // true or false (to have a rainbow effect)
@@ -131,9 +120,7 @@ public partial class Spawner : Node2D
 
 		if(Second >= 0 && Second <= 4)
 		{
-			// Update number of enemies for this wave
-			enemyTypeIndex = vagueCounter % enemy_types.Length;
-			vagueCounter++;
+			
 
 			amount((int)GD.Randi() % 15);
 		}

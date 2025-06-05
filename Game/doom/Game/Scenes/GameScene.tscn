@@ -401,10 +401,8 @@ _player = NodePath("../Player")
 
 [node name="LevelUp_Canvas" parent="UI" instance=ExtResource("34_vddla")]
 process_mode = 0
-visible = false
 
 [node name="WeaponChoice_Canvas" parent="UI" instance=ExtResource("35_iaj0j")]
-visible = false
 
 [node name="Button" type="Button" parent="UI"]
 anchors_preset = 1
@@ -432,7 +430,6 @@ bus = &"Click"
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
 layer = 3
-visible = false
 script = ExtResource("39_kkxpk")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -528,7 +525,6 @@ bus = &"Click"
 [node name="SettingsMenu_inGame" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 3
-visible = false
 script = ExtResource("42_a8qh3")
 
 [node name="ColorRect" type="ColorRect" parent="SettingsMenu_inGame"]
@@ -807,7 +803,6 @@ stream = ExtResource("49_n7y1o")
 bus = &"Music"
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("48_n7y1o")
 
 [node name="ColorRect" type="ColorRect" parent="GameOverScreen"]

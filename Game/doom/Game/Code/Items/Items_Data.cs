@@ -25,11 +25,6 @@ public abstract partial class Items_Data : Resource
     public Player holder; // /!\ To change when player is better encapsulated
 
     /// <summary>
-	/// Current level of the item. Start at 0.
-	/// </summary>
-	public int level = 0;
-
-    /// <summary>
     /// Array of upgrades available for the item.
     /// The first index of the array contains the base stats of the item, and the subsequent indices contain the upgrades.
     /// </summary>
@@ -43,10 +38,10 @@ public abstract partial class Items_Data : Resource
     /// <summary>
     /// Abstract method to be implemented by derived classes to apply the item's effect.
     /// </summary>
-    public abstract void EffectUpdate();
+    public abstract void EffectUpdate(int level);
 
 	/// <summary>
 	/// Called when the item is upgraded.
 	/// </summary>
-	public abstract void OnUpgrade();
+	public abstract void OnUpgrade(int level);
 }

@@ -35,11 +35,6 @@ public partial class LevelUp_Canvas : CanvasLayer
     /// </summary>
     private List<Passives_Data> _passivesList = new();
 
-    /// <summary>
-    /// Array of all weapons in the game.
-    /// </summary>
-    private List<Weapons_Data> _weaponsList = new();
-
     #endregion
 
     #region methods

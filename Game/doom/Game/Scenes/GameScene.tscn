@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=80 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_ne67t"]
 [ext_resource type="Texture2D" uid="uid://hqybj4gr74sw" path="res://GroundElements/crack1.png" id="2_wnrt6"]
@@ -808,6 +808,7 @@ stream = ExtResource("49_n7y1o")
 bus = &"Music"
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("48_n7y1o")
 
 [node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
@@ -825,7 +826,7 @@ offset_bottom = 555.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.964, 0.189, 0, 0.304)
 theme_override_constants/shadow_outline_size = 30
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 140
 text = "GAME OVER"
 horizontal_alignment = 1
@@ -844,7 +845,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2dlc2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_266v7")
@@ -858,7 +859,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_fonts/font = ExtResource("40_htgjt")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vdwmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")

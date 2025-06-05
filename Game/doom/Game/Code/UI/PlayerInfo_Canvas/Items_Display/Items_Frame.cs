@@ -63,6 +63,7 @@ public partial class Items_Frame : PanelContainer
 	/// </summary>
 	public void UpdateFrame()
 	{
+		GD.PrintErr("Update");
 		_tex.Texture = _item.Texture;
 		_label.Text = "Lvl " + _item.Level;
 	}

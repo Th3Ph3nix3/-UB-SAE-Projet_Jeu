@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
 
 	#region attributes
 	[Export]
-	public int movement_speed { get; set; } = 400;
+	public int movement_speed { get; set; } = 300;
 	public int armor = 0;
 	public int area = 500; // area from where the player start shooting at enemies ( = range)
 	public int growth = 1;
@@ -45,7 +45,7 @@ public partial class Player : CharacterBody2D
 	/// <summary>
 	/// Weapons that the player currently have.
 	/// </summary>
-	private Items _weapon = new Items();
+	private Items _weapon;
 
 	/// <summary>
 	/// Passives that the player currently have.
@@ -149,6 +149,7 @@ public partial class Player : CharacterBody2D
 			if (value < 0)
 			{
 				_health = 0;
+				ResetPlayer();
 				GameOverManager.GameOver();
 			}
 			else if (value > MaxHealth) _health = MaxHealth;
@@ -236,14 +237,14 @@ public partial class Player : CharacterBody2D
 		{
 			item.Holder = this;
 			_passives.Add(item);
+			ItemAddedEvent?.Invoke(this, new ItemAddedEventArgs(item));
 		}
 		else if (item.Type == Items_Type.Weapon)
 		{
 			_weapon = new Items(item.Data);
 			_weapon.Holder = this;
+			ItemAddedEvent?.Invoke(this, new ItemAddedEventArgs(_weapon));
 		}
-
-		ItemAddedEvent?.Invoke(this, new ItemAddedEventArgs(item));
 	}
 
 	/// <summary>
@@ -273,6 +274,23 @@ public partial class Player : CharacterBody2D
     {
 		AddItem(e.Weapon);
     }
+
+	private void ResetPlayer()
+	{
+		movement_speed = 300;
+		armor = 0;
+		area = 0;
+		growth = 0;
+		if (magnetArea.Shape is CircleShape2D circleShape) circleShape.Radius = 50;
+		_xp = 0;
+		_level = 0;
+		_nextLevelXpNeeded = Global.BASE_XP_TO_GET;
+		_health = Global.BASE_MAX_PLAYER_HEALTH;
+		_maxHealth = Global.BASE_MAX_PLAYER_HEALTH;
+		_weapon = new Items();
+		_passives = new List<Items>();
+		magnet = 0;
+	}
 
 	#endregion
 

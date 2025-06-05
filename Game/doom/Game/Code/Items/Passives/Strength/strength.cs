@@ -4,7 +4,7 @@ using System;
 [GlobalClass]
 public partial class Strength : Weapons_Data
 {
-	public override void EffectUpdate()
+	public override void EffectUpdate(int level)
 	{
 		projectile = null;
     }
@@ -12,7 +12,7 @@ public partial class Strength : Weapons_Data
 	/// <summary>
 	/// This passives doesn't have an effect on upgrade.
 	/// </summary>
-	public override void OnUpgrade()
+	public override void OnUpgrade(int level)
 	{
 		return;
 	}

@@ -11,7 +11,7 @@ public partial class WeaponChoice_Canvas : CanvasLayer
     /// <summary>
     /// Weapons available to the player.
     /// </summary>
-    private List<Items> _weaponsList = new();
+    private List<Weapons_Data> _weaponsList = new();
 
     private HBoxContainer _weapon_Container;
 
@@ -50,13 +50,13 @@ public partial class WeaponChoice_Canvas : CanvasLayer
         {
             if (Path.GetExtension(file) == ".tres")
             {
-                _weaponsList.Add(new Items(GD.Load<Weapons_Data>(file)));
+                _weaponsList.Add(GD.Load<Weapons_Data>(file));
             }
         }
 
-        foreach (Items weapon in _weaponsList)
+        foreach (Weapons_Data weapon in _weaponsList)
         {
-            UpgradeItem_Frame weaponFrame = UpgradeItem_Frame.new_UpgradeItem_Frame(weapon);
+            UpgradeItem_Frame weaponFrame = UpgradeItem_Frame.new_UpgradeItem_Frame(new Items(weapon));
             weaponFrame.ItemClickedEvent += (sender, e) => WeaponChoosedEventTransit(e.Item);
             _weapon_Container.AddChild(weaponFrame);
         }

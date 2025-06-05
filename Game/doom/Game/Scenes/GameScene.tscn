@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://bk8itfvtfphjg"]
+[gd_scene load_steps=82 format=4 uid="uid://bk8itfvtfphjg"]
 
 [ext_resource type="Texture2D" uid="uid://bbgs1s0ddbsfn" path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="1_ne67t"]
 [ext_resource type="Texture2D" uid="uid://hqybj4gr74sw" path="res://GroundElements/crack1.png" id="2_wnrt6"]
@@ -42,7 +42,10 @@
 [ext_resource type="FontFile" uid="uid://d3dyi2qf50spd" path="res://MainMenu/Font/curse_of_the_zombie/Curse of the Zombie.ttf" id="40_htgjt"]
 [ext_resource type="Script" uid="uid://c80jejdpyflph" path="res://Game/Code/SettingsManager_inGame.cs" id="41_xiv4v"]
 [ext_resource type="Script" uid="uid://bhmxxhrgrcye8" path="res://Game/Code/ToggleVisibilityOnSettings_inGame.cs" id="42_a8qh3"]
+[ext_resource type="Script" uid="uid://bga0ucb1exksn" path="res://Game/Code/GameOverManager.cs" id="47_n2dve"]
 [ext_resource type="Script" uid="uid://dg70y6lgt1vw" path="res://MainMenu/Resolution_button.cs" id="43_tvbpf"]
+[ext_resource type="Script" uid="uid://bjutgccxjppl5" path="res://Game/Code/ToggleVisibilityGameOver.cs" id="48_n7y1o"]
+[ext_resource type="AudioStream" uid="uid://bg85re37xskqd" path="res://sounds/DeathSound.mp3" id="49_n7y1o"]
 [ext_resource type="Script" uid="uid://cxnjlwci6nfo4" path="res://MainMenu/SyncedVolumeSlider.cs" id="44_5scdb"]
 [ext_resource type="AudioStream" uid="uid://b1symyynowv5y" path="res://sounds/something wrong.wav" id="45_g8rga"]
 
@@ -280,6 +283,26 @@ shadow_color = Color(0.34902, 0, 0, 1)
 shadow_size = 14
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7s4s"]
+bg_color = Color(0.282353, 0.0392157, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.282353, 0.0392157, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dlc2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_266v7"]
+bg_color = Color(0.403903, 7.64076e-07, 2.40654e-08, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.34902, 0, 0, 1)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpj5p"]
 bg_color = Color(0.282353, 0.0392157, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -767,13 +790,81 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_m7s4s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_m856m")
 text = "TRY TO ESCAPE"
 
-[node name="SoundManager" type="Node" parent="."]
-process_mode = 3
+[node name="GameOverManager" type="Node" parent="."]
+script = ExtResource("47_n2dve")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource("45_g8rga")
+[node name="ClickClickSound" type="AudioStreamPlayer" parent="GameOverManager"]
+process_mode = 3
+stream = ExtResource("46_lbadk")
+bus = &"Click"
+
+[node name="Music" type="AudioStreamPlayer" parent="GameOverManager"]
+stream = ExtResource("48_gx5gv")
 autoplay = true
 bus = &"Music"
+
+[node name="Death" type="AudioStreamPlayer" parent="GameOverManager"]
+stream = ExtResource("49_n7y1o")
+bus = &"Music"
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+script = ExtResource("48_n7y1o")
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 2591.0
+offset_bottom = 1473.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GameOverScreen"]
+offset_left = 908.0
+offset_top = 361.0
+offset_right = 1682.0
+offset_bottom = 555.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.964, 0.189, 0, 0.304)
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 140
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen"]
+offset_left = 933.0
+offset_top = 699.0
+offset_right = 1675.0
+offset_bottom = 1098.0
+theme_override_constants/separation = 75
+
+[node name="StartButton" type="Button" parent="GameOverScreen/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2dlc2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_266v7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kpj5p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_266v7")
+text = "HELL IS NOT OVER"
+
+[node name="QuitButton" type="Button" parent="GameOverScreen/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0666667, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_i36tt")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vdwmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q4ekd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jvonm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3q0q")
+text = "RAGE QUIT"
 
 [connection signal="body_entered" from="Player/SelfDamage" to="Player" method="_on_self_damage_body_entered"]
 [connection signal="area_entered" from="Player/Magnet" to="Player" method="_on_magnet_area_entered"]
@@ -789,3 +880,7 @@ bus = &"Music"
 [connection signal="pressed" from="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone/1920x1200" to="SettingsMenu_inGame/settings_zone/resolution_zone/button_resolution_zone" method="_on_1920x1200_pressed"]
 [connection signal="pressed" from="SettingsMenu_inGame/settings_zone/fullscreen_zone/fullscreen_button" to="SettingsManager_inGame" method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="SettingsMenu_inGame/settings_zone/QuitButton" to="SettingsManager_inGame" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/VBoxContainer/StartButton" to="GameOverManager" method="_on_start_pressed"]
+[connection signal="pressed" from="GameOverScreen/VBoxContainer/QuitButton" to="GameOverManager" method="_on_quit_button_pressed"]
+
+[editable path="UI/LevelUp_Canvas"]

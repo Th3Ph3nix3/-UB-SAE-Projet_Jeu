@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Sniper" load_steps=8 format=3 uid="uid://cmabfnmjftwya"]
+[gd_resource type="Resource" script_class="OneBulletPerShot" load_steps=8 format=3 uid="uid://cmabfnmjftwya"]
 
 [ext_resource type="PackedScene" uid="uid://cbhkf7rb45q10" path="res://Game/Scenes/projectile.tscn" id="1_gxfcb"]
-[ext_resource type="Script" uid="uid://d21igtkwxcfn0" path="res://Game/Code/Items/Weapons/Sniper/Sniper.cs" id="2_ui7ai"]
+[ext_resource type="Script" uid="uid://bqs3tmrypvvic" path="res://Game/Code/Items/Weapons/OneBulletPerShot/OneBulletPerShot.cs" id="2_ui7ai"]
 [ext_resource type="Texture2D" uid="uid://cl64utb0bmf73" path="res://platformer_metroidvania asset pack v1.01/weapon_test/sniper_icon.png" id="3_32p0l"]
 [ext_resource type="Script" uid="uid://bmh3tuygoeu1i" path="res://Game/Code/Items/Items_Upgrades/Weapons_Upgrade.cs" id="4_2snuj"]
 
@@ -35,4 +35,3 @@ projectile = ExtResource("1_gxfcb")
 upgrades = [SubResource("Resource_rsut7"), SubResource("Resource_cepq6"), SubResource("Resource_ud7eg")]
 name = "Sniper"
 texture = ExtResource("3_32p0l")
-metadata/_custom_type_script = "uid://d21igtkwxcfn0"

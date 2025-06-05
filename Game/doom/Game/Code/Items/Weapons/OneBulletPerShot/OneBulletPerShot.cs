@@ -5,7 +5,7 @@ using Godot;
 /// A pistol weapon that shoots one projectile at a time towards the nearest enemy.
 /// </summary>
 [GlobalClass]
-public partial class Pistol : Weapons_Data
+public partial class OneBulletPerShot : Weapons_Data
 {
 	/// <summary>
 	/// Shoots a projectile towards the nearest enemy of the owner.

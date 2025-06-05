@@ -333,6 +333,7 @@ player = NodePath("../Player")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(100, 107)
 script = ExtResource("2_438ep")
+movement_speed = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 texture_filter = 1

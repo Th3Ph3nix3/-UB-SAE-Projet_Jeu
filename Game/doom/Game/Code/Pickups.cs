@@ -7,7 +7,7 @@ public partial class Pickups : Area2D
 	public bool can_follow = false;
 
 	public Vector2 direction;
-	public float speed = 1000;
+	public float speed = 450;
 
 	[Export]
 	public PickupResource type;

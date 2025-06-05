@@ -199,8 +199,7 @@ public partial class Player : CharacterBody2D
 	/// <param name="body">Enemy which touched the player.</param>
 	public void _on_self_damage_body_entered(Enemy body)
 	{
-		int Damage = (int)(body.Damage - armor);
-		Health = _health - Damage;
+		Health = _health - (int)(body.Damage - armor);
 	}
 
 	/// <summary>
@@ -294,7 +293,7 @@ public partial class Player : CharacterBody2D
 		nearest_enemy_distance = 150 + area; // set nearest enemy distance to 150 + area (go in attributes to learn more)
 		magnetArea = GetNode<CollisionShape2D>("Magnet/MagnetZone"); // magnet
 
-		AddItem(new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/Pistol.tres")));
+		AddItem(new Items(GD.Load<Weapons_Data>("res://Game/Resource/Weapons/OneBulletPerShot/Sniper.tres")));
 		_weapon.Holder = this; // set the owner of the weapons container to this player
 	}
 

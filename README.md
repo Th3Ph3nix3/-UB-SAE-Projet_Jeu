@@ -7,6 +7,10 @@ As part of our training in the use of classes and objects in C#, our SAE project
 
 Although our game is for schools, we intend to improve it and push it further once it has been submitted to our teachers.
 
+## How to get our game ?
+Download it here : https://drive.google.com/file/d/1MypauKthG5O1S39DGuAKLqIeoec-ZxGh/view?usp=sharing
+Then unzip it and in the folder, double click on the .exe to launch the game.
+
 ## How to play ?
 First, when you arrive on the game, a menu is displayed. You can click on the four buttons to interact wtih them.
 

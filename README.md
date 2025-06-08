@@ -28,21 +28,21 @@ There, you can see main contributors of the project (Th3Ph3nix3, Cozhmisus and u
 This button makes you leave the game.
 
 
-## Developer support for GitHub - FR
+## Developer support for GitHub
 ### Application
-- Installer l'application GitHub
-- Connecter votre compte
+- Install the GitHub application
+- Connect your account
 
-### Sur le site GitHub
-- Appuyez sur le bouton vert 'Code'
-- Appuyez sur 'Open with GitHub Desktop'
-- Appuyer sur 'Ouvrir GitHubDesktop.exe' qui apparait dans la fenêtre pop up
+### On the GitHub site
+- Press the green “Code” button
+- Click on 'Open with GitHub Desktop
+- Press “Open GitHubDesktop.exe” which appears in the pop up window
 
-### Retour sur l'application
-- L'application c'est ouverte avec une fenette pop up modifier le local path pour choisir le répertoire local où vous voulez stoquer le GitHub
-- Une fois fait appuyer sur Clone
-- Une fois que c'est fait, faite fetch origin.
+### Back to the application
+- The application is opened with a pop up window modify the local path to choose the local directory where you want to stop the GitHub
+- Once done press Clone
+- Once that's done, fetch origin.
 
-### Les fichier
-- A chaque fois que vous voulez travailler sur les fichier n'oublier pas de faire fetch puis pull
-- A chaque modification n'oubliez pas de commit to main puis de push vos modification pour être sur que tous le monde y ont accès
+### Files
+- Each time you want to work on the files, don't forget to fetch then pull.
+- Each time you make a change, don't forget to commit to main and then push your changes to make sure everyone has access to them.
